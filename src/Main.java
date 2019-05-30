@@ -1,8 +1,13 @@
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Main extends Application {
 
@@ -11,13 +16,10 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        Button b =  new Button();
-        VBox layout = new VBox();
-        layout.getChildren().add(b);
-        Scene s = new Scene(layout,300,300);
-
-        primaryStage.setScene(s);
+    public void start(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Test.fxml"));
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root,1000,800));
         primaryStage.show();
     }
 }
