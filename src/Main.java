@@ -9,9 +9,8 @@ public class Main extends Application {
 
 
 
-    Stage window;
-    Scene scene1,scene2;
-    Button button;
+    public static Stage window;
+    public static Scene scene;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -19,9 +18,9 @@ public class Main extends Application {
         window = primaryStage;
         window.setTitle("PRODAVNICA ");
 
-        Parent root = FXMLLoader.load(getClass().getResource("new.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("glavni.fxml"));
 
-        Scene scene = new Scene(root, 1000, 800);
+        scene = new Scene(root, 1000, 800);
 
         window.setScene(scene);
 
