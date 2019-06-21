@@ -1,8 +1,9 @@
+package Controller;
+
+import View.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 
 public class MainController  {
 
@@ -13,7 +14,7 @@ public class MainController  {
 
         try{
 
-            Parent root = FXMLLoader.load(getClass().getResource("new.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("..\\FXML\\new.fxml"));
 
             Main.scene.setRoot(root);
 

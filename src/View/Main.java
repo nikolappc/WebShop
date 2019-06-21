@@ -1,3 +1,5 @@
+package View;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +20,7 @@ public class Main extends Application {
         window = primaryStage;
         window.setTitle("PRODAVNICA ");
 
-        Parent root = FXMLLoader.load(getClass().getResource("glavni.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("..\\FXML\\glavni.fxml"));
 
         scene = new Scene(root, 1000, 800);
 
