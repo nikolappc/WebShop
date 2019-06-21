@@ -1,12 +1,8 @@
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -23,7 +19,7 @@ public class Main extends Application {
         window = primaryStage;
         window.setTitle("PRODAVNICA");
 
-        Parent root = FXMLLoader.load(getClass().getResource("glavni.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("new.fxml"));
 
         Scene scene = new Scene(root, 1000, 800);
 
