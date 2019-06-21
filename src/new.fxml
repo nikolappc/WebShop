@@ -9,7 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
     <top>
         <VBox prefHeight="96.0" prefWidth="842.0" BorderPane.alignment="CENTER">
             <children>
@@ -70,7 +70,7 @@
                                 <Font size="14.0" />
                             </font>
                         </MenuButton>
-                        <Button id="logo" alignment="CENTER" contentDisplay="CENTER" depthTest="DISABLE" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="262.0" style="-fx-background-color: #000000; -fx-padding: 0; -fx-label-padding: 0;" text="LOGO" textFill="ORANGE" GridPane.columnIndex="3">
+                        <Button id="logo" fx:id="logo" alignment="CENTER" contentDisplay="CENTER" depthTest="DISABLE" graphicTextGap="0.0" mnemonicParsing="false" onAction="#logopressed" prefHeight="74.0" prefWidth="262.0" style="-fx-background-color: #000000; -fx-padding: 0; -fx-label-padding: 0;" text="LOGO" textFill="ORANGE" GridPane.columnIndex="3">
                             <font>
                                 <Font size="48.0" />
                             </font>
@@ -79,22 +79,34 @@
                             </cursor>
                         </Button>
                         <TextField prefHeight="25.0" prefWidth="145.0" GridPane.columnIndex="4" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: #ffa500;" text="LUPA" textFill="WHITE" GridPane.columnIndex="5">
+                        <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="29.0" style="-fx-background-color: #ffa500;" textFill="WHITE" GridPane.columnIndex="5">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
-                            </cursor></Button>
-                        <Button mnemonicParsing="false" text="BUT" GridPane.columnIndex="6">
+                            </cursor>
+                     <graphic>
+                        <ImageView fitHeight="8.0" fitWidth="1.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic></Button>
+                        <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="29.0" GridPane.columnIndex="6">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
-                            </cursor></Button>
-                        <Button mnemonicParsing="false" text="BUT" GridPane.columnIndex="7">
+                            </cursor>
+                     <graphic>
+                        <ImageView fitHeight="1.0" fitWidth="1.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic></Button>
+                        <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="29.0" GridPane.columnIndex="7">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
-                            </cursor></Button>
-                        <Button mnemonicParsing="false" text="BUT" GridPane.columnIndex="8">
+                            </cursor>
+                     <graphic>
+                        <ImageView fitHeight="10.0" fitWidth="5.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic></Button>
+                        <Button mnemonicParsing="false" prefWidth="29.0" GridPane.columnIndex="8">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
-                            </cursor></Button>
+                            </cursor>
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic></Button>
                     </children>
                 </GridPane>
             </children>
@@ -103,13 +115,32 @@
     <center>
         <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
             <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="980.0">
+                <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="980.0" spacing="5.0">
                     <children>
-                        <Label id="putanja" fx:id="putanjaDoProizvoda" text="Home &gt; Putanja &gt;do &gt; proizvoda">
+                        <Label id="putanja" fx:id="putanjaDoProizvoda" text="HOME &gt;">
                             <font>
                                 <Font size="14.0" />
                             </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                         </Label>
+                  <Label text="KATEGORIJA &gt;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label text="NAZIV PROIZVODA">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
                     </children>
                     <padding>
                         <Insets left="10.0" top="10.0" />
@@ -152,7 +183,7 @@
                                 </ImageView>
                             </children>
                         </GridPane>
-                        <Pane prefHeight="528.0" prefWidth="431.0" style="-fx-background-color: grey;">
+                        <Pane prefHeight="572.0" prefWidth="431.0" style="-fx-background-color: grey;">
                             <children>
                                 <ImageView id="izabranaSlika" fx:id="trenutnaSlika" fitHeight="537.0" fitWidth="431.0" pickOnBounds="true">
                                     <image>
