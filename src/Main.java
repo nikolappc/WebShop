@@ -1,27 +1,41 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class Main extends Application {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+
+
+    Stage window;
+    Scene scene1,scene2;
+    Button button;
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Test.fxml"));
-        primaryStage.setTitle("Hello World");
-        Scene scena = new Scene(root, 1000,800);
+    public void start(Stage primaryStage) throws Exception{
 
-        primaryStage.setScene(scena);
-        primaryStage.show();
+        window = primaryStage;
+        window.setTitle("PRODAVNICA");
+
+        Parent root = FXMLLoader.load(getClass().getResource("glavni.fxml"));
+
+        Scene scene = new Scene(root, 1000, 800);
+
+        window.setScene(scene);
+
+
+        window.show();
+    }
+
+
+    public static void main(String[] args)
+    {
+        launch(args);
     }
 }
