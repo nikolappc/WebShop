@@ -5,11 +5,21 @@ import java.util.List;
 
 public class WebShop {
     List<Kupac> kupci;
+    
 
     public WebShop(){
         kupci = new LinkedList<Kupac>();
     }
-    
+
+
+    /**
+     *
+     * @param atribut - po cemu se pretrazuje
+     * @param parametar - vrednost tog atributa
+     * @return varaca rezultate, u slucaju da se pretrazuje po
+     *         korisnickom onda vraca samo listu sa jednim elementom
+     *         ako ima rezultata, a ako nema onda prazna lista
+     */
     public List<Kupac> pretragaKupaca(String atribut, String parametar) {
         List<Kupac> rezultat = new LinkedList();
         switch (atribut) {
