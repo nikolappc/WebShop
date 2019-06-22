@@ -26,7 +26,7 @@ public class MainController  {
 
 
     public void muskarciIzabran(){
-        /** Korisnik pritisnuo drop down za muskarce*/
+        /** Korisnik pritisnuo drop down  za muskarce*/
     }
 
     public void zeneIzabran(){

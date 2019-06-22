@@ -8,11 +8,7 @@ import java.util.*;
 
 public class Narudzbina {
     private Korpa korpa;
-    
-    
-    
-    
-    
+
     public Narudzbina() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -59,8 +55,6 @@ public class Narudzbina {
     public void promeniStanje() {
         // TODO: implement
     }
-
-
 
 	@Override
 	public boolean equals(Object obj) {
