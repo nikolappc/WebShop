@@ -1,5 +1,6 @@
 package View;
 
+import Controller.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,6 +22,8 @@ public class Main extends Application {
         window.setTitle("PRODAVNICA ");
 
         Parent root = FXMLLoader.load(getClass().getResource("..\\FXML\\glavni.fxml"));
+
+        //MainController.init();
 
         scene = new Scene(root, 1000, 800);
 

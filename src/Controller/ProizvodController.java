@@ -18,6 +18,14 @@ public class ProizvodController {
         logo.setText("SUKURAC");
     }
 
+    public void traziPritisnut(){
+
+    }
+
+    public void pritisnutLogo(){
+
+    }
+
     public void pritisnutaKategorija(){
         /** Korisnik pritisnuo kategoriju u putanji do proizvoda*/
 

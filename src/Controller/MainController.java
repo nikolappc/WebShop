@@ -4,11 +4,22 @@ import View.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 public class MainController  {
 
     public Button logo;
 
+    public static ImageView glavnaSlika,doleLevoSlika,doleDesnoSlika;
+
+    public static void init(){
+        /** OVO NE RADI JBMGA */
+        glavnaSlika.fitWidthProperty().bind(Main.window.widthProperty());
+
+        doleLevoSlika.fitWidthProperty().bind(Main.window.widthProperty());
+
+        doleDesnoSlika.fitWidthProperty().bind(Main.window.widthProperty());
+    }
 
     public void pritisnutLogo(){
         /** Korisnik pritisnuo LOGO*/
@@ -25,20 +36,6 @@ public class MainController  {
     }
 
 
-    public void muskarciIzabran(){
-        /** Korisnik pritisnuo drop down  za muskarce*/
-    }
-
-    public void zeneIzabran(){
-        /** Korisnik pritisnuo drop down za zene*/
-
-    }
-
-    public void popustIzabran(){
-        /** Korisnik pritisnuo drop down za popuste*/
-
-    }
-
     public void traziPritisnut(){
         /** Korisnik pritisnuo pretragu za proizvode */
     }
@@ -51,6 +48,21 @@ public class MainController  {
     }
     public void korpaPritisnuta(){
         /** Korisnik pritisnuo dugme za pregled svoje korpe*/
+    }
+
+
+    public void glavnaSlikaPritisnuta(){
+
+
+    }
+
+    public void levaSlikaPritisnuta(){
+
+    }
+
+    public void desnaSlikaPritisnuta(){
+
+
     }
 
 }
