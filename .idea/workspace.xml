@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94a6199a-2a97-4cee-8ff8-0460d314de83" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/Korisnik.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Kupac.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/WebShop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dijagrami/pitanja.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dijagrami/pitanja.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/WebShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/WebShop.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,8 +29,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/WebShop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
-              <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
+            <state relative-caret-position="170">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#166#167#0" expanded="true" />
@@ -130,6 +127,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../sims" />
   </component>
   <component name="RunDashboard">
@@ -237,8 +235,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/WebShop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
+        <state relative-caret-position="170">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#166#167#0" expanded="true" />

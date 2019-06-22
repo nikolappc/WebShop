@@ -4,52 +4,35 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class WebShop {
-    List<Korisnik> korisnici;
     List<Kupac> kupci;
 
     public WebShop(){
         kupci = new LinkedList<Kupac>();
     }
-
-    boolean dodajKorisnika(Korisnik korisnik) {
-        if (korisnici.contains(korisnici)) {
-            return false;
-        }
-
-        korisnici.add(korisnik);
-        return true;
-    }
-
-    boolean ukloniKorisnika(Korisnik korisnik) {
-        int index = korisnici.indexOf(korisnik);
-
-        if (index > 0) {
-            korisnici.remove(index);
-            return true;
-        }
-
-        return false;
-    }
-
-    List<Kupac> pretragaKupaca(String atribut) {
+    
+    public List<Kupac> pretragaKupaca(String atribut, String parametar) {
         List<Kupac> rezultat = new LinkedList();
         switch (atribut) {
             case "Korisnicko":
-                break;
+                pretragaPoKorImenu(parametar, rezultat);
             case "Ime":
+                pretragaPoImenu(parametar, rezultat);
                 break;
             case "Prezime":
+                pretragaPoPrezimenu(parametar, rezultat);
                 break;
             case "Email":
+                pretragaPoMailu(parametar, rezultat);
                 break;
             case "Adresa":
+                pretragaPoAdresi(parametar, rezultat);
                 break;
         }
 
         return rezultat;
     }
 
-    void pretragaPoKorImenu(
+    public void pretragaPoKorImenu(
             String korIme, List<Kupac> rezultat){
 
         for(Kupac kupac : kupci){
@@ -59,7 +42,7 @@ public class WebShop {
         }
     }
 
-    void pretragaPoImenu(
+    public void pretragaPoImenu(
             String ime, List<Kupac> rezultat){
         for(Kupac kupac: kupci){
             if(kupac.getIme().equals(ime)){
@@ -68,7 +51,7 @@ public class WebShop {
         }
     }
 
-    void pretragaPoPrezimenu(
+    public void pretragaPoPrezimenu(
             String prezime, List<Kupac> rezultat){
         for(Kupac kupac : kupci){
             if(kupac.getPrezime().equals(prezime)){
@@ -77,7 +60,7 @@ public class WebShop {
         }
     }
 
-    void pretragaPoMailu(String email, List<Kupac> rezultat){
+    public void pretragaPoMailu(String email, List<Kupac> rezultat){
         for(Kupac kupac : kupci){
             if(kupac.getEmail().equals(email)){
                 rezultat.add(kupac);
@@ -85,7 +68,7 @@ public class WebShop {
         }
     }
 
-    void pretragaPoAdresi(String adresa, List<Kupac> rezultat){
+    public void pretragaPoAdresi(String adresa, List<Kupac> rezultat){
         for(Kupac kupac : kupci){
             if(kupac.getAdresa().equals(adresa)){
                 rezultat.add(kupac);
