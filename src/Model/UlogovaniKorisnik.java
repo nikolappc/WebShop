@@ -6,15 +6,58 @@
 package Model;
 import java.util.*;
 
-/** @pdOid 695531c0-3bae-437d-baee-9070ab08ecbb */
 public abstract class UlogovaniKorisnik {
-   /** @pdOid 040c118a-1d0b-456b-b5d0-6c236c7e7091 */
    private String korIme;
-   /** @pdOid f1c5e1f8-320b-40fe-bf46-a2132c8a8737 */
    private String lozinka;
-   /** @pdOid 19d409f3-5b64-4ab1-bcba-1d2b6b81a34c */
    private String ime;
-   /** @pdOid bb795fd8-2128-45bd-a390-3ffd9584f03d */
    private String prezime;
 
+   public UlogovaniKorisnik(){}
+
+   public UlogovaniKorisnik(String korIme, String lozinka, String ime, String prezime) {
+      this.korIme = korIme;
+      this.lozinka = lozinka;
+      this.ime = ime;
+      this.prezime = prezime;
+   }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      UlogovaniKorisnik that = (UlogovaniKorisnik) o;
+      return Objects.equals(korIme, that.korIme);
+   }
+
+   public String getKorIme() {
+      return korIme;
+   }
+
+   public void setKorIme(String korIme) {
+      this.korIme = korIme;
+   }
+
+   public String getLozinka() {
+      return lozinka;
+   }
+
+   public void setLozinka(String lozinka) {
+      this.lozinka = lozinka;
+   }
+
+   public String getIme() {
+      return ime;
+   }
+
+   public void setIme(String ime) {
+      this.ime = ime;
+   }
+
+   public String getPrezime() {
+      return prezime;
+   }
+
+   public void setPrezime(String prezime) {
+      this.prezime = prezime;
+   }
 }
