@@ -6,151 +6,179 @@
 package Model;
 import java.util.*;
 
-/** @pdOid 4bdfe503-2aca-4c6c-b886-3a2641b9f53b */
 public class Kategorija {
-   /** @pdOid 31a852a1-044f-4fb8-bab5-23ea953a55b6 */
-   private String naziv;
-   
-   /** @pdRoleInfo migr=no name=AtributKategorije assc=association24 coll=java.util.Collection impl=java.util.HashSet mult=0..* type=Composition */
-   public java.util.Collection<AtributKategorije> atributKategorije;
-   /** @pdRoleInfo migr=no name=Kategorija assc=association23 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
-   public java.util.Collection<Kategorija> PodKategorija;
-   /** @pdRoleInfo migr=no name=Kategorija assc=association23 mult=0..1 side=A */
-   public Kategorija NadKategorija;
-   
-   
-   /** @pdGenerated default getter */
-   public java.util.Collection<AtributKategorije> getAtributKategorije() {
-      if (atributKategorije == null)
-         atributKategorije = new java.util.HashSet<AtributKategorije>();
-      return atributKategorije;
-   }
-   
-   /** @pdGenerated default iterator getter */
-   public java.util.Iterator getIteratorAtributKategorije() {
-      if (atributKategorije == null)
-         atributKategorije = new java.util.HashSet<AtributKategorije>();
-      return atributKategorije.iterator();
-   }
-   
-   /** @pdGenerated default setter
-     * @param newAtributKategorije */
-   public void setAtributKategorije(java.util.Collection<AtributKategorije> newAtributKategorije) {
-      removeAllAtributKategorije();
-      for (java.util.Iterator iter = newAtributKategorije.iterator(); iter.hasNext();)
-         addAtributKategorije((AtributKategorije)iter.next());
-   }
-   
-   /** @pdGenerated default add
-     * @param newAtributKategorije */
-   public void addAtributKategorije(AtributKategorije newAtributKategorije) {
-      if (newAtributKategorije == null)
-         return;
-      if (this.atributKategorije == null)
-         this.atributKategorije = new java.util.HashSet<AtributKategorije>();
-      if (!this.atributKategorije.contains(newAtributKategorije))
-         this.atributKategorije.add(newAtributKategorije);
-   }
-   
-   /** @pdGenerated default remove
-     * @param oldAtributKategorije */
-   public void removeAtributKategorije(AtributKategorije oldAtributKategorije) {
-      if (oldAtributKategorije == null)
-         return;
-      if (this.atributKategorije != null)
-         if (this.atributKategorije.contains(oldAtributKategorije))
-            this.atributKategorije.remove(oldAtributKategorije);
-   }
-   
-   /** @pdGenerated default removeAll */
-   public void removeAllAtributKategorije() {
-      if (atributKategorije != null)
-         atributKategorije.clear();
-   }
-   /** @pdGenerated default getter */
-   public java.util.Collection<Kategorija> getPodKategorija() {
-      if (PodKategorija == null)
-         PodKategorija = new java.util.HashSet<Kategorija>();
-      return PodKategorija;
-   }
-   
-   /** @pdGenerated default iterator getter */
-   public java.util.Iterator getIteratorPodKategorija() {
-      if (PodKategorija == null)
-         PodKategorija = new java.util.HashSet<Kategorija>();
-      return PodKategorija.iterator();
-   }
-   
-   /** @pdGenerated default setter
-     * @param newPodKategorija */
-   public void setPodKategorija(java.util.Collection<Kategorija> newPodKategorija) {
-      removeAllPodKategorija();
-      for (java.util.Iterator iter = newPodKategorija.iterator(); iter.hasNext();)
-         addPodKategorija((Kategorija)iter.next());
-   }
-   
-   /** @pdGenerated default add
-     * @param newKategorija */
-   public void addPodKategorija(Kategorija newKategorija) {
-      if (newKategorija == null)
-         return;
-      if (this.PodKategorija == null)
-         this.PodKategorija = new java.util.HashSet<Kategorija>();
-      if (!this.PodKategorija.contains(newKategorija))
-      {
-         this.PodKategorija.add(newKategorija);
-         newKategorija.setNadKategorija(this);      
-      }
-   }
-   
-   /** @pdGenerated default remove
-     * @param oldKategorija */
-   public void removePodKategorija(Kategorija oldKategorija) {
-      if (oldKategorija == null)
-         return;
-      if (this.PodKategorija != null)
-         if (this.PodKategorija.contains(oldKategorija))
-         {
-            this.PodKategorija.remove(oldKategorija);
-            oldKategorija.setNadKategorija((Kategorija)null);
-         }
-   }
-   
-   /** @pdGenerated default removeAll */
-   public void removeAllPodKategorija() {
-      if (PodKategorija != null)
-      {
-         Kategorija oldKategorija;
-         for (java.util.Iterator iter = getIteratorPodKategorija(); iter.hasNext();)
-         {
-            oldKategorija = (Kategorija)iter.next();
-            iter.remove();
-            oldKategorija.setNadKategorija((Kategorija)null);
-         }
-      }
-   }
-   /** @pdGenerated default parent getter */
-   public Kategorija getNadKategorija() {
-      return NadKategorija;
-   }
-   
-   /** @pdGenerated default parent setter
-     * @param newKategorija */
-   public void setNadKategorija(Kategorija newKategorija) {
-      if (this.NadKategorija == null || !this.NadKategorija.equals(newKategorija))
-      {
-         if (this.NadKategorija != null)
-         {
-            Kategorija oldKategorija = this.NadKategorija;
-            this.NadKategorija = null;
-            oldKategorija.removePodKategorija(this);
-         }
-         if (newKategorija != null)
-         {
-            this.NadKategorija = newKategorija;
-            this.NadKategorija.addPodKategorija(this);
-         }
-      }
-   }
+    private String naziv;
+    
+    private Collection<AtributKategorije> atributKategorije = new ArrayList<AtributKategorije>();
+    private Collection<Kategorija> podKategorija = new ArrayList<Kategorija>();
+    private Kategorija nadKategorija;
+    
+    
+    
+    
+    
+    public Kategorija() {
+    	super();
+    }
+
+    
+
+
+	public Kategorija(String naziv, Collection<AtributKategorije> atributKategorije, Collection<Kategorija> podKategorija,
+			Kategorija nadKategorija) {
+		super();
+		this.naziv = naziv;
+		for (AtributKategorije a : atributKategorije) {
+			this.atributKategorije.add(a);
+		}
+		
+		for (Kategorija kategorija : podKategorija) {
+			this.podKategorija.add(kategorija);
+		}
+		this.nadKategorija = nadKategorija;
+	}
+
+
+
+
+	public Collection<AtributKategorije> getAtributKategorije() {
+		return atributKategorije;
+	}
+    
+    
+
+    public void setAtributKategorije(Collection<AtributKategorije> newAtributKategorije) {
+    	this.atributKategorije.clear();
+    	for (AtributKategorije atributKategorije : newAtributKategorije) {
+    		this.atributKategorije.add(atributKategorije);
+    	}
+    }
+    
+
+    public void dodajAtributKategorije(AtributKategorije newAtributKategorije) {
+        if (newAtributKategorije == null)
+            return;
+        if (!this.atributKategorije.contains(newAtributKategorije))
+            this.atributKategorije.add(newAtributKategorije);
+    }
+    
+
+    public void izbaciAtributKategorije(AtributKategorije oldAtributKategorije) {
+        if (oldAtributKategorije == null)
+            return;
+        if (this.atributKategorije != null)
+            if (this.atributKategorije.contains(oldAtributKategorije))
+                this.atributKategorije.remove(oldAtributKategorije);
+    }
+    
+
+    public Collection<Kategorija> getPodKategorija() {
+        return podKategorija;
+    }
+    
+    
+    public void setPodKategorija(Collection<Kategorija> newPodKategorija) {
+        this.podKategorija.clear();
+        for (Kategorija kategorija : newPodKategorija) {
+			this.podKategorija.add(kategorija);
+		}
+    }
+    
+
+    public void dodajPodKategorija(Kategorija newKategorija) {
+        if (newKategorija == null)
+            return;
+        if (!this.podKategorija.contains(newKategorija))
+        {
+            this.podKategorija.add(newKategorija);
+            newKategorija.setNadKategorija(this);        
+        }
+    }
+    
+
+    public void izbaciPodKategorija(Kategorija oldKategorija) {
+        if (oldKategorija == null)
+            return;
+        if (this.podKategorija != null)
+            if (this.podKategorija.contains(oldKategorija))
+            {
+                this.podKategorija.remove(oldKategorija);
+                oldKategorija.setNadKategorija((Kategorija)null);
+            }
+    }
+    
+    
+    public Kategorija getNadKategorija() {
+        return nadKategorija;
+    }
+    
+
+    public void setNadKategorija(Kategorija newKategorija) {
+        if (this.nadKategorija == null || !this.nadKategorija.equals(newKategorija))
+        {
+            if (this.nadKategorija != null)
+            {
+                Kategorija oldKategorija = this.nadKategorija;
+                this.nadKategorija = null;
+                oldKategorija.izbaciPodKategorija(this);
+            }
+            if (newKategorija != null)
+            {
+                this.nadKategorija = newKategorija;
+                this.nadKategorija.dodajPodKategorija(this);
+            }
+        }
+    }
+
+    
+    
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Kategorija other = (Kategorija) obj;
+		if (atributKategorije == null) {
+			if (other.atributKategorije != null)
+				return false;
+		} else if (!atributKategorije.equals(other.atributKategorije))
+			return false;
+		if (nadKategorija == null) {
+			if (other.nadKategorija != null)
+				return false;
+		} else if (!nadKategorija.equals(other.nadKategorija))
+			return false;
+		if (naziv == null) {
+			if (other.naziv != null)
+				return false;
+		} else if (!naziv.equals(other.naziv))
+			return false;
+		if (podKategorija == null) {
+			if (other.podKategorija != null)
+				return false;
+		} else if (!podKategorija.equals(other.podKategorija))
+			return false;
+		return true;
+	}
+
+
+
+
+	public String getNaziv() {
+		return naziv;
+	}
+
+
+
+
+	public void setNaziv(String naziv) {
+		this.naziv = naziv;
+	}
+    
+    
 
 }
