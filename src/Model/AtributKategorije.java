@@ -11,7 +11,7 @@ import java.util.*;
 
 /** @pdOid 0bd49725-06f1-44ba-9642-9bc2ac07a83c */
 public class AtributKategorije {
-   /** @pdOid 1d0f579a-97b2-4242-aea1-8fd95200a927 */
+   /** @pdOid 1d0f579a-97b2-4242-aea1-8fd95200a927 *sdfsd/
    private String naziv;
    
    /** @pdRoleInfo migr=no name=VrednostAtributa assc=association27 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
