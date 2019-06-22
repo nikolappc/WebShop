@@ -15,7 +15,11 @@ public class ProizvodController {
     public void logopressed(){
 
         logo.setText("SUKURAC");
+    }
 
+    public void pretisnutaSlika(){
+
+        logo.setText("Ne DIRAJ");
     }
 
 }

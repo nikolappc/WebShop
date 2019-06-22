@@ -78,19 +78,19 @@
                             </cursor>
                         </Button>
                         <TextField prefHeight="25.0" prefWidth="145.0" GridPane.columnIndex="4" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: #ffa500;" text="LUPA" textFill="WHITE" GridPane.columnIndex="5">
+                        <Button fx:id="lupa" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: #ffa500;" text="LUPA" textFill="WHITE" GridPane.columnIndex="5">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor></Button>
-                        <Button mnemonicParsing="false" text="BUT" GridPane.columnIndex="6">
+                        <Button fx:id="korisnik" mnemonicParsing="false" text="BUT" GridPane.columnIndex="6">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor></Button>
-                        <Button mnemonicParsing="false" text="BUT" GridPane.columnIndex="7">
+                        <Button fx:id="listaZelja" mnemonicParsing="false" text="BUT" GridPane.columnIndex="7">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor></Button>
-                        <Button mnemonicParsing="false" text="BUT" GridPane.columnIndex="8">
+                        <Button fx:id="korpa" mnemonicParsing="false" text="BUT" GridPane.columnIndex="8">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor></Button>

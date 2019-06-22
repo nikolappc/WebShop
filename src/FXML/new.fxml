@@ -79,34 +79,22 @@
                             </cursor>
                         </Button>
                         <TextField prefHeight="25.0" prefWidth="145.0" GridPane.columnIndex="4" />
-                        <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="29.0" style="-fx-background-color: #ffa500;" textFill="WHITE" GridPane.columnIndex="5">
+                        <Button fx:id="lupa" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: #ffa500;" text="LUPA" textFill="WHITE" GridPane.columnIndex="5">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
-                            </cursor>
-                     <graphic>
-                        <ImageView fitHeight="8.0" fitWidth="1.0" pickOnBounds="true" preserveRatio="true" />
-                     </graphic></Button>
-                        <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="29.0" GridPane.columnIndex="6">
+                            </cursor></Button>
+                        <Button fx:id="korisnik" mnemonicParsing="false" text="BUT" GridPane.columnIndex="6">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
-                            </cursor>
-                     <graphic>
-                        <ImageView fitHeight="1.0" fitWidth="1.0" pickOnBounds="true" preserveRatio="true" />
-                     </graphic></Button>
-                        <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="29.0" GridPane.columnIndex="7">
+                            </cursor></Button>
+                        <Button fx:id="listaZelja" mnemonicParsing="false" text="BUT" GridPane.columnIndex="7">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
-                            </cursor>
-                     <graphic>
-                        <ImageView fitHeight="10.0" fitWidth="5.0" pickOnBounds="true" preserveRatio="true" />
-                     </graphic></Button>
-                        <Button mnemonicParsing="false" prefWidth="29.0" GridPane.columnIndex="8">
+                            </cursor></Button>
+                        <Button fx:id="korpa" mnemonicParsing="false" text="BUT" GridPane.columnIndex="8">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
-                            </cursor>
-                     <graphic>
-                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true" />
-                     </graphic></Button>
+                            </cursor></Button>
                     </children>
                 </GridPane>
             </children>
@@ -185,7 +173,7 @@
                         </GridPane>
                         <Pane prefHeight="572.0" prefWidth="431.0" style="-fx-background-color: grey;">
                             <children>
-                                <ImageView id="izabranaSlika" fx:id="trenutnaSlika" fitHeight="537.0" fitWidth="431.0" pickOnBounds="true">
+                                <ImageView id="izabranaSlika" fx:id="trenutnaSlika" fitHeight="537.0" fitWidth="431.0" onMouseClicked="#pretisnutaSlika" pickOnBounds="true">
                                     <image>
                                         <Image url="@../../Slike/upload9223368955665511224.jpg" />
                                     </image>
