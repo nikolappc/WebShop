@@ -6,13 +6,18 @@
 package Model;
 import java.util.*;
 
-public class Webshop extends ContentMenadzer {
-   public StavkaCenovnika[] stavkaCenovnika;
-   public java.util.Collection<Kategorija> kategorija;
-   public java.util.Collection<Proizvod> proizvod;
-   public java.util.Collection<Kupac> kupac;
-   public java.util.Collection<Narudzbina> narudzbina;
-   
+public class Webshop  {
+   public Collection<ContentMenadzer> contentMenadzeri;
+   public Collection<StavkaCenovnika> stavkeCenovnika;
+   public Collection<Kategorija> kategorije;
+   public Collection<Proizvod> proizvodi;
+   public Collection<Kupac> kupci;
+   public Collection<Narudzbina> narudzbine;
+
+   public Webshop() {
+      // TODO: ovde pozovi ucitavanje svega
+   }
+
    public boolean registracija() {
       // TODO: implement
       return false;
@@ -22,273 +27,255 @@ public class Webshop extends ContentMenadzer {
       // TODO: implement
       return false;
    }
-   
+
    public boolean ukloniProizvod() {
       // TODO: implement
       return false;
    }
-   
+
    public boolean izmeniProizvod() {
       // TODO: implement
       return false;
    }
-   
+
    public boolean dodajKorisnika() {
       // TODO: implement
       return false;
    }
-   
+
    public boolean ukloniKorisnika() {
       // TODO: implement
       return false;
    }
-   
+
    public boolean izmeniKorisnika() {
       // TODO: implement
       return false;
    }
-   
+
    public boolean dodajPorudzibinu() {
       // TODO: implement
       return false;
    }
-   
+
    public boolean ukloniPorudzbinu() {
       // TODO: implement
       return false;
    }
-   
+
    public boolean izmeniPorudzbinu() {
       // TODO: implement
       return false;
    }
-   
+
    public Proizvod pretragaProizvoda() {
       // TODO: implement
       return null;
    }
-   
+
    public Kupac pretragaKorisnika() {
       // TODO: implement
       return null;
    }
-   
+
    public Narudzbina pretragaPorudzbina() {
       // TODO: implement
       return null;
    }
-   
+
    public boolean dodajCenu() {
       // TODO: implement
       return false;
    }
-   
+
    public boolean ukloniCenu() {
       // TODO: implement
       return false;
    }
-   
+
    public boolean izmeniCenu() {
       // TODO: implement
       return false;
    }
-   
+
    public StavkaCenovnika pretragaCena() {
       // TODO: implement
       return null;
    }
-   
-   
-   public java.util.Collection<Kategorija> getKategorija() {
-      if (kategorija == null)
-         kategorija = new java.util.HashSet<Kategorija>();
-      return kategorija;
+
+
+   // KATEGORIJA
+
+   public Collection<Kategorija> getKategorije() {
+      if (kategorije == null)
+         kategorije = new LinkedList<Kategorija>();
+      return kategorije;
    }
-   
-   /** @pdGenerated default iterator getter */
-   public java.util.Iterator getIteratorKategorija() {
-      if (kategorija == null)
-         kategorija = new java.util.HashSet<Kategorija>();
-      return kategorija.iterator();
-   }
-   
-   /** @pdGenerated default setter
-     * @param newKategorija */
-   public void setKategorija(java.util.Collection<Kategorija> newKategorija) {
-      removeAllKategorija();
-      for (java.util.Iterator iter = newKategorija.iterator(); iter.hasNext();)
-         addKategorija((Kategorija)iter.next());
-   }
-   
-   /** @pdGenerated default add
-     * @param newKategorija */
+
    public void addKategorija(Kategorija newKategorija) {
       if (newKategorija == null)
          return;
-      if (this.kategorija == null)
-         this.kategorija = new java.util.HashSet<Kategorija>();
-      if (!this.kategorija.contains(newKategorija))
-         this.kategorija.add(newKategorija);
+      if (this.kategorije == null)
+         this.kategorije = new LinkedList<Kategorija>();
+      if (!this.kategorije.contains(newKategorija))
+         this.kategorije.add(newKategorija);
    }
-   
-   /** @pdGenerated default remove
-     * @param oldKategorija */
+
    public void removeKategorija(Kategorija oldKategorija) {
       if (oldKategorija == null)
          return;
-      if (this.kategorija != null)
-         if (this.kategorija.contains(oldKategorija))
-            this.kategorija.remove(oldKategorija);
+      if (this.kategorije != null)
+         if (this.kategorije.contains(oldKategorija))
+            this.kategorije.remove(oldKategorija);
    }
-   
-   /** @pdGenerated default removeAll */
-   public void removeAllKategorija() {
-      if (kategorija != null)
-         kategorija.clear();
+
+   public void removeAllKategorije() {
+      if (kategorije != null)
+         kategorije.clear();
    }
-   /** @pdGenerated default getter */
-   public java.util.Collection<Proizvod> getProizvod() {
-      if (proizvod == null)
-         proizvod = new java.util.HashSet<Proizvod>();
-      return proizvod;
+
+   // PROIZVOD
+
+   public Collection<Proizvod> getProizvodi() {
+      if (proizvodi == null)
+         proizvodi = new java.util.HashSet<Proizvod>();
+      return proizvodi;
    }
-   
-   /** @pdGenerated default iterator getter */
-   public java.util.Iterator getIteratorProizvod() {
-      if (proizvod == null)
-         proizvod = new java.util.HashSet<Proizvod>();
-      return proizvod.iterator();
-   }
-   
-   /** @pdGenerated default setter
-     * @param newProizvod */
-   public void setProizvod(java.util.Collection<Proizvod> newProizvod) {
+
+   public void setProizvodi(Collection<Proizvod> newProizvod) {
       removeAllProizvod();
       for (java.util.Iterator iter = newProizvod.iterator(); iter.hasNext();)
          addProizvod((Proizvod)iter.next());
    }
-   
-   /** @pdGenerated default add
-     * @param newProizvod */
+
    public void addProizvod(Proizvod newProizvod) {
       if (newProizvod == null)
          return;
-      if (this.proizvod == null)
-         this.proizvod = new java.util.HashSet<Proizvod>();
-      if (!this.proizvod.contains(newProizvod))
-         this.proizvod.add(newProizvod);
+      if (this.proizvodi == null)
+         this.proizvodi = new LinkedList<Proizvod>();
+      if (!this.proizvodi.contains(newProizvod))
+         this.proizvodi.add(newProizvod);
    }
-   
-   /** @pdGenerated default remove
-     * @param oldProizvod */
+
    public void removeProizvod(Proizvod oldProizvod) {
       if (oldProizvod == null)
          return;
-      if (this.proizvod != null)
-         if (this.proizvod.contains(oldProizvod))
-            this.proizvod.remove(oldProizvod);
+      if (this.proizvodi != null)
+         if (this.proizvodi.contains(oldProizvod))
+            this.proizvodi.remove(oldProizvod);
    }
-   
-   /** @pdGenerated default removeAll */
+
    public void removeAllProizvod() {
-      if (proizvod != null)
-         proizvod.clear();
+      if (proizvodi != null)
+         proizvodi.clear();
    }
-   /** @pdGenerated default getter */
-   public java.util.Collection<Kupac> getKupac() {
-      if (kupac == null)
-         kupac = new java.util.HashSet<Kupac>();
-      return kupac;
+
+   // KUPAC
+
+   public Collection<Kupac> getKupci() {
+      if (kupci == null)
+         kupci = new LinkedList<Kupac>();
+      return kupci;
    }
-   
-   /** @pdGenerated default iterator getter */
-   public java.util.Iterator getIteratorKupac() {
-      if (kupac == null)
-         kupac = new java.util.HashSet<Kupac>();
-      return kupac.iterator();
-   }
-   
-   /** @pdGenerated default setter
-     * @param newKupac */
-   public void setKupac(java.util.Collection<Kupac> newKupac) {
-      removeAllKupac();
-      for (java.util.Iterator iter = newKupac.iterator(); iter.hasNext();)
+
+   public void setKupci(Collection<Kupac> newKupci) {
+      removeAllKupci();
+      for (Iterator iter = newKupci.iterator(); iter.hasNext();)
          addKupac((Kupac)iter.next());
    }
    
-   /** @pdGenerated default add
-     * @param newKupac */
    public void addKupac(Kupac newKupac) {
       if (newKupac == null)
          return;
-      if (this.kupac == null)
-         this.kupac = new java.util.HashSet<Kupac>();
-      if (!this.kupac.contains(newKupac))
-         this.kupac.add(newKupac);
+      if (this.kupci == null)
+         this.kupci = new LinkedList<Kupac>();
+      if (!this.kupci.contains(newKupac))
+         this.kupci.add(newKupac);
    }
    
-   /** @pdGenerated default remove
-     * @param oldKupac */
    public void removeKupac(Kupac oldKupac) {
       if (oldKupac == null)
          return;
-      if (this.kupac != null)
-         if (this.kupac.contains(oldKupac))
-            this.kupac.remove(oldKupac);
+      if (this.kupci != null)
+         if (this.kupci.contains(oldKupac))
+            this.kupci.remove(oldKupac);
    }
    
-   /** @pdGenerated default removeAll */
-   public void removeAllKupac() {
-      if (kupac != null)
-         kupac.clear();
+   public void removeAllKupci() {
+      if (kupci != null)
+         kupci.clear();
    }
-   /** @pdGenerated default getter */
-   public java.util.Collection<Narudzbina> getNarudzbina() {
-      if (narudzbina == null)
-         narudzbina = new java.util.HashSet<Narudzbina>();
-      return narudzbina;
+
+   // MENADZER
+
+   public Collection<ContentMenadzer> getContentMenadzeri() {
+      if (contentMenadzeri == null)
+         contentMenadzeri = new LinkedList<ContentMenadzer>();
+      return contentMenadzeri;
    }
-   
-   /** @pdGenerated default iterator getter */
-   public java.util.Iterator getIteratorNarudzbina() {
-      if (narudzbina == null)
-         narudzbina = new java.util.HashSet<Narudzbina>();
-      return narudzbina.iterator();
+
+   public void setContentMenadzeri(Collection<Kupac> newContentMenadzeri) {
+      removeAllContentMenadzeri();
+      for (java.util.Iterator iter = newContentMenadzeri.iterator(); iter.hasNext();)
+         addContentMenadzer((ContentMenadzer)iter.next());
    }
-   
-   /** @pdGenerated default setter
-     * @param newNarudzbina */
-   public void setNarudzbina(java.util.Collection<Narudzbina> newNarudzbina) {
-      removeAllNarudzbina();
-      for (java.util.Iterator iter = newNarudzbina.iterator(); iter.hasNext();)
+
+   public void addContentMenadzer(ContentMenadzer contentMenadzer) {
+      if (contentMenadzer == null)
+         return;
+      if (this.contentMenadzeri == null)
+         this.contentMenadzeri = new LinkedList<ContentMenadzer>();
+      if (!this.contentMenadzeri.contains(contentMenadzer))
+         this.contentMenadzeri.add(contentMenadzer);
+   }
+
+   public void removeContentMenadzer(ContentMenadzer oldContentMenadzer) {
+      if (oldContentMenadzer == null)
+         return;
+      if (this.contentMenadzeri != null)
+         if (this.contentMenadzeri.contains(oldContentMenadzer))
+            this.contentMenadzeri.remove(oldContentMenadzer);
+   }
+
+   public void removeAllContentMenadzeri() {
+      if (contentMenadzeri != null)
+         contentMenadzeri.clear();
+   }
+
+   // NARUDZBINA
+
+   public Collection<Narudzbina> getNarudzbine() {
+      if (narudzbine == null)
+         narudzbine = new LinkedList<Narudzbina>();
+      return narudzbine;
+   }
+
+   public void setNarudzbine(Collection<Narudzbina> newNarudzbine) {
+      removeAllNarudzbine();
+      for (java.util.Iterator iter = newNarudzbine.iterator(); iter.hasNext();)
          addNarudzbina((Narudzbina)iter.next());
    }
    
-   /** @pdGenerated default add
-     * @param newNarudzbina */
    public void addNarudzbina(Narudzbina newNarudzbina) {
       if (newNarudzbina == null)
          return;
-      if (this.narudzbina == null)
-         this.narudzbina = new java.util.HashSet<Narudzbina>();
-      if (!this.narudzbina.contains(newNarudzbina))
-         this.narudzbina.add(newNarudzbina);
+      if (this.narudzbine == null)
+         this.narudzbine = new LinkedList<Narudzbina>();
+      if (!this.narudzbine.contains(newNarudzbina))
+         this.narudzbine.add(newNarudzbina);
    }
    
-   /** @pdGenerated default remove
-     * @param oldNarudzbina */
    public void removeNarudzbina(Narudzbina oldNarudzbina) {
       if (oldNarudzbina == null)
          return;
-      if (this.narudzbina != null)
-         if (this.narudzbina.contains(oldNarudzbina))
-            this.narudzbina.remove(oldNarudzbina);
+      if (this.narudzbine != null)
+         if (this.narudzbine.contains(oldNarudzbina))
+            this.narudzbine.remove(oldNarudzbina);
    }
    
-   /** @pdGenerated default removeAll */
-   public void removeAllNarudzbina() {
-      if (narudzbina != null)
-         narudzbina.clear();
+   public void removeAllNarudzbine() {
+      if (narudzbine != null)
+         narudzbine.clear();
    }
 
 }
