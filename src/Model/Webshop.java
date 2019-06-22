@@ -6,123 +6,99 @@
 package Model;
 import java.util.*;
 
-/** @pdOid a1b0bfae-b37a-43c7-9d63-ec8199eae1fb */
 public class Webshop extends ContentMenadzer {
-   /** @pdRoleInfo migr=no name=StavkaCenovnika assc=association16 mult=0..* */
    public StavkaCenovnika[] stavkaCenovnika;
-   /** @pdRoleInfo migr=no name=Kategorija assc=association26 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<Kategorija> kategorija;
-   /** @pdRoleInfo migr=no name=Proizvod assc=association15 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<Proizvod> proizvod;
-   /** @pdRoleInfo migr=no name=Kupac assc=association19 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<Kupac> kupac;
-   /** @pdRoleInfo migr=no name=Narudzbina assc=association21 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<Narudzbina> narudzbina;
    
-   /** @pdOid 5edccd0e-9940-4b84-b08b-328f0b74ff5c */
    public boolean registracija() {
       // TODO: implement
       return false;
    }
-   
-   /** @pdOid f7beba29-8a95-4de6-bcc4-d839dc0e13ef */
+
    public boolean dodajProizvod() {
       // TODO: implement
       return false;
    }
    
-   /** @pdOid 5f3ab7a3-58eb-4171-92a5-cab3884bc7c4 */
    public boolean ukloniProizvod() {
       // TODO: implement
       return false;
    }
    
-   /** @pdOid 1c841193-6fbb-4473-88e1-22bb0c59a469 */
    public boolean izmeniProizvod() {
       // TODO: implement
       return false;
    }
    
-   /** @pdOid c353a4e4-00c0-406a-92ae-84a36265ca18 */
    public boolean dodajKorisnika() {
       // TODO: implement
       return false;
    }
    
-   /** @pdOid 226e83d2-468f-4532-b5c7-6faa21f7d0a8 */
    public boolean ukloniKorisnika() {
       // TODO: implement
       return false;
    }
    
-   /** @pdOid 0a354fb3-0e24-4197-8bc4-19a9a7d93ef2 */
    public boolean izmeniKorisnika() {
       // TODO: implement
       return false;
    }
    
-   /** @pdOid 8eca95cd-d574-4782-a805-66950a090b4f */
    public boolean dodajPorudzibinu() {
       // TODO: implement
       return false;
    }
    
-   /** @pdOid 2c3eee00-ffa4-4783-b710-71a4329e00bc */
    public boolean ukloniPorudzbinu() {
       // TODO: implement
       return false;
    }
    
-   /** @pdOid aee93ad4-ba52-4a85-b955-f2a6b2cd6420 */
    public boolean izmeniPorudzbinu() {
       // TODO: implement
       return false;
    }
    
-   /** @pdOid a62ac9e6-596f-4922-9e05-e7c9181ace60 */
    public Proizvod pretragaProizvoda() {
       // TODO: implement
       return null;
    }
    
-   /** @pdOid 84316a1a-98b1-42c5-bdf8-42c57d2aae9f */
    public Kupac pretragaKorisnika() {
       // TODO: implement
       return null;
    }
    
-   /** @pdOid c2261783-04cd-4f43-a78a-587b16905821 */
    public Narudzbina pretragaPorudzbina() {
       // TODO: implement
       return null;
    }
    
-   /** @pdOid 13a8ef45-e432-473b-bb69-2822e588ff55 */
    public boolean dodajCenu() {
       // TODO: implement
       return false;
    }
    
-   /** @pdOid e997da29-f9c3-441b-8ae9-dd782ca8600e */
    public boolean ukloniCenu() {
       // TODO: implement
       return false;
    }
    
-   /** @pdOid 4f46c9ba-bdd7-4330-8b5c-d69336061d2f */
    public boolean izmeniCenu() {
       // TODO: implement
       return false;
    }
    
-   /** @pdOid d7be7282-9421-4584-b608-bd85d14fbdc0 */
    public StavkaCenovnika pretragaCena() {
       // TODO: implement
       return null;
    }
    
    
-   /** @pdGenerated default getter */
    public java.util.Collection<Kategorija> getKategorija() {
       if (kategorija == null)
          kategorija = new java.util.HashSet<Kategorija>();
