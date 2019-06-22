@@ -27,19 +27,11 @@ public class ListaZelja {
 
 
 
-	public void dodajProizvod() {
-        // TODO: implement
-    }
-    
-    public void obrisiProizvod() {
-        // TODO: implement
-    }
-    
     public void obavestiOPopustu() {
         // TODO: implement
     }
-    
-    
+
+
     public Collection<Proizvod> getProizvod() {
         return proizvod;
     }

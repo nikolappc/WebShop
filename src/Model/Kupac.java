@@ -84,9 +84,4 @@ public class Kupac extends UlogovaniKorisnik {
 
 
 
-
-	public void naruci() {
-        // TODO: implement
-    }
-
 }

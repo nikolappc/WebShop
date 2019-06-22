@@ -21,6 +21,18 @@ public class VrednostAtributa {
       this.atributKategorije = atributKategorije;
    }
 
+   public void addProizvod(Proizvod proizvod){
+      if(!proizvodi.contains(proizvod)){
+         proizvodi.add(proizvod);
+      }
+   }
+
+   public void removeProizvod(Proizvod proizvod){
+      if (proizvodi.contains(proizvod)) {
+         proizvodi.remove(proizvod);
+      }
+   }
+
    public Object getVrednost() {
       return vrednost;
    }
