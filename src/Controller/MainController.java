@@ -10,7 +10,8 @@ public class MainController  {
     public Button logo;
 
 
-    public void logoPressed(){
+    public void pritisnutLogo(){
+        /** Korisnik pritisnuo LOGO*/
 
         try{
 
@@ -18,14 +19,38 @@ public class MainController  {
 
             Main.scene.setRoot(root);
 
-            //Scene scene = new Scene(root, 1000, 800);
-
-            //Main.window.setScene(scene);
-
         }catch (Exception e){
 
         }
     }
 
+
+    public void muskarciIzabran(){
+        /** Korisnik pritisnuo drop down za muskarce*/
+    }
+
+    public void zeneIzabran(){
+        /** Korisnik pritisnuo drop down za zene*/
+
+    }
+
+    public void popustIzabran(){
+        /** Korisnik pritisnuo drop down za popuste*/
+
+    }
+
+    public void traziPritisnut(){
+        /** Korisnik pritisnuo pretragu za proizvode */
+    }
+
+    public void nalogPritisnut(){
+        /** Korisnik pritisnuo dugme za pregled svog naloga */
+    }
+    public void listaZeljaPritisnuta(){
+        /** Korisnik pritisnuo dugme za pregled svoje liste zelja */
+    }
+    public void korpaPritisnuta(){
+        /** Korisnik pritisnuo dugme za pregled svoje korpe*/
+    }
 
 }

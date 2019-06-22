@@ -13,13 +13,69 @@ public class ProizvodController {
     public Button logo;
 
     public void logopressed(){
+        /** Korisnik pritisnuo LOGO u gornjem delu ekrana */
 
         logo.setText("SUKURAC");
     }
 
-    public void pretisnutaSlika(){
+    public void pritisnutaKategorija(){
+        /** Korisnik pritisnuo kategoriju u putanji do proizvoda*/
 
         logo.setText("Ne DIRAJ");
+    }
+
+    public void izabranaSlika1(){
+        /** Korisnik izabrao prvu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+
+        logo.setText("Ne DIRAJ");
+    }
+
+    public void izabranaSlika2(){
+        /** Korisnik izabrao drugu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+
+        logo.setText("Ne DIRAJ");
+    }
+
+    public void izabranaSlika3(){
+        /** Korisnik izabrao trecu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+
+        logo.setText("Ne DIRAJ");
+    }
+
+
+    public void prethodnaSlika(){
+        /** Korisnik izabrao prethodnu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+
+    }
+
+    public void sledecaSlika(){
+        /** Korisnik izabrao sledecu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+
+    }
+
+    public void dodatoUKorpu(){
+        /** Korisnik dodao proizvod u korpu*/
+
+    }
+
+    public void dodatoUListuZelja(){
+        /** Korisnik dodao proizvod u list uzelja */
+
+    }
+
+    public void izabranPreporucen1(){
+        /** Korisnik zeli da vidi prvi preporuceni proizvod */
+
+    }
+
+    public void izabranPreporucen2(){
+        /** Korisnik zeli da vidi drugi preporuceni proizvod */
+
+    }
+
+    public void izabranPreporucen3(){
+        /** Korisnik zeli da vidi treci preporuceni proizvod */
+
     }
 
 }

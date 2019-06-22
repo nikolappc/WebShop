@@ -33,7 +33,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <MenuButton id="muskarciMeni" mnemonicParsing="false" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #000000;" text="Muskarci" textFill="WHITE">
+                        <MenuButton id="muskarciMeni" fx:id="muskarciDropDown" mnemonicParsing="false" onAction="#muskarciIzabran" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #000000;" text="Muskarci" textFill="WHITE">
                             <items>
                                 <MenuItem mnemonicParsing="false" text="Action 1" />
                                 <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -45,7 +45,7 @@
                         <Font size="14.0" />
                      </font>
                         </MenuButton>
-                        <MenuButton id="zeneMeni" mnemonicParsing="false" style="-fx-background-color: #000000;" text="Zene" textFill="WHITE" GridPane.columnIndex="1">
+                        <MenuButton id="zeneMeni" fx:id="zeneDropDown" mnemonicParsing="false" onAction="#zeneIzabran" style="-fx-background-color: #000000;" text="Zene" textFill="WHITE" GridPane.columnIndex="1">
                             <items>
                                 <MenuItem mnemonicParsing="false" text="Action 1" />
                                 <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -57,7 +57,7 @@
                         <Font size="14.0" />
                      </font>
                         </MenuButton>
-                        <MenuButton id="popustMeni" mnemonicParsing="false" style="-fx-background-color: #000000;" text="Popust" textFill="WHITE" GridPane.columnIndex="2">
+                        <MenuButton id="popustMeni" fx:id="popustDropDown" mnemonicParsing="false" onAction="#popustIzabran" style="-fx-background-color: #000000;" text="Popust" textFill="WHITE" GridPane.columnIndex="2">
                             <items>
                                 <MenuItem mnemonicParsing="false" text="Action 1" />
                                 <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -69,7 +69,7 @@
                         <Font size="14.0" />
                      </font>
                         </MenuButton>
-                        <Button id="logo" fx:id="logo" alignment="CENTER" contentDisplay="CENTER" depthTest="DISABLE" graphicTextGap="0.0" mnemonicParsing="false" onAction="#logoPressed" prefHeight="74.0" prefWidth="262.0" style="-fx-background-color: #000000; -fx-padding: 0; -fx-label-padding: 0;" text="LOGO" textFill="ORANGE" GridPane.columnIndex="3">
+                        <Button id="logo" fx:id="logo" alignment="CENTER" contentDisplay="CENTER" depthTest="DISABLE" graphicTextGap="0.0" mnemonicParsing="false" onAction="#pritisnutLogo" prefHeight="74.0" prefWidth="262.0" style="-fx-background-color: #000000; -fx-padding: 0; -fx-label-padding: 0;" text="LOGO" textFill="ORANGE" GridPane.columnIndex="3">
                             <font>
                                 <Font size="48.0" />
                             </font>
@@ -78,19 +78,19 @@
                             </cursor>
                         </Button>
                         <TextField prefHeight="25.0" prefWidth="145.0" GridPane.columnIndex="4" />
-                        <Button fx:id="lupa" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: #ffa500;" text="LUPA" textFill="WHITE" GridPane.columnIndex="5">
+                        <Button fx:id="lupa" mnemonicParsing="false" onAction="#traziPritisnut" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: #ffa500;" text="LUPA" textFill="WHITE" GridPane.columnIndex="5">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor></Button>
-                        <Button fx:id="korisnik" mnemonicParsing="false" text="BUT" GridPane.columnIndex="6">
+                        <Button fx:id="korisnik" mnemonicParsing="false" onAction="#nalogPritisnut" text="BUT" GridPane.columnIndex="6">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor></Button>
-                        <Button fx:id="listaZelja" mnemonicParsing="false" text="BUT" GridPane.columnIndex="7">
+                        <Button fx:id="listaZelja" mnemonicParsing="false" onAction="#listaZeljaPritisnuta" text="BUT" GridPane.columnIndex="7">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor></Button>
-                        <Button fx:id="korpa" mnemonicParsing="false" text="BUT" GridPane.columnIndex="8">
+                        <Button fx:id="korpa" mnemonicParsing="false" onAction="#korpaPritisnuta" text="BUT" GridPane.columnIndex="8">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor></Button>
