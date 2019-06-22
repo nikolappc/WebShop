@@ -13,11 +13,11 @@ public class Main extends Application {
 
     public static Stage window;
     public static Scene scene;
-        
+
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        window = primaryStage;
+        window = primaryStage ;
         window.setTitle("PRODAVNICA ");
 
         Parent root = FXMLLoader.load(getClass().getResource("..\\FXML\\glavni.fxml"));
