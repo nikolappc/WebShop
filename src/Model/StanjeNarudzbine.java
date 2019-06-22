@@ -3,7 +3,7 @@
  * Author:  Dusan
  * Purpose: Defines the Class StanjeNarudzbine
  ***********************************************************************/
-
+package Model;
 import java.util.*;
 
 /** @pdOid 4b09b408-d1b4-4ec2-a123-dd5f53538e4e */

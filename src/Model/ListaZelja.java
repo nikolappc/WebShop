@@ -3,7 +3,7 @@
  * Author:  Stefan
  * Purpose: Defines the Class ListaZelja
  ***********************************************************************/
-
+package Model;
 import java.util.*;
 
 /** @pdOid 7272fa98-cc38-43f9-9a78-4d5fc5f792b0 */

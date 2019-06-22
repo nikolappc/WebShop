@@ -3,7 +3,7 @@
  * Author:  nklppc
  * Purpose: Defines the Class VrednostAtributa
  ***********************************************************************/
-
+package Model;
 import java.util.*;
 
 /** @pdOid b8adf0ea-3d19-4048-bbb2-39a742989cd4 */

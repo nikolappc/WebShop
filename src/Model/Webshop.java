@@ -3,7 +3,7 @@
  * Author:  MIjat
  * Purpose: Defines the Class Webshop
  ***********************************************************************/
-
+package Model;
 import java.util.*;
 
 /** @pdOid a1b0bfae-b37a-43c7-9d63-ec8199eae1fb */

@@ -4,7 +4,10 @@
  * Purpose: Defines the Class AtributKategorije
  ***********************************************************************/
 
+package Model;
+
 import java.util.*;
+
 
 /** @pdOid 0bd49725-06f1-44ba-9642-9bc2ac07a83c */
 public class AtributKategorije {

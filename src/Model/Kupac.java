@@ -3,7 +3,7 @@
  * Author:  Dusan
  * Purpose: Defines the Class Kupac
  ***********************************************************************/
-
+package Model;
 import java.util.*;
 
 /** @pdOid 68e97356-f155-4498-a901-fe9c3d9eb569 */

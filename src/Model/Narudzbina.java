@@ -3,7 +3,7 @@
  * Author:  Stefan
  * Purpose: Defines the Class Narudzbina
  ***********************************************************************/
-
+package Model;
 import java.util.*;
 
 /** @pdOid 4c73f267-2945-4dca-b9c4-b8c1ea7d0bcd */
@@ -12,7 +12,7 @@ public class Narudzbina {
    public Korpa korpa;
    
    /** @pdOid abcace2b-5bb8-4f83-9e48-1abfbf43c090 */
-   public string generisiFakturu() {
+   public String generisiFakturu() {
       // TODO: implement
       return null;
    }

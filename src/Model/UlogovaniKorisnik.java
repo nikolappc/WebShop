@@ -3,7 +3,7 @@
  * Author:  Stefan
  * Purpose: Defines the Class UlogovaniKorisnik
  ***********************************************************************/
-
+package Model;
 import java.util.*;
 
 /** @pdOid 695531c0-3bae-437d-baee-9070ab08ecbb */

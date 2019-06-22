@@ -3,7 +3,7 @@
  * Author:  MIjat
  * Purpose: Defines the Class StavkaCenovnika
  ***********************************************************************/
-
+package Model;
 import java.util.*;
 
 /** @pdOid 82152213-cf7a-4ede-8f70-481900a6a16d */

@@ -3,7 +3,7 @@
  * Author:  Dusan
  * Purpose: Defines the Class Korpa
  ***********************************************************************/
-
+package Model;
 import java.util.*;
 
 /** @pdOid c9c9ddf4-4e3f-45b1-a180-dacf92f4fbf1 */

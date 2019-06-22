@@ -3,7 +3,7 @@
  * Author:  nklppc
  * Purpose: Defines the Class Kategorija
  ***********************************************************************/
-
+package Model;
 import java.util.*;
 
 /** @pdOid 4bdfe503-2aca-4c6c-b886-3a2641b9f53b */

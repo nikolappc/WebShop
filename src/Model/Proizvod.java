@@ -3,7 +3,7 @@
  * Author:  Stefan
  * Purpose: Defines the Class Proizvod
  ***********************************************************************/
-
+package Model;
 import java.util.*;
 
 /** @pdOid d3947854-957c-4141-99cf-6a1236c12318 */
