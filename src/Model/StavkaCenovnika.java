@@ -6,15 +6,69 @@
 package Model;
 import java.util.*;
 
-/** @pdOid 82152213-cf7a-4ede-8f70-481900a6a16d */
 public class StavkaCenovnika {
-   /** @pdOid 6c60717d-b5bb-429e-b9e9-277da01d10e8 */
    private Date datPoc;
-   /** @pdOid 6ce5e00a-a99f-4ba7-a656-c844fdeb2eca */
    private Date datZav;
-   /** @pdOid 3beb7bb0-fc45-4c48-81f2-6d58fe32474d */
    private double cena;
-   /** @pdOid aaf2a152-5609-4b4c-93b2-0081217354e0 */
    private double pupust;
+   private Proizvod proizvod;
 
+   public StavkaCenovnika() {}
+
+   public StavkaCenovnika(Date datPoc, Date datZav, double cena, double pupust, Proizvod proizvod) {
+      this.datPoc = datPoc;
+      this.datZav = datZav;
+      this.cena = cena;
+      this.pupust = pupust;
+      this.proizvod = proizvod;
+   }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      StavkaCenovnika that = (StavkaCenovnika) o;
+      return Objects.equals(datPoc, that.datPoc) &&
+              Objects.equals(proizvod, that.proizvod);
+   }
+
+   public Date getDatPoc() {
+      return datPoc;
+   }
+
+   public void setDatPoc(Date datPoc) {
+      this.datPoc = datPoc;
+   }
+
+   public Date getDatZav() {
+      return datZav;
+   }
+
+   public void setDatZav(Date datZav) {
+      this.datZav = datZav;
+   }
+
+   public double getCena() {
+      return cena;
+   }
+
+   public void setCena(double cena) {
+      this.cena = cena;
+   }
+
+   public double getPupust() {
+      return pupust;
+   }
+
+   public void setPupust(double pupust) {
+      this.pupust = pupust;
+   }
+
+   public Proizvod getProizvod() {
+      return proizvod;
+   }
+
+   public void setProizvod(Proizvod proizvod) {
+      this.proizvod = proizvod;
+   }
 }

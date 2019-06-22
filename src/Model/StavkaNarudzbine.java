@@ -6,11 +6,40 @@
 package Model;
 import java.util.*;
 
-/** @pdOid fce8c7a7-84b5-4b9f-9a95-ebc58e06b991 */
 public class StavkaNarudzbine {
-   /** @pdOid 47a498d4-91ee-453b-ba9d-e68ba7746ec8 */
    private int kolicina;
-   /** @pdOid d9791728-b41f-47a5-993b-156875842dc4 */
    private double cena;
+   private Proizvod proizvod;
 
+   public StavkaNarudzbine() {}
+
+   public StavkaNarudzbine(int kolicina, double cena, Proizvod proizvod) {
+      this.kolicina = kolicina;
+      this.cena = cena;
+      this.proizvod = proizvod;
+   }
+
+   public int getKolicina() {
+      return kolicina;
+   }
+
+   public void setKolicina(int kolicina) {
+      this.kolicina = kolicina;
+   }
+
+   public double getCena() {
+      return cena;
+   }
+
+   public void setCena(double cena) {
+      this.cena = cena;
+   }
+
+   public Proizvod getProizvod() {
+      return proizvod;
+   }
+
+   public void setProizvod(Proizvod proizvod) {
+      this.proizvod = proizvod;
+   }
 }
