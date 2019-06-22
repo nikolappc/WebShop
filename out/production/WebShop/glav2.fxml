@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="802.0" prefWidth="1012.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox maxWidth="1.7976931348623157E308" prefHeight="96.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox prefHeight="34.0" prefWidth="800.0" style="-fx-background-color: C2C2C2;">
+                    <children>
+                        <Label text="Besplatna dostava na sve narudzbine" />
+                    </children>
+                </HBox>
+            <GridPane prefHeight="69.0" prefWidth="1012.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="931.0" minWidth="10.0" prefWidth="928.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="501.0" minWidth="10.0" prefWidth="84.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button mnemonicParsing="false" text="Button" GridPane.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Button" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+               </children>
+            </GridPane>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.6" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="295.0" prefWidth="930.0" style="-fx-background-color: #6B8E23;" />
+                <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
+                    <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #AFEEEE;" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="242.0" prefWidth="523.0" style="-fx-background-color: #AFEEEE;" />
+                    </items>
+                </SplitPane>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>

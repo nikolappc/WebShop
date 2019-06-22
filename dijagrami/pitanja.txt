@@ -1,1 +1,4 @@
 dijagram stanja - da li dodati novo stanje kada je narudzbina otkazana kod obrade?
+
+
+TREBA

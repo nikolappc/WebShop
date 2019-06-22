@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox prefHeight="96.0" prefWidth="842.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox prefHeight="34.0" prefWidth="932.0" style="-fx-background-color: C2C2C2;">
+                    <children>
+                        <Label text="Besplatna dostava za sve narudzbine" />
+                    </children>
+                </HBox>
+                <GridPane prefHeight="101.0" prefWidth="842.0" style="-fx-background-color: #000000;">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="106.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="83.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="278.0" minWidth="10.0" prefWidth="183.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="325.0" minWidth="10.0" prefWidth="264.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" prefWidth="131.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="71.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="41.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="41.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="99.0" minWidth="10.0" prefWidth="78.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <MenuButton id="muskarciMeni" mnemonicParsing="false" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #000000;" text="Muskarci" textFill="WHITE">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Action 1" />
+                                <MenuItem mnemonicParsing="false" text="Action 2" />
+                            </items>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </MenuButton>
+                        <MenuButton id="zeneMeni" mnemonicParsing="false" style="-fx-background-color: #000000;" text="Zene" textFill="WHITE" GridPane.columnIndex="1">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Action 1" />
+                                <MenuItem mnemonicParsing="false" text="Action 2" />
+                            </items>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </MenuButton>
+                        <MenuButton id="popustMeni" mnemonicParsing="false" style="-fx-background-color: #000000;" text="Popust" textFill="WHITE" GridPane.columnIndex="2">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Action 1" />
+                                <MenuItem mnemonicParsing="false" text="Action 2" />
+                            </items>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </MenuButton>
+                        <Button id="logo" alignment="CENTER" contentDisplay="CENTER" depthTest="DISABLE" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="262.0" style="-fx-background-color: #000000; -fx-padding: 0; -fx-label-padding: 0;" text="LOGO" textFill="ORANGE" GridPane.columnIndex="3">
+                            <font>
+                                <Font size="48.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <TextField prefHeight="25.0" prefWidth="145.0" GridPane.columnIndex="4" />
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: #ffa500;" text="LUPA" textFill="WHITE" GridPane.columnIndex="5">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor></Button>
+                        <Button mnemonicParsing="false" text="BUT" GridPane.columnIndex="6">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor></Button>
+                        <Button mnemonicParsing="false" text="BUT" GridPane.columnIndex="7">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor></Button>
+                        <Button mnemonicParsing="false" text="BUT" GridPane.columnIndex="8">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor></Button>
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="980.0">
+                    <children>
+                        <Label id="putanja" fx:id="putanjaDoProizvoda" text="Home &gt; Putanja &gt;do &gt; proizvoda">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <padding>
+                        <Insets left="10.0" top="10.0" />
+                    </padding>
+                </HBox>
+                <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="661.0" prefWidth="1000.0" spacing="20.0">
+                    <children>
+                        <GridPane prefHeight="546.0" prefWidth="124.0" style="-fx-background-color: #FFFFFF;" vgap="30.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <ImageView id="slika1" fx:id="slikaProizvoda1" fitHeight="158.0" fitWidth="126.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../Slike/upload9223368955665511224.jpg" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor></ImageView>
+                                <ImageView id="slika2" fx:id="slikaProizvoda2" fitHeight="158.0" fitWidth="126.0" pickOnBounds="true" GridPane.rowIndex="1">
+                                    <image>
+                                        <Image url="@../Slike/upload9223368955665511214.jpg" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ImageView>
+                                <ImageView id="slika3" fx:id="slikaProizvoda3" fitHeight="167.0" fitWidth="126.0" pickOnBounds="true" GridPane.rowIndex="2">
+                                    <image>
+                                        <Image url="@../Slike/upload9223368955665511220.jpg" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                        </GridPane>
+                        <Pane prefHeight="528.0" prefWidth="431.0" style="-fx-background-color: grey;">
+                            <children>
+                                <ImageView id="izabranaSlika" fx:id="trenutnaSlika" fitHeight="537.0" fitWidth="431.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../Slike/upload9223368955665511224.jpg" />
+                                    </image>
+                                </ImageView>
+                                <Button id="sledecaSlika" layoutX="358.0" layoutY="252.0" mnemonicParsing="false" text="Button" />
+                                <Button id="prethodnaSlika" layoutX="14.0" layoutY="252.0" mnemonicParsing="false" text="Button" />
+                            </children>
+                        </Pane>
+                        <VBox prefHeight="528.0" prefWidth="378.0">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <padding>
+                                <Insets left="30.0" />
+                            </padding>
+                            <children>
+                                <HBox prefHeight="57.0" prefWidth="348.0">
+                                    <children>
+                                        <Label id="nazivProizvoda" fx:id="nazivProizvoda" text="Super Mega Giga Jakna" textFill="#686767">
+                                            <font>
+                                                <Font name="System Bold" size="30.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="37.0" prefWidth="348.0">
+                                    <children>
+                                        <Label id="cenaProizvoda" fx:id="cenaProizvoda" text="13 990 RSD">
+                                            <font>
+                                                <Font name="System Bold" size="20.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="34.0" prefWidth="387.0">
+                                    <children>
+                                        <Label text="Boja: ">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label id="bojaProizvoda" fx:id="bojaProizvoda" text="Plava">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="45.0" prefWidth="387.0">
+                                    <children>
+                                        <Label text="Izaberi velicinu:">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="61.0" prefWidth="348.0">
+                                    <children>
+                                        <ComboBox id="velicineProizvoda" fx:id="moguceVelicine" prefHeight="25.0" prefWidth="272.0" />
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="61.0" prefWidth="348.0" spacing="40.0">
+                                    <children>
+                                        <Button fx:id="dodajUKorpu" mnemonicParsing="false" prefHeight="25.0" prefWidth="186.0" style="-fx-background-color: ffa500; -fx-label-padding: 0; -fx-padding: 0;" text="DODAJ U KORPU" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                                        <Button fx:id="dodajUListuZelja" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" style="-fx-background-color: #000000;" text="Button">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="72.0" prefWidth="348.0">
+                                    <children>
+                                        <VBox prefHeight="69.0" prefWidth="348.0">
+                                            <children>
+                                                <Label text="Opis:">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="opisProizvoda" text="Label">
+                                                    <font>
+                                                        <Font size="18.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="26.0" prefWidth="348.0">
+                                    <children>
+                                        <Label text="Slicni proizvodi: ">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                    <children>
+                                        <ImageView id="preporucen1" fx:id="preporucenSlika1" fitHeight="150.0" fitWidth="109.0" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@../Slike/upload9223368955665532042.jpg" />
+                                            </image>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </ImageView>
+                                        <ImageView id="preporucen2" fx:id="preporucenSlika2" fitHeight="150.0" fitWidth="109.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@../Slike/upload9223368955665532042.jpg" />
+                                            </image>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </ImageView>
+                                        <ImageView id="preporucen3" fx:id="preporucenSlika3" fitHeight="150.0" fitWidth="109.0" layoutX="129.0" layoutY="10.0" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@../Slike/upload9223368955665532042.jpg" />
+                                            </image>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </ImageView>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets top="40.0" />
+                    </padding>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="100.0" left="10.0" right="10.0" />
+            </padding>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </VBox>
+    </center>
+</BorderPane>
