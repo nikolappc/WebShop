@@ -6,21 +6,108 @@
 package Model;
 import java.util.*;
 
-/** @pdOid d3947854-957c-4141-99cf-6a1236c12318 */
 public class Proizvod {
-   /** @pdOid dfb0c16f-65cc-4249-a3c2-971edad1b3b1 */
    private String naziv;
-   /** @pdOid ceeeaa7b-dfe3-4694-849e-c3235b2e362f */
    private String opis;
-   /** @pdOid f9e07938-a85b-4b87-9c0d-81b1c90d75dc */
    private int naStanju;
-   /** @pdOid 8b00dfc3-b693-4800-90b7-aeec7ddad266 */
    private int kupljen;
-   /** @pdOid 43d0047c-0553-4d2a-bc5f-ce3228678938 */
    private int uListiZelja;
-   /** @pdOid 41f3e5e5-1f6e-484a-b8c1-be1971534066 */
    private Date datumDodavanja;
-   /** @pdOid dae99f4c-e9f3-4742-8055-638718d3d8af */
    private String sifra;
+   private Pol pol;
+   private Collection<String> slike;
 
+   public Proizvod(){}
+
+   public Proizvod(String naziv, String opis, int naStanju, int kupljen, int uListiZelja, Date datumDodavanja, String sifra, Pol pol, Collection<String> slike) {
+      this.naziv = naziv;
+      this.opis = opis;
+      this.naStanju = naStanju;
+      this.kupljen = kupljen;
+      this.uListiZelja = uListiZelja;
+      this.datumDodavanja = datumDodavanja;
+      this.sifra = sifra;
+      this.pol = pol;
+      this.slike = slike;
+   }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      Proizvod proizvod = (Proizvod) o;
+      return Objects.equals(sifra, proizvod.sifra);
+   }
+
+   public String getNaziv() {
+      return naziv;
+   }
+
+   public void setNaziv(String naziv) {
+      this.naziv = naziv;
+   }
+
+   public String getOpis() {
+      return opis;
+   }
+
+   public void setOpis(String opis) {
+      this.opis = opis;
+   }
+
+   public int getNaStanju() {
+      return naStanju;
+   }
+
+   public void setNaStanju(int naStanju) {
+      this.naStanju = naStanju;
+   }
+
+   public int getKupljen() {
+      return kupljen;
+   }
+
+   public void setKupljen(int kupljen) {
+      this.kupljen = kupljen;
+   }
+
+   public int getuListiZelja() {
+      return uListiZelja;
+   }
+
+   public void setuListiZelja(int uListiZelja) {
+      this.uListiZelja = uListiZelja;
+   }
+
+   public Date getDatumDodavanja() {
+      return datumDodavanja;
+   }
+
+   public void setDatumDodavanja(Date datumDodavanja) {
+      this.datumDodavanja = datumDodavanja;
+   }
+
+   public String getSifra() {
+      return sifra;
+   }
+
+   public void setSifra(String sifra) {
+      this.sifra = sifra;
+   }
+
+   public Pol getPol() {
+      return pol;
+   }
+
+   public void setPol(Pol pol) {
+      this.pol = pol;
+   }
+
+   public Collection<String> getSlike() {
+      return slike;
+   }
+
+   public void setSlike(Collection<String> slike) {
+      this.slike = slike;
+   }
 }

@@ -6,89 +6,50 @@
 package Model;
 import java.util.*;
 
-/** @pdOid b8adf0ea-3d19-4048-bbb2-39a742989cd4 */
 public class VrednostAtributa {
-   /** @pdOid 03434c74-0b6d-490e-90d5-1418fa7db5bb */
-   private java.lang.Object vrednost;
-   /** @pdOid 52d09928-979b-413c-881e-253e90503f52 */
+   private Object vrednost;
    private TipAtributa tip;
-   
-   /** @pdRoleInfo migr=no name=Proizvod assc=association25 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
-   public java.util.Collection<Proizvod> proizvod;
-   /** @pdRoleInfo migr=no name=AtributKategorije assc=association27 mult=1..1 side=A */
-   public AtributKategorije atributKategorije;
-   
-   
-   /** @pdGenerated default getter */
-   public java.util.Collection<Proizvod> getProizvod() {
-      if (proizvod == null)
-         proizvod = new java.util.HashSet<Proizvod>();
-      return proizvod;
+   private Collection<Proizvod> proizvodi;
+   private AtributKategorije atributKategorije;
+
+   public VrednostAtributa() {}
+
+   public VrednostAtributa(Object vrednost, TipAtributa tip, Collection<Proizvod> proizvodi, AtributKategorije atributKategorije) {
+      this.vrednost = vrednost;
+      this.tip = tip;
+      this.proizvodi = proizvodi;
+      this.atributKategorije = atributKategorije;
    }
-   
-   /** @pdGenerated default iterator getter */
-   public java.util.Iterator getIteratorProizvod() {
-      if (proizvod == null)
-         proizvod = new java.util.HashSet<Proizvod>();
-      return proizvod.iterator();
+
+   public Object getVrednost() {
+      return vrednost;
    }
-   
-   /** @pdGenerated default setter
-     * @param newProizvod */
-   public void setProizvod(java.util.Collection<Proizvod> newProizvod) {
-      removeAllProizvod();
-      for (java.util.Iterator iter = newProizvod.iterator(); iter.hasNext();)
-         addProizvod((Proizvod)iter.next());
+
+   public void setVrednost(Object vrednost) {
+      this.vrednost = vrednost;
    }
-   
-   /** @pdGenerated default add
-     * @param newProizvod */
-   public void addProizvod(Proizvod newProizvod) {
-      if (newProizvod == null)
-         return;
-      if (this.proizvod == null)
-         this.proizvod = new java.util.HashSet<Proizvod>();
-      if (!this.proizvod.contains(newProizvod))
-         this.proizvod.add(newProizvod);
+
+   public TipAtributa getTip() {
+      return tip;
    }
-   
-   /** @pdGenerated default remove
-     * @param oldProizvod */
-   public void removeProizvod(Proizvod oldProizvod) {
-      if (oldProizvod == null)
-         return;
-      if (this.proizvod != null)
-         if (this.proizvod.contains(oldProizvod))
-            this.proizvod.remove(oldProizvod);
+
+   public void setTip(TipAtributa tip) {
+      this.tip = tip;
    }
-   
-   /** @pdGenerated default removeAll */
-   public void removeAllProizvod() {
-      if (proizvod != null)
-         proizvod.clear();
+
+   public Collection<Proizvod> getProizvodi() {
+      return proizvodi;
    }
-   /** @pdGenerated default parent getter */
+
+   public void setProizvodi(Collection<Proizvod> proizvodi) {
+      this.proizvodi = proizvodi;
+   }
+
    public AtributKategorije getAtributKategorije() {
       return atributKategorije;
    }
-   
-   /** @pdGenerated default parent setter
-     * @param newAtributKategorije */
-   public void setAtributKategorije(AtributKategorije newAtributKategorije) {
-      if (this.atributKategorije == null || !this.atributKategorije.equals(newAtributKategorije))
-      {
-         if (this.atributKategorije != null)
-         {
-            AtributKategorije oldAtributKategorije = this.atributKategorije;
-            this.atributKategorije = null;
-            oldAtributKategorije.removeVrednostAtributa(this);
-         }
-         if (newAtributKategorije != null)
-         {
-            this.atributKategorije = newAtributKategorije;
-            this.atributKategorije.addVrednostAtributa(this);
-         }
-      }
-   }
 
+   public void setAtributKategorije(AtributKategorije atributKategorije) {
+      this.atributKategorije = atributKategorije;
+   }
 }
