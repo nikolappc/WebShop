@@ -18,93 +18,42 @@ public class Webshop  {
       // TODO: ovde pozovi ucitavanje svega
    }
 
-   public boolean registracija() {
-      // TODO: implement
-      return false;
-   }
+   // STAVKA CENOVNIKA
 
-   public boolean dodajProizvod() {
-      // TODO: implement
-      return false;
-   }
+    public Collection<StavkaCenovnika> getStavkeCenovnika() {
+        return stavkeCenovnika;
+    }
 
-   public boolean ukloniProizvod() {
-      // TODO: implement
-      return false;
-   }
+    public void setStavkeCenovnika(Collection<StavkaCenovnika> stavkeCenovnika) {
+        this.stavkeCenovnika = stavkeCenovnika;
+    }
 
-   public boolean izmeniProizvod() {
-      // TODO: implement
-      return false;
-   }
+    public void addStavkaCenovnika(StavkaCenovnika stavka){
+       if(stavka == null)
+           return;
+       if(this.stavkeCenovnika == null){
+           this.stavkeCenovnika = new LinkedList<>();
+       }
+       if(!this.stavkeCenovnika.contains(stavka)){
+           this.stavkeCenovnika.add(stavka);
+       }
+    }
 
-   public boolean dodajKorisnika() {
-      // TODO: implement
-      return false;
-   }
+    public void removeKategorija(StavkaCenovnika stavka) {
+        if (stavka == null)
+            return;
+        if (this.kategorije != null)
+            if (this.kategorije.contains(stavka))
+                this.kategorije.remove(stavka);
+    }
 
-   public boolean ukloniKorisnika() {
-      // TODO: implement
-      return false;
-   }
-
-   public boolean izmeniKorisnika() {
-      // TODO: implement
-      return false;
-   }
-
-   public boolean dodajPorudzibinu() {
-      // TODO: implement
-      return false;
-   }
-
-   public boolean ukloniPorudzbinu() {
-      // TODO: implement
-      return false;
-   }
-
-   public boolean izmeniPorudzbinu() {
-      // TODO: implement
-      return false;
-   }
-
-   public Proizvod pretragaProizvoda() {
-      // TODO: implement
-      return null;
-   }
-
-   public Kupac pretragaKorisnika() {
-      // TODO: implement
-      return null;
-   }
-
-   public Narudzbina pretragaPorudzbina() {
-      // TODO: implement
-      return null;
-   }
-
-   public boolean dodajCenu() {
-      // TODO: implement
-      return false;
-   }
-
-   public boolean ukloniCenu() {
-      // TODO: implement
-      return false;
-   }
-
-   public boolean izmeniCenu() {
-      // TODO: implement
-      return false;
-   }
-
-   public StavkaCenovnika pretragaCena() {
-      // TODO: implement
-      return null;
-   }
+    public void removeAllStavkeCenovnika() {
+        if (stavkeCenovnika != null)
+            stavkeCenovnika.clear();
+    }
 
 
-   // KATEGORIJA
+    // KATEGORIJA
 
    public Collection<Kategorija> getKategorije() {
       if (kategorije == null)
