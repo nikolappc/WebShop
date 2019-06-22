@@ -19,8 +19,6 @@ public class AtributKategorije {
     public AtributKategorije() {}
     
     
-    
-    
     public AtributKategorije(Collection<VrednostAtributa> vrednostAtributa) {
 	    
 	    for (VrednostAtributa vr : vrednostAtributa) {
