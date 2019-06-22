@@ -15,6 +15,7 @@ public class ProizvodController {
     public void logopressed(){
         /** Korisnik pritisnuo LOGO u gornjem delu ekrana */
 
+
         logo.setText("SUKURAC");
     }
 

@@ -148,14 +148,14 @@
                             <children>
                                 <ImageView id="slika1" fx:id="slikaProizvoda1" fitHeight="158.0" fitWidth="126.0" onMouseClicked="#izabranaSlika1" pickOnBounds="true">
                                     <image>
-                                        <Image url="@../../Slike/upload9223368955665511224.jpg" />
+                                        <Image url="@../Slike/upload9223368955665511224.jpg" />
                                     </image>
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor></ImageView>
                                 <ImageView id="slika2" fx:id="slikaProizvoda2" fitHeight="158.0" fitWidth="126.0" onMouseClicked="#izabranaSlika2" pickOnBounds="true" GridPane.rowIndex="1">
                                     <image>
-                                        <Image url="@../../Slike/upload9223368955665511214.jpg" />
+                                        <Image url="@../Slike/upload9223368955665511214.jpg" />
                                     </image>
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
@@ -163,7 +163,7 @@
                                 </ImageView>
                                 <ImageView id="slika3" fx:id="slikaProizvoda3" fitHeight="167.0" fitWidth="126.0" onMouseClicked="#izabranaSlika3" pickOnBounds="true" GridPane.rowIndex="2">
                                     <image>
-                                        <Image url="@../../Slike/upload9223368955665511220.jpg" />
+                                        <Image url="@../Slike/upload9223368955665511220.jpg" />
                                     </image>
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
@@ -175,7 +175,7 @@
                             <children>
                                 <ImageView id="izabranaSlika" fx:id="trenutnaSlika" fitHeight="537.0" fitWidth="431.0" pickOnBounds="true">
                                     <image>
-                                        <Image url="@../../Slike/upload9223368955665511224.jpg" />
+                                        <Image url="@../Slike/upload9223368955665511224.jpg" />
                                     </image>
                                 </ImageView>
                                 <Button id="sledecaSlika" fx:id="sledeca" layoutX="358.0" layoutY="252.0" mnemonicParsing="false" onMouseClicked="#sledecaSlika" text="Button" />
@@ -282,7 +282,7 @@
                                     <children>
                                         <ImageView id="preporucen1" fx:id="preporucenSlika1" fitHeight="150.0" fitWidth="109.0" onMouseClicked="#izabranPreporucen1" pickOnBounds="true">
                                             <image>
-                                                <Image url="@../../Slike/upload9223368955665532042.jpg" />
+                                                <Image url="@../Slike/upload9223368955665532042.jpg" />
                                             </image>
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -290,7 +290,7 @@
                                         </ImageView>
                                         <ImageView id="preporucen2" fx:id="preporucenSlika2" fitHeight="150.0" fitWidth="109.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#izabranPreporucen2" pickOnBounds="true">
                                             <image>
-                                                <Image url="@../../Slike/upload9223368955665532042.jpg" />
+                                                <Image url="@../Slike/upload9223368955665532042.jpg" />
                                             </image>
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -298,7 +298,7 @@
                                         </ImageView>
                                         <ImageView id="preporucen3" fx:id="preporucenSlika3" fitHeight="150.0" fitWidth="109.0" layoutX="129.0" layoutY="10.0" onMouseClicked="#izabranPreporucen3" pickOnBounds="true">
                                             <image>
-                                                <Image url="@../../Slike/upload9223368955665532042.jpg" />
+                                                <Image url="@../Slike/upload9223368955665532042.jpg" />
                                             </image>
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
