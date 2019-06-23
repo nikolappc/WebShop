@@ -9,10 +9,14 @@ import java.util.*;
 public class VrednostAtributa {
    private Object vrednost;
    private TipAtributa tip;
-   private Collection<Proizvod> proizvodi;
+   private Collection<Proizvod> proizvodi = new ArrayList<>();
    private AtributKategorije atributKategorije;
 
    public VrednostAtributa() {}
+
+   public VrednostAtributa(Object vrednost) {
+      this.vrednost = vrednost;
+   }
 
    public VrednostAtributa(Object vrednost, TipAtributa tip, Collection<Proizvod> proizvodi, AtributKategorije atributKategorije) {
       this.vrednost = vrednost;

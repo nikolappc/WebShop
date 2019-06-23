@@ -10,40 +10,34 @@ import java.util.*;
 
 
 public class AtributKategorije {
-    
-	private Collection<VrednostAtributa> vrednostAtributa = new ArrayList<VrednostAtributa>();
-    
-    
-    
-    
-    public AtributKategorije() {}
-    
-    
-    public AtributKategorije(Collection<VrednostAtributa> vrednostAtributa) {
-	    
-	    for (VrednostAtributa vr : vrednostAtributa) {
-			  this.vrednostAtributa.add(vr);
-		}
-    }
+
+	private String naziv;
+
+	private Map<Object, VrednostAtributa> vrednostAtributa = new HashMap<>();
 
     
-    public Collection<VrednostAtributa> getVrednostAtributa() {
+    public AtributKategorije() {}
+
+	public AtributKategorije(String naziv) {
+		this.naziv = naziv;
+	}
+
+
+
+
+    
+    public Map<Object, VrednostAtributa> getVrednostAtributa() {
 	    return vrednostAtributa;
     }
     
-    public void setVrednostAtributa(Collection<VrednostAtributa> newVrednostAtributa) {
-	  this.vrednostAtributa.clear();
-	  for (VrednostAtributa vrednostAtributa : newVrednostAtributa) {
-		  this.vrednostAtributa.add(vrednostAtributa);
-	}
-    }
-    
+
+
     public void dodajVrednostAtributa(VrednostAtributa newVrednostAtributa) {
         if (newVrednostAtributa == null)
             return;
-        if (!this.vrednostAtributa.contains(newVrednostAtributa))
+        if (!this.vrednostAtributa.containsKey(newVrednostAtributa.getVrednost()))
         {
-            this.vrednostAtributa.add(newVrednostAtributa);
+            this.vrednostAtributa.put(newVrednostAtributa.getVrednost(),newVrednostAtributa);
             newVrednostAtributa.setAtributKategorije(this);        
         }
     }
@@ -52,7 +46,7 @@ public class AtributKategorije {
         if (oldVrednostAtributa == null)
             return;
         if (this.vrednostAtributa != null)
-            if (this.vrednostAtributa.contains(oldVrednostAtributa))
+            if (this.vrednostAtributa.containsKey(oldVrednostAtributa.getVrednost()))
                 this.vrednostAtributa.remove(oldVrednostAtributa);
     }
 
@@ -73,12 +67,24 @@ public class AtributKategorije {
 			return false;
 		return true;
 }
-    
-    
-    
-  
-    
-    
-    
-    
+
+
+	public String getNaziv() {
+		return naziv;
+	}
+
+	public void setNaziv(String naziv) {
+		this.naziv = naziv;
+	}
+
+	/*
+	    Vraca vrednost atributa ako postoji sa ovakvom vrednoscu,inace pravi novu za zadatu vrednost
+	 */
+    public VrednostAtributa napraviVrednostAtributa(Object vrednost) {
+        if (vrednostAtributa.containsKey(vrednost))
+        return vrednostAtributa.get(vrednost);
+        VrednostAtributa va = new VrednostAtributa(vrednost);
+        vrednostAtributa.put(vrednost, va);
+        return va;
+    }
 }

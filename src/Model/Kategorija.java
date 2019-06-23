@@ -4,13 +4,19 @@
  * Purpose: Defines the Class Kategorija
  ***********************************************************************/
 package Model;
-import java.util.*;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import java.util.*;
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Kategorija {
     private String naziv;
     
-    private Collection<AtributKategorije> atributKategorije = new ArrayList<AtributKategorije>();
-    private Collection<Kategorija> podKategorija = new ArrayList<Kategorija>();
+    private Map<String,AtributKategorije> atributKategorije = new HashMap<>();
+    @JsonManagedReference
+    private Collection<Kategorija> podKategorija = new ArrayList<>();
+    @JsonBackReference
     private Kategorija nadKategorija;
     
     
@@ -21,15 +27,18 @@ public class Kategorija {
     	super();
     }
 
-    
 
+    public Kategorija(String naziv) {
+        super();
+        this.naziv = naziv;
+    }
 
-	public Kategorija(String naziv, Collection<AtributKategorije> atributKategorije, Collection<Kategorija> podKategorija,
+	public Kategorija(String naziv, Map<String,AtributKategorije> atributKategorije, Collection<Kategorija> podKategorija,
 			Kategorija nadKategorija) {
 		super();
 		this.naziv = naziv;
-		for (AtributKategorije a : atributKategorije) {
-			this.atributKategorije.add(a);
+		for (Map.Entry<String, AtributKategorije> a : atributKategorije.entrySet()) {
+			this.atributKategorije.put(a.getKey(),a.getValue());
 		}
 		
 		for (Kategorija kategorija : podKategorija) {
@@ -41,25 +50,24 @@ public class Kategorija {
 
 
 
-	public Collection<AtributKategorije> getAtributKategorije() {
+	public Map<String,AtributKategorije> getAtributKategorije() {
 		return atributKategorije;
 	}
     
     
 
-    public void setAtributKategorije(Collection<AtributKategorije> newAtributKategorije) {
+    public void setAtributKategorije(Map<String,AtributKategorije> newAtributKategorije) {
     	this.atributKategorije.clear();
-    	for (AtributKategorije atributKategorije : newAtributKategorije) {
-    		this.atributKategorije.add(atributKategorije);
+    	for (Map.Entry<String, AtributKategorije> atributKategorije : newAtributKategorije.entrySet()) {
+    		this.atributKategorije.put(atributKategorije.getKey(),atributKategorije.getValue());
     	}
     }
-    
 
     public void dodajAtributKategorije(AtributKategorije newAtributKategorije) {
         if (newAtributKategorije == null)
             return;
-        if (!this.atributKategorije.contains(newAtributKategorije))
-            this.atributKategorije.add(newAtributKategorije);
+        if (!this.atributKategorije.containsKey(newAtributKategorije.getNaziv()))
+            this.atributKategorije.put(newAtributKategorije .getNaziv(),newAtributKategorije);
     }
     
 
@@ -67,8 +75,7 @@ public class Kategorija {
         if (oldAtributKategorije == null)
             return;
         if (this.atributKategorije != null)
-            if (this.atributKategorije.contains(oldAtributKategorije))
-                this.atributKategorije.remove(oldAtributKategorije);
+            this.atributKategorije.remove(oldAtributKategorije.getNaziv());
     }
     
 
@@ -178,7 +185,19 @@ public class Kategorija {
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
 	}
-    
-    
 
+
+    public AtributKategorije getAtributKategorije(String naziv) {
+        if (atributKategorije.containsKey(naziv))
+        return atributKategorije.get(naziv);
+        return null;
+    }
+
+    public AtributKategorije napraviAtributKategorije(String naziv) {
+
+        if (!atributKategorije.containsKey(naziv)){
+            atributKategorije.put(naziv, new AtributKategorije(naziv));
+        }
+        return atributKategorije.get(naziv);
+    }
 }

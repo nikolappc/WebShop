@@ -1,12 +1,17 @@
 package View;
 
 import Controller.MainController;
+import Model.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import java.io.*;
+import java.util.Date;
+
 
 public class Main extends Application {
 
@@ -40,6 +45,110 @@ public class Main extends Application {
 
     public static void main(String[] args)
     {
+        Webshop webshop = new Webshop();
+        parseData(webshop);
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writeValue(new File("Proizvodi\\webshop.json"),webshop);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         launch(args);
+    }
+
+    static void parseData(Webshop webshop){
+        Kategorija nadKategorija=null,podKategorija=null;
+
+        try (BufferedReader br = new BufferedReader(new FileReader("Proizvodi\\muski.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.length()<=1){
+                    continue;
+                }
+                String[] s = line.trim().split(" ");
+                String[] s1 = s[0].split("\\.");
+                switch (s1.length){
+                    case 1:{
+                        nadKategorija = new Kategorija(s[1].toLowerCase());
+                        webshop.addKategorija(nadKategorija);
+                        break;
+                    }
+                    case 2:{
+                        podKategorija = new Kategorija(s[1].toLowerCase());
+                        if (nadKategorija != null) {
+                            nadKategorija.dodajPodKategorija(podKategorija);
+                        }
+                        podKategorija.setNadKategorija(nadKategorija);
+                        break;
+
+                    }
+                    case 3:{
+                        AtributKategorije atr;
+                        StringBuilder stringBuilder = new StringBuilder();
+                        for (int i = 2;i<s.length;++i){
+                            stringBuilder.append(s[i]);
+                            stringBuilder.append(' ');
+                        }
+                        String name = stringBuilder.toString().trim();
+                        line = br.readLine();
+                        String id = line.split(":")[1].trim();
+
+                        line = br.readLine();
+                        String brendName = line.split(":")[1].trim();
+
+
+                        line = br.readLine();
+                        String[] boje = line.split(":")[1].trim().split(",");
+
+
+                        line = br.readLine();
+
+                        int cena = Integer.parseInt(line.split(":")[1].trim());
+
+
+                        line = br.readLine();
+                        String[] velicine = line.split(":")[1].split(" ");
+
+
+                        line = br.readLine();
+                        String opis = line.split(":")[1].trim();
+
+                        Proizvod p = new Proizvod(name,opis, new Date(),id,Pol.M);
+
+                        StavkaCenovnika stavkaCenovnika = new StavkaCenovnika(new Date(),null,cena,0,p);
+                        webshop.addStavkaCenovnika(stavkaCenovnika);
+
+
+                        atr = podKategorija.napraviAtributKategorije("Velicine");
+                        for (String velicina:velicine){
+                            if (velicina=="nema"){
+                                break;
+                            }
+                            VrednostAtributa velicinaAtribut =  atr.napraviVrednostAtributa(velicina);
+                            velicinaAtribut.addProizvod(p);
+                        }
+
+                        atr = podKategorija.napraviAtributKategorije("Brend");
+                        VrednostAtributa brend = atr.napraviVrednostAtributa(brendName);
+                        brend.addProizvod(p);
+
+                        atr = podKategorija.napraviAtributKategorije("Boja");
+                        for (String boja : boje){
+                            VrednostAtributa vredboja = atr.napraviVrednostAtributa(boja);
+                            vredboja.addProizvod(p);
+                        }
+
+                        webshop.addProizvod(p);
+                        break;
+                    }
+                    default:
+
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -4,8 +4,11 @@
  * Purpose: Defines the Class Proizvod
  ***********************************************************************/
 package Model;
-import java.util.*;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.*;
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Proizvod {
    private String naziv;
    private String opis;
@@ -18,6 +21,14 @@ public class Proizvod {
    private Collection<String> slike;
 
    public Proizvod(){}
+
+   public Proizvod(String naziv, String opis, Date datumDodavanja, String sifra, Pol pol) {
+      this.naziv = naziv;
+      this.opis = opis;
+      this.datumDodavanja = datumDodavanja;
+      this.sifra = sifra;
+      this.pol = pol;
+   }
 
    public Proizvod(String naziv, String opis, int naStanju, int kupljen, int uListiZelja, Date datumDodavanja, String sifra, Pol pol, Collection<String> slike) {
       this.naziv = naziv;
@@ -38,7 +49,6 @@ public class Proizvod {
       Proizvod proizvod = (Proizvod) o;
       return Objects.equals(sifra, proizvod.sifra);
    }
-
    public String getNaziv() {
       return naziv;
    }

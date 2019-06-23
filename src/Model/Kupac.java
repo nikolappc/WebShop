@@ -4,8 +4,10 @@
  * Purpose: Defines the Class Kupac
  ***********************************************************************/
 package Model;
-import java.util.*;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
+import java.util.*;
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Kupac extends UlogovaniKorisnik {
     private String adresa;
     private String email;

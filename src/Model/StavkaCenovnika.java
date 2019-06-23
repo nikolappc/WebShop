@@ -4,8 +4,11 @@
  * Purpose: Defines the Class StavkaCenovnika
  ***********************************************************************/
 package Model;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 import java.util.*;
 
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class StavkaCenovnika {
    private Date datPoc;
    private Date datZav;

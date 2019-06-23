@@ -4,8 +4,10 @@
  * Purpose: Defines the Class Webshop
  ***********************************************************************/
 package Model;
-import java.util.*;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
+import java.util.*;
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Webshop  {
    public Collection<ContentMenadzer> contentMenadzeri;
    public Collection<StavkaCenovnika> stavkeCenovnika;
