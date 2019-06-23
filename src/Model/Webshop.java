@@ -10,7 +10,7 @@ import java.util.*;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Webshop  {
 
-   private UlogovaniKorisnik ulogovaniKorisnik;
+   public UlogovaniKorisnik ulogovaniKorisnik;
 
    public static Pretraga pretraga;
 

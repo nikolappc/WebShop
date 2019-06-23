@@ -156,4 +156,20 @@
         </children>
     </VBox>
 </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="leviVBox" prefHeight="704.0" prefWidth="246.0" style="-fx-background-color: C2C2C2;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="TOP" prefHeight="21.0" prefWidth="178.0" text="Korpa">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="desniVBox" prefHeight="704.0" prefWidth="936.0" />
+         </children>
+      </HBox>
+   </center>
 </BorderPane>
