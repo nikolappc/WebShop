@@ -28,7 +28,6 @@ public class Main extends Application {
 
         /** BACICE GRESKU AKO SE NE LOADUJE GLAVNI*/
         MainController mc = loader.getController();
-        mc.init();
 
 
         scene = new Scene(root, 1000, 800);

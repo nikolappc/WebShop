@@ -1,6 +1,8 @@
 package Controller;
 
 import View.Main;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,16 +23,38 @@ public class MainController implements  Initializable{
     public Button logo;
 
     @FXML
-    public SplitPane splitPane1;
+    public SplitPane splitPane1, splitPane2;
 
     public ImageView glavnaSlika, doleLevoSlika, doleDesnoSlika;
 
     public Pane glavniPane, leviPane, desniPane;
 
 
-    public void init(){
 
-        splitPane1.setDisable(true);
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+
+        SplitPane.Divider divider = splitPane1.getDividers().get(0);
+        divider.positionProperty().addListener(new ChangeListener<Number>()
+        {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldvalue, Number newvalue )
+            {
+                divider.setPosition(0.6);
+            }
+        });
+
+        SplitPane.Divider divider2 = splitPane2.getDividers().get(0);
+        divider2.positionProperty().addListener(new ChangeListener<Number>()
+        {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldvalue, Number newvalue )
+            {
+                divider2.setPosition(0.5);
+            }
+        });
 
         glavnaSlika.fitWidthProperty().bind(glavniPane.widthProperty());
         glavnaSlika.fitHeightProperty().bind(glavniPane.heightProperty());
@@ -42,7 +66,6 @@ public class MainController implements  Initializable{
         doleDesnoSlika.fitHeightProperty().bind(desniPane.heightProperty());
 
     }
-
 
     public void pritisnutLogo() {
         /** Korisnik pritisnuo LOGO*/
@@ -76,6 +99,18 @@ public class MainController implements  Initializable{
 
     public void nalogPritisnut() {
         /** Korisnik pritisnuo dugme za pregled svog naloga */
+
+        System.out.println("MTRS");
+        try{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Prijava.fxml"));
+            Parent root = (Parent) loader.load();
+
+            PrijavaController pc = loader.getController();
+
+            Main.scene.setRoot(root);
+
+        }catch (Exception ex){}
     }
 
     public void listaZeljaPritisnuta() {
@@ -88,7 +123,6 @@ public class MainController implements  Initializable{
 
 
     public void glavnaSlikaPritisnuta() {
-
 
     }
 
@@ -113,8 +147,5 @@ public class MainController implements  Initializable{
         return null;
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
 
-    }
 }
