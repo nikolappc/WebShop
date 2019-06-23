@@ -20,7 +20,7 @@ public class Main extends Application {
     public static Scene scene;
 
     // Glavna instanca WebSHop-a
-    private static Webshop webshop;
+    public static Webshop webshop;
 
     @Override
     public void start(Stage primaryStage) throws Exception {

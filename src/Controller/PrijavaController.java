@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Kupac;
+import Model.UlogovaniKorisnik;
 import View.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,6 +24,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
+
+import static View.Main.webshop;
 
 public class PrijavaController implements Initializable {
 
@@ -96,10 +100,9 @@ public class PrijavaController implements Initializable {
             return;
         }
 
-
-        // ove uradi pretragu korisnika
-        if(/* pretraga korisnika je uspela*/ false){
-
+        if(Main.webshop.prijava(korisnickoPrijava.getText(), lozinkaPrijava.getText())){
+            // TODO: dodaj da se prikazuje glavna strana
+            System.out.println("Bravo care");
         } else {
             porukaPrijava.setText("Pogresno korisnicko ili lozinka");
         }
@@ -110,39 +113,114 @@ public class PrijavaController implements Initializable {
 
     }
 
+    /**
+     * Poziva se kada korisnik klikne na dugme Registracija
+     * Validuje korisnicki unos i kreira novi nalog ako je
+     * unos validan.
+     * @param event
+     */
     @FXML
     void stisnuoRegistracija(ActionEvent event) {
         ArrayList<TextField> polja = new ArrayList(
                 Arrays.asList(imeReg, prezimeReg, emailReg, korisnickoReg,
-                              pLoznikaReg, lozinkaReg, adresaReg, brTelefonaReg));
+                              pLoznikaReg, lozinkaReg));
         porukaReg.setText("");
         resetujBojePolja(polja);
         proveraPraznine(polja);
         oznaciPolja(polja);
 
+        // ovo znaci da nije popunio sva polja
         if(polja.size() > 0){
             return;
         }
 
-        // proveri jedinstvenost korisnickog
-
-        // poredi loznike
-        if(!lozinkaReg.getText().equals(pLoznikaReg.getText())){
-            porukaReg.setText(String.format("%s %s", porukaReg.getText(), "Lozinke se ne poklapaju"));
-            lozinkaReg.setStyle("-fx-text-box-border: red;");
-            pLoznikaReg.setStyle("-fx-text-box-border: red;");
-        }
-
-        //proveri broj telefona
-        if(!brTelefonaReg.getText().matches("^[+]*[0-9]$")){
-            porukaReg.setText(String.format("%s %s", porukaReg.getText(), "Pogresan br tel."));
-            brTelefonaReg.setStyle("-fx-text-box-border: red;");
-        }
+        // validacija polja
+        boolean ok = true;
+        ok = proveraEmail();
+        ok = proveraKorisnickog();
+        ok = proveraLoznike();
+        ok = proveraBrTelefona();
 
         // proveri da li je izabro pol
         if(polComboBox.getValue()==null){
             porukaReg.setText(String.format("%s %s", porukaReg.getText(), "Izaberite pol."));
+            ok = false;
         }
+
+        if(ok){
+            // kreiraj korisnika
+        }
+    }
+
+    /**
+     * Proverava validnost i jednistvenost maila
+     * i prikazuje odgovarajuce poruke u slucaju da
+     * nesto nije u redu.
+     * @return true ako je sve ok, false u suprotnom
+     */
+    private boolean proveraEmail(){
+        boolean ok = true;
+        // provera validnosti maila
+        if(!emailReg.getText().matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")){
+            porukaReg.setText("Email nije dobar.");
+            emailReg.setStyle("-fx-text-box-border: red;");
+            ok = false;
+        }
+
+        // proveri jednistvenost maila.
+        Kupac kupac = Main.webshop.pretraga.pretragaKupacaEmail(Main.webshop.kupci, emailReg.getText());
+        if(kupac != null){
+            porukaReg.setText("Email je zauzet.");
+            emailReg.setStyle("-fx-text-box-border: red;");
+            ok = false;
+        }
+
+        return ok;
+    }
+
+    /**
+     * Proverava jedinstvenost korisnickog
+     * @return true ako je ne postoji vec, false  u suprotnom
+     */
+    private boolean proveraKorisnickog(){
+        UlogovaniKorisnik korisnik = Main.webshop.pretraga.pretragaKupacaKorisnicko(
+                Main.webshop.kupci, webshop.contentMenadzeri, korisnickoReg.getText());
+
+        if(korisnik != null){
+            porukaReg.setText(String.format("%s %s", porukaReg.getText(),"Korisnicko vec postoji."));
+            korisnickoReg.setStyle("-fx-text-box-border: red;");
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Uporedjuje loznike
+     * @return true ako se poklapaju, false u suprotnom
+     */
+    private boolean proveraLoznike(){
+        if(!lozinkaReg.getText().equals(pLoznikaReg.getText())){
+            porukaReg.setText(String.format("%s %s", porukaReg.getText(), "Lozinke se ne poklapaju"));
+            lozinkaReg.setStyle("-fx-text-box-border: red;");
+            pLoznikaReg.setStyle("-fx-text-box-border: red;");
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Proverava validnost broja telefona
+     * @return
+     */
+    private boolean proveraBrTelefona(){
+        if(!brTelefonaReg.getText().matches("^[+]*[0-9]*$")){
+            porukaReg.setText(String.format("%s %s", porukaReg.getText(), "Pogresan br tel."));
+            brTelefonaReg.setStyle("-fx-text-box-border: red;");
+            return false;
+        }
+
+        return true;
     }
 
     @FXML
