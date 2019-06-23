@@ -152,7 +152,7 @@ public class Main extends Application {
 
 
                         line = br.readLine();
-                        String[] velicine = line.split(":")[1].split(" ");
+                        String velicine = line.split(":")[1];
 
 
                         line = br.readLine();
@@ -160,27 +160,22 @@ public class Main extends Application {
 
                         Proizvod p = new Proizvod(name, opis, new Date(), id, Pol.M);
 
+                        if (podKategorija != null) {
+                            podKategorija.dodajProizvod(p);
+                        }
+
                         StavkaCenovnika stavkaCenovnika = new StavkaCenovnika(new Date(), null, cena, 0, p);
                         webshop.addStavkaCenovnika(stavkaCenovnika);
 
 
-                        atr = podKategorija.napraviAtributKategorije("Velicine");
-                        for (String velicina : velicine) {
-                            if (velicina.equals("nema")) {
-                                break;
-                            }
-                            VrednostAtributa velicinaAtribut = atr.napraviVrednostAtributa(velicina);
-                            velicinaAtribut.addProizvod(p);
-                        }
-
-                        atr = podKategorija.napraviAtributKategorije("Brend");
-                        VrednostAtributa brend = atr.napraviVrednostAtributa(brendName);
-                        brend.addProizvod(p);
-
-                        atr = podKategorija.napraviAtributKategorije("Boja");
-                        for (String boja : boje) {
-                            VrednostAtributa vredboja = atr.napraviVrednostAtributa(boja);
-                            vredboja.addProizvod(p);
+                        Atribut atri;
+                        if (podKategorija != null) {
+                            atri = podKategorija.napraviAtribut("Velicine",velicine);
+                            p.dodajAtribut(atri);
+                            atri = podKategorija.napraviAtribut("Brend",brendName);
+                            p.dodajAtribut(atri);
+                            atri = podKategorija.napraviAtribut("Boja",boje);
+                            p.dodajAtribut(atri);
                         }
 
                         webshop.addProizvod(p);

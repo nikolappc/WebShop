@@ -5,7 +5,6 @@
  ***********************************************************************/
 package Model;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.*;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
@@ -19,6 +18,9 @@ public class Proizvod {
    private String sifra;
    private Pol pol;
    private Collection<String> slike;
+
+   private Kategorija kategorija;
+   private Map<String,Atribut> atributi = new HashMap<>();
 
    public Proizvod(){}
 
@@ -119,5 +121,26 @@ public class Proizvod {
 
    public void setSlike(Collection<String> slike) {
       this.slike = slike;
+   }
+
+
+   public Kategorija getKategorija() {
+      return kategorija;
+   }
+
+   public void setKategorija(Kategorija kategorija) {
+      this.kategorija = kategorija;
+   }
+
+   public Map<String, Atribut> getAtributi() {
+      return atributi;
+   }
+
+   public void setAtributi(Map<String, Atribut> atributi) {
+      this.atributi = atributi;
+   }
+
+   public void dodajAtribut(Atribut atribut) {
+      atributi.put(atribut.getNaziv(),atribut);
    }
 }

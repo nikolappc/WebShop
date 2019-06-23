@@ -13,16 +13,18 @@ import java.util.*;
 public class Kategorija {
     private String naziv;
     
-    private Map<String,AtributKategorije> atributKategorije = new HashMap<>();
     @JsonManagedReference
     private Collection<Kategorija> podKategorija = new ArrayList<>();
     @JsonBackReference
     private Kategorija nadKategorija;
-    
-    
-    
-    
-    
+
+    private Collection<Proizvod> proizvodi = new ArrayList<>();
+
+    private Map<String,Atribut> atributi = new HashMap<>();
+
+
+
+
     public Kategorija() {
     	super();
     }
@@ -33,51 +35,16 @@ public class Kategorija {
         this.naziv = naziv;
     }
 
-	public Kategorija(String naziv, Map<String,AtributKategorije> atributKategorije, Collection<Kategorija> podKategorija,
-			Kategorija nadKategorija) {
-		super();
-		this.naziv = naziv;
-		for (Map.Entry<String, AtributKategorije> a : atributKategorije.entrySet()) {
-			this.atributKategorije.put(a.getKey(),a.getValue());
-		}
-		
-		for (Kategorija kategorija : podKategorija) {
-			this.podKategorija.add(kategorija);
-		}
-		this.nadKategorija = nadKategorija;
-	}
 
-
-
-
-	public Map<String,AtributKategorije> getAtributKategorije() {
-		return atributKategorije;
-	}
-    
-    
-
-    public void setAtributKategorije(Map<String,AtributKategorije> newAtributKategorije) {
-    	this.atributKategorije.clear();
-    	for (Map.Entry<String, AtributKategorije> atributKategorije : newAtributKategorije.entrySet()) {
-    		this.atributKategorije.put(atributKategorije.getKey(),atributKategorije.getValue());
-    	}
+    public Kategorija(String naziv, Collection<Kategorija> podKategorija, Kategorija nadKategorija, Collection<Proizvod> proizvodi) {
+        this.naziv = naziv;
+        this.podKategorija = podKategorija;
+        this.nadKategorija = nadKategorija;
+        this.proizvodi = proizvodi;
     }
 
-    public void dodajAtributKategorije(AtributKategorije newAtributKategorije) {
-        if (newAtributKategorije == null)
-            return;
-        if (!this.atributKategorije.containsKey(newAtributKategorije.getNaziv()))
-            this.atributKategorije.put(newAtributKategorije .getNaziv(),newAtributKategorije);
-    }
-    
 
-    public void izbaciAtributKategorije(AtributKategorije oldAtributKategorije) {
-        if (oldAtributKategorije == null)
-            return;
-        if (this.atributKategorije != null)
-            this.atributKategorije.remove(oldAtributKategorije.getNaziv());
-    }
-    
+
 
     public Collection<Kategorija> getPodKategorija() {
         return podKategorija;
@@ -149,11 +116,6 @@ public class Kategorija {
 		if (getClass() != obj.getClass())
 			return false;
 		Kategorija other = (Kategorija) obj;
-		if (atributKategorije == null) {
-			if (other.atributKategorije != null)
-				return false;
-		} else if (!atributKategorije.equals(other.atributKategorije))
-			return false;
 		if (nadKategorija == null) {
 			if (other.nadKategorija != null)
 				return false;
@@ -174,6 +136,9 @@ public class Kategorija {
 
 
 
+	public void dodajProizvod(Proizvod p){
+        proizvodi.add(p);
+    }
 
 	public String getNaziv() {
 		return naziv;
@@ -186,18 +151,27 @@ public class Kategorija {
 		this.naziv = naziv;
 	}
 
-
-    public AtributKategorije getAtributKategorije(String naziv) {
-        if (atributKategorije.containsKey(naziv))
-        return atributKategorije.get(naziv);
-        return null;
+    public Collection<Proizvod> getProizvodi() {
+        return proizvodi;
     }
 
-    public AtributKategorije napraviAtributKategorije(String naziv) {
+    public void setProizvodi(Collection<Proizvod> proizvodi) {
+        this.proizvodi = proizvodi;
+    }
 
-        if (!atributKategorije.containsKey(naziv)){
-            atributKategorije.put(naziv, new AtributKategorije(naziv));
+
+    public Map<String, Atribut> getAtributi() {
+        return atributi;
+    }
+
+    public void setAtributi(Map<String, Atribut> atributi) {
+        this.atributi = atributi;
+    }
+
+    public Atribut napraviAtribut(String naziv,Object vrednost) {
+        if (!atributi.containsKey(naziv)){
+            atributi.put(naziv,new Atribut(naziv,vrednost));
         }
-        return atributKategorije.get(naziv);
+        return atributi.get(naziv);
     }
 }
