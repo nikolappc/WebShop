@@ -79,7 +79,7 @@ public class Main extends Application {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] params = line.split(",");
-                Kupac kupac = new Kupac(params[0], params[1], params[2], params[3]);
+                Kupac kupac = new Kupac(params[0], params[1], params[2], params[3], "", "");
                 webshop.addKupac(kupac);
             }
         } catch (FileNotFoundException e) {

@@ -10,11 +10,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
 import javafx.scene.control.Label;
-import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.GridPane;
 
 import javax.xml.soap.Text;
@@ -149,7 +147,18 @@ public class PrijavaController implements Initializable {
         }
 
         if(ok){
-            // kreiraj korisnika
+            Main.webshop.addKupac(new Kupac(korisnickoReg.getText(),
+                                            lozinkaReg.getText(),
+                                            imeReg.getText(),
+                                            prezimeReg.getText(),
+                                            adresaReg.getText(),
+                                            emailReg.getText()));
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Nalog uspesno kreiran.");
+            alert.setContentText("Sada probajte da se prijavite.");
+            alert.setHeaderText("Uspesno ste se registrovali.");
+            alert.showAndWait();
         }
     }
 
