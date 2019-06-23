@@ -20,8 +20,13 @@ public class Main extends Application {
     public static Stage window;
     public static Scene scene;
 
+    // Glavna instanca WebSHop-a
+    private static Webshop webshop;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
+        /**Ucitava WebShop**/
+        loadWebShop();
 
         window = primaryStage ;
         window.setTitle("PRODAVNICA ");
@@ -42,18 +47,35 @@ public class Main extends Application {
         window.show();
     }
 
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        writeWebShop();
+    }
 
     public static void main(String[] args)
     {
-        Webshop webshop = new Webshop();
-        parseData(webshop);
+//        Webshop webshop = new Webshop();
+//        parseData(webshop);
+        launch(args);
+    }
+
+    static void loadWebShop(){
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            webshop = mapper.readValue(new File("Proizvodi\\webshop.json"),Webshop.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void writeWebShop(){
         ObjectMapper mapper = new ObjectMapper();
         try {
             mapper.writeValue(new File("Proizvodi\\webshop.json"),webshop);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        launch(args);
     }
 
     static void parseData(Webshop webshop){
@@ -121,7 +143,7 @@ public class Main extends Application {
 
                         atr = podKategorija.napraviAtributKategorije("Velicine");
                         for (String velicina:velicine){
-                            if (velicina=="nema"){
+                            if (velicina.equals("nema")){
                                 break;
                             }
                             VrednostAtributa velicinaAtribut =  atr.napraviVrednostAtributa(velicina);
