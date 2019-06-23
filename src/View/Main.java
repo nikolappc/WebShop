@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 
@@ -103,7 +105,7 @@ public class Main extends Application {
 
     static void parseData(Webshop webshop) {
         Kategorija nadKategorija = null, podKategorija = null;
-
+        String imageDir = "Proizvodi\\Slike\\";
         try (BufferedReader br = new BufferedReader(new FileReader("Proizvodi\\muski.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -159,6 +161,11 @@ public class Main extends Application {
                         String opis = line.split(":")[1].trim();
 
                         Proizvod p = new Proizvod(name, opis, new Date(), id, Pol.M);
+                        Collection<String> slike = new ArrayList<>();
+                        slike.add(imageDir+id+"-1.jpg");
+                        slike.add(imageDir+id+"-2.jpg");
+                        slike.add(imageDir+id+"-3.jpg");
+                        p.setSlike(slike);
 
                         if (podKategorija != null) {
                             podKategorija.dodajProizvod(p);
