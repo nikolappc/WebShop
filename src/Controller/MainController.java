@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -14,19 +15,18 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainController{
+public class MainController implements  Initializable{
 
     public Button logo;
 
+    @FXML
+    public SplitPane splitPane1;
+
 //    public static ImageView glavnaSlika, doleLevoSlika, doleDesnoSlika;
 
-    public static void init() {
-        /** OVO NE RADI JBMGA */
-//        glavnaSlika.fitWidthProperty().bind(Main.window.widthProperty());
 
-//        doleLevoSlika.fitWidthProperty().bind(Main.window.widthProperty());
-
-//        doleDesnoSlika.fitWidthProperty().bind(Main.window.widthProperty());
+    public void init(){
+        splitPane1.setDisable(true);
     }
 
     public void pritisnutLogo() {
@@ -34,7 +34,7 @@ public class MainController{
 
         try {
 
-            Parent root = FXMLLoader.load(getClass().getResource("..\\FXML\\new.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("..\\FXML\\Katalog.fxml"));
 
             Main.scene.setRoot(root);
 
@@ -87,4 +87,8 @@ public class MainController{
         return null;
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }

@@ -1,22 +1,55 @@
 package Controller;
 
+import View.Main;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
-public class ProizvodController {
+import java.io.FileInputStream;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ProizvodController implements Initializable {
 
     public ImageView trenutnaSlika;
     public ImageView slikaProizvoda1, slikaProizvoda2, slikaProizvoda3;
 
     public ImageView preporucenSlika1,preporucenSlika2,preporucenSlika3;
 
+
+    public Label opisProizvoda;
+
     public Button logo;
+
+
+
+
+
+    public void postaviSliku(String url){
+
+        Image image = new Image(url);
+        trenutnaSlika.setImage(image);
+
+        slikaProizvoda1.setImage(image);
+
+        Image img2 = new Image(url.substring(0,url.length()-5) + "1.jpg");
+        slikaProizvoda2.setImage(img2);
+
+        Image img3 = new Image(url.substring(0,url.length()-5) + "3.jpg");
+        slikaProizvoda3.setImage(img3);
+
+
+    }
 
     public void logopressed(){
         /** Korisnik pritisnuo LOGO u gornjem delu ekrana */
 
 
-        logo.setText("SUKURAC");
     }
 
     public void traziPritisnut(){
@@ -30,19 +63,18 @@ public class ProizvodController {
     public void pritisnutaKategorija(){
         /** Korisnik pritisnuo kategoriju u putanji do proizvoda*/
 
-        logo.setText("Ne DIRAJ");
+
     }
 
     public void izabranaSlika1(){
         /** Korisnik izabrao prvu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
 
-        logo.setText("Ne DIRAJ");
+
     }
 
     public void izabranaSlika2(){
         /** Korisnik izabrao drugu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
 
-        logo.setText("Ne DIRAJ");
     }
 
     public void izabranaSlika3(){
@@ -55,10 +87,38 @@ public class ProizvodController {
     public void prethodnaSlika(){
         /** Korisnik izabrao prethodnu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
 
+        String path = trenutnaSlika.getImage().impl_getUrl();
+        if( path.charAt(path.length()-5) == '1') {
+            Image img2 = new Image(path.substring(0,path.length()-5) + "2.jpg");
+            trenutnaSlika.setImage(img2);
+        }
+        else if(path.charAt(path.length()-5) == '2') {
+            Image img2 = new Image(path.substring(0,path.length()-5) + "3.jpg");
+            trenutnaSlika.setImage(img2);
+        }
+        else{
+            Image img2 = new Image(path.substring(0,path.length()-5) + "1.jpg");
+            trenutnaSlika.setImage(img2);
+        }
+
     }
 
     public void sledecaSlika(){
         /** Korisnik izabrao sledecu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+
+        String path = trenutnaSlika.getImage().impl_getUrl();
+        if( path.charAt(path.length()-5) == '1') {
+            Image img2 = new Image(path.substring(0,path.length()-5) + "3.jpg");
+            trenutnaSlika.setImage(img2);
+        }
+        else if(path.charAt(path.length()-5) == '2') {
+            Image img2 = new Image(path.substring(0,path.length()-5) + "1.jpg");
+            trenutnaSlika.setImage(img2);
+        }
+        else{
+            Image img2 = new Image(path.substring(0,path.length()-5) + "2.jpg");
+            trenutnaSlika.setImage(img2);
+        }
 
     }
 
@@ -84,6 +144,12 @@ public class ProizvodController {
 
     public void izabranPreporucen3(){
         /** Korisnik zeli da vidi treci preporuceni proizvod */
+
+    }
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 

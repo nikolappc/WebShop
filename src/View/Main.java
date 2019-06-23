@@ -21,14 +21,19 @@ public class Main extends Application {
         window = primaryStage ;
         window.setTitle("PRODAVNICA ");
 
-        Parent root = FXMLLoader.load(getClass().getResource("..\\FXML\\glavni.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("..\\FXML\\glavni.fxml"));
 
-        //MainController.init();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
+        Parent root = (Parent) loader.load();
+
+        /** BACICE GRESKU AKO SE NE LOADUJE GLAVNI*/
+        //MainController mc = loader.getController();
+        //mc.init();
+
 
         scene = new Scene(root, 1000, 800);
 
         window.setScene(scene);
-
 
         window.show();
     }

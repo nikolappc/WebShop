@@ -22,19 +22,21 @@
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="359.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="443.0" minWidth="10.0" prefWidth="263.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="193.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="0.0" prefWidth="185.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="240.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="0.0" prefWidth="138.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="380.0" spacing="20.0" GridPane.hgrow="SOMETIMES">
+                        <HBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="380.0" spacing="15.0" GridPane.hgrow="SOMETIMES">
                             <children>
                                 <MenuButton mnemonicParsing="false" style="-fx-background-color: #000000;" text="Muskarci" textFill="WHITE">
                                     <items>
-                                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                                        <MenuItem mnemonicParsing="false" text="Jakne" />
+                                        <MenuItem mnemonicParsing="false" text="Dukserice" />
+                                        <MenuItem mnemonicParsing="false" text="Pantalone" />
+                                        <MenuItem mnemonicParsing="false" text="Jakne" />
                                     </items>
                                     <font>
                                         <Font size="14.0" />
@@ -51,8 +53,12 @@
                                 </MenuButton>
                                 <MenuButton layoutX="69.0" layoutY="37.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #000000;" text="Brendovi" textFill="WHITE">
                                     <items>
-                                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                                        <MenuItem mnemonicParsing="false" text="Stone Island" />
+                                        <MenuItem mnemonicParsing="false" text="Stussy" />
+                                        <MenuItem mnemonicParsing="false" text="Palm Angels" />
+                                        <MenuItem mnemonicParsing="false" text="Saint Laurent" />
+                                        <MenuItem mnemonicParsing="false" text="Maison Margiela" />
+                                        <MenuItem mnemonicParsing="false" text="Nike" />
                                     </items>
                                     <font>
                                         <Font size="14.0" />
@@ -63,10 +69,10 @@
                                 <Insets left="10.0" />
                             </GridPane.margin>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
                             <children>
                                 <TextField />
-                                <Button fx:id="lupa" mnemonicParsing="false" onAction="#traziPritisnut" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: #ffa500;" text="LUPA" textFill="WHITE">
+                                <Button fx:id="lupa" mnemonicParsing="false" onAction="#traziPritisnut" prefHeight="25.0" prefWidth="33.0" style="-fx-background-color: #ffa500; -fx-padding: 0;" textFill="WHITE">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
@@ -76,12 +82,27 @@
                                 <Insets left="20.0" />
                             </padding>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="3">
                             <children>
-                                <Button mnemonicParsing="false" text="But" />
-                                <Button mnemonicParsing="false" text="But" />
-                                <Button mnemonicParsing="false" text="But" />
+                                <ImageView id="slika1" fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/Slike/nalog.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="86.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/Slike/srce.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="105.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/Slike/korpa.png" />
+                                    </image>
+                                </ImageView>
                             </children>
+                            <GridPane.margin>
+                                <Insets left="5.0" />
+                            </GridPane.margin>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                             <children>
@@ -147,37 +168,24 @@
                             </rowConstraints>
                             <children>
                                 <ImageView id="slika1" fx:id="slikaProizvoda1" fitHeight="158.0" fitWidth="126.0" onMouseClicked="#izabranaSlika1" pickOnBounds="true">
-                                    <image>
-                                        <Image url="@../Slike/upload9223368955665511224.jpg" />
-                                    </image>
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor></ImageView>
                                 <ImageView id="slika2" fx:id="slikaProizvoda2" fitHeight="158.0" fitWidth="126.0" onMouseClicked="#izabranaSlika2" pickOnBounds="true" GridPane.rowIndex="1">
-                                    <image>
-                                        <Image url="@../Slike/upload9223368955665511214.jpg" />
-                                    </image>
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </ImageView>
                                 <ImageView id="slika3" fx:id="slikaProizvoda3" fitHeight="167.0" fitWidth="126.0" onMouseClicked="#izabranaSlika3" pickOnBounds="true" GridPane.rowIndex="2">
-                                    <image>
-                                        <Image url="@../Slike/upload9223368955665511220.jpg" />
-                                    </image>
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </ImageView>
                             </children>
                         </GridPane>
-                        <Pane prefHeight="572.0" prefWidth="431.0" style="-fx-background-color: grey;">
+                        <Pane fx:id="pejn" prefHeight="572.0" prefWidth="431.0" style="-fx-background-color: grey;">
                             <children>
-                                <ImageView id="izabranaSlika" fx:id="trenutnaSlika" fitHeight="537.0" fitWidth="431.0" pickOnBounds="true">
-                                    <image>
-                                        <Image url="@../Slike/upload9223368955665511224.jpg" />
-                                    </image>
-                                </ImageView>
+                                <ImageView id="izabranaSlika" fx:id="trenutnaSlika" fitHeight="537.0" fitWidth="431.0" pickOnBounds="true" />
                                 <Button id="sledecaSlika" fx:id="sledeca" layoutX="358.0" layoutY="252.0" mnemonicParsing="false" onMouseClicked="#sledecaSlika" text="Button" />
                                 <Button id="prethodnaSlika" fx:id="prethodna" layoutX="14.0" layoutY="252.0" mnemonicParsing="false" onMouseClicked="#prethodnaSlika" text="Button" />
                             </children>
@@ -262,7 +270,7 @@
                                                 </Label>
                                                 <Label fx:id="opisProizvoda" text="Label">
                                                     <font>
-                                                        <Font size="18.0" />
+                                                        <Font size="14.0" />
                                                     </font>
                                                 </Label>
                                             </children>
@@ -281,25 +289,16 @@
                                 <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                                     <children>
                                         <ImageView id="preporucen1" fx:id="preporucenSlika1" fitHeight="150.0" fitWidth="109.0" onMouseClicked="#izabranPreporucen1" pickOnBounds="true">
-                                            <image>
-                                                <Image url="@../Slike/upload9223368955665532042.jpg" />
-                                            </image>
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </ImageView>
                                         <ImageView id="preporucen2" fx:id="preporucenSlika2" fitHeight="150.0" fitWidth="109.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#izabranPreporucen2" pickOnBounds="true">
-                                            <image>
-                                                <Image url="@../Slike/upload9223368955665532042.jpg" />
-                                            </image>
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </ImageView>
                                         <ImageView id="preporucen3" fx:id="preporucenSlika3" fitHeight="150.0" fitWidth="109.0" layoutX="129.0" layoutY="10.0" onMouseClicked="#izabranPreporucen3" pickOnBounds="true">
-                                            <image>
-                                                <Image url="@../Slike/upload9223368955665532042.jpg" />
-                                            </image>
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
