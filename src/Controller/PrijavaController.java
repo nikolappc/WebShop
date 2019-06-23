@@ -66,6 +66,11 @@ public class PrijavaController implements Initializable {
 
     }
 
+    @FXML
+    void nalogPritisnut(ActionEvent event){
+
+    }
+
 
 
 

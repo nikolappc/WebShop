@@ -70,15 +70,16 @@ public class MainController implements  Initializable{
     public void pritisnutLogo() {
         /** Korisnik pritisnuo LOGO*/
 
-        try {
+        try{
 
-            Parent root = FXMLLoader.load(getClass().getResource("..\\FXML\\Katalog.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
+            Parent root = (Parent) loader.load();
+
+            MainController pc = loader.getController();
 
             Main.scene.setRoot(root);
 
-        } catch (Exception e) {
-
-        }
+        }catch (Exception ex){ ex.printStackTrace();}
     }
 
 
@@ -100,7 +101,6 @@ public class MainController implements  Initializable{
     public void nalogPritisnut() {
         /** Korisnik pritisnuo dugme za pregled svog naloga */
 
-        System.out.println("MTRS");
         try{
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Prijava.fxml"));
@@ -110,7 +110,7 @@ public class MainController implements  Initializable{
 
             Main.scene.setRoot(root);
 
-        }catch (Exception ex){}
+        }catch (Exception ex){ ex.printStackTrace();}
     }
 
     public void listaZeljaPritisnuta() {

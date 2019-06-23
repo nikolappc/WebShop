@@ -58,6 +58,17 @@ public class ProizvodController implements Initializable {
 
     public void pritisnutLogo(){
 
+        try{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
+            Parent root = (Parent) loader.load();
+
+            MainController pc = loader.getController();
+
+            Main.scene.setRoot(root);
+
+        }catch (Exception ex){ ex.printStackTrace();}
+
     }
 
     public void pritisnutaKategorija(){
