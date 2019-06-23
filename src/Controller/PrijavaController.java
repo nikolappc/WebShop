@@ -68,6 +68,7 @@ public class PrijavaController implements Initializable {
 
 
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

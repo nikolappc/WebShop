@@ -142,6 +142,8 @@ public class ProizvodController implements Initializable {
     public void dodatoUKorpu(){
         /** Korisnik dodao proizvod u korpu*/
 
+
+
     }
 
     public void dodatoUListuZelja(){
@@ -167,6 +169,8 @@ public class ProizvodController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        opisProizvoda.setText("This classic black parka from Italian brand Stone Island pays heed to the label’s ethos of technologically advanced design and simple cuts with a militaristic twist");
 
     }
 

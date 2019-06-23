@@ -26,7 +26,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.KorpaController">
     <top>
     <VBox prefHeight="96.0" prefWidth="842.0" BorderPane.alignment="CENTER">
         <children>
@@ -126,7 +126,7 @@
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </ImageView>
-                            <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="105.0" layoutY="32.0" onMouseClicked="#korpaPritisnuta" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="105.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@/Slike/korpa.png" />
                                 </image>
@@ -156,47 +156,4 @@
         </children>
     </VBox>
 </top>
-    <center>
-        <SplitPane fx:id="splitPane1" dividerPositions="0.6" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
-            <items>
-                <AnchorPane fx:id="glavniPane" minHeight="0.0" minWidth="0.0" prefHeight="295.0" prefWidth="930.0" style="-fx-background-color: #6B8E23;">
-               <children>
-                  <ImageView fx:id="glavnaSlika" fitHeight="419.0" fitWidth="1000.0" layoutX="-2.0" onMouseClicked="#glavnaSlikaPritisnuta" pickOnBounds="true" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <image>
-                        <Image url="@/Slike/PA.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-               </children></AnchorPane>
-                <SplitPane fx:id="splitPane2" dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
-                    <items>
-                        <AnchorPane fx:id="leviPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #AFEEEE;">
-                     <children>
-                        <ImageView fx:id="doleLevoSlika" fitHeight="281.0" fitWidth="497.0" layoutY="-1.0" onMouseClicked="#levaSlikaPritisnuta" pickOnBounds="true" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-1.0">
-                           <image>
-                              <Image url="@/Slike/SI.jpg" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                     </children></AnchorPane>
-                        <AnchorPane fx:id="desniPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #AFEEEE;">
-                     <children>
-                        <ImageView fx:id="doleDesnoSlika" fitHeight="278.0" fitWidth="497.0" onMouseClicked="#desnaSlikaPritisnuta" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <image>
-                              <Image url="@/Slike/SL.jpg" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                     </children></AnchorPane>
-                    </items>
-                </SplitPane>
-            </items>
-        </SplitPane>
-    </center>
 </BorderPane>

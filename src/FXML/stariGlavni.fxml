@@ -126,7 +126,7 @@
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </ImageView>
-                            <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="105.0" layoutY="32.0" onMouseClicked="#korpaPritisnuta" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="105.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@/Slike/korpa.png" />
                                 </image>

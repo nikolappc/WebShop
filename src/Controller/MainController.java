@@ -95,7 +95,7 @@ public class MainController implements  Initializable{
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();
-            pc.pritisnutLogo();
+            pc.prikaziSve();
 
             Main.scene.setRoot(root);
         }catch (Exception ex){}
@@ -122,6 +122,17 @@ public class MainController implements  Initializable{
 
     public void korpaPritisnuta() {
         /** Korisnik pritisnuo dugme za pregled svoje korpe*/
+    	
+    	try{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Korpa.fxml"));
+            Parent root = (Parent) loader.load();
+
+            KorpaController pc = loader.getController();
+
+            Main.scene.setRoot(root);
+
+        }catch (Exception ex){ ex.printStackTrace();}
     }
 
 
@@ -148,6 +159,13 @@ public class MainController implements  Initializable{
             e.printStackTrace();
         }
         return null;
+    }
+
+
+
+    public void Prozivcvsadsdaas9(){
+
+
     }
 
 
