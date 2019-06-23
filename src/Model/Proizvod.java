@@ -17,7 +17,7 @@ public class Proizvod {
    private Date datumDodavanja;
    private String sifra;
    private Pol pol;
-   private Collection<String> slike;
+   private List<String> slike;
 
    private Kategorija kategorija;
    private Map<String,Atribut> atributi = new HashMap<>();
@@ -32,7 +32,7 @@ public class Proizvod {
       this.pol = pol;
    }
 
-   public Proizvod(String naziv, String opis, int naStanju, int kupljen, int uListiZelja, Date datumDodavanja, String sifra, Pol pol, Collection<String> slike) {
+   public Proizvod(String naziv, String opis, int naStanju, int kupljen, int uListiZelja, Date datumDodavanja, String sifra, Pol pol, List<String> slike) {
       this.naziv = naziv;
       this.opis = opis;
       this.naStanju = naStanju;
@@ -42,6 +42,12 @@ public class Proizvod {
       this.sifra = sifra;
       this.pol = pol;
       this.slike = slike;
+   }
+
+   public String toString(){
+
+      return naziv;
+
    }
 
    @Override
@@ -115,11 +121,11 @@ public class Proizvod {
       this.pol = pol;
    }
 
-   public Collection<String> getSlike() {
+   public List<String> getSlike() {
       return slike;
    }
 
-   public void setSlike(Collection<String> slike) {
+   public void setSlike(List<String> slike) {
       this.slike = slike;
    }
 

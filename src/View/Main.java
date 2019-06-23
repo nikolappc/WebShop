@@ -13,6 +13,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 
 public class Main extends Application {
@@ -31,6 +32,11 @@ public class Main extends Application {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
         Parent root = (Parent) loader.load();
+
+
+        for(Kategorija kat: webshop.getKategorije()){
+            System.out.println(kat.getNaziv());
+        }
 
         /** BACICE GRESKU AKO SE NE LOADUJE GLAVNI*/
         MainController mc = loader.getController();
@@ -161,7 +167,7 @@ public class Main extends Application {
                         String opis = line.split(":")[1].trim();
 
                         Proizvod p = new Proizvod(name, opis, new Date(), id, Pol.M);
-                        Collection<String> slike = new ArrayList<>();
+                        List<String> slike = new ArrayList<String>();
                         slike.add(imageDir+id+"-1.jpg");
                         slike.add(imageDir+id+"-2.jpg");
                         slike.add(imageDir+id+"-3.jpg");

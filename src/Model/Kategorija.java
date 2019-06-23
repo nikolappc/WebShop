@@ -14,11 +14,11 @@ public class Kategorija {
     private String naziv;
     
     @JsonManagedReference
-    private Collection<Kategorija> podKategorija = new ArrayList<>();
+    private List<Kategorija> podKategorija = new ArrayList<>();
     @JsonBackReference
     private Kategorija nadKategorija;
 
-    private Collection<Proizvod> proizvodi = new ArrayList<>();
+    private List<Proizvod> proizvodi = new ArrayList<>();
 
     private Map<String,Atribut> atributi = new HashMap<>();
 
@@ -36,7 +36,7 @@ public class Kategorija {
     }
 
 
-    public Kategorija(String naziv, Collection<Kategorija> podKategorija, Kategorija nadKategorija, Collection<Proizvod> proizvodi) {
+    public Kategorija(String naziv, List<Kategorija> podKategorija, Kategorija nadKategorija, List<Proizvod> proizvodi) {
         this.naziv = naziv;
         this.podKategorija = podKategorija;
         this.nadKategorija = nadKategorija;
@@ -46,12 +46,12 @@ public class Kategorija {
 
 
 
-    public Collection<Kategorija> getPodKategorija() {
+    public List<Kategorija> getPodKategorija() {
         return podKategorija;
     }
     
     
-    public void setPodKategorija(Collection<Kategorija> newPodKategorija) {
+    public void setPodKategorija(List<Kategorija> newPodKategorija) {
         this.podKategorija.clear();
         for (Kategorija kategorija : newPodKategorija) {
 			this.podKategorija.add(kategorija);
@@ -151,11 +151,11 @@ public class Kategorija {
 		this.naziv = naziv;
 	}
 
-    public Collection<Proizvod> getProizvodi() {
+    public List<Proizvod> getProizvodi() {
         return proizvodi;
     }
 
-    public void setProizvodi(Collection<Proizvod> proizvodi) {
+    public void setProizvodi(List<Proizvod> proizvodi) {
         this.proizvodi = proizvodi;
     }
 

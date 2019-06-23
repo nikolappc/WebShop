@@ -3,6 +3,7 @@ package Controller;
 import View.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -150,6 +151,29 @@ public class MainController implements  Initializable{
     }
 
 
+    @FXML
+    void muskeJaknePritisnut(ActionEvent event) {
+        System.out.println("JAK");
+    }
+
+    @FXML
+    void muskeDuksericePritisnut(ActionEvent event) {
+
+    }
+
+    @FXML
+    void muskePantalonePritisnut(ActionEvent event) {
+
+    }
+
+    @FXML
+    void muskePatikePritisnut(ActionEvent event) {
+
+    }
+
+
+
+
     public static Image loadImageFrom(String directory) {
         FileInputStream inputstream = null;
         try {
@@ -160,13 +184,5 @@ public class MainController implements  Initializable{
         }
         return null;
     }
-
-
-
-    public void Prozivcvsadsdaas9(){
-
-
-    }
-
 
 }
