@@ -143,7 +143,7 @@ public class Main extends Application {
 
 
                         line = br.readLine();
-                        String[] boje = line.split(":")[1].trim().split(",");
+                        String boje = line.split(":")[1].trim();
 
 
                         line = br.readLine();
