@@ -20,7 +20,6 @@ public class Webshop  {
    public Collection<Proizvod> proizvodi;
    public Collection<Kupac> kupci;
    public Collection<Narudzbina> narudzbine;
-   public Kupac trenutniKupac;
 
    public Webshop() {
       // TODO: ovde pozovi ucitavanje svega
