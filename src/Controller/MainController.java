@@ -122,6 +122,17 @@ public class MainController implements  Initializable{
 
     public void korpaPritisnuta() {
         /** Korisnik pritisnuo dugme za pregled svoje korpe*/
+    	
+    	try{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\korpa.fxml"));
+            Parent root = (Parent) loader.load();
+
+            KorpaController pc = loader.getController();
+
+            Main.scene.setRoot(root);
+
+        }catch (Exception ex){ ex.printStackTrace();}
     }
 
 
