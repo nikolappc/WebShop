@@ -20,7 +20,7 @@ public class Proizvod {
    private Collection<String> slike;
 
    private Kategorija kategorija;
-   private Collection<Atribut> atributi = new ArrayList<>();
+   private Map<String,Atribut> atributi = new HashMap<>();
 
    public Proizvod(){}
 
@@ -132,15 +132,15 @@ public class Proizvod {
       this.kategorija = kategorija;
    }
 
-   public Collection<Atribut> getAtributi() {
+   public Map<String, Atribut> getAtributi() {
       return atributi;
    }
 
-   public void setAtributi(Collection<Atribut> atributi) {
+   public void setAtributi(Map<String, Atribut> atributi) {
       this.atributi = atributi;
    }
 
    public void dodajAtribut(Atribut atribut) {
-      atributi.add(atribut);
+      atributi.put(atribut.getNaziv(),atribut);
    }
 }

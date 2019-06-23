@@ -168,10 +168,12 @@ public class Kategorija {
         this.atributi = atributi;
     }
 
-    public Atribut napraviAtribut(String naziv,Object vrednost) {
-        if (!atributi.containsKey(naziv)){
-            atributi.put(naziv,new Atribut(naziv,vrednost));
+
+    public Atribut napraviAtribut(String naziv, String vrednost) {
+        String key = naziv+vrednost;
+        if (!atributi.containsKey(key)){
+            atributi.put(key,new Atribut(naziv,vrednost));
         }
-        return atributi.get(naziv);
+        return atributi.get(key);
     }
 }

@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Atribut {
     private String naziv;
-    private Object vrednost;
+    private String vrednost;
 
     public Atribut() {
     }
 
-    public Atribut(String naziv, Object vrednost) {
+    public Atribut(String naziv, String vrednost) {
         this.naziv = naziv;
         this.vrednost = vrednost;
     }
@@ -27,7 +27,7 @@ public class Atribut {
         return vrednost;
     }
 
-    public void setVrednost(Object vrednost) {
+    public void setVrednost(String vrednost) {
         this.vrednost = vrednost;
     }
 }
