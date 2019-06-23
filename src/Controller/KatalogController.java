@@ -1,7 +1,9 @@
 package Controller;
 
 import View.Main;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
@@ -10,12 +12,17 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.ResourceBundle;
 
-public class KatalogController {
+public class KatalogController implements Initializable {
 
-    public VBox vbox;
+    @FXML
+    private VBox vbox;
+
+    private GridPane gp;
 
     ArrayList<String> brendovi; //da prikaze sve brendove
 
@@ -55,14 +62,13 @@ public class KatalogController {
     public void pritisnutLogo(){
 
 
-        GridPane gp = new GridPane();
+        gp = new GridPane();
         gp.setVgap(30);
         gp.setHgap(20);
 
         int n = 1;
-        for(int i = 0; i < 30; i++){
+        for(int i = 0; i < 10; i++){
             for(int j = 0; j < 3; j++){
-                //Label cena = new Label("13 990 RSD");
 
                 VBox layout = new VBox();
                 layout.setSpacing(5);
@@ -72,7 +78,6 @@ public class KatalogController {
 
                 Random rand = new Random();
 
-                //int n = rand.nextInt(50) + 1;
                 String s = n+"";
                 if (n<10)
                     s = "0"+n;
@@ -138,5 +143,12 @@ public class KatalogController {
         vbox.getChildren().add(gp);
 
 
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        //gp.getChildren().clear();
+        vbox.getChildren().removeAll(gp);
     }
 }

@@ -20,14 +20,17 @@ import java.util.ResourceBundle;
 
 public class MainController implements  Initializable{
 
-    public Button logo;
+    @FXML
+    private Button logo;
 
     @FXML
-    public SplitPane splitPane1, splitPane2;
+    private SplitPane splitPane1, splitPane2;
 
-    public ImageView glavnaSlika, doleLevoSlika, doleDesnoSlika;
+    @FXML
+    private ImageView glavnaSlika, doleLevoSlika, doleDesnoSlika;
 
-    public Pane glavniPane, leviPane, desniPane;
+    @FXML
+    private Pane glavniPane, leviPane, desniPane;
 
 
 
@@ -70,15 +73,16 @@ public class MainController implements  Initializable{
     public void pritisnutLogo() {
         /** Korisnik pritisnuo LOGO*/
 
-        try {
+        try{
 
-            Parent root = FXMLLoader.load(getClass().getResource("..\\FXML\\Katalog.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
+            Parent root = (Parent) loader.load();
+
+            MainController pc = loader.getController();
 
             Main.scene.setRoot(root);
 
-        } catch (Exception e) {
-
-        }
+        }catch (Exception ex){ ex.printStackTrace();}
     }
 
 
@@ -100,7 +104,6 @@ public class MainController implements  Initializable{
     public void nalogPritisnut() {
         /** Korisnik pritisnuo dugme za pregled svog naloga */
 
-        System.out.println("MTRS");
         try{
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Prijava.fxml"));
@@ -110,7 +113,7 @@ public class MainController implements  Initializable{
 
             Main.scene.setRoot(root);
 
-        }catch (Exception ex){}
+        }catch (Exception ex){ ex.printStackTrace();}
     }
 
     public void listaZeljaPritisnuta() {
