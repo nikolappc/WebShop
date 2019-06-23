@@ -62,7 +62,6 @@ public class KatalogController {
         int n = 1;
         for(int i = 0; i < 30; i++){
             for(int j = 0; j < 3; j++){
-                //Label cena = new Label("13 990 RSD");
 
                 VBox layout = new VBox();
                 layout.setSpacing(5);
@@ -72,7 +71,6 @@ public class KatalogController {
 
                 Random rand = new Random();
 
-                //int n = rand.nextInt(50) + 1;
                 String s = n+"";
                 if (n<10)
                     s = "0"+n;

@@ -68,19 +68,25 @@ public class ProizvodController implements Initializable {
 
     public void izabranaSlika1(){
         /** Korisnik izabrao prvu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
-
+        String path = trenutnaSlika.getImage().impl_getUrl();
+        Image img = new Image(path.substring(0,path.length()-5) + "2.jpg");
+        trenutnaSlika.setImage(img);
 
     }
 
     public void izabranaSlika2(){
         /** Korisnik izabrao drugu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
-
+        String path = trenutnaSlika.getImage().impl_getUrl();
+        Image img = new Image(path.substring(0,path.length()-5) + "1.jpg");
+        trenutnaSlika.setImage(img);
     }
 
     public void izabranaSlika3(){
         /** Korisnik izabrao trecu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
 
-        logo.setText("Ne DIRAJ");
+        String path = trenutnaSlika.getImage().impl_getUrl();
+        Image img = new Image(path.substring(0,path.length()-5) + "3.jpg");
+        trenutnaSlika.setImage(img);
     }
 
 
