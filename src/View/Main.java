@@ -16,7 +16,6 @@ import java.util.Date;
 public class Main extends Application {
 
 
-
     public static Stage window;
     public static Scene scene;
 
@@ -24,11 +23,8 @@ public class Main extends Application {
     private static Webshop webshop;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        /**Ucitava WebShop**/
-        loadWebShop();
-
-        window = primaryStage ;
+    public void start(Stage primaryStage) throws Exception {
+        window = primaryStage;
         window.setTitle("PRODAVNICA ");
 
         //Parent root = FXMLLoader.load(getClass().getResource("..\\FXML\\glavni.fxml"));
@@ -50,52 +46,82 @@ public class Main extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
+        // Upisuje WebShop u JSon
         writeWebShop();
     }
 
-    public static void main(String[] args)
-    {
-//        Webshop webshop = new Webshop();
+    public static void main(String[] args) {
+//        webshop = new Webshop();
 //        parseData(webshop);
+//        parseUsers();
+        //Ucitava WebShop
+        loadWebShop();
         launch(args);
     }
 
-    static void loadWebShop(){
+    static void loadWebShop() {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            webshop = mapper.readValue(new File("Proizvodi\\webshop.json"),Webshop.class);
+            webshop = mapper.readValue(new File("Proizvodi\\webshop.json"), Webshop.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    static void writeWebShop(){
+    static void writeWebShop() {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            mapper.writeValue(new File("Proizvodi\\webshop.json"),webshop);
+            mapper.writeValue(new File("Proizvodi\\webshop.json"), webshop);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    static void parseData(Webshop webshop){
-        Kategorija nadKategorija=null,podKategorija=null;
+    static void parseUsers() {
+        try (BufferedReader br = new BufferedReader(new FileReader("Proizvodi\\kupci.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] params = line.split(",");
+                Kupac kupac = new Kupac(params[0], params[1], params[2], params[3]);
+                webshop.addKupac(kupac);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (BufferedReader br = new BufferedReader(new FileReader("Proizvodi\\managers.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] params = line.split(",");
+                ContentMenadzer menadzer = new ContentMenadzer(params[0], params[1], params[2], params[3]);
+                webshop.addContentMenadzer(menadzer);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void parseData(Webshop webshop) {
+        Kategorija nadKategorija = null, podKategorija = null;
 
         try (BufferedReader br = new BufferedReader(new FileReader("Proizvodi\\muski.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
-                if (line.length()<=1){
+                if (line.length() <= 1) {
                     continue;
                 }
                 String[] s = line.trim().split(" ");
                 String[] s1 = s[0].split("\\.");
-                switch (s1.length){
-                    case 1:{
+                switch (s1.length) {
+                    case 1: {
                         nadKategorija = new Kategorija(s[1].toLowerCase());
                         webshop.addKategorija(nadKategorija);
                         break;
                     }
-                    case 2:{
+                    case 2: {
                         podKategorija = new Kategorija(s[1].toLowerCase());
                         if (nadKategorija != null) {
                             nadKategorija.dodajPodKategorija(podKategorija);
@@ -104,10 +130,10 @@ public class Main extends Application {
                         break;
 
                     }
-                    case 3:{
+                    case 3: {
                         AtributKategorije atr;
                         StringBuilder stringBuilder = new StringBuilder();
-                        for (int i = 2;i<s.length;++i){
+                        for (int i = 2; i < s.length; ++i) {
                             stringBuilder.append(s[i]);
                             stringBuilder.append(' ');
                         }
@@ -135,18 +161,18 @@ public class Main extends Application {
                         line = br.readLine();
                         String opis = line.split(":")[1].trim();
 
-                        Proizvod p = new Proizvod(name,opis, new Date(),id,Pol.M);
+                        Proizvod p = new Proizvod(name, opis, new Date(), id, Pol.M);
 
-                        StavkaCenovnika stavkaCenovnika = new StavkaCenovnika(new Date(),null,cena,0,p);
+                        StavkaCenovnika stavkaCenovnika = new StavkaCenovnika(new Date(), null, cena, 0, p);
                         webshop.addStavkaCenovnika(stavkaCenovnika);
 
 
                         atr = podKategorija.napraviAtributKategorije("Velicine");
-                        for (String velicina:velicine){
-                            if (velicina.equals("nema")){
+                        for (String velicina : velicine) {
+                            if (velicina.equals("nema")) {
                                 break;
                             }
-                            VrednostAtributa velicinaAtribut =  atr.napraviVrednostAtributa(velicina);
+                            VrednostAtributa velicinaAtribut = atr.napraviVrednostAtributa(velicina);
                             velicinaAtribut.addProizvod(p);
                         }
 
@@ -155,7 +181,7 @@ public class Main extends Application {
                         brend.addProizvod(p);
 
                         atr = podKategorija.napraviAtributKategorije("Boja");
-                        for (String boja : boje){
+                        for (String boja : boje) {
                             VrednostAtributa vredboja = atr.napraviVrednostAtributa(boja);
                             vredboja.addProizvod(p);
                         }

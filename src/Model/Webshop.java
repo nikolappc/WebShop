@@ -165,7 +165,7 @@ public class Webshop  {
       return contentMenadzeri;
    }
 
-   public void setContentMenadzeri(Collection<Kupac> newContentMenadzeri) {
+   public void setContentMenadzeri(Collection<ContentMenadzer> newContentMenadzeri) {
       removeAllContentMenadzeri();
       for (java.util.Iterator iter = newContentMenadzeri.iterator(); iter.hasNext();)
          addContentMenadzer((ContentMenadzer)iter.next());
