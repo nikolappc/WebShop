@@ -20,14 +20,17 @@ import java.util.ResourceBundle;
 
 public class MainController implements  Initializable{
 
-    public Button logo;
+    @FXML
+    private Button logo;
 
     @FXML
-    public SplitPane splitPane1, splitPane2;
+    private SplitPane splitPane1, splitPane2;
 
-    public ImageView glavnaSlika, doleLevoSlika, doleDesnoSlika;
+    @FXML
+    private ImageView glavnaSlika, doleLevoSlika, doleDesnoSlika;
 
-    public Pane glavniPane, leviPane, desniPane;
+    @FXML
+    private Pane glavniPane, leviPane, desniPane;
 
 
 

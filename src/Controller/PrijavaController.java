@@ -1,10 +1,13 @@
 package Controller;
 
+import View.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.SplitPane;
 
@@ -63,6 +66,17 @@ public class PrijavaController implements Initializable {
 
     @FXML
     void pritisnutLogo(ActionEvent event) {
+
+        try{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
+            Parent root = (Parent) loader.load();
+
+            MainController pc = loader.getController();
+
+            Main.scene.setRoot(root);
+
+        }catch (Exception ex){ ex.printStackTrace();}
 
     }
 

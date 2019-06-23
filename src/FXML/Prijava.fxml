@@ -110,7 +110,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="3">
                             <children>
-                                <ImageView id="slika1" fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView id="slika1" fitHeight="35.0" fitWidth="40.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@/Slike/nalog.png" />
                                     </image>
@@ -211,7 +211,7 @@
                                                         </Label>
                                                     </children>
                                                 </HBox>
-                                                <TextField prefHeight="25.0" prefWidth="217.0" />
+                                    <PasswordField prefHeight="25.0" prefWidth="220.0" />
                                             </children>
                                         </HBox>
                                     </children>
