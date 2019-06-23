@@ -261,18 +261,22 @@
                                 </HBox>
                                 <HBox prefHeight="72.0" prefWidth="348.0">
                                     <children>
-                                        <VBox prefHeight="69.0" prefWidth="348.0">
+                                        <VBox prefHeight="83.0" prefWidth="348.0">
                                             <children>
                                                 <Label text="Opis:">
                                                     <font>
                                                         <Font name="System Bold" size="18.0" />
                                                     </font>
                                                 </Label>
-                                                <Label fx:id="opisProizvoda" text="Label">
-                                                    <font>
-                                                        <Font size="14.0" />
-                                                    </font>
-                                                </Label>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                                      <Label fx:id="opisProizvoda" prefHeight="58.0" prefWidth="346.0" text="Label">
+                                                          <font>
+                                                              <Font size="14.0" />
+                                                          </font>
+                                                      </Label>
+                                       </children>
+                                    </HBox>
                                             </children>
                                         </VBox>
                                     </children>

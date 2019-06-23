@@ -61,13 +61,30 @@ public class KatalogController implements Initializable {
 
     public void pritisnutLogo(){
 
+        try{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
+            Parent root = (Parent) loader.load();
+
+            MainController pc = loader.getController();
+
+            Main.scene.setRoot(root);
+
+        }catch (Exception ex){ ex.printStackTrace();}
+
+    }
+
+
+    //ovde bi trebao da prima listu Proizvoda
+    public void prikaziSve(){
+
 
         gp = new GridPane();
         gp.setVgap(30);
         gp.setHgap(20);
 
         int n = 1;
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 30; i++){
             for(int j = 0; j < 3; j++){
 
                 VBox layout = new VBox();
@@ -75,8 +92,6 @@ public class KatalogController implements Initializable {
 
                 layout.prefWidth(266);
                 layout.prefHeight(323);
-
-                Random rand = new Random();
 
                 String s = n+"";
                 if (n<10)

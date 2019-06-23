@@ -95,7 +95,7 @@ public class MainController implements  Initializable{
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();
-            pc.pritisnutLogo();
+            pc.prikaziSve();
 
             Main.scene.setRoot(root);
         }catch (Exception ex){}
@@ -125,7 +125,7 @@ public class MainController implements  Initializable{
     	
     	try{
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\korpa.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Korpa.fxml"));
             Parent root = (Parent) loader.load();
 
             KorpaController pc = loader.getController();

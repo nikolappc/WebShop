@@ -23,14 +23,10 @@ public class AtributKategorije {
 	}
 
 
-
-
-    
     public Map<Object, VrednostAtributa> getVrednostAtributa() {
 	    return vrednostAtributa;
     }
     
-
 
     public void dodajVrednostAtributa(VrednostAtributa newVrednostAtributa) {
         if (newVrednostAtributa == null)
