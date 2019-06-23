@@ -270,7 +270,7 @@
       </HBox>
    </left>
    <center>
-      <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
             <VBox fx:id="vbox" prefHeight="701.0" prefWidth="816.0" spacing="15.0">
                <children>
@@ -291,6 +291,14 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
+                        <VBox alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="601.0">
+                           <padding>
+                              <Insets right="30.0" />
+                           </padding>
+                           <children>
+                              <ChoiceBox prefWidth="150.0" />
+                           </children>
+                        </VBox>
                      </children>
                      <opaqueInsets>
                         <Insets />

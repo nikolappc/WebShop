@@ -8,10 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -54,18 +51,8 @@ public class KatalogController {
 
     }
 
-    public class Nesto{
-
-        ImageView slika;
-        String ime;
-
-        Nesto(ImageView slika, String ime){
-            slika = slika; ime = ime;
-        }
-    }
 
     public void pritisnutLogo(){
-
 
 
         GridPane gp = new GridPane();
@@ -117,6 +104,16 @@ public class KatalogController {
                 slika.setFitWidth(240);
                 slika.setCursor(Cursor.HAND);
                 layout.getChildren().add(slika);
+
+                /*
+                BorderPane pejn = new BorderPane();
+                pejn.setCenter(slika);
+
+
+                slika.fitWidthProperty().bind(pejn.widthProperty());
+                slika.fitHeightProperty().bind(pejn.heightProperty());
+                layout.getChildren().add(pejn);
+                */
 
                 HBox hb1 = new HBox();
                 hb1.setAlignment(Pos.CENTER);

@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,12 +23,26 @@ public class MainController implements  Initializable{
     @FXML
     public SplitPane splitPane1;
 
-//    public static ImageView glavnaSlika, doleLevoSlika, doleDesnoSlika;
+    public ImageView glavnaSlika, doleLevoSlika, doleDesnoSlika;
+
+    public Pane glavniPane, leviPane, desniPane;
 
 
     public void init(){
+
         splitPane1.setDisable(true);
+
+        glavnaSlika.fitWidthProperty().bind(glavniPane.widthProperty());
+        glavnaSlika.fitHeightProperty().bind(glavniPane.heightProperty());
+
+        doleLevoSlika.fitWidthProperty().bind(leviPane.widthProperty());
+        doleLevoSlika.fitHeightProperty().bind(leviPane.heightProperty());
+
+        doleDesnoSlika.fitWidthProperty().bind(desniPane.widthProperty());
+        doleDesnoSlika.fitHeightProperty().bind(desniPane.heightProperty());
+
     }
+
 
     public void pritisnutLogo() {
         /** Korisnik pritisnuo LOGO*/
@@ -46,6 +61,17 @@ public class MainController implements  Initializable{
 
     public void traziPritisnut() {
         /** Korisnik pritisnuo pretragu za proizvode */
+
+        try{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
+            Parent root = (Parent) loader.load();
+
+            KatalogController pc = loader.getController();
+            pc.pritisnutLogo();
+
+            Main.scene.setRoot(root);
+        }catch (Exception ex){}
     }
 
     public void nalogPritisnut() {
