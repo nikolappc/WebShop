@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="999.9999000000025" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <SplitPane dividerPositions="0.49899799599198397" focusTraversable="true" prefHeight="430.0" prefWidth="1000.0">
+          <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="702.0" prefWidth="479.0">
+              <children>
+                <BorderPane prefHeight="667.0" prefWidth="468.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                  <bottom>
+                    <Pane prefHeight="410.0" prefWidth="467.0" />
+                  </bottom>
+                  <center>
+                    <GridPane prefHeight="181.0" prefWidth="467.0" style="border: 1px solid black;&#10;" visible="true">
+                      <children>
+                        <Label prefWidth="105.0" text="Korisnicko" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label text="Lozinka" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label text="" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Button mnemonicParsing="false" prefWidth="168.0" text="Prijava" textAlignment="CENTER" textFill="BLACK" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                          <GridPane.margin>
+                            <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+                          </GridPane.margin>
+                        </Button>
+                        <PasswordField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="105.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="375.0" minWidth="10.0" prefWidth="250.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="149.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="187.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                  </center>
+                  <left>
+                    <Pane prefHeight="182.0" prefWidth="55.999900000002526" />
+                  </left>
+                  <right>
+                    <Pane prefHeight="182.0" prefWidth="56.0" />
+                  </right>
+                  <top>
+                    <HBox prefHeight="95.99990844726562" prefWidth="467.0">
+                      <children>
+                        <Label prefHeight="96.0" prefWidth="410.0" text="Prijava">
+                          <font>
+                            <Font size="22.0" fx:id="x1" />
+                          </font>
+                        </Label>
+                      </children>
+                    </HBox>
+                  </top>
+                </BorderPane>
+              </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+              <children>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                  <bottom>
+                    <Pane prefHeight="200.0" prefWidth="200.0" />
+                  </bottom>
+                  <center>
+                    <GridPane>
+                      <children>
+                        <Button mnemonicParsing="false" prefWidth="169.5" text="Registracija" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                          <GridPane.margin>
+                            <Insets left="20.0" right="20.0" />
+                          </GridPane.margin>
+                        </Button>
+                        <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Label text="Ime" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label text="Prezime" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label text="Email" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label text="Korisnicko" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <PasswordField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="Loznika" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <PasswordField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label text="Potvrdi lozinku" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <Label text="Adresa" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                        <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label text="Ses" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                        <ComboBox prefWidth="233.5" promptText="Musko" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                          <items>
+                            <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Item 1" />
+                              <String fx:value="Item 2" />
+                              <String fx:value="Item 3" />
+                            </FXCollections>
+                          </items>
+                        </ComboBox>
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="122.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="235.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                  </center>
+                  <left>
+                    <Pane prefHeight="378.0" prefWidth="56.0" />
+                  </left>
+                  <right>
+                    <Pane prefHeight="378.0" prefWidth="56.0" />
+                  </right>
+                  <top>
+                    <Pane prefHeight="96.0" prefWidth="469.0">
+                      <children>
+                        <Label font="$x1" layoutX="14.0" layoutY="38.0" text="Registracija" />
+                      </children>
+                    </Pane>
+                  </top>
+                </BorderPane>
+              </children>
+            </AnchorPane>
+          </items>
+        </SplitPane>
+      </center>
+      <top>
+        <VBox prefHeight="96.0" prefWidth="842.0" BorderPane.alignment="CENTER">
+          <children>
+            <HBox prefHeight="34.0" prefWidth="932.0" style="-fx-background-color: C2C2C2;">
+              <children>
+                <Label text="Besplatna dostava na sve narudzbine" />
+              </children>
+            </HBox>
+            <GridPane prefHeight="101.0" prefWidth="842.0" style="-fx-background-color: #000000;">
+              <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="380.0" spacing="20.0" GridPane.hgrow="SOMETIMES">
+                  <children>
+                    <MenuButton mnemonicParsing="false" style="-fx-background-color: #000000;" text="Muskarci" textFill="WHITE">
+                      <font>
+                        <Font size="14.0" fx:id="x2" />
+                      </font>
+                      <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                      </items>
+                    </MenuButton>
+                    <MenuButton font="$x2" mnemonicParsing="false" style="-fx-background-color: #000000;" text="Zene" textFill="WHITE">
+                      <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                      </items>
+                    </MenuButton>
+                    <MenuButton font="$x2" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #000000;" text="Brendovi" textFill="WHITE">
+                      <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                      </items>
+                    </MenuButton>
+                  </children>
+                  <GridPane.margin>
+                    <Insets left="10.0" />
+                  </GridPane.margin>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+                  <children>
+                    <TextField />
+                    <Button id="lupa" mnemonicParsing="false" onAction="#traziPritisnut" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: #ffa500;" text="LUPA" textFill="WHITE" />
+                  </children>
+                  <padding>
+                    <Insets left="20.0" />
+                  </padding>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="3">
+                  <children>
+                    <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="file:/C:/Users/Stefan/Desktop/WebShop/Slike/nalog.png" />
+                      </image>
+                    </ImageView>
+                    <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="file:/C:/Users/Stefan/Desktop/WebShop/Slike/srce.png" />
+                      </image>
+                    </ImageView>
+                    <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="file:/C:/Users/Stefan/Desktop/WebShop/Slike/korpa.png" />
+                      </image>
+                    </ImageView>
+                  </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                  <children>
+                    <Button id="logo" alignment="CENTER" contentDisplay="CENTER" depthTest="DISABLE" graphicTextGap="0.0" mnemonicParsing="false" onAction="#pritisnutLogo" prefHeight="74.0" prefWidth="281.0" style="-fx-background-color: #000000; -fx-padding: 0; -fx-label-padding: 0;" text="LOGO" textFill="ORANGE">
+                      <font>
+                        <Font size="48.0" />
+                      </font>
+                    </Button>
+                  </children>
+                </HBox>
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="359.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="443.0" minWidth="10.0" prefWidth="263.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="193.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="0.0" prefWidth="185.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+          </children>
+        </VBox>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>
