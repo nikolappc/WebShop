@@ -22,14 +22,16 @@ public class Kupac extends UlogovaniKorisnik {
 	}
 
 
-
-
-	public Kupac(String korIme, String lozinka, String ime, String prezime) {
+	public Kupac(String korIme, String lozinka, String ime, String prezime,
+				 String adresa, String email) {
 		super(korIme, lozinka, ime, prezime);
+		this.adresa = adresa;
+		this.email = email;
+		this.korpa = korpa;
+		this.listaZelja = listaZelja;
+		this.korpa = new Korpa();
+		this.listaZelja = new ListaZelja();
 	}
-
-
-
 
 	public String getAdresa() {
 		return adresa;

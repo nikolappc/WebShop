@@ -9,6 +9,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import java.util.*;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Webshop  {
+
+   private UlogovaniKorisnik ulogovaniKorisnik;
+
+   public static Pretraga pretraga;
+
    public Collection<ContentMenadzer> contentMenadzeri;
    public Collection<StavkaCenovnika> stavkeCenovnika;
    public Collection<Kategorija> kategorije;
@@ -20,6 +25,23 @@ public class Webshop  {
       // TODO: ovde pozovi ucitavanje svega
    }
 
+   /**
+    * Prijavljuje korisnika
+    * @param korisnicko
+    * @param lozinka
+    * @return true ako je uspeno prijavljen, false u suprotnom
+    */
+   public boolean prijava(String korisnicko, String lozinka){
+      UlogovaniKorisnik korisnik =
+              pretraga.pretragaKupacaKorisnicko(kupci, contentMenadzeri, korisnicko);
+
+      if(korisnik != null && korisnik.getLozinka().equals(lozinka)){
+         ulogovaniKorisnik = korisnik;
+         return true;
+      }
+
+      return false;
+   }
    // STAVKA CENOVNIKA
 
     public Collection<StavkaCenovnika> getStavkeCenovnika() {
