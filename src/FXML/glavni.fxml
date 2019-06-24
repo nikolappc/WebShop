@@ -52,6 +52,7 @@
                                 <items>
                                     <MenuItem mnemonicParsing="false" onAction="#muskeJaknePritisnut" text="Jakne" />
                                     <MenuItem mnemonicParsing="false" onAction="#muskeDuksericePritisnut" text="Dukserice" />
+                              <MenuItem mnemonicParsing="false" onAction="#muskeMajicePritisnut" text="Majice" />
                                     <MenuItem mnemonicParsing="false" onAction="#muskePantalonePritisnut" text="Pantalone" />
                                     <MenuItem mnemonicParsing="false" onAction="#muskePatikePritisnut" text="Patike" />
                                 </items>

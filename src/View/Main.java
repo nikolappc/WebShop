@@ -22,6 +22,8 @@ public class Main extends Application {
     public static Stage window;
     public static Scene scene;
 
+    public static String mojaPutanja = "file:/C:/Users/Stefan/Desktop/WebShop/";
+
     // Glavna instanca WebSHop-a
     public static Webshop webshop;
 
@@ -36,6 +38,9 @@ public class Main extends Application {
 
         for(Kategorija kat: webshop.getKategorije()){
             System.out.println(kat.getNaziv());
+            for(Kategorija kat2 : kat.getPodKategorija()){
+                System.out.println(kat2.getNaziv());
+            }
         }
 
         /** BACICE GRESKU AKO SE NE LOADUJE GLAVNI*/

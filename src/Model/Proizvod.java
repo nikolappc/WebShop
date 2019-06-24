@@ -5,6 +5,7 @@
  ***********************************************************************/
 package Model;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import javafx.scene.image.ImageView;
 
 import java.util.*;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
@@ -18,6 +19,7 @@ public class Proizvod {
    private String sifra;
    private Pol pol;
    private List<String> slike;
+
 
    private Kategorija kategorija;
    private Map<String,Atribut> atributi = new HashMap<>();

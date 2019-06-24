@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Proizvod;
 import View.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,26 +8,38 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
+
+
+/** Ovo koristim da znam na koju smo sliku kliknuli*/
+class ProizvodSlika{
+    Proizvod proizvod;
+    ImageView slika;
+
+    public ProizvodSlika(Proizvod prz, ImageView sl){ proizvod = prz; slika = sl;}
+
+}
 
 public class KatalogController implements Initializable {
 
     @FXML
     private VBox vbox;
 
+    @FXML
+    private Label brojRezultata;
+
+    @FXML
+    private MenuButton boje,brendovi, velicine;
+
     private GridPane gp;
 
-    ArrayList<String> brendovi; //da prikaze sve brendove
-
-    int brojRedova = 3; // na pocetku je 3, ali se moze menjati kasnije
+    private List<Proizvod> proizvodi;
 
 
 
@@ -74,18 +87,73 @@ public class KatalogController implements Initializable {
 
     }
 
+    /** Dodaje broj pronadjenih proizvoda, sve boje, brendove i velicine*/
+    public void sideBarOpcije(){
+
+        brojRezultata.setText(proizvodi.size()+"");
+
+        Set<String> setBoja = new TreeSet<String>();
+        Set<String> setBrendova = new TreeSet<String>();
+        Set<String> setVelicina = new TreeSet<String>();
+
+
+        for(Proizvod p : proizvodi){
+            setBoja.add((String)p.getAtributi().get("Boja").getVrednost());
+
+            String[] vel = ((String) p.getAtributi().get("Velicine").getVrednost()).trim().split(" ");
+            for(String poj : vel)
+                setVelicina.add(poj);
+
+            setBrendova.add((String)p.getAtributi().get("Brend").getVrednost());
+        }
+
+
+        //TODO DODATI EVENTOVE ZA SVE OVE DJAVOLE
+        for(String s: setBoja){
+            CustomMenuItem mitem = new CustomMenuItem();
+            CheckBox cb = new CheckBox(s);
+            mitem.setContent(cb);
+            boje.getItems().add(mitem);
+        }
+
+        for(String s: setBrendova){
+            CustomMenuItem mitem = new CustomMenuItem();
+            CheckBox cb = new CheckBox(s);
+            mitem.setContent(cb);
+            brendovi.getItems().add(mitem);
+        }
+
+        for(String s: setVelicina){
+            CustomMenuItem mitem = new CustomMenuItem();
+            CheckBox cb = new CheckBox(s);
+            mitem.setContent(cb);
+            velicine.getItems().add(mitem);
+        }
+
+
+    }
+
 
     //ovde bi trebao da prima listu Proizvoda
-    public void prikaziSve(){
+    public void prikazi(List<Proizvod> lista){
 
+
+        proizvodi = lista;
+
+        sideBarOpcije();
 
         gp = new GridPane();
         gp.setVgap(30);
         gp.setHgap(20);
 
-        int n = 1;
+        int index = -1;
         for(int i = 0; i < 30; i++){
             for(int j = 0; j < 3; j++){
+
+                index++;
+                if (index >= proizvodi.size()) {
+                    break;
+                }
 
                 VBox layout = new VBox();
                 layout.setSpacing(5);
@@ -93,16 +161,12 @@ public class KatalogController implements Initializable {
                 layout.prefWidth(266);
                 layout.prefHeight(323);
 
-                String s = n+"";
-                if (n<10)
-                    s = "0"+n;
-                if(n>77)
-                    break;
-                ImageView slika = new ImageView("file:/C:/Users/Stefan/Desktop/WebShop/Proizvodi/Slike/0"+s+"-2.jpg");
-                n++;
-                // NE RADI   slika.fitWidthProperty().bind(View.Main.window.widthProperty());
 
-                slika.setOnMouseClicked(e->
+                ImageView slika = new ImageView(Main.mojaPutanja+proizvodi.get(index).getSlike().get(1));
+
+                ProizvodSlika ps = new ProizvodSlika(proizvodi.get(index), slika);
+
+                ps.slika.setOnMouseClicked(e->
                 {
                     try{
 
@@ -110,12 +174,20 @@ public class KatalogController implements Initializable {
                         Parent root = (Parent) loader.load();
 
                         ProizvodController pc = loader.getController();
-                        pc.postaviSliku(slika.getImage().impl_getUrl());
+
+
+                        //for(Proizvod p :proizvodi){
+                            //jako volim javu i strlen
+                            //if(p.getSlike().get(1).substring(p.getSlike().get(0).length() - 8).equals(slika.getImage().impl_getUrl().substring(slika.getImage().impl_getUrl().length() -8)))
+                              //  pc.postaviProizvod(p);
+                        //}
+
+                        pc.postaviProizvod(ps.proizvod);
 
                         Main.scene.setRoot(root);
                         Main.window.show();
 
-                        System.out.println(slika.getImage().impl_getUrl());
+                        //System.out.println(slika.getImage().impl_getUrl());
                     }
                     catch(Exception ex) {}
 
@@ -125,19 +197,10 @@ public class KatalogController implements Initializable {
                 slika.setCursor(Cursor.HAND);
                 layout.getChildren().add(slika);
 
-                /*
-                BorderPane pejn = new BorderPane();
-                pejn.setCenter(slika);
-
-
-                slika.fitWidthProperty().bind(pejn.widthProperty());
-                slika.fitHeightProperty().bind(pejn.heightProperty());
-                layout.getChildren().add(pejn);
-                */
 
                 HBox hb1 = new HBox();
                 hb1.setAlignment(Pos.CENTER);
-                Label labela = new Label("Ovde ce pisati neki malo poduzi tekst");
+                Label labela = new Label(proizvodi.get(index).getNaziv());
                 //font size
                 hb1.getChildren().add(labela);
                 layout.getChildren().add(hb1);

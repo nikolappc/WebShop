@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Kategorija;
+import Model.Proizvod;
 import View.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -17,6 +19,8 @@ import javafx.scene.layout.Pane;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainController implements  Initializable{
@@ -96,10 +100,10 @@ public class MainController implements  Initializable{
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();
-            pc.prikaziSve();
+            //pc.prikaziSve();
 
             Main.scene.setRoot(root);
-        }catch (Exception ex){}
+        }catch (Exception ex){ex.printStackTrace();}
     }
 
     public void nalogPritisnut() {
@@ -153,25 +157,57 @@ public class MainController implements  Initializable{
 
     @FXML
     void muskeJaknePritisnut(ActionEvent event) {
-        System.out.println("JAK");
+
+        prikazi("jakne");
     }
 
     @FXML
     void muskeDuksericePritisnut(ActionEvent event) {
+        prikazi("duksevi");
+    }
 
+    @FXML
+    void muskeMajicePritisnut(ActionEvent event){
+        prikazi("majice");
     }
 
     @FXML
     void muskePantalonePritisnut(ActionEvent event) {
-
+        prikazi("pantalone");
     }
 
     @FXML
     void muskePatikePritisnut(ActionEvent event) {
-
+        prikazi("patike");
     }
 
+    private void prikazi(String naziv){
 
+        List<Proizvod> proizvodi = new ArrayList<Proizvod>();
+
+        for(Kategorija k1: Main.webshop.getKategorije()){
+
+            for(Kategorija k2 : k1.getPodKategorija()){
+                if(k2.getNaziv().equals(naziv)){
+                    System.out.println("YYYEESS");
+                    proizvodi = k2.getProizvodi();
+                }
+            }
+
+        }
+
+        try{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
+            Parent root = (Parent) loader.load();
+
+            KatalogController pc = loader.getController();
+            pc.prikazi(proizvodi);
+
+            Main.scene.setRoot(root);
+        }catch (Exception ex){ ex.printStackTrace();}
+
+    }
 
 
     public static Image loadImageFrom(String directory) {

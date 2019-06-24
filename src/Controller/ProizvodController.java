@@ -1,14 +1,18 @@
 package Controller;
 
+import Model.Proizvod;
+import Model.StavkaCenovnika;
 import View.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 
 import java.io.FileInputStream;
 import java.net.URL;
@@ -21,12 +25,11 @@ public class ProizvodController implements Initializable {
 
     public ImageView preporucenSlika1,preporucenSlika2,preporucenSlika3;
 
+    public Label opisProizvoda, cenaProizvoda, bojaProizvoda, nazivProizvoda;
 
-    public Label opisProizvoda;
+    public ComboBox<String> moguceVelicine;
 
     public Button logo;
-
-
 
 
 
@@ -42,7 +45,44 @@ public class ProizvodController implements Initializable {
 
         Image img3 = new Image(url.substring(0,url.length()-5) + "3.jpg");
         slikaProizvoda3.setImage(img3);
+    }
 
+    /** Postavlja proizvod na scenu za prikaz izabranog*/
+    public void postaviProizvod(Proizvod p){
+
+
+        Image image = new Image(Main.mojaPutanja+p.getSlike().get(1));
+        trenutnaSlika.setImage(image);
+        slikaProizvoda1.setImage(image);
+
+        Image image2 = new Image(Main.mojaPutanja+p.getSlike().get(0));
+        slikaProizvoda2.setImage(image2);
+
+        Image image3 = new Image(Main.mojaPutanja+p.getSlike().get(2));
+        slikaProizvoda3.setImage(image3);
+
+        opisProizvoda.setText(p.getOpis());
+
+        bojaProizvoda.setText((String)p.getAtributi().get("Boja").getVrednost());
+
+        String[] velicine = ((String)p.getAtributi().get("Velicine").getVrednost()).trim().split(" ");
+
+        for(String s : velicine){
+            moguceVelicine.getItems().add(s);
+        }
+
+        if(p.getNaziv().length() <= 21){
+
+            nazivProizvoda.setText(p.getNaziv());
+        }
+        else if(p.getNaziv().length() > 21 && p.getNaziv().length() < 30){
+            nazivProizvoda.setFont(new Font("System", 24));
+            nazivProizvoda.setText(p.getNaziv());
+        }
+        else{
+            nazivProizvoda.setFont(new Font("System", 24));
+            nazivProizvoda.setText(p.getNaziv());
+        }
 
     }
 
