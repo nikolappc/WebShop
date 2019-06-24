@@ -89,7 +89,6 @@ public class IzmenaNalogaController implements Initializable{
     	if (Main.webshop.ulogovaniKorisnik instanceof Kupac) {
     		Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
     		korisnickoIme.setText(k.getKorIme());
-    		//izmena.setText(k.getKorIme());
     		ime.setText(k.getIme());
     		prezime.setText(k.getPrezime());
     		adresa.setText(k.getAdresa());
@@ -99,7 +98,6 @@ public class IzmenaNalogaController implements Initializable{
     	else if (Main.webshop.ulogovaniKorisnik instanceof ContentMenadzer) {
     		ContentMenadzer k = (ContentMenadzer) Main.webshop.ulogovaniKorisnik;
     		korisnickoIme.setText(k.getKorIme());
-    		//izmena.setText(k.getKorIme());
     		ime.setText(k.getIme());
     		prezime.setText(k.getPrezime());
     		adresa.setText(k.getAdresa());
