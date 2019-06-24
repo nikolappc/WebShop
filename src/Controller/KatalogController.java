@@ -108,6 +108,7 @@ public class KatalogController implements Initializable {
         }
 
 
+
         //TODO DODATI EVENTOVE ZA SVE OVE DJAVOLE
         for(String s: setBoja){
             CustomMenuItem mitem = new CustomMenuItem();
