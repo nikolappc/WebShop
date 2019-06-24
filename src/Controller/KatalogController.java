@@ -105,9 +105,7 @@ public class KatalogController implements Initializable {
     //ovde bi trebao da prima listu Proizvoda
     public void prikazi(List<Proizvod> lista){
 
-
         proizvodi = lista;
-
         sideBarOpcije();
 
         gp = new GridPane();
@@ -129,7 +127,6 @@ public class KatalogController implements Initializable {
                 layout.prefWidth(266);
                 layout.prefHeight(323);
 
-
                 ImageView slika = new ImageView(Main.mojaPutanja+proizvodi.get(index).getSlike().get(1));
 
                 ProizvodSlika ps = new ProizvodSlika(proizvodi.get(index), slika);
@@ -142,20 +139,10 @@ public class KatalogController implements Initializable {
                         Parent root = (Parent) loader.load();
 
                         ProizvodController pc = loader.getController();
-
-
-                        //for(Proizvod p :proizvodi){
-                            //jako volim javu i strlen
-                            //if(p.getSlike().get(1).substring(p.getSlike().get(0).length() - 8).equals(slika.getImage().impl_getUrl().substring(slika.getImage().impl_getUrl().length() -8)))
-                              //  pc.postaviProizvod(p);
-                        //}
-
                         pc.postaviProizvod(ps.proizvod);
 
                         Main.scene.setRoot(root);
                         Main.window.show();
-
-                        //System.out.println(slika.getImage().impl_getUrl());
                     }
                     catch(Exception ex) {}
 
@@ -180,15 +167,10 @@ public class KatalogController implements Initializable {
                 hb2.getChildren().add(labela2);
                 layout.getChildren().add(hb2);
 
-                //cena.setPrefSize(100,100);
                 gp.add(layout,j,i);
             }
         }
-
-
         vbox.getChildren().add(gp);
-
-
     }
 
 

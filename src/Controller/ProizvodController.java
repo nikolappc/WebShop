@@ -23,6 +23,8 @@ public class ProizvodController implements Initializable {
 
     public ImageView preporucenSlika1,preporucenSlika2,preporucenSlika3;
 
+    public ProizvodSlika preporuceni1, getPreporuceni2, preporuceni3;
+
     public Label opisProizvoda, cenaProizvoda, bojaProizvoda, nazivProizvoda;
 
     public ComboBox<String> moguceVelicine;
@@ -84,6 +86,13 @@ public class ProizvodController implements Initializable {
             nazivProizvoda.setFont(new Font("System", 24));
             nazivProizvoda.setText(p.getNaziv());
         }
+
+
+        ArrayList<Proizvod> preporuceni = preporuceni(p);
+
+        ImageView image1 = new ImageView(preporuceni.get(0).getSlike().get(1));
+        preporuceni1 = new ProizvodSlika(preporuceni.get(0), image1);
+        preporucenSlika1 = preporuceni1.slika;
 
     }
 
@@ -158,8 +167,6 @@ public class ProizvodController implements Initializable {
 
     public void dodatoUKorpu(){
         /** Korisnik dodao proizvod u korpu*/
-
-
 
     }
 
