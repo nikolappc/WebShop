@@ -50,10 +50,10 @@
                         <children>
                             <MenuButton mnemonicParsing="false" style="-fx-background-color: #000000;" text="Muskarci" textFill="WHITE">
                                 <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#muskeJaknePritisnut" text="Jakne" />
-                                    <MenuItem mnemonicParsing="false" onAction="#muskeDuksericePritisnut" text="Dukserice" />
-                                    <MenuItem mnemonicParsing="false" onAction="#muskePantalonePritisnut" text="Pantalone" />
-                                    <MenuItem mnemonicParsing="false" onAction="#muskePatikePritisnut" text="Patike" />
+                                    <MenuItem mnemonicParsing="false" text="Jakne" />
+                                    <MenuItem mnemonicParsing="false" text="Dukserice" />
+                                    <MenuItem mnemonicParsing="false" text="Pantalone" />
+                                    <MenuItem mnemonicParsing="false" text="Jakne" />
                                 </items>
                                 <font>
                                     <Font size="14.0" />
@@ -118,7 +118,7 @@
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </ImageView>
-                            <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="86.0" layoutY="32.0" onMouseClicked="#izmenaNaloga" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="86.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@/Slike/srce.png" />
                                 </image>

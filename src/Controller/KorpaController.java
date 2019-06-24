@@ -143,7 +143,7 @@ public class KorpaController implements Initializable {
 		
 		l = new Label("Kolicina: neka");
 		hb.getChildren().add(l);
-		
+		hb.getChildren().add(new ImageView());
 		l = new Label("Cena: nema");
 		hb.getChildren().add(l);
 		desniVBox.getChildren().add(hb);
