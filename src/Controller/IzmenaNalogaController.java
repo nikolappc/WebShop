@@ -3,6 +3,9 @@ package Controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Model.ContentMenadzer;
+import Model.Kupac;
+import View.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,6 +30,9 @@ public class IzmenaNalogaController implements Initializable{
 
     @FXML
     private TextField adresa;
+
+    @FXML
+    private TextField lozinka1;
 
     @FXML
     private TextField brojTelefona;
@@ -75,6 +81,32 @@ public class IzmenaNalogaController implements Initializable{
     void pritisnutLogo(ActionEvent event) {
 
     }
+    
+    void ucitaj() {
+    	if (Main.webshop.ulogovaniKorisnik == null)
+    		return;
+    	if (Main.webshop.ulogovaniKorisnik instanceof Kupac) {
+    		Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
+    		korisnickoIme.setText(k.getKorIme());
+    		izmena.setText(k.getKorIme());
+    		ime.setText(k.getIme());
+    		prezime.setText(k.getPrezime());
+    		adresa.setText(k.getAdresa());
+    		//brojTelefona.setText(k.getBrojTelefona());
+    		mail.setText(k.getEmail());
+    	}
+    	else if (Main.webshop.ulogovaniKorisnik instanceof ContentMenadzer) {
+    		ContentMenadzer k = (ContentMenadzer) Main.webshop.ulogovaniKorisnik;
+    		korisnickoIme.setText(k.getKorIme());
+    		izmena.setText(k.getKorIme());
+    		ime.setText(k.getIme());
+    		prezime.setText(k.getPrezime());
+    		adresa.setText(k.getAdresa());
+    		//brojTelefona.setText(k.getBrojTelefona());
+    		mail.setText(k.getEmail());
+    	}
+    	
+    }
 
     void probaj() {
     	
@@ -88,7 +120,7 @@ public class IzmenaNalogaController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		probaj();
+		ucitaj();
 		
 	}
 

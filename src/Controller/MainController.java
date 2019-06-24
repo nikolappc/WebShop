@@ -101,7 +101,6 @@ public class MainController implements  Initializable{
 
             KatalogController pc = loader.getController();
             //pc.prikaziSve();
-
             Main.scene.setRoot(root);
         }catch (Exception ex){ex.printStackTrace();}
     }

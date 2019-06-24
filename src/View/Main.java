@@ -104,7 +104,7 @@ public class Main extends Application {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] params = line.split(",");
-                ContentMenadzer menadzer = new ContentMenadzer(params[0], params[1], params[2], params[3]);
+                ContentMenadzer menadzer = new ContentMenadzer(params[0], params[1], params[2], params[3],"","");
                 webshop.addContentMenadzer(menadzer);
             }
         } catch (FileNotFoundException e) {
