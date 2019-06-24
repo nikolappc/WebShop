@@ -72,7 +72,7 @@ public class KorpaController implements Initializable {
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();
-            pc.prikaziSve();
+            //pc.prikaziSve();
 
             Main.scene.setRoot(root);
         }catch (Exception ex){}
