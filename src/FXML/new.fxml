@@ -145,7 +145,7 @@
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="980.0" spacing="5.0">
                     <children>
-                        <Label id="putanja" fx:id="putanjaDoProizvoda" text="HOME &gt;">
+                        <Label id="putanja" fx:id="putanjaDoProizvoda" onMouseClicked="#pritisnutLogo" text="HOME &gt;">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -153,7 +153,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                         </Label>
-                  <Label onKeyPressed="#pritisnutaKategorija" text="KATEGORIJA &gt;">
+                  <Label fx:id="kategorijaDugme" text="KATEGORIJA &gt;">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -161,13 +161,10 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Label>
-                  <Label text="NAZIV PROIZVODA">
+                  <Label layoutX="79.0" layoutY="20.0" onKeyPressed="#pritisnutaKategorija" text="NAZIV PROIZVODA">
                      <font>
                         <Font size="14.0" />
                      </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                   </Label>
                     </children>
                     <padding>
