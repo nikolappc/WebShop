@@ -23,7 +23,7 @@ public class Main extends Application {
     public static Stage window;
     public static Scene scene;
 
-    public static String mojaPutanja = "file:/C:/Users/Stefan/Desktop/WebShop/";
+    public static String mojaPutanja = "file:/D:/NIKOLA/WebShop/";
 
     // Glavna instanca WebSHop-a
     public static Webshop webshop;

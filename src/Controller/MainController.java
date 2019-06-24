@@ -179,43 +179,31 @@ public class MainController implements  Initializable{
     @FXML
     void muskeJaknePritisnut(ActionEvent event) {
 
-        prikazi("jakne");
+        prikazi("muskarci|jakne");
     }
 
     @FXML
     void muskeDuksericePritisnut(ActionEvent event) {
-        prikazi("duksevi");
+        prikazi("muskarci|duksevi");
     }
 
     @FXML
     void muskeMajicePritisnut(ActionEvent event){
-        prikazi("majice");
+        prikazi("muskarci|majice");
     }
 
     @FXML
     void muskePantalonePritisnut(ActionEvent event) {
-        prikazi("pantalone");
+        prikazi("muskarci|pantalone");
     }
 
     @FXML
     void muskePatikePritisnut(ActionEvent event) {
-        prikazi("patike");
+        prikazi("muskarci|patike");
     }
 
     private void prikazi(String naziv){
 
-        List<Proizvod> proizvodi = new ArrayList<Proizvod>();
-
-        for(Kategorija k1: Main.webshop.getKategorije()){
-
-            for(Kategorija k2 : k1.getPodKategorija()){
-                if(k2.getNaziv().equals(naziv)){
-                    System.out.println("YYYEESS");
-                    proizvodi = k2.getProizvodi();
-                }
-            }
-
-        }
 
         try{
 
@@ -223,7 +211,7 @@ public class MainController implements  Initializable{
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();
-            pc.prikazi(proizvodi);
+            pc.dodajUPrikaz(naziv);
 
             Main.scene.setRoot(root);
         }catch (Exception ex){ ex.printStackTrace();}

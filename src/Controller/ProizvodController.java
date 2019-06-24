@@ -2,18 +2,26 @@ package Controller;
 
 import Model.Kategorija;
 import Model.Proizvod;
+import Model.StavkaCenovnika;
 import View.Main;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 
+import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ProizvodController implements Initializable {
@@ -23,8 +31,6 @@ public class ProizvodController implements Initializable {
 
     public ImageView preporucenSlika1,preporucenSlika2,preporucenSlika3;
 
-    public ProizvodSlika preporuceni1, getPreporuceni2, preporuceni3;
-
     public Label opisProizvoda, cenaProizvoda, bojaProizvoda, nazivProizvoda;
 
     public ComboBox<String> moguceVelicine;
@@ -32,7 +38,7 @@ public class ProizvodController implements Initializable {
     public Button logo;
 
     @FXML
-    private HeaderController someIdController;
+    private LogoController someIdController;
 
 
     public void postaviSliku(String url){
@@ -69,7 +75,6 @@ public class ProizvodController implements Initializable {
 
         String[] velicine = ((String)p.getAtributi().get("Velicine").getVrednost()).trim().split(" ");
 
-
         for(String s : velicine){
             moguceVelicine.getItems().add(s);
         }
@@ -86,13 +91,6 @@ public class ProizvodController implements Initializable {
             nazivProizvoda.setFont(new Font("System", 24));
             nazivProizvoda.setText(p.getNaziv());
         }
-
-
-        ArrayList<Proizvod> preporuceni = preporuceni(p);
-
-        ImageView image1 = new ImageView(preporuceni.get(0).getSlike().get(1));
-        preporuceni1 = new ProizvodSlika(preporuceni.get(0), image1);
-        preporucenSlika1 = preporuceni1.slika;
 
     }
 
@@ -167,6 +165,8 @@ public class ProizvodController implements Initializable {
 
     public void dodatoUKorpu(){
         /** Korisnik dodao proizvod u korpu*/
+
+
 
     }
 
