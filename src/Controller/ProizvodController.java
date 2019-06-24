@@ -211,20 +211,51 @@ public class ProizvodController implements Initializable {
     	return proiz;
     }
     
+    private Proizvod rngProizvod() {
+    	int rng = (int)Math.random() % Main.webshop.getProizvodi().size();
+    	java.util.Iterator iter;
+    	int i;
+    	for (iter = Main.webshop.getProizvodi().iterator(), i = 0; iter.hasNext() || i < rng;++i)
+            iter.next();
+    	Proizvod p1 = (Proizvod) iter;
+    	return p1;
+    }
     
-    public int preporuceni(Proizvod p) {
+    public ArrayList<Proizvod> preporuceni(Proizvod p) {
     	Kategorija k = p.getKategorija();
-    	
+    	ArrayList<Proizvod> proiz = new ArrayList<Proizvod>();
     	ArrayList<Proizvod> tempProiz =  nadjiProizvodeKategorija(k);
     	
     	String brend = (String) p.getAtributi().get("Brend").getVrednost();
     	tempProiz = nadjiProizvodeBrend(brend, tempProiz);
     	
     	tempProiz.remove(p);
+    	if(tempProiz.size() < 3) {
+    		while(tempProiz.size() < 3) {
+    	    	
+    	    	tempProiz.add(rngProizvod());
+    		}
+    		return tempProiz;
+    	}
+  
     	
+    	int[] a = new int[2];
     	int rng = (int)Math.random() % tempProiz.size() ;
     	
-    	return rng;
+    	proiz.add(tempProiz.get(rng));
+    	a[0] = rng;
+    	rng = (int)Math.random() % tempProiz.size();
+    	while(tempProiz.get(rng).equals(tempProiz.get(a[0]))) {
+    		rng = (int)Math.random() % tempProiz.size();
+    	}
+    	proiz.add(tempProiz.get(rng));
+    	a[1] = rng;
+    	while(tempProiz.get(rng).equals(tempProiz.get(a[0])) || tempProiz.get(rng).equals(tempProiz.get(a[1]))) {
+    		rng = (int)Math.random() % tempProiz.size();
+    	}
+    	proiz.add(tempProiz.get(rng));
+    	
+    	return proiz;
     	
     	
     }
