@@ -38,7 +38,7 @@ public class MainController implements  Initializable{
     private Pane glavniPane, leviPane, desniPane;
 
     @FXML
-    private LogoController someIdController;
+    private HeaderController someIdController;
 
 
 

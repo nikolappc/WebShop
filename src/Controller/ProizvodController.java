@@ -2,26 +2,18 @@ package Controller;
 
 import Model.Kategorija;
 import Model.Proizvod;
-import Model.StavkaCenovnika;
 import View.Main;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 
-import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class ProizvodController implements Initializable {
@@ -38,7 +30,7 @@ public class ProizvodController implements Initializable {
     public Button logo;
 
     @FXML
-    private LogoController someIdController;
+    private HeaderController someIdController;
 
 
     public void postaviSliku(String url){
@@ -74,6 +66,7 @@ public class ProizvodController implements Initializable {
         bojaProizvoda.setText((String)p.getAtributi().get("Boja").getVrednost());
 
         String[] velicine = ((String)p.getAtributi().get("Velicine").getVrednost()).trim().split(" ");
+
 
         for(String s : velicine){
             moguceVelicine.getItems().add(s);

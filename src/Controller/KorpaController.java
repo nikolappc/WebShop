@@ -10,123 +10,96 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class KorpaController implements Initializable {
 
+	@FXML
+	private VBox vBox;
 
 
 
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private LogoController someIdController;
-    
-    @FXML
-    private URL location;
-
-    @FXML
-    private VBox leviVBox;
-    
-    @FXML
-    private Button lupa;
-
-    @FXML
-    private Button logo;
-    
-    @FXML
-    private VBox desniVBox;
-
-    @FXML
-    private SplitPane splitPane1;
+	public void dodaj(){
 
 
-   
-    /* JEDNOG DANA MOZDA BUDE BILO POTREBNO KAD BUDE KONACNO SVE LEPO
-    public void test2() {
-    	if (Main.webshop.ulogovaniKorisnik == null)
-    	{
-    		desniVBox.getChildren().add(new Label("Nemate nista u korpi"));
-    		return;
-    	}
-    	for (StavkaNarudzbine sn :Main.webshop.ulogovaniKorisnik.getKorpa().getStavkaNarudzbine()){
-			HBox hb = new HBox();
-			
-			Label l = new Label("Naziv: " + sn.getProizvod().getNaziv());
-			hb.getChildren().add(l);
-			try {
-				String url = sn.getProizvod().getSlike().iterator().next();
-				Image image = new Image(new FileInputStream(url));
-				hb.getChildren().add(new ImageView(image));
-				
-			}
-			catch (Exception e) {
-				hb.getChildren().add(new ImageView());
-			}
-			
-			l = new Label("Kolicina: " + sn.getKolicina());
-			hb.getChildren().add(l);
-			
-			l = new Label("Cena: " + sn.getCena());
-			hb.getChildren().add(l);
-			
-			desniVBox.getChildren().add(hb);
+		vBox.setSpacing(20);
+		for(int i =0 ; i < 5;i++){
+
+			HBox hg = new HBox();
+			VBox v1= new VBox();
+			v1.setPrefWidth(228);
+
+			Label image = new Label("Stone Island Rgoue Trehscn");
+			Label l2 = new Label("Boja : Crvena");
+			Label l3 = new Label("Velicina XS");
+			Label l4 = new Label("SIFRA XD");
+
+			v1.getChildren().addAll(image,l2,l3,l4);
+
+			HBox ukloni = new HBox();
+			ukloni.setAlignment(Pos.CENTER);
+			ukloni.setPrefWidth(119);
+			Label l1 = new Label("DUGME");
+			ukloni.getChildren().add(l1);
+
+			HBox kolicina = new HBox();
+			kolicina.setAlignment(Pos.CENTER);
+			kolicina.setPrefWidth(119);
+			Label labela2 = new Label("1");
+			kolicina.getChildren().add(labela2);
+
+
+
+			HBox jcena = new HBox();
+			jcena.setAlignment(Pos.CENTER);
+			jcena.setPrefWidth(140);
+			Label labelac = new Label("500");
+			jcena.getChildren().add(labelac);
+
+
+			HBox cena = new HBox();
+			cena.setAlignment(Pos.CENTER);
+			cena.setPrefWidth(108);
+			Label labelace = new Label("76 000");
+			cena.getChildren().add(labelace);
+
+			hg.getChildren().addAll(v1,ukloni,kolicina, jcena,cena);
+			vBox.getChildren().addAll(hg);
+
 		}
-    }
-     */
-    public void test() {
-    	
-    	HBox hb = new HBox();
-		hb.setSpacing(50);
-		Label l = new Label("Naziv: Probam");
-		hb.getChildren().add(l);
-		try {
-			
-			hb.getChildren().add(new ImageView());
-			
-		}
-		catch (Exception e) {
-			System.out.println("probo");
-		}
-		
-		l = new Label("Kolicina: neka");
-		hb.getChildren().add(l);
-		hb.getChildren().add(new ImageView());
-		l = new Label("Cena: nema");
-		hb.getChildren().add(l);
-		desniVBox.getChildren().add(hb);
-		
-		hb = new HBox();
-		hb.setSpacing(50);
-		l = new Label("Naziv: Probam");
-		hb.getChildren().add(l);
-		try {
-			
-			hb.getChildren().add(new ImageView());
-			
-		}
-		catch (Exception e) {
-			System.out.println("probo");
-		}
-		
-		l = new Label("Kolicina: neka");
-		hb.getChildren().add(l);
-		
-		l = new Label("Cena: nema");
-		hb.getChildren().add(l);
-		desniVBox.getChildren().add(hb);
-    	
-    }
+
+		HBox space = new HBox();
+		space.setPrefHeight(15);
+
+		VBox total = new VBox();
+		total.setPadding(new Insets(0, 45, 0, 0));
+		total.setSpacing(20);
+		total.setAlignment(Pos.BOTTOM_RIGHT);
+		Label l = new Label(" Ukupna cena:     25 000");
+
+		Button b = new Button("NARUCI JEBOTE");
+		total.getChildren().addAll(space,l,b);
+		vBox.getChildren().add(total);
+
+
+
+	}
+
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		test();
+		dodaj();
 	}
 }

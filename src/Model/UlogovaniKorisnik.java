@@ -6,7 +6,7 @@
 package Model;
 import java.util.*;
 
-public abstract class UlogovaniKorisnik {
+public class UlogovaniKorisnik {
    private String korIme;
    private String lozinka;
    private String ime;

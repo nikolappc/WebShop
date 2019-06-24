@@ -1,29 +1,20 @@
 package Controller;
 
-import Model.Kategorija;
 import Model.Kupac;
-import Model.Proizvod;
 import Model.UlogovaniKorisnik;
 import View.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
 
-import javax.xml.soap.Text;
-import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import static View.Main.webshop;
@@ -63,7 +54,7 @@ public class PrijavaController implements Initializable {
     private Label porukaPrijava;
 
     @FXML
-    private LogoController someIdController;
+    private HeaderController someIdController;
 
     @FXML
     private SplitPane splitPane;

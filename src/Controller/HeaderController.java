@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class LogoController implements Initializable {
+public class HeaderController implements Initializable {
 
     @FXML
     private Button lupa;
@@ -97,13 +97,12 @@ public class LogoController implements Initializable {
 
         try{
 
-            //FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Korpa.fxml"));
-            //Parent root = (Parent) loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Korpa.fxml"));
+            Parent root = (Parent) loader.load();
 
-            //KorpaController pc = loader.getController();
+            KorpaController pc = loader.getController();
 
-            System.out.println("ZAMAL");
-            //Main.scene.setRoot(root);
+            Main.scene.setRoot(root);
 
         }catch (Exception ex){ ex.printStackTrace();}
     }
