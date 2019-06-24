@@ -54,6 +54,7 @@ public class Pretraga {
 
     /**
      * Pretrazuje proizvode po svim atributima, cim nadje neko poklapanje
+     * dodaje ga u listu i prelazi na sledeci proizvod
      * @param proizvodi lista svih proizvoda
      * @param parametar
      * @return

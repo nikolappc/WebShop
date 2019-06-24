@@ -7,7 +7,9 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -96,8 +98,14 @@ public class PrijavaController implements Initializable {
         }
 
         if(Main.webshop.prijava(korisnickoPrijava.getText(), lozinkaPrijava.getText())){
-            // TODO: dodaj da se prikazuje glavna strana
-            System.out.println("Bravo care");
+            try{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
+                Parent root = (Parent) loader.load();
+                MainController pc = loader.getController();
+                Main.scene.setRoot(root);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         } else {
             porukaPrijava.setText("Pogresno korisnicko ili lozinka");
         }

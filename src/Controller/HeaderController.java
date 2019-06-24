@@ -82,12 +82,17 @@ public class HeaderController implements Initializable {
         /** Korisnik pritisnuo dugme za pregled svog naloga */
 
         try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Prijava.fxml"));
-            Parent root = (Parent) loader.load();
-
-            PrijavaController pc = loader.getController();
-
+            // proveri da li je ulogovan
+            Parent root;
+            if(Main.webshop.ulogovaniKorisnik == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Prijava.fxml"));
+                root = (Parent) loader.load();
+                PrijavaController pc = loader.getController();
+            }else {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\IzmenaNaloga.fxml"));
+                root = (Parent) loader.load();
+                IzmenaNalogaController inc = loader.getController();
+            }
             Main.scene.setRoot(root);
 
         } catch (Exception ex) {
