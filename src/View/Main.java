@@ -57,6 +57,9 @@ public class Main extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
+
+        // izlogovan
+        Main.webshop.ulogovaniKorisnik = null;
         // Upisuje WebShop u JSon
         writeWebShop();
     }
