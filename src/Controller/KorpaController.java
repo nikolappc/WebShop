@@ -27,7 +27,8 @@ public class KorpaController implements Initializable {
     @FXML
     private ResourceBundle resources;
 
-    
+    @FXML
+    private LogoController someIdController;
     
     @FXML
     private URL location;
@@ -47,51 +48,6 @@ public class KorpaController implements Initializable {
     @FXML
     private SplitPane splitPane1;
 
-    public void pritisnutLogo() {
-        /** Korisnik pritisnuo LOGO*/
-
-        try{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
-            Parent root = (Parent) loader.load();
-
-            MainController pc = loader.getController();
-
-            Main.scene.setRoot(root);
-
-        }catch (Exception ex){ ex.printStackTrace();}
-    }
-
-
-    public void traziPritisnut() {
-        /** Korisnik pritisnuo pretragu za proizvode */
-
-        try{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
-            Parent root = (Parent) loader.load();
-
-            KatalogController pc = loader.getController();
-            //pc.prikaziSve();
-
-            Main.scene.setRoot(root);
-        }catch (Exception ex){}
-    }
-
-    public void nalogPritisnut() {
-        /** Korisnik pritisnuo dugme za pregled svog naloga */
-
-        try{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Prijava.fxml"));
-            Parent root = (Parent) loader.load();
-
-            PrijavaController pc = loader.getController();
-
-            Main.scene.setRoot(root);
-
-        }catch (Exception ex){ ex.printStackTrace();}
-    }
 
    
     /* JEDNOG DANA MOZDA BUDE BILO POTREBNO KAD BUDE KONACNO SVE LEPO

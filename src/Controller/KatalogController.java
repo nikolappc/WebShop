@@ -39,9 +39,13 @@ public class KatalogController implements Initializable {
     @FXML
     private MenuButton boje,brendovi, velicine;
 
+    @FXML
+    private LogoController someIdController;
+
     private GridPane gp;
 
     private List<Proizvod> proizvodi;
+
 
 
 
@@ -51,43 +55,6 @@ public class KatalogController implements Initializable {
 
     }
 
-
-    public void traziPritisnut(){
-
-
-    }
-
-    public void nalogPritisnut(){
-
-
-    }
-
-    public void listaZeljaPritisnuta(){
-
-
-    }
-
-
-    public void korpaPritisnuta(){
-
-
-    }
-
-
-    public void pritisnutLogo(){
-
-        try{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
-            Parent root = (Parent) loader.load();
-
-            MainController pc = loader.getController();
-
-            Main.scene.setRoot(root);
-
-        }catch (Exception ex){ ex.printStackTrace();}
-
-    }
 
     /** Dodaje broj pronadjenih proizvoda, sve boje, brendove i velicine*/
     public void sideBarOpcije(){
@@ -173,7 +140,7 @@ public class KatalogController implements Initializable {
                 {
                     try{
 
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\new.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Proizvod.fxml"));
                         Parent root = (Parent) loader.load();
 
                         ProizvodController pc = loader.getController();
@@ -226,31 +193,6 @@ public class KatalogController implements Initializable {
 
     }
 
-    @FXML
-    void muskeJaknePritisnut(ActionEvent event) {
-
-        prikazi("jakne");
-    }
-
-    @FXML
-    void muskeDuksericePritisnut(ActionEvent event) {
-        prikazi("duksevi");
-    }
-
-    @FXML
-    void muskeMajicePritisnut(ActionEvent event){
-        prikazi("majice");
-    }
-
-    @FXML
-    void muskePantalonePritisnut(ActionEvent event) {
-        prikazi("pantalone");
-    }
-
-    @FXML
-    void muskePatikePritisnut(ActionEvent event) {
-        prikazi("patike");
-    }
 
     private void prikazi(String naziv){
 

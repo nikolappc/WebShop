@@ -43,8 +43,9 @@ public class IzmenaNalogaController implements Initializable{
     @FXML
     private Font x3;
 
+
     @FXML
-    private Hyperlink izmena;
+    private LogoController someIdController;
 
     @FXML
     void potvrdaIzmena(ActionEvent event) {
@@ -81,7 +82,6 @@ public class IzmenaNalogaController implements Initializable{
     	
     	korisnickoIme.setText("Mijat");
     	lozinka.setText("Silni");
-    	izmena.setText("MijatSilni");
     }
 
 
