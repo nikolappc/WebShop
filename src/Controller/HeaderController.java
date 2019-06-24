@@ -29,9 +29,10 @@ public class HeaderController implements Initializable {
     @FXML
     private TextField searchBar;
 
-
+    /**
+     * Korisnik pritisnuo LOGO
+     */
     public void pritisnutLogo() {
-        /** Korisnik pritisnuo LOGO*/
 
         try {
 
