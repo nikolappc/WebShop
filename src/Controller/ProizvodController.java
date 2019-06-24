@@ -20,6 +20,7 @@ import javafx.scene.text.Font;
 import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -189,6 +190,52 @@ public class ProizvodController implements Initializable {
 
     }
 
+    
+    private ArrayList<Proizvod> nadjiProizvodeKategorija(Kategorija k){
+    	ArrayList<Proizvod> lista = new ArrayList<Proizvod>();
+    	
+    	for(Proizvod p: k.getProizvodi()) {
+    		lista.add(p);
+    	}
+    	
+    	return lista;
+    }
+    
+    
+    private ArrayList<Proizvod> nadjiProizvodeBrend(String brend,ArrayList<Proizvod> proiz){
+    	
+    	for (Proizvod p : Main.webshop.getProizvodi()) {
+    		try {    
+    			String brend1 = (String) p.getAtributi().get("Brend").getVrednost();
+    			if(brend1.equals(brend)) {
+    				proiz.add(p);
+    			}
+    		}
+    		catch (Exception e) {
+			}
+    	}
+    	
+    	return proiz;
+    }
+    
+    
+    public int preporuceni(Proizvod p) {
+    	Kategorija k = p.getKategorija();
+    	
+    	ArrayList<Proizvod> tempProiz =  nadjiProizvodeKategorija(k);
+    	
+    	String brend = (String) p.getAtributi().get("Brend").getVrednost();
+    	tempProiz = nadjiProizvodeBrend(brend, tempProiz);
+    	
+    	tempProiz.remove(p);
+    	
+    	int rng = (int)Math.random() % tempProiz.size() ;
+    	
+    	return rng;
+    	
+    	
+    }
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
