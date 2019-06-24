@@ -83,8 +83,8 @@ public class IzmenaNalogaController implements Initializable{
     	lozinka.setText("Silni");
     	izmena.setText("MijatSilni");
     }
-    
-    
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 

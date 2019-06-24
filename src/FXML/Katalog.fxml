@@ -33,14 +33,18 @@
                             <children>
                                 <MenuButton mnemonicParsing="false" style="-fx-background-color: #000000;" text="Muskarci" textFill="WHITE">
                                     <items>
-                                        <MenuItem mnemonicParsing="false" text="Jakne" />
-                                        <MenuItem mnemonicParsing="false" text="Dukserice" />
-                                        <MenuItem mnemonicParsing="false" text="Pantalone" />
-                                        <MenuItem mnemonicParsing="false" text="Jakne" />
+                                        <MenuItem mnemonicParsing="false" onAction="#muskeJaknePritisnut" text="Jakne" />
+                                        <MenuItem mnemonicParsing="false" onAction="#muskeDuksericePritisnut" text="Dukserice" />
+                                        <MenuItem mnemonicParsing="false" onAction="#muskeMajicePritisnut" text="Majice" />
+                                        <MenuItem mnemonicParsing="false" onAction="#muskePantalonePritisnut" text="Pantalone" />
+                                        <MenuItem mnemonicParsing="false" onAction="#muskePatikePritisnut" text="Patike" />
                                     </items>
                                     <font>
                                         <Font size="14.0" />
                                     </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
                                 </MenuButton>
                                 <MenuButton layoutX="20.0" layoutY="37.0" mnemonicParsing="false" style="-fx-background-color: #000000;" text="Zene" textFill="WHITE">
                                     <items>
@@ -50,6 +54,9 @@
                                     <font>
                                         <Font size="14.0" />
                                     </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
                                 </MenuButton>
                                 <MenuButton layoutX="69.0" layoutY="37.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #000000;" text="Brendovi" textFill="WHITE">
                                     <items>
@@ -63,6 +70,9 @@
                                     <font>
                                         <Font size="14.0" />
                                     </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
                                 </MenuButton>
                             </children>
                             <GridPane.margin>
@@ -84,20 +94,29 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="3">
                             <children>
-                                <ImageView id="slika1" fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView id="slika1" fitHeight="35.0" fitWidth="40.0" onMouseClicked="#nalogPritisnut" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@/Slike/nalog.png" />
                                     </image>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
                                 </ImageView>
-                                <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="86.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="86.0" layoutY="32.0" onMouseClicked="#izmenaNaloga" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@/Slike/srce.png" />
                                     </image>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
                                 </ImageView>
-                                <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="105.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="105.0" layoutY="32.0" onMouseClicked="#korpaPritisnuta" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@/Slike/korpa.png" />
                                     </image>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
                                 </ImageView>
                             </children>
                             <GridPane.margin>
@@ -239,7 +258,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="796.0" spacing="7.0">
                      <children>
-                        <Label text="HOME &gt;">
+                        <Label onMouseClicked="#pritisnutLogo" text="HOME &gt;">
                            <font>
                               <Font size="14.0" />
                            </font>
