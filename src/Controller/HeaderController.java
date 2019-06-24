@@ -8,8 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
+import javax.xml.soap.Text;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +26,14 @@ public class HeaderController implements Initializable {
     @FXML
     private Button logo;
 
+    @FXML
+    private TextField searchBar;
 
 
     public void pritisnutLogo() {
         /** Korisnik pritisnuo LOGO*/
 
-        try{
+        try {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
             Parent root = (Parent) loader.load();
@@ -37,29 +42,45 @@ public class HeaderController implements Initializable {
 
             Main.scene.setRoot(root);
 
-        }catch (Exception ex){ ex.printStackTrace();}
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
-
+    /**
+     *  Korisnik pritisnuo pretragu za proizvode
+     */
     public void traziPritisnut() {
-        /** Korisnik pritisnuo pretragu za proizvode */
 
-        try{
+        try {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();
-            //pc.prikaziSve();
+
+            // uradi pretragu
+            String parametar = searchBar.getText();
+            List<Proizvod> rezultat =
+                    Main.webshop.pretraga.pretragaProizvoda(Main.webshop.proizvodi, parametar);
+
+            if (rezultat.size() == 0) {
+                pc.brojRezultata.setText("0");
+                pc.kategorijaLabela.setText("Nema rezultata za unesenu vredonst");
+            }else {
+                pc.prikazi(rezultat);
+            }
 
             Main.scene.setRoot(root);
-        }catch (Exception ex){ex.printStackTrace();}
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void nalogPritisnut() {
         /** Korisnik pritisnuo dugme za pregled svog naloga */
 
-        try{
+        try {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Prijava.fxml"));
             Parent root = (Parent) loader.load();
@@ -68,7 +89,9 @@ public class HeaderController implements Initializable {
 
             Main.scene.setRoot(root);
 
-        }catch (Exception ex){ ex.printStackTrace();}
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void listaZeljaPritisnuta() {
@@ -80,7 +103,7 @@ public class HeaderController implements Initializable {
     public void izmenaNaloga() {
         // SAMO DA PROBAM
 
-        try{
+        try {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\izmenaNaloga.fxml"));
             Parent root = (Parent) loader.load();
@@ -89,13 +112,15 @@ public class HeaderController implements Initializable {
 
             Main.scene.setRoot(root);
 
-        }catch (Exception ex){ ex.printStackTrace();}
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void korpaPritisnuta() {
         /** Korisnik pritisnuo dugme za pregled svoje korpe*/
 
-        try{
+        try {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Korpa.fxml"));
             Parent root = (Parent) loader.load();
@@ -104,7 +129,9 @@ public class HeaderController implements Initializable {
 
             Main.scene.setRoot(root);
 
-        }catch (Exception ex){ ex.printStackTrace();}
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     @FXML
@@ -119,7 +146,7 @@ public class HeaderController implements Initializable {
     }
 
     @FXML
-    void muskeMajicePritisnut(ActionEvent event){
+    void muskeMajicePritisnut(ActionEvent event) {
         prikazi("majice");
     }
 
@@ -133,21 +160,21 @@ public class HeaderController implements Initializable {
         prikazi("patike");
     }
 
-    private void prikazi(String naziv){
+    private void prikazi(String naziv) {
 
         List<Proizvod> proizvodi = new ArrayList<Proizvod>();
 
-        for(Kategorija k1: Main.webshop.getKategorije()){
+        for (Kategorija k1 : Main.webshop.getKategorije()) {
 
-            for(Kategorija k2 : k1.getPodKategorija()){
-                if(k2.getNaziv().equals(naziv)){
+            for (Kategorija k2 : k1.getPodKategorija()) {
+                if (k2.getNaziv().equals(naziv)) {
                     proizvodi = k2.getProizvodi();
                 }
             }
 
         }
 
-        try{
+        try {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
             Parent root = (Parent) loader.load();
@@ -156,7 +183,9 @@ public class HeaderController implements Initializable {
             pc.prikazi(proizvodi);
 
             Main.scene.setRoot(root);
-        }catch (Exception ex){ ex.printStackTrace();}
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
     }
 

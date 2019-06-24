@@ -23,7 +23,7 @@ public class Atribut {
         this.naziv = naziv;
     }
 
-    public Object getVrednost() {
+    public String getVrednost() {
         return vrednost;
     }
 

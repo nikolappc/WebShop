@@ -52,6 +52,22 @@ public class Proizvod {
 
    }
 
+
+   /**
+    * Geter za vrednosti atributa
+    * @param nazivAtributa naziv atributa
+    * @return null, ako naziv atributa ne postoji,
+    *         vrednost atributa ako postoji.
+    */
+   public String getAtribut(String nazivAtributa){
+      if(!atributi.containsKey(nazivAtributa)){
+         return null;
+      } else {
+         return atributi.get(nazivAtributa).getVrednost();
+      }
+
+   }
+
    @Override
    public boolean equals(Object o) {
       if (this == o) return true;

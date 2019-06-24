@@ -17,7 +17,9 @@ import java.net.URL;
 import java.util.*;
 
 
-/** Ovo koristim da znam na koju smo sliku kliknuli*/
+/**
+ *  Ovo koristim da znam na koju smo sliku kliknuli
+ */
 class ProizvodSlika{
     Proizvod proizvod;
     ImageView slika;
@@ -32,13 +34,16 @@ public class KatalogController implements Initializable {
     private VBox vbox;
 
     @FXML
-    private Label brojRezultata;
+    public Label brojRezultata;
 
     @FXML
     private MenuButton boje,brendovi, velicine;
 
     @FXML
     private HeaderController someIdController;
+
+    @FXML
+    public Label kategorijaLabela;
 
     private GridPane gp;
 
@@ -76,7 +81,7 @@ public class KatalogController implements Initializable {
 
 
 
-        //TODO DODATI EVENTOVE ZA SVE OVE DJAVOLE
+        // TODO: DODATI EVENTOVE ZA SVE OVE DJAVOLE
         for(String s: setBoja){
             CustomMenuItem mitem = new CustomMenuItem();
             CheckBox cb = new CheckBox(s);
@@ -200,22 +205,6 @@ public class KatalogController implements Initializable {
             Main.scene.setRoot(root);
         }catch (Exception ex){ ex.printStackTrace();}
 
-    }
-
-
-    public void izmenaNaloga() {
-        // SAMO DA PROBAM
-
-        try{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\izmenaNaloga.fxml"));
-            Parent root = (Parent) loader.load();
-
-            IzmenaNalogaController pc = loader.getController();
-
-            Main.scene.setRoot(root);
-
-        }catch (Exception ex){ ex.printStackTrace();}
     }
 
 
