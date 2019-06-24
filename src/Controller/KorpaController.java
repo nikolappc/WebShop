@@ -72,7 +72,7 @@ public class KorpaController implements Initializable {
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();
-            //pc.prikaziSve();
+            pc.prikaziSve();
 
             Main.scene.setRoot(root);
         }catch (Exception ex){}
@@ -143,7 +143,7 @@ public class KorpaController implements Initializable {
 		
 		l = new Label("Kolicina: neka");
 		hb.getChildren().add(l);
-		
+		hb.getChildren().add(new ImageView());
 		l = new Label("Cena: nema");
 		hb.getChildren().add(l);
 		desniVBox.getChildren().add(hb);

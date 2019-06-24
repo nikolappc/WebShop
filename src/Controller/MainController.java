@@ -123,8 +123,27 @@ public class MainController implements  Initializable{
 
     public void listaZeljaPritisnuta() {
         /** Korisnik pritisnuo dugme za pregled svoje liste zelja */
+    	
+    }
+    
+    
+    
+    public void izmenaNaloga() {
+    	// SAMO DA PROBAM
+    	
+   	 try{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\izmenaNaloga.fxml"));
+            Parent root = (Parent) loader.load();
+
+            IzmenaNalogaController pc = loader.getController();
+
+            Main.scene.setRoot(root);
+
+        }catch (Exception ex){ ex.printStackTrace();}
     }
 
+    
     public void korpaPritisnuta() {
         /** Korisnik pritisnuo dugme za pregled svoje korpe*/
     	
