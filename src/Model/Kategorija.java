@@ -169,10 +169,10 @@ public class Kategorija {
     }
 
 
-    public Atribut napraviAtribut(String naziv, String vrednost) {
-        String key = naziv+vrednost;
+    public Atribut napraviAtribut(String naziv, List<String> vrednosti,TipAtributa tipAtributa) {
+        String key = naziv+vrednosti;
         if (!atributi.containsKey(key)){
-            atributi.put(key,new Atribut(naziv,vrednost));
+            atributi.put(key,new Atribut(naziv,vrednosti,tipAtributa));
         }
         return atributi.get(key);
     }

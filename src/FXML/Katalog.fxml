@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.KatalogController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.KatalogController">
     <top>
         <fx:include fx:id="someId" source="/FXML/Header.fxml" BorderPane.alignment="CENTER" />
     </top>
    <left>
       <HBox prefHeight="704.0" prefWidth="183.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="704.0" prefWidth="181.0" spacing="20.0" style="-fx-background-color: C2C2C2;">
+            <VBox fx:id="atributiLayout" prefHeight="704.0" prefWidth="181.0" spacing="20.0" style="-fx-background-color: C2C2C2;">
                <children>
                   <HBox prefHeight="75.0" prefWidth="161.0">
                      <children>
@@ -32,93 +33,11 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox layoutX="30.0" layoutY="120.0" prefHeight="44.0" prefWidth="161.0">
-                     <children>
-                        <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" text="Pol">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <items>
-                              <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
-                                 <content>
-                                    <CheckBox text="Muski" />
-                                 </content>
-                              </CustomMenuItem>
-                              <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
-                                 <content>
-                                    <CheckBox text="Zenski" />
-                                 </content>
-                              </CustomMenuItem>
-                           </items>
-                        </MenuButton>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="44.0" prefWidth="161.0">
-                     <children>
-                        <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" text="Kategorija">
-                          <items>
-                              <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
-                                <content>
-                                  <CheckBox text="Jakne" />
-                                </content>
-                              </CustomMenuItem>
-                              <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
-                                <content>
-                                  <CheckBox text="Dukserice" />
-                                </content>
-                              </CustomMenuItem>
-                              <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
-                                 <content>
-                                    <CheckBox text="Majice" />
-                                 </content>
-                              </CustomMenuItem>
-                              <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
-                                 <content>
-                                    <CheckBox text="Pantalone" />
-                                 </content>
-                              </CustomMenuItem>
-                              <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
-                                 <content>
-                                    <CheckBox text="Patike" />
-                                 </content>
-                              </CustomMenuItem>
-                          </items>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </MenuButton>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="30.0" layoutY="147.0" prefHeight="44.0" prefWidth="161.0">
-                     <children>
-                        <MenuButton fx:id="brendovi" mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" text="Brend">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </MenuButton>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="30.0" layoutY="211.0" prefHeight="44.0" prefWidth="161.0">
-                     <children>
-                        <MenuButton fx:id="velicine" mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" text="Velicina">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </MenuButton>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="30.0" layoutY="275.0" prefHeight="44.0" prefWidth="161.0">
-                     <children>
-                        <MenuButton fx:id="boje" mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" style="-fx-label-padding: 0; -fx-padding: 0;" text="Boja">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </MenuButton>
-                     </children>
-                  </HBox>
+                  <TreeView fx:id="stabloKategorija" prefHeight="252.0" prefWidth="161.0" style="-fx-background-color: #c2c2c2;" />
+
                </children>
                <padding>
-                  <Insets left="20.0" top="15.0" />
+                  <Insets left="10.0" right="10.0" top="15.0" />
                </padding>
             </VBox>
          </children>
@@ -141,7 +60,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="kategorijaLabela" layoutX="30.0" layoutY="25.0" text="JAKNE">
+                        <Label layoutX="30.0" layoutY="25.0" text="JAKNE">
                            <font>
                               <Font size="14.0" />
                            </font>

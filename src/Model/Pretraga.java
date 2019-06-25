@@ -3,6 +3,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -96,8 +97,7 @@ public class Pretraga {
         Collection<String> listaAtributa = proizvod.getAtributi().keySet();
         for(String atribut: listaAtributa){
             // uzmima vrednost atributa
-            String vrednostAtributa = proizvod.getAtributi().get(atribut).getVrednost().toLowerCase();
-            if(vrednostAtributa.contains(parametar)){
+            if(proizvod.getAtributi().get(atribut).sadrziVrednost(parametar)){
                 return true;
             }
         }
@@ -118,7 +118,7 @@ public class Pretraga {
         for(Proizvod proizvod: proizvodi){
             // moze da proizvood.getatribut da vrati null
             try{
-                if(proizvod.getAtribut("Brend").toLowerCase().equals(parametar)){
+                if(proizvod.getAtributVrednost("Brend").toLowerCase().equals(parametar)){
                     rezultat.add(proizvod);
                 }
             } catch(NullPointerException e){
@@ -148,6 +148,32 @@ public class Pretraga {
         }
 
         return null;
+    }
+
+    /**
+     * Vraca listu proizvoda koji pripadaju kategoriji na datoj putanji koja je predstavljena listom stringova
+     * @param kategorije
+     * @param putanja
+     * @return
+     */
+    public static List<Proizvod> pretraziKategorije(Collection<Kategorija> kategorije, List<String> putanja) {
+        return pretraziKategorijeRekurzivno(kategorije,putanja,0);
+    }
+
+    private static List<Proizvod> pretraziKategorijeRekurzivno(Collection<Kategorija> kategorije, List<String> putanja, int i) {
+        if (i>=putanja.size()){
+            return new LinkedList<>();
+        }
+        for (Kategorija k:kategorije){
+            if (k.getNaziv().equals(putanja.get(i))){
+                i++;
+                if (i==putanja.size()){
+                    return k.getProizvodi();
+                }
+                return pretraziKategorijeRekurzivno(k.getPodKategorija(),putanja,i);
+            }
+        }
+        return new LinkedList<>();
     }
 }
 

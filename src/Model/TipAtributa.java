@@ -7,7 +7,7 @@ package Model;
 import java.util.*;
 
 public enum TipAtributa {
-   NUMBER,
-   CHAR;
+   STRING,
+   LIST;
 
 }

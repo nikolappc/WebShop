@@ -60,13 +60,20 @@ public class Proizvod {
     * @return null, ako naziv atributa ne postoji,
     *         vrednost atributa ako postoji.
     */
-   public String getAtribut(String nazivAtributa){
+   public String getAtributVrednost(String nazivAtributa){
       if(!atributi.containsKey(nazivAtributa)){
          return null;
       } else {
          return atributi.get(nazivAtributa).getVrednost();
       }
+   }
 
+   public Atribut getAtribut(String nazivAtributa){
+      if(!atributi.containsKey(nazivAtributa)){
+         return null;
+      } else {
+         return atributi.get(nazivAtributa);
+      }
    }
 
    @Override

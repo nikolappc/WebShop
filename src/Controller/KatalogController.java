@@ -1,6 +1,8 @@
 package Controller;
 
+import Model.Atribut;
 import Model.Kategorija;
+import Model.Pretraga;
 import Model.Proizvod;
 import View.Main;
 import javafx.fxml.FXML;
@@ -10,119 +12,59 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxTreeCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 
 import java.net.URL;
 import java.util.*;
 
-
 /**
- *  Ovo koristim da znam na koju smo sliku kliknuli
+ * Jedna stranica na kojoj se nalazi maksimalno 9 proizvoda
+ * Ima referencu na prethodnu i sledecu
  */
-class ProizvodSlika{
-    Proizvod proizvod;
-    ImageView slika;
+class Stranica {
 
-    public ProizvodSlika(Proizvod prz, ImageView sl){ proizvod = prz; slika = sl;}
+    public static final int proizvodPoStrani = 9;
+    List<Proizvod> proizvodi;
+    int start, end;
 
-}
+    Stranica prev, next;
 
-public class KatalogController implements Initializable {
+    public Stranica(List<Proizvod> proizvodi, int start, int end) {
+        this.proizvodi = proizvodi;
+        this.start = start;
+        this.end = end;
+    }
 
-    @FXML
-    private VBox vbox;
+    public Stranica getPrev() {
+        return prev;
+    }
 
-    @FXML
-    public Label brojRezultata;
+    public void setPrev(Stranica prev) {
+        this.prev = prev;
+    }
 
-    @FXML
-    private MenuButton boje,brendovi, velicine;
+    public Stranica getNext() {
+        return next;
+    }
 
-    @FXML
-    private HeaderController someIdController;
-
-    @FXML
-    public Label kategorijaLabela;
-
-    private GridPane gp;
-
-    private List<Proizvod> proizvodi;
-
-
-
-    /** Vrsi se pretraga po svim kriterijumima koje je korisnik izabrao i na kraju se rezultati pretraga spajaju i prikazuju*/
-    public void izvrsiPretragu(){
-
-
-
+    public void setNext(Stranica next) {
+        this.next = next;
     }
 
 
-    /** Dodaje broj pronadjenih proizvoda, sve boje, brendove i velicine*/
-    public void sideBarOpcije(){
-
-        brojRezultata.setText(proizvodi.size()+"");
-
-        Set<String> setBoja = new TreeSet<String>();
-        Set<String> setBrendova = new TreeSet<String>();
-        Set<String> setVelicina = new TreeSet<String>();
-
-
-        for(Proizvod p : proizvodi){
-            setBoja.add((String)p.getAtributi().get("Boja").getVrednost());
-
-            String[] vel = ((String) p.getAtributi().get("Velicine").getVrednost()).trim().split(" ");
-            for(String poj : vel)
-                setVelicina.add(poj);
-
-            setBrendova.add((String)p.getAtributi().get("Brend").getVrednost());
-        }
-
-
-
-        // TODO: DODATI EVENTOVE ZA SVE OVE DJAVOLE
-        for(String s: setBoja){
-            CustomMenuItem mitem = new CustomMenuItem();
-            CheckBox cb = new CheckBox(s);
-            mitem.setContent(cb);
-            boje.getItems().add(mitem);
-        }
-
-        for(String s: setBrendova){
-            CustomMenuItem mitem = new CustomMenuItem();
-            CheckBox cb = new CheckBox(s);
-            mitem.setContent(cb);
-            brendovi.getItems().add(mitem);
-        }
-
-        for(String s: setVelicina){
-            CustomMenuItem mitem = new CustomMenuItem();
-            CheckBox cb = new CheckBox(s);
-            mitem.setContent(cb);
-            velicine.getItems().add(mitem);
-        }
-
-
-    }
-
-
-    /** Prikazuje datu listu proizvoda kao Katalog */
-    public void prikazi(List<Proizvod> lista){
-
-        proizvodi = lista;
-        sideBarOpcije();
-
-        gp = new GridPane();
+    public GridPane ucitaj() {
+        GridPane gp = new GridPane();
         gp.setVgap(30);
         gp.setHgap(20);
 
-        int index = -1;
-        for(int i = 0; i < 30; i++){
-            for(int j = 0; j < 3; j++){
+        int index = start;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
 
-                index++;
                 if (index >= proizvodi.size()) {
                     break;
                 }
@@ -133,13 +75,15 @@ public class KatalogController implements Initializable {
                 layout.prefWidth(266);
                 layout.prefHeight(323);
 
-                ImageView slika = new ImageView(Main.mojaPutanja+proizvodi.get(index).getSlike().get(1));
+
+                ImageView slika = new ImageView(Main.mojaPutanja + proizvodi.get(index).getSlike().get(1));
 
                 ProizvodSlika ps = new ProizvodSlika(proizvodi.get(index), slika);
 
-                ps.slika.setOnMouseClicked(e->
+                ps.slika.setOnMouseClicked(e ->
                 {
-                    try{
+                    try {
+
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Proizvod.fxml"));
                         Parent root = (Parent) loader.load();
 
@@ -148,17 +92,19 @@ public class KatalogController implements Initializable {
 
                         Main.scene.setRoot(root);
                         Main.window.show();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
                     }
-                    catch(Exception ex) {ex.printStackTrace();}
                 });
 
-                ps.slika.setOnMouseEntered( e-> ps.slika.setImage(new Image(Main.mojaPutanja + ps.proizvod.getSlike().get(0))));
-                ps.slika.setOnMouseExited (e-> ps.slika.setImage(new Image(Main.mojaPutanja + ps.proizvod.getSlike().get(1))));
+                ps.slika.setOnMouseEntered(e -> ps.slika.setImage(new Image(Main.mojaPutanja + ps.proizvod.getSlike().get(0))));
+                ps.slika.setOnMouseExited(e -> ps.slika.setImage(new Image(Main.mojaPutanja + ps.proizvod.getSlike().get(1))));
 
                 slika.setFitHeight(276);
                 slika.setFitWidth(240);
                 slika.setCursor(Cursor.HAND);
                 layout.getChildren().add(slika);
+
 
                 HBox hb1 = new HBox();
                 hb1.setAlignment(Pos.CENTER);
@@ -174,38 +120,313 @@ public class KatalogController implements Initializable {
                 hb2.getChildren().add(labela2);
                 layout.getChildren().add(hb2);
 
-                gp.add(layout,j,i);
+                //cena.setPrefSize(100,100);
+                gp.add(layout, j, i);
+                index++;
             }
         }
-        vbox.getChildren().add(gp);
+        return gp;
+    }
+}
+
+/**
+ * Ova klasa se cuva u stablu na klik cvora koji sadrzi ovaj objekat
+ * se obavlja pretraga proizvoda na putanji iz oobjekta ove klase
+ */
+class CvorDrveta {
+    private String name;
+    private String putanja;
+
+    public CvorDrveta(String name, String putanja) {
+        this.name = name;
+        this.putanja = putanja;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    public String getName() {
+        return name;
     }
 
 
-    private void prikazi(String naziv){
+    public String getPutanja() {
+        return putanja;
+    }
+}
 
-        List<Proizvod> proizvodi = new ArrayList<Proizvod>();
+/**
+ * Ovo koristim da znam na koju smo sliku kliknuli
+ */
+class ProizvodSlika {
+    Proizvod proizvod;
+    ImageView slika;
 
-        for(Kategorija k1: Main.webshop.getKategorije()){
+    public ProizvodSlika(Proizvod prz, ImageView sl) {
+        proizvod = prz;
+        slika = sl;
+    }
 
-            for(Kategorija k2 : k1.getPodKategorija()){
-                if(k2.getNaziv().equals(naziv)){
-                    proizvodi = k2.getProizvodi();
+}
+
+public class KatalogController implements Initializable {
+
+    @FXML
+    private VBox atributiLayout;
+
+    @FXML
+    private TreeView<CvorDrveta> stabloKategorija;
+
+    @FXML
+    private VBox vbox;
+
+    @FXML
+    public Label brojRezultata;
+
+    @FXML
+    public Label kategorijaLabela;
+
+    @FXML
+    private HeaderController someIdController;
+
+    private List<MenuButton> atributMeniji = new LinkedList<>() ;
+
+    private List<Proizvod> proizvodi;
+
+    private Set<String> putanje = new TreeSet<>();
+
+
+    private Stranica trenutnaStranica;
+
+    Map<String, Set<String>> atributFilter = new HashMap<>();
+
+    public void izvrsiPretragu() {
+        /** Vrsi se pretraga po svim kriterijumima koje je korisnik izabrao i na kraju se rezultati pretraga spajaju i prikazuju*/
+
+
+    }
+
+
+    /**
+     * Dodaje broj pronadjenih proizvoda, sve boje, brendove i velicine
+     */
+    public void sideBarOpcije(List<Proizvod> proizvodi) {
+
+//        brojRezultata.setText(proizvodi.size() + "");
+//        Map<String, Set<Atribut>> atributi = new HashMap<>();
+//        for (Proizvod p : proizvodi) {
+//            for (Map.Entry<String, Atribut> a : p.getAtributi().entrySet()) {
+//                if (!atributi.containsKey(a.getKey())) {
+//                    atributi.put(a.getKey(), new HashSet<>());
+//                }
+//                atributi.get(a.getKey()).add(a.getValue());
+//            }
+//        }
+//        int index = 2;
+//        for (Map.Entry<String, Set<Atribut>> entry : atributi.entrySet()) {
+//            MenuButton atributMenu = new MenuButton(entry.getKey());
+//            for (Atribut a : entry.getValue()) {
+//                CustomMenuItem mitem = new CustomMenuItem();
+//                CheckBox cb = new CheckBox(a.getVrednost());
+//                mitem.setContent(cb);
+//                atributMenu.getItems().add(mitem);
+//            }
+//            HBox hBox = new HBox();
+//            hBox.getChildren().add(atributMenu);
+//            atributiLayout.getChildren().add(index,hBox);
+//            index++;
+//        }
+
+//        Set<String> setBoja = new TreeSet<String>();
+//        Set<String> setBrendova = new TreeSet<String>();
+//        Set<String> setVelicina = new TreeSet<String>();
+
+
+        Map<String, Set<String>> atributiVrednosti = new HashMap<>();
+        for (Proizvod p : proizvodi) {
+            for (Atribut a:p.getAtributi().values()) {
+                String naziv = a.getNaziv();
+                if (!atributiVrednosti.containsKey(naziv)) {
+                    atributiVrednosti.put(naziv, new HashSet<>());
                 }
+
+                Set<String> vrednosti = atributiVrednosti.get(naziv);
+                vrednosti.addAll(a.getVrednosti());
             }
 
+//            setBoja.add((String) p.getAtributi().get("Boja").getVrednost());
+//
+//            List<String> vel = (List<String>) p.getAtributi().get("Velicine").getVrednost();
+//            for (String poj : vel)
+//                setVelicina.add(poj);
+//
+//            setBrendova.add((String) p.getAtributi().get("Brend").getVrednost());
+        }
+        atributiLayout.getChildren().removeAll(atributMeniji);
+        for (Map.Entry<String, Set<String>> e:atributiVrednosti.entrySet()){
+            MenuButton atributMeni = new MenuButton(e.getKey());
+            atributMeni.setPrefSize(200,25);
+            atributMeni.setFont(new Font(15));
+            for(String s: e.getValue()) {
+                CustomMenuItem mitem = new CustomMenuItem();
+                CheckBox cb = new CheckBox(s);
+                cb.selectedProperty().addListener((observable, oldValue, newValue) -> {
+                    if (newValue) {
+                        dodajFilterAtributa(e.getKey(),cb.getText());
+                    } else {
+                        izbaciFilterAtributa(e.getKey(),cb.getText());
+                    }
+
+                });
+                mitem.setContent(cb);
+                atributMeni.getItems().add(mitem);
+
+            }
+            atributiLayout.getChildren().add(atributMeni);
+            atributMeniji.add(atributMeni);
         }
 
-        try{
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
-            Parent root = (Parent) loader.load();
+//        for(String s: setBoja){
+//            CustomMenuItem mitem = new CustomMenuItem();
+//            CheckBox cb = new CheckBox(s);
+//            cb.selectedProperty().addListener((observable, oldValue, newValue) -> {
+//                if (newValue){
+//
+//                }else{
+//
+//                }
+//            });
+//            mitem.setContent(cb);
+//            boje.getItems().add(mitem);
+//        }
+//
+//        for(String s: setBrendova){
+//            CustomMenuItem mitem = new CustomMenuItem();
+//            CheckBox cb = new CheckBox(s);
+//            mitem.setContent(cb);
+//            brendovi.getItems().add(mitem);
+//        }
+//
+//        for(String s: setVelicina){
+//            CustomMenuItem mitem = new CustomMenuItem();
+//            CheckBox cb = new CheckBox(s);
+//            mitem.setContent(cb);
+//            velicine.getItems().add(mitem);
+//        }
 
-            KatalogController pc = loader.getController();
-            pc.prikazi(proizvodi);
 
-            Main.scene.setRoot(root);
-        }catch (Exception ex){ ex.printStackTrace();}
+    }
 
+    public void pretraziPoAtributima(){
+        List<Proizvod> proizvodiSaAtributima = new LinkedList<>();
+        for (Proizvod p:proizvodi){
+            boolean flag = true;
+            for (String naziv:atributFilter.keySet()){
+                Atribut atribut;
+                if ((atribut = p.getAtribut(naziv))!=null){
+                    if (!atribut.sadrziVrednosti(atributFilter.get(naziv))){
+                        flag = false;
+                        break;
+                    }
+                }
+            }
+            if (flag){
+                proizvodiSaAtributima.add(p);
+            }
+        }
+        prikazi(proizvodiSaAtributima);
+    }
+
+
+    public void pretraziPoKategoriji() {
+        proizvodi = new LinkedList<>();
+        atributFilter.clear();
+        for (String putanja : putanje) {
+            List<String> var = Arrays.asList(putanja.split("\\|"));
+            proizvodi.addAll(Pretraga.pretraziKategorije(Main.webshop.getKategorije(), var));
+        }
+
+        if (proizvodi == null) {
+            return;
+        }
+        prikazi(proizvodi);
+
+    }
+
+    /**
+     * Prikazuje date proizvode iz liste u katalogu
+     *
+     * @param proizvodi
+     */
+    public void prikazi(List<Proizvod> proizvodi) {
+        brojRezultata.setText(String.valueOf(proizvodi.size()));
+
+        sideBarOpcije(proizvodi);
+
+        if (proizvodi.isEmpty()) {
+            Label label = new Label("Nijedan proizvod nije pronađen.");
+            vbox.getChildren().set(1, label);
+            return;
+        }
+
+
+
+        int end;
+        Stranica prev = null;
+        for (int i = 0; i < proizvodi.size(); i += Stranica.proizvodPoStrani) {
+            end = i + Stranica.proizvodPoStrani;
+            if (end >= proizvodi.size()) {
+                end = proizvodi.size();
+            }
+            Stranica s = new Stranica(proizvodi, i, end);
+            if (i == 0) {
+
+                namestiNovuStranicu(s);
+            }
+            s.setPrev(prev);
+            if (prev != null) {
+                prev.setNext(s);
+            }
+            prev = s;
+        }
+    }
+
+    private void namestiNovuStranicu(Stranica s) {
+        if (s == null) {
+            return;
+        }
+        trenutnaStranica = s;
+        GridPane gp = trenutnaStranica.ucitaj();
+        vbox.getChildren().set(1, gp);
+    }
+
+
+    public void dodajUPrikazKategorije(String putanja) {
+        putanje.add(putanja);
+        pretraziPoKategoriji();
+    }
+
+
+    private void izbaciIzPrikazaKategorije(String putanja) {
+        putanje.remove(putanja);
+        pretraziPoKategoriji();
+    }
+
+    private void dodajFilterAtributa(String naziv, String vrednost){
+        if (!atributFilter.containsKey(naziv)){
+            atributFilter.put(naziv,new HashSet<>());
+        }
+        atributFilter.get(naziv).add(vrednost);
+        pretraziPoAtributima();
+    }
+    private void izbaciFilterAtributa(String naziv, String vrednost){
+        if (atributFilter.containsKey(naziv)){
+            atributFilter.get(naziv).remove(vrednost);
+        }
+        pretraziPoAtributima();
     }
 
 
@@ -214,6 +435,75 @@ public class KatalogController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         //gp.getChildren().clear();
-        vbox.getChildren().removeAll(gp);
+        HBox dugmad = new HBox();
+        Button prev = new Button("Prethodna");
+        Button next = new Button("Sledeca");
+        prev.setOnAction(e -> {
+            proslaStranica();
+        });
+        next.setOnAction(e -> {
+            sledecaStranica();
+        });
+        dugmad.getChildren().addAll(prev, next);
+        vbox.getChildren().add(2, dugmad);
+        CheckBoxTreeItem<CvorDrveta> treeRoot = napraviCvor("Kategorije", "");
+        stabloKategorija.setRoot(treeRoot);
+        stabloKategorija.setCellFactory(CheckBoxTreeCell.forTreeView());
+
+        Collection<Kategorija> kategorije = Main.webshop.getKategorije();
+        for (Kategorija k : kategorije) {
+            rekurzivnoDodajKategorije(k, treeRoot, k.getNaziv());
+        }
+
+    }
+
+    private void sledecaStranica() {
+        namestiNovuStranicu(trenutnaStranica.getNext());
+    }
+
+
+    private void proslaStranica() {
+        namestiNovuStranicu(trenutnaStranica.getPrev());
+    }
+
+    /**
+     * Kreira cvor drveta i namesta Listener koji na osnovu stanja cvora dodaje ili izbacuje putanju do proizvoda
+     * iz seta putranja preko kojih se dobavljaju proizvodi
+     *
+     * @param naziv
+     * @param putanja
+     * @return
+     */
+    private CheckBoxTreeItem<CvorDrveta> napraviCvor(String naziv, String putanja) {
+        CheckBoxTreeItem<CvorDrveta> node = new CheckBoxTreeItem<>(new CvorDrveta(naziv, putanja));
+        node.setExpanded(true);
+        node.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                dodajUPrikazKategorije(node.getValue().getPutanja());
+            } else {
+                izbaciIzPrikazaKategorije(node.getValue().getPutanja());
+            }
+        });
+        return node;
+    }
+
+    /**
+     * Dodaje rekurzivno kategorije u stablo
+     *
+     * @param kategorija kategorija koja se trenutno unosi u stablo
+     * @param parent     cvor u stablu koji ce biti roditelj novom dodatom
+     * @param putanja    putanja do trenutne kategorije
+     */
+    private void rekurzivnoDodajKategorije(Kategorija kategorija, TreeItem<CvorDrveta> parent, String putanja) {
+
+        CheckBoxTreeItem<CvorDrveta> node = napraviCvor(kategorija.getNaziv(), putanja);
+        parent.getChildren().add(node);
+        List<Kategorija> kategorije = kategorija.getPodKategorija();
+        if (kategorije.isEmpty()) {
+            return;
+        }
+        for (Kategorija k : kategorije) {
+            rekurzivnoDodajKategorije(k, node, putanja + "|" + k.getNaziv());
+        }
     }
 }

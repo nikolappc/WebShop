@@ -1,6 +1,5 @@
 package View;
 
-import Controller.KorpaController;
 import Controller.MainController;
 import Model.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,10 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 public class Main extends Application {
@@ -66,11 +62,11 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-//        webshop = new Webshop();
-//        parseData(webshop);
-//        parseUsers();
-        //Ucitava WebShop
-        loadWebShop();
+        webshop = new Webshop();
+        parseData(webshop);
+        parseUsers();
+//        Ucitava WebShop
+//        loadWebShop();
         launch(args);
     }
 
@@ -152,6 +148,7 @@ public class Main extends Application {
                             stringBuilder.append(s[i]);
                             stringBuilder.append(' ');
                         }
+
                         String name = stringBuilder.toString().trim();
                         line = br.readLine();
                         String id = line.split(":")[1].trim();
@@ -161,7 +158,7 @@ public class Main extends Application {
 
 
                         line = br.readLine();
-                        String boje = line.split(":")[1].trim();
+                        List<String> boje = Arrays.asList(line.split(":")[1].trim().split(" "));
 
 
                         line = br.readLine();
@@ -170,7 +167,7 @@ public class Main extends Application {
 
 
                         line = br.readLine();
-                        String velicine = line.split(":")[1];
+                        List<String> velicine = Arrays.asList(line.split(":")[1].split(" "));
 
 
                         line = br.readLine();
@@ -193,11 +190,11 @@ public class Main extends Application {
 
                         Atribut atri;
                         if (podKategorija != null) {
-                            atri = podKategorija.napraviAtribut("Velicine",velicine);
+                            atri = podKategorija.napraviAtribut("Velicine",velicine,TipAtributa.LIST);
                             p.dodajAtribut(atri);
-                            atri = podKategorija.napraviAtribut("Brend",brendName);
+                            atri = podKategorija.napraviAtribut("Brend", Arrays.asList(brendName.split(" ")),TipAtributa.STRING);
                             p.dodajAtribut(atri);
-                            atri = podKategorija.napraviAtribut("Boja",boje);
+                            atri = podKategorija.napraviAtribut("Boja",boje,TipAtributa.LIST);
                             p.dodajAtribut(atri);
                         }
 
