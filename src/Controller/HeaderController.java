@@ -30,8 +30,8 @@ public class HeaderController implements Initializable {
     private TextField searchBar;
 
 
+    /** Korisnik pritisnuo LOGO */
     public void pritisnutLogo() {
-        /** Korisnik pritisnuo LOGO*/
 
         try {
 
@@ -77,16 +77,22 @@ public class HeaderController implements Initializable {
         }
     }
 
+
+    /** Korisnik pritisnuo dugme za pregled svog naloga */
     public void nalogPritisnut() {
-        /** Korisnik pritisnuo dugme za pregled svog naloga */
 
         try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Prijava.fxml"));
-            Parent root = (Parent) loader.load();
-
-            PrijavaController pc = loader.getController();
-
+            // proveri da li je ulogovan
+            Parent root;
+            if(Main.webshop.ulogovaniKorisnik == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Prijava.fxml"));
+                root = (Parent) loader.load();
+                PrijavaController pc = loader.getController();
+            }else {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\IzmenaNaloga.fxml"));
+                root = (Parent) loader.load();
+                IzmenaNalogaController inc = loader.getController();
+            }
             Main.scene.setRoot(root);
 
         } catch (Exception ex) {
@@ -94,8 +100,22 @@ public class HeaderController implements Initializable {
         }
     }
 
+
+    /** Korisnik pritisnuo dugme za pregled svoje liste zelja */
     public void listaZeljaPritisnuta() {
-        /** Korisnik pritisnuo dugme za pregled svoje liste zelja */
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\ListaZelja.fxml"));
+            Parent root = (Parent) loader.load();
+
+            ListaZeljaController pc = loader.getController();
+
+            Main.scene.setRoot(root);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
     }
 
@@ -117,8 +137,10 @@ public class HeaderController implements Initializable {
         }
     }
 
+
+    /** Korisnik pritisnuo dugme za pregled svoje korpe*/
     public void korpaPritisnuta() {
-        /** Korisnik pritisnuo dugme za pregled svoje korpe*/
+
 
         try {
 
@@ -135,10 +157,7 @@ public class HeaderController implements Initializable {
     }
 
     @FXML
-    void muskeJaknePritisnut(ActionEvent event) {
-
-        prikazi("jakne");
-    }
+    void muskeJaknePritisnut(ActionEvent event) {prikazi("jakne");}
 
     @FXML
     void muskeDuksericePritisnut(ActionEvent event) {
@@ -160,6 +179,8 @@ public class HeaderController implements Initializable {
         prikazi("patike");
     }
 
+
+    /** Menja scenu na katalog za prikazivanje vise proizvoda */
     private void prikazi(String naziv) {
 
         List<Proizvod> proizvodi = new ArrayList<Proizvod>();

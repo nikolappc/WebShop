@@ -181,17 +181,17 @@
                                 </HBox>
                                 <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                                     <children>
-                                        <ImageView id="preporucen1" fx:id="preporucenSlika1" fitHeight="150.0" fitWidth="109.0" onMouseClicked="#izabranPreporucen1" pickOnBounds="true">
+                                        <ImageView id="preporucen1" fx:id="preporucenSlika1" fitHeight="150.0" fitWidth="109.0" pickOnBounds="true">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </ImageView>
-                                        <ImageView id="preporucen2" fx:id="preporucenSlika2" fitHeight="150.0" fitWidth="109.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#izabranPreporucen2" pickOnBounds="true">
+                                        <ImageView id="preporucen2" fx:id="preporucenSlika2" fitHeight="150.0" fitWidth="109.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </ImageView>
-                                        <ImageView id="preporucen3" fx:id="preporucenSlika3" fitHeight="150.0" fitWidth="109.0" layoutX="129.0" layoutY="10.0" onMouseClicked="#izabranPreporucen3" pickOnBounds="true">
+                                        <ImageView id="preporucen3" fx:id="preporucenSlika3" fitHeight="150.0" fitWidth="109.0" layoutX="129.0" layoutY="10.0" pickOnBounds="true">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>

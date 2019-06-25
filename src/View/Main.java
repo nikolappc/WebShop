@@ -48,6 +48,7 @@ public class Main extends Application {
         MainController mc = loader.getController();
 
         scene = new Scene(root, 1000, 800);
+        //window.setResizable(false);
 
         window.setScene(scene);
 
@@ -57,6 +58,9 @@ public class Main extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
+
+        // izlogovan
+        Main.webshop.ulogovaniKorisnik = null;
         // Upisuje WebShop u JSon
         writeWebShop();
     }

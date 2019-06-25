@@ -1,5 +1,6 @@
 package Model;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -53,6 +54,7 @@ public class Pretraga {
 
     /**
      * Pretrazuje proizvode po svim atributima, cim nadje neko poklapanje
+     * dodaje ga u listu i prelazi na sledeci proizvod
      * @param proizvodi lista svih proizvoda
      * @param parametar
      * @return
@@ -108,14 +110,15 @@ public class Pretraga {
      * @param parametar
      * @return
      */
-    public static Collection<Proizvod> pretragaProizvodBrend(
+    public static List<Proizvod> pretragaProizvodBrend(
             Collection<Proizvod> proizvodi, String parametar){
 
+        parametar = parametar.toLowerCase();
         ArrayList<Proizvod> rezultat = new ArrayList();
         for(Proizvod proizvod: proizvodi){
             // moze da proizvood.getatribut da vrati null
             try{
-                if(proizvod.getAtribut("Brend").equals(parametar)){
+                if(proizvod.getAtribut("Brend").toLowerCase().equals(parametar)){
                     rezultat.add(proizvod);
                 }
             } catch(NullPointerException e){
@@ -124,6 +127,27 @@ public class Pretraga {
         }
 
         return rezultat;
+    }
+
+    /**
+     * Vraca listu proizvoda koji pripadaju datoj kategoriji.
+     * Ide samo do drugog nivoa kategorije nema ni jednog nizeg nivoa
+     * @param kategorije
+     * @param nazKategorije
+     * @return
+     */
+    public static List<Proizvod> pretragaProzvodaKategorija(
+            Collection<Kategorija> kategorije, String nazKategorije) {
+
+        for (Kategorija k1 : kategorije) {
+            for (Kategorija k2 : k1.getPodKategorija()) {
+                if (k2.getNaziv().equals(nazKategorije)) {
+                    return k2.getProizvodi();
+                }
+            }
+        }
+
+        return null;
     }
 }
 

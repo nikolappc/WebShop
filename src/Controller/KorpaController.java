@@ -29,14 +29,14 @@ public class KorpaController implements Initializable {
 	private VBox vBox;
 
 
-
+	/** Za sada pravi staticku korpu */
 	public void dodaj(){
-
 
 		vBox.setSpacing(20);
 		for(int i =0 ; i < 5;i++){
 
 			HBox hg = new HBox();
+			hg.setPadding(new Insets(0,0,0,10));
 			VBox v1= new VBox();
 			v1.setPrefWidth(228);
 
@@ -56,7 +56,7 @@ public class KorpaController implements Initializable {
 			HBox kolicina = new HBox();
 			kolicina.setAlignment(Pos.CENTER);
 			kolicina.setPrefWidth(119);
-			Label labela2 = new Label("1");
+			Label labela2 = new Label("- 1 +");
 			kolicina.getChildren().add(labela2);
 
 
@@ -88,7 +88,7 @@ public class KorpaController implements Initializable {
 		total.setAlignment(Pos.BOTTOM_RIGHT);
 		Label l = new Label(" Ukupna cena:     25 000");
 
-		Button b = new Button("NARUCI JEBOTE");
+		Button b = new Button("NARUCI NARUDZBINU");
 		total.getChildren().addAll(space,l,b);
 		vBox.getChildren().add(total);
 

@@ -62,25 +62,6 @@ public class IzmenaNalogaController implements Initializable{
 
     }
 
-    @FXML
-    void traziPritisnut(ActionEvent event) {
-
-    }
-
-    @FXML
-    void izmenaNaloga(ActionEvent event) {
-
-    }
-
-    @FXML
-    void korpaPritisnuta(ActionEvent event) {
-
-    }
-
-    @FXML
-    void pritisnutLogo(ActionEvent event) {
-
-    }
     
     void ucitaj() {
     	if (Main.webshop.ulogovaniKorisnik == null)

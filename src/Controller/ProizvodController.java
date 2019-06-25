@@ -2,9 +2,7 @@ package Controller;
 
 import Model.Kategorija;
 import Model.Proizvod;
-import Model.StavkaCenovnika;
 import View.Main;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,14 +12,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 
-import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class ProizvodController implements Initializable {
@@ -31,6 +27,8 @@ public class ProizvodController implements Initializable {
 
     public ImageView preporucenSlika1,preporucenSlika2,preporucenSlika3;
 
+    public List<Proizvod> preporuceniProizvodi;
+
     public Label opisProizvoda, cenaProizvoda, bojaProizvoda, nazivProizvoda;
 
     public ComboBox<String> moguceVelicine;
@@ -38,22 +36,9 @@ public class ProizvodController implements Initializable {
     public Button logo;
 
     @FXML
-    private LogoController someIdController;
+    private HeaderController someIdController;
 
 
-    public void postaviSliku(String url){
-
-        Image image = new Image(url);
-        trenutnaSlika.setImage(image);
-
-        slikaProizvoda1.setImage(image);
-
-        Image img2 = new Image(url.substring(0,url.length()-5) + "1.jpg");
-        slikaProizvoda2.setImage(img2);
-
-        Image img3 = new Image(url.substring(0,url.length()-5) + "3.jpg");
-        slikaProizvoda3.setImage(img3);
-    }
 
     /** Postavlja proizvod na scenu za prikaz izabranog*/
     public void postaviProizvod(Proizvod p){
@@ -69,11 +54,14 @@ public class ProizvodController implements Initializable {
         Image image3 = new Image(Main.mojaPutanja+p.getSlike().get(2));
         slikaProizvoda3.setImage(image3);
 
+        cenaProizvoda.setText(p.dajCenu());
+
         opisProizvoda.setText(p.getOpis());
 
         bojaProizvoda.setText((String)p.getAtributi().get("Boja").getVrednost());
 
         String[] velicine = ((String)p.getAtributi().get("Velicine").getVrednost()).trim().split(" ");
+
 
         for(String s : velicine){
             moguceVelicine.getItems().add(s);
@@ -92,32 +80,77 @@ public class ProizvodController implements Initializable {
             nazivProizvoda.setText(p.getNaziv());
         }
 
+
+        preporuceniProizvodi = nadjiPreporucene(p);
+
+        if(preporuceniProizvodi.size() >0 ){
+            preporucenSlika1.setImage(new Image(Main.mojaPutanja + preporuceniProizvodi.get(0).getSlike().get(1)));
+            preporucenSlika1.setOnMouseClicked(e-> prikaziPreporuceni(preporuceniProizvodi.get(0)));
+        }
+
+        if(preporuceniProizvodi.size() > 1){
+
+            preporucenSlika2.setImage(new Image(Main.mojaPutanja +preporuceniProizvodi.get(1).getSlike().get(1)));
+            preporucenSlika2.setOnMouseClicked(e-> prikaziPreporuceni(preporuceniProizvodi.get(1)));
+        }
+
+        if(preporuceniProizvodi.size() > 2){
+
+            preporucenSlika3.setImage(new Image(Main.mojaPutanja +preporuceniProizvodi.get(2).getSlike().get(1)));
+            preporucenSlika3.setOnMouseClicked(e-> prikaziPreporuceni(preporuceniProizvodi.get(2)));
+        }
+
     }
 
 
+    /** Kada se klikne na preporuceni otvara se novi prozor*/
+    public void prikaziPreporuceni(Proizvod proizvod){
+
+        try{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Proizvod.fxml"));
+            Parent root = (Parent) loader.load();
+
+            ProizvodController pc = loader.getController();
+            pc.postaviProizvod(proizvod);
+
+            Main.scene.setRoot(root);
+            Main.window.show();
+        }
+        catch(Exception ex) {ex.printStackTrace();}
+
+    }
+
+
+    /** Korisnik pritisnuo kategoriju u putanji do proizvoda*/
     public void pritisnutaKategorija(){
-        /** Korisnik pritisnuo kategoriju u putanji do proizvoda*/
 
 
     }
 
+
+    /** Korisnik izabrao prvu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
     public void izabranaSlika1(){
-        /** Korisnik izabrao prvu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+
         String path = trenutnaSlika.getImage().impl_getUrl();
         Image img = new Image(path.substring(0,path.length()-5) + "2.jpg");
         trenutnaSlika.setImage(img);
 
     }
 
+
+    /** Korisnik izabrao drugu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
     public void izabranaSlika2(){
-        /** Korisnik izabrao drugu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+
         String path = trenutnaSlika.getImage().impl_getUrl();
         Image img = new Image(path.substring(0,path.length()-5) + "1.jpg");
         trenutnaSlika.setImage(img);
     }
 
+
+    /** Korisnik izabrao trecu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
     public void izabranaSlika3(){
-        /** Korisnik izabrao trecu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+
 
         String path = trenutnaSlika.getImage().impl_getUrl();
         Image img = new Image(path.substring(0,path.length()-5) + "3.jpg");
@@ -125,8 +158,8 @@ public class ProizvodController implements Initializable {
     }
 
 
+    /** Korisnik izabrao prethodnu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
     public void prethodnaSlika(){
-        /** Korisnik izabrao prethodnu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
 
         String path = trenutnaSlika.getImage().impl_getUrl();
         if( path.charAt(path.length()-5) == '1') {
@@ -141,11 +174,12 @@ public class ProizvodController implements Initializable {
             Image img2 = new Image(path.substring(0,path.length()-5) + "1.jpg");
             trenutnaSlika.setImage(img2);
         }
-
     }
 
+
+    /** Korisnik izabrao sledecu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
     public void sledecaSlika(){
-        /** Korisnik izabrao sledecu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+
 
         String path = trenutnaSlika.getImage().impl_getUrl();
         if( path.charAt(path.length()-5) == '1') {
@@ -163,34 +197,22 @@ public class ProizvodController implements Initializable {
 
     }
 
+
+    /** Korisnik dodao proizvod u korpu*/
     public void dodatoUKorpu(){
-        /** Korisnik dodao proizvod u korpu*/
-
 
 
     }
 
+
+    /** Korisnik dodao proizvod u list uzelja */
     public void dodatoUListuZelja(){
-        /** Korisnik dodao proizvod u list uzelja */
+
 
     }
 
-    public void izabranPreporucen1(){
-        /** Korisnik zeli da vidi prvi preporuceni proizvod */
 
-    }
 
-    public void izabranPreporucen2(){
-        /** Korisnik zeli da vidi drugi preporuceni proizvod */
-
-    }
-
-    public void izabranPreporucen3(){
-        /** Korisnik zeli da vidi treci preporuceni proizvod */
-
-    }
-
-    
     private ArrayList<Proizvod> nadjiProizvodeKategorija(Kategorija k){
     	ArrayList<Proizvod> lista = new ArrayList<Proizvod>();
     	
@@ -202,76 +224,34 @@ public class ProizvodController implements Initializable {
     }
     
     
-    private ArrayList<Proizvod> nadjiProizvodeBrend(String brend,ArrayList<Proizvod> proiz){
-    	
-    	for (Proizvod p : Main.webshop.getProizvodi()) {
-    		try {    
-    			String brend1 = (String) p.getAtributi().get("Brend").getVrednost();
-    			if(brend1.equals(brend)) {
-    				proiz.add(p);
-    			}
-    		}
-    		catch (Exception e) {
-			}
-    	}
-    	
-    	return proiz;
-    }
-    
-    private Proizvod rngProizvod() {
-    	int rng = (int)Math.random() % Main.webshop.getProizvodi().size();
-    	java.util.Iterator iter;
-    	int i;
-    	for (iter = Main.webshop.getProizvodi().iterator(), i = 0; iter.hasNext() || i < rng;++i)
-            iter.next();
-    	Proizvod p1 = (Proizvod) iter;
-    	return p1;
-    }
-    
-    public ArrayList<Proizvod> preporuceni(Proizvod p) {
-    	Kategorija k = p.getKategorija();
-    	ArrayList<Proizvod> proiz = new ArrayList<Proizvod>();
-    	ArrayList<Proizvod> tempProiz =  nadjiProizvodeKategorija(k);
-    	
-    	String brend = (String) p.getAtributi().get("Brend").getVrednost();
-    	tempProiz = nadjiProizvodeBrend(brend, tempProiz);
-    	
-    	tempProiz.remove(p);
-    	if(tempProiz.size() < 3) {
-    		while(tempProiz.size() < 3) {
-    	    	
-    	    	tempProiz.add(rngProizvod());
-    		}
-    		return tempProiz;
-    	}
-  
-    	
-    	int[] a = new int[2];
-    	int rng = (int)Math.random() % tempProiz.size() ;
-    	
-    	proiz.add(tempProiz.get(rng));
-    	a[0] = rng;
-    	rng = (int)Math.random() % tempProiz.size();
-    	while(tempProiz.get(rng).equals(tempProiz.get(a[0]))) {
-    		rng = (int)Math.random() % tempProiz.size();
-    	}
-    	proiz.add(tempProiz.get(rng));
-    	a[1] = rng;
-    	while(tempProiz.get(rng).equals(tempProiz.get(a[0])) || tempProiz.get(rng).equals(tempProiz.get(a[1]))) {
-    		rng = (int)Math.random() % tempProiz.size();
-    	}
-    	proiz.add(tempProiz.get(rng));
-    	
-    	return proiz;
-    	
-    	
+
+    /** vraca tri slicna proizvoda za dati proizvod*/
+    public ArrayList<Proizvod> nadjiPreporucene(Proizvod p) {
+
+        ArrayList<Proizvod> listaP = new ArrayList<Proizvod>();
+        ArrayList<Proizvod> retVal = new ArrayList<Proizvod>();
+
+        for(Proizvod proizvod : Main.webshop.getProizvodi()){
+            if(proizvod.getAtribut("Brend").equals(p.getAtribut("Brend")) && !p.getSifra().equals(proizvod.getSifra())){
+                listaP.add(proizvod);
+            }
+        }
+
+        Random rand = new Random();
+
+        for(int i =0; i < 3 && listaP.size() > 0; i++){
+            int randomIndex = rand.nextInt(listaP.size());
+            retVal.add(listaP.get(randomIndex));
+            listaP.remove(randomIndex);
+        }
+
+        return retVal;
     }
     
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        opisProizvoda.setText("This classic black parka from Italian brand Stone Island pays heed to the label’s ethos of technologically advanced design and simple cuts with a militaristic twist");
 
     }
 

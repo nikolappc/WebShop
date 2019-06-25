@@ -10,6 +10,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
@@ -51,9 +52,9 @@ public class KatalogController implements Initializable {
 
 
 
-
+    /** Vrsi se pretraga po svim kriterijumima koje je korisnik izabrao i na kraju se rezultati pretraga spajaju i prikazuju*/
     public void izvrsiPretragu(){
-        /** Vrsi se pretraga po svim kriterijumima koje je korisnik izabrao i na kraju se rezultati pretraga spajaju i prikazuju*/
+
 
 
     }
@@ -107,7 +108,7 @@ public class KatalogController implements Initializable {
     }
 
 
-    //ovde bi trebao da prima listu Proizvoda
+    /** Prikazuje datu listu proizvoda kao Katalog */
     public void prikazi(List<Proizvod> lista){
 
         proizvodi = lista;
@@ -139,7 +140,6 @@ public class KatalogController implements Initializable {
                 ps.slika.setOnMouseClicked(e->
                 {
                     try{
-
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Proizvod.fxml"));
                         Parent root = (Parent) loader.load();
 
@@ -149,14 +149,16 @@ public class KatalogController implements Initializable {
                         Main.scene.setRoot(root);
                         Main.window.show();
                     }
-                    catch(Exception ex) {}
-
+                    catch(Exception ex) {ex.printStackTrace();}
                 });
+
+                ps.slika.setOnMouseEntered( e-> ps.slika.setImage(new Image(Main.mojaPutanja + ps.proizvod.getSlike().get(0))));
+                ps.slika.setOnMouseExited (e-> ps.slika.setImage(new Image(Main.mojaPutanja + ps.proizvod.getSlike().get(1))));
+
                 slika.setFitHeight(276);
                 slika.setFitWidth(240);
                 slika.setCursor(Cursor.HAND);
                 layout.getChildren().add(slika);
-
 
                 HBox hb1 = new HBox();
                 hb1.setAlignment(Pos.CENTER);
@@ -167,7 +169,7 @@ public class KatalogController implements Initializable {
 
                 HBox hb2 = new HBox();
                 hb2.setAlignment(Pos.CENTER);
-                Label labela2 = new Label("13 990 RSD");
+                Label labela2 = new Label(proizvodi.get(index).dajCenu());
                 //font size
                 hb2.getChildren().add(labela2);
                 layout.getChildren().add(hb2);
@@ -187,7 +189,6 @@ public class KatalogController implements Initializable {
 
             for(Kategorija k2 : k1.getPodKategorija()){
                 if(k2.getNaziv().equals(naziv)){
-                    System.out.println("YYYEESS");
                     proizvodi = k2.getProizvodi();
                 }
             }

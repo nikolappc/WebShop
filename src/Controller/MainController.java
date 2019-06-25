@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Kategorija;
 import Model.Proizvod;
+import Model.Webshop;
 import View.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -18,15 +19,13 @@ import javafx.scene.layout.Pane;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainController implements  Initializable{
-
-    @FXML
-    private Button logo;
 
     @FXML
     private SplitPane splitPane1, splitPane2;
@@ -39,7 +38,6 @@ public class MainController implements  Initializable{
 
     @FXML
     private HeaderController someIdController;
-
 
 
 
@@ -78,140 +76,62 @@ public class MainController implements  Initializable{
 
     }
 
-    /*
-    public void pritisnutLogo() {
-
-
-        try{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
-            Parent root = (Parent) loader.load();
-
-            MainController pc = loader.getController();
-
-            Main.scene.setRoot(root);
-
-        }catch (Exception ex){ ex.printStackTrace();}
-    }
-
-
-
-    public void traziPritisnut() {
-
-
-        try{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
-            Parent root = (Parent) loader.load();
-
-            KatalogController pc = loader.getController();
-            //pc.prikaziSve();
-            Main.scene.setRoot(root);
-        }catch (Exception ex){ex.printStackTrace();}
-    }
-
-    public void nalogPritisnut() {
-
-        try{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Prijava.fxml"));
-            Parent root = (Parent) loader.load();
-
-            PrijavaController pc = loader.getController();
-
-            Main.scene.setRoot(root);
-
-        }catch (Exception ex){ ex.printStackTrace();}
-    }
-
-    public void listaZeljaPritisnuta() {
-
-    	
-    }
-
-    public void korpaPritisnuta() {
-
-
-    	try{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Korpa.fxml"));
-            Parent root = (Parent) loader.load();
-
-            KorpaController pc = loader.getController();
-
-            Main.scene.setRoot(root);
-
-        }catch (Exception ex){ ex.printStackTrace();}
-    }
-
-    */
-
-    public void izmenaNaloga() {
-        // SAMO DA PROBAM
-
-        try{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\izmenaNaloga.fxml"));
-            Parent root = (Parent) loader.load();
-
-            IzmenaNalogaController pc = loader.getController();
-
-            Main.scene.setRoot(root);
-
-        }catch (Exception ex){ ex.printStackTrace();}
-    }
-
-
     public void glavnaSlikaPritisnuta() {
-
-    }
-
-    public void levaSlikaPritisnuta() {
-
+        prikaziProizvodeZaBrend("palm angels");
     }
 
     public void desnaSlikaPritisnuta() {
+        prikaziProizvodeZaBrend("saint laurent");
+    }
 
-
+    public void levaSlikaPritisnuta() {
+        prikaziProizvodeZaBrend("stone island");
     }
 
 
-    @FXML
-    void muskeJaknePritisnut(ActionEvent event) {
-
-        prikazi("muskarci|jakne");
-    }
-
-    @FXML
-    void muskeDuksericePritisnut(ActionEvent event) {
-        prikazi("muskarci|duksevi");
-    }
-
-    @FXML
-    void muskeMajicePritisnut(ActionEvent event){
-        prikazi("muskarci|majice");
-    }
-
-    @FXML
-    void muskePantalonePritisnut(ActionEvent event) {
-        prikazi("muskarci|pantalone");
-    }
-
-    @FXML
-    void muskePatikePritisnut(ActionEvent event) {
-        prikazi("muskarci|patike");
-    }
-
-    private void prikazi(String naziv){
-
-
-        try{
-
+    /**
+     * Pomocna metoda koja prikazuje proizvode za dati brend
+     * @param brend
+     */
+    private void prikaziProizvodeZaBrend(String brend){
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();
-            pc.dodajUPrikaz(naziv);
+
+            // uradi pretragu
+            List<Proizvod> rezultat =
+                    Main.webshop.pretraga.pretragaProizvodBrend(Main.webshop.proizvodi, brend);
+
+            if (rezultat.size() == 0) {
+                pc.brojRezultata.setText("0");
+                pc.kategorijaLabela.setText("Nema rezultata za unesenu vredonst");
+            }else {
+                pc.prikazi(rezultat);
+            }
+
+            Main.scene.setRoot(root);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    /**
+     * Prikazuje proizvode za izabranu kategoriju iz dropdown
+     * menija
+     * @param naziv naziv kategorije
+     */
+    private void prikazi(String naziv){
+        List<Proizvod> proizvodi =
+                Webshop.pretraga.pretragaProzvodaKategorija(Main.webshop.kategorije, naziv);
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
+            Parent root = (Parent) loader.load();
+
+            KatalogController pc = loader.getController();
+            pc.prikazi(proizvodi);
 
             Main.scene.setRoot(root);
         }catch (Exception ex){ ex.printStackTrace();}
