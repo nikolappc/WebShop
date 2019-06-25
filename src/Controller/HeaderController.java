@@ -104,6 +104,18 @@ public class HeaderController implements Initializable {
     /** Korisnik pritisnuo dugme za pregled svoje liste zelja */
     public void listaZeljaPritisnuta() {
 
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\ListaZelja.fxml"));
+            Parent root = (Parent) loader.load();
+
+            ListaZeljaController pc = loader.getController();
+
+            Main.scene.setRoot(root);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
     }
 

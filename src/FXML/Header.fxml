@@ -86,7 +86,7 @@
                 <Image url="@/Slike/nalog.png" />
               </image>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#izmenaNaloga" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#listaZeljaPritisnuta" pickOnBounds="true" preserveRatio="true">
               <image>
                 <Image url="@/Slike/srce.png" />
               </image>
