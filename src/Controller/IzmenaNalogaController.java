@@ -54,7 +54,7 @@ public class IzmenaNalogaController implements Initializable{
 
     @FXML
     void potvrdaIzmena(ActionEvent event) {
-
+        // TODO : odradi sve odgovarajuce provere
     }
 
     @FXML
@@ -62,7 +62,10 @@ public class IzmenaNalogaController implements Initializable{
 
     }
 
-    
+
+    /**
+     * Ucitava vrednosti atributa korisnika u odgovarajuca polja
+     */
     void ucitaj() {
     	if (Main.webshop.ulogovaniKorisnik == null)
     		return;
@@ -86,14 +89,6 @@ public class IzmenaNalogaController implements Initializable{
     	}
     	
     }
-
-    void probaj() {
-    	
-    	
-    	korisnickoIme.setText("Mijat");
-    	lozinka.setText("Silni");
-    }
-
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

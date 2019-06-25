@@ -118,27 +118,6 @@ public class MainController implements  Initializable{
     }
 
 
-    /**
-     * Prikazuje proizvode za izabranu kategoriju iz dropdown
-     * menija
-     * @param naziv naziv kategorije
-     */
-    private void prikazi(String naziv){
-        List<Proizvod> proizvodi =
-                Webshop.pretraga.pretragaProzvodaKategorija(Main.webshop.kategorije, naziv);
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
-            Parent root = (Parent) loader.load();
-
-            KatalogController pc = loader.getController();
-            pc.prikazi(proizvodi);
-
-            Main.scene.setRoot(root);
-        }catch (Exception ex){ ex.printStackTrace();}
-
-    }
-
-
     public static Image loadImageFrom(String directory) {
         FileInputStream inputstream = null;
         try {
