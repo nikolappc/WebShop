@@ -33,13 +33,6 @@ public class Main extends Application {
         Parent root = (Parent) loader.load();
 
 
-        for(Kategorija kat: webshop.getKategorije()){
-            System.out.println(kat.getNaziv());
-            for(Kategorija kat2 : kat.getPodKategorija()){
-                System.out.println(kat2.getNaziv());
-            }
-        }
-
         /** BACICE GRESKU AKO SE NE LOADUJE GLAVNI*/
         MainController mc = loader.getController();
 
@@ -57,7 +50,6 @@ public class Main extends Application {
 
         // izlogovan
         Main.webshop.ulogovaniKorisnik = null;
-        // Upisuje WebShop u JSon
         writeWebShop();
     }
 

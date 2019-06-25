@@ -6,6 +6,7 @@
 package Model;
 import View.Main;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javafx.scene.image.ImageView;
 
 import java.util.*;
@@ -74,6 +75,15 @@ public class Proizvod {
       } else {
          return atributi.get(nazivAtributa);
       }
+   }
+
+   /**
+    * Vraca niz velicina
+    * @return
+    */
+   @JsonIgnore
+   public String[] getVelicine(){
+      return atributi.get("Velicine").getVrednost().trim().split(" ");
    }
 
    @Override

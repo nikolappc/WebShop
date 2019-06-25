@@ -150,8 +150,8 @@ public class PrijavaController implements Initializable {
             ok = false;
         }
 
-        // ako je sve proslo ok, dodaj kupca i prikazi poruku
         if(ok){
+            // dodaj kupca
             Main.webshop.addKupac(new Kupac(korisnickoReg.getText(),
                                             lozinkaReg.getText(),
                                             imeReg.getText(),
@@ -159,7 +159,10 @@ public class PrijavaController implements Initializable {
                                             adresaReg.getText(),
                                             emailReg.getText()));
 
+            // ociti polja
             resetujSvaPoljaRegistracije();
+
+            // obavesti korisnika
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Nalog uspesno kreiran.");
             alert.setHeaderText("Uspesno ste se registrovali.");

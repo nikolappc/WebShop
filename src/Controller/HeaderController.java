@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.*;
 import Model.Proizvod;
 import View.Main;
 import javafx.event.ActionEvent;
@@ -10,6 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
+import javax.xml.soap.Text;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -160,30 +163,106 @@ public class HeaderController implements Initializable {
     void muskeJaknePritisnut(ActionEvent event) {
         prikazi("muskarci|jakne");
     }
+    void muskeJaknePritisnut(ActionEvent event) {
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProzvodaKategorija(Main.webshop.kategorije, "jakne");
+
+        // pretrazi po trazenom polu
+        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+        prikazi(proizvodi);
+    }
 
     @FXML
     void muskeDuksericePritisnut(ActionEvent event) {
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProzvodaKategorija(Main.webshop.kategorije, "duskevi");
+
+        // pretrazi po trazenom polu
+        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+        prikazi(proizvodi);
         prikazi("muskarci|duksevi");
     }
 
     @FXML
     void muskeMajicePritisnut(ActionEvent event) {
         prikazi("muskarci|majice");
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProzvodaKategorija(Main.webshop.kategorije, "majce");
+
+        // pretrazi po trazenom polu
+        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+        prikazi(proizvodi);
     }
 
     @FXML
     void muskePantalonePritisnut(ActionEvent event) {
         prikazi("muskarci|pantalone");
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProzvodaKategorija(Main.webshop.kategorije, "pantalone");
+
+        // pretrazi po trazenom polu
+        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+        prikazi(proizvodi);
     }
 
     @FXML
     void muskePatikePritisnut(ActionEvent event) {
         prikazi("muskarci|patike");
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProzvodaKategorija(Main.webshop.kategorije, "pantalone");
+
+        // pretrazi po trazenom polu
+        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+        prikazi(proizvodi);
+    }
+
+    @FXML
+    void stisnuoStone(ActionEvent event) {
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProizvodBrend(Main.webshop.proizvodi, "Stone Island");
+        prikazi(proizvodi);
+    }
+
+    @FXML
+    void stisnuoStussy(ActionEvent event){
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProizvodBrend(Main.webshop.proizvodi, "Stussy");
+        prikazi(proizvodi);
+    }
+
+    @FXML
+    void stisnuoPalm(ActionEvent event){
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProizvodBrend(Main.webshop.proizvodi, "Palm Angels");
+        prikazi(proizvodi);
+    }
+
+    @FXML
+    void stisnuoSaint(ActionEvent event){
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProizvodBrend(Main.webshop.proizvodi, "Saint Laurent");
+        prikazi(proizvodi);
+    }
+
+    @FXML
+    void stisnuoMaison(ActionEvent event){
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProizvodBrend(Main.webshop.proizvodi, "Maison Margiela");
+        prikazi(proizvodi);
+    }
+
+    @FXML
+    void stisnuoNike(ActionEvent event){
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProizvodBrend(Main.webshop.proizvodi, "Nike");
+        prikazi(proizvodi);
     }
 
 
     /**
-     * Menja scenu na katalog za prikazivanje vise proizvoda
+     * Prikazuje proizvode za izabranu kategoriju iz dropdown
+     * menija
+     * @param naziv naziv kategorije
      */
     private void prikazi(String naziv) {
 //
