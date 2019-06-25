@@ -26,11 +26,11 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controller.HeaderController">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HeaderController">
   <children>
     <HBox prefHeight="34.0" prefWidth="932.0" style="-fx-background-color: C2C2C2;">
       <children>
-        <Label text="Besplatna dostava na sve narudzbine" />
+        <Label text="Besplatna dostava za sve narudzbine" />
       </children>
     </HBox>
     <GridPane prefHeight="101.0" prefWidth="842.0" style="-fx-background-color: #000000;">
@@ -48,12 +48,18 @@
                 <MenuItem mnemonicParsing="false" onAction="#muskePantalonePritisnut" text="Pantalone" />
                 <MenuItem mnemonicParsing="false" onAction="#muskePatikePritisnut" text="Patike" />
               </items>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
             </MenuButton>
             <MenuButton font="$x1" mnemonicParsing="false" style="-fx-background-color: #000000;" text="Zene" textFill="WHITE">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
                 <MenuItem mnemonicParsing="false" text="Action 2" />
               </items>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
             </MenuButton>
             <MenuButton font="$x1" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #000000;" text="Brendovi" textFill="WHITE">
               <items>
@@ -64,6 +70,9 @@
                 <MenuItem mnemonicParsing="false" text="Maison Margiela" />
                 <MenuItem mnemonicParsing="false" text="Nike" />
               </items>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
             </MenuButton>
           </children>
           <GridPane.margin>
@@ -73,7 +82,10 @@
         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
           <children>
             <TextField fx:id="searchBar" />
-            <Button fx:id="lupa" mnemonicParsing="false" onAction="#traziPritisnut" prefHeight="25.0" prefWidth="33.0" style="-fx-background-color: #ffa500; -fx-padding: 0;" textFill="WHITE" />
+            <Button fx:id="lupa" mnemonicParsing="false" onAction="#traziPritisnut" prefHeight="25.0" prefWidth="33.0" style="-fx-background-color: #ffa500; -fx-padding: 0;" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
           </children>
           <padding>
             <Insets left="20.0" />
@@ -85,16 +97,25 @@
               <image>
                 <Image url="@/Slike/nalog.png" />
               </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#listaZeljaPritisnuta" pickOnBounds="true" preserveRatio="true">
               <image>
                 <Image url="@/Slike/srce.png" />
               </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#korpaPritisnuta" pickOnBounds="true" preserveRatio="true">
               <image>
                 <Image url="@/Slike/korpa.png" />
               </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
             </ImageView>
           </children>
           <GridPane.margin>
@@ -107,6 +128,9 @@
               <font>
                 <Font size="48.0" />
               </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
             </Button>
           </children>
         </HBox>

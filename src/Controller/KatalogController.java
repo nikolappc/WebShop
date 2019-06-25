@@ -10,6 +10,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
@@ -139,7 +140,6 @@ public class KatalogController implements Initializable {
                 ps.slika.setOnMouseClicked(e->
                 {
                     try{
-
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Proizvod.fxml"));
                         Parent root = (Parent) loader.load();
 
@@ -150,13 +150,15 @@ public class KatalogController implements Initializable {
                         Main.window.show();
                     }
                     catch(Exception ex) {ex.printStackTrace();}
-
                 });
+
+                ps.slika.setOnMouseEntered( e-> ps.slika.setImage(new Image(Main.mojaPutanja + ps.proizvod.getSlike().get(0))));
+                ps.slika.setOnMouseExited (e-> ps.slika.setImage(new Image(Main.mojaPutanja + ps.proizvod.getSlike().get(1))));
+
                 slika.setFitHeight(276);
                 slika.setFitWidth(240);
                 slika.setCursor(Cursor.HAND);
                 layout.getChildren().add(slika);
-
 
                 HBox hb1 = new HBox();
                 hb1.setAlignment(Pos.CENTER);
