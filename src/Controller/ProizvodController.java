@@ -24,13 +24,13 @@ public class ProizvodController implements Initializable {
 
     public ImageView trenutnaSlika;
     public ImageView slikaProizvoda1, slikaProizvoda2, slikaProizvoda3;
-
+    @FXML
     public ImageView preporucenSlika1,preporucenSlika2,preporucenSlika3;
 
     public List<Proizvod> preporuceniProizvodi;
-
+    @FXML
     public Label opisProizvoda, cenaProizvoda, bojaProizvoda, nazivProizvoda;
-
+    @FXML
     public ComboBox<String> moguceVelicine;
 
     public Button logo;
@@ -60,8 +60,7 @@ public class ProizvodController implements Initializable {
 
         bojaProizvoda.setText((String)p.getAtributi().get("Boja").getVrednost());
 
-        String[] velicine = ((String)p.getAtributi().get("Velicine").getVrednost()).trim().split(" ");
-
+        List<String> velicine = p.getAtributi().get("Velicine").getVrednosti();
 
         for(String s : velicine){
             moguceVelicine.getItems().add(s);
