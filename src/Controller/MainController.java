@@ -80,11 +80,11 @@ public class MainController implements  Initializable{
         prikaziProizvodeZaBrend("palm angels");
     }
 
-    public void levaSlikaPritisnuta() {
+    public void desnaSlikaPritisnuta() {
         prikaziProizvodeZaBrend("saint laurent");
     }
 
-    public void desnaSlikaPritisnuta() {
+    public void levaSlikaPritisnuta() {
         prikaziProizvodeZaBrend("stone island");
     }
 
