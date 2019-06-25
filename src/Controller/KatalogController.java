@@ -101,7 +101,7 @@ public class KatalogController implements Initializable {
 
 
     /** Prikazuje datu listu proizvoda kao Katalog */
-    public void prikazi(List<Proizvod> lista){
+    public  void prikazi(List<Proizvod> lista){
 
         proizvodi = lista;
         sideBarOpcije();

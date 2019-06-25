@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.Kategorija;
-import Model.Pol;
-import Model.Proizvod;
-import Model.Webshop;
+import Model.*;
 import View.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
 import javax.xml.soap.Text;
 import java.net.URL;
 import java.util.ArrayList;
@@ -141,42 +139,102 @@ public class HeaderController implements Initializable {
     }
 
     @FXML
-    void muskeJaknePritisnut(ActionEvent event) {prikazi("jakne", Pol.M);}
+    void muskeJaknePritisnut(ActionEvent event) {
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProzvodaKategorija(Main.webshop.kategorije, "jakne");
+
+        // pretrazi po trazenom polu
+        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+        prikazi(proizvodi);
+    }
 
     @FXML
     void muskeDuksericePritisnut(ActionEvent event) {
-        prikazi("duksevi", Pol.M);
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProzvodaKategorija(Main.webshop.kategorije, "duskevi");
+
+        // pretrazi po trazenom polu
+        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+        prikazi(proizvodi);
     }
 
     @FXML
     void muskeMajicePritisnut(ActionEvent event) {
-        prikazi("majice", Pol.M);
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProzvodaKategorija(Main.webshop.kategorije, "majce");
+
+        // pretrazi po trazenom polu
+        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+        prikazi(proizvodi);
     }
 
     @FXML
     void muskePantalonePritisnut(ActionEvent event) {
-        prikazi("pantalone", Pol.M);
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProzvodaKategorija(Main.webshop.kategorije, "pantalone");
+
+        // pretrazi po trazenom polu
+        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+        prikazi(proizvodi);
     }
 
     @FXML
     void muskePatikePritisnut(ActionEvent event) {
-        prikazi("patike", Pol.M);
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProzvodaKategorija(Main.webshop.kategorije, "pantalone");
+
+        // pretrazi po trazenom polu
+        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+        prikazi(proizvodi);
+    }
+
+    @FXML
+    void stisnuoStone(ActionEvent event) {
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProizvodBrend(Main.webshop.proizvodi, "Stone Island");
+        prikazi(proizvodi);
+    }
+
+    @FXML
+    void stisnuoStussy(ActionEvent event){
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProizvodBrend(Main.webshop.proizvodi, "Stussy");
+        prikazi(proizvodi);
+    }
+
+    @FXML
+    void stisnuoPalm(ActionEvent event){
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProizvodBrend(Main.webshop.proizvodi, "Palm Angels");
+        prikazi(proizvodi);
+    }
+
+    @FXML
+    void stisnuoSaint(ActionEvent event){
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProizvodBrend(Main.webshop.proizvodi, "Saint Laurent");
+        prikazi(proizvodi);
+    }
+
+    @FXML
+    void stisnuoMaison(ActionEvent event){
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProizvodBrend(Main.webshop.proizvodi, "Maison Margiela");
+        prikazi(proizvodi);
+    }
+
+    @FXML
+    void stisnuoNike(ActionEvent event){
+        List<Proizvod> proizvodi = Pretraga.
+                pretragaProizvodBrend(Main.webshop.proizvodi, "Nike");
+        prikazi(proizvodi);
     }
 
 
     /**
-     * Prikazuje proizvode za izabranu kategoriju iz dropdown
-     * menija
-     * @param naziv naziv kategorije
-     * @param pol
+     * prikazuje proizvode iz zadate liste
      */
-    private void prikazi(String naziv, Pol pol) {
-        List<Proizvod> proizvodi =
-                Webshop.pretraga.pretragaProzvodaKategorija(Main.webshop.kategorije, naziv);
-
-        // pretrazi po trazenom polu
-        proizvodi = Webshop.pretraga.pretragaProzvodaPol(proizvodi, pol);
-
+    private void prikazi(List<Proizvod> proizvodi) {
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
             Parent root = (Parent) loader.load();
