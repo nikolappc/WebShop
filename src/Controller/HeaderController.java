@@ -147,7 +147,7 @@ public class HeaderController implements Initializable {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML\\Korpa.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Korpa.fxml"));
             Parent root = (Parent) loader.load();
 
             KorpaController pc = loader.getController();
