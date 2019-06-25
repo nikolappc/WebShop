@@ -4,56 +4,76 @@
  * Purpose: Defines the Class Narudzbina
  ***********************************************************************/
 package Model;
-import java.util.*;
 
 public class Narudzbina {
     private Korpa korpa;
-
+     
+    private StanjeNarudzbine trenutnoStanje;
+     
     public Narudzbina() {
 		super();
-		// TODO Auto-generated constructor stub
+		trenutnoStanje = new Obrada(this);
 	}
+     
+    
 
 	public Narudzbina(Korpa korpa) {
 		super();
 		this.korpa = korpa;
 	}
 
-	public String generisiFakturu() {
+	
+	public void narudzbinaPrimljena() {
+		
+	}
+	
+    public String generisiFakturu() {
         // TODO: implement
         return null;
     }
     
-    public void povecajStanjeProizvoda() {
-        // TODO: implement
+    public void zavrsenaFaktura() {
+        trenutnoStanje.zavrsenaFaktura();
     }
     
     public void poslataPosiljka() {
         // TODO: implement
     }
     
-    public void uspesnaIsporuka() {
+    public void otkazivanjeNarudzbine() {
+        trenutnoStanje.otkazivanjeNarudzbine();
+    }
+    
+    /** @param primljena **/
+    public void porudzbinaStigla(boolean primljena) {
+        trenutnoStanje.porudzbinaStigla(primljena);
+    }
+    
+    public void odbijenaPosiljka() {
         // TODO: implement
     }
     
-    public void neuspesnaIsporuka() {
+    public void uspesnaPosiljka() {
         // TODO: implement
     }
     
-    public void kupacPoslaoNatrag() {
+    public void vracanjeNarudzbine() {
+        trenutnoStanje.vracanjeNarudzbine();
+    }
+    
+    public void povecajStanjeProizvoda() {
         // TODO: implement
     }
     
-    public void uspesnoVracena() {
+    public void povratakNarudzbine() {
         // TODO: implement
     }
     
-    public void neuspesnoVracena() {
-        // TODO: implement
-    }
-    
-    public void promeniStanje() {
-        // TODO: implement
+    /** @param novoStanje **/
+    public void promeniStanje(StanjeNarudzbine novoStanje) {
+        this.trenutnoStanje.exit();
+        this.trenutnoStanje = novoStanje;
+        this.trenutnoStanje.entry();
     }
 
 	@Override
@@ -81,6 +101,6 @@ public class Narudzbina {
 		this.korpa = korpa;
 	}
 
-    
-    
+     
+     
 }
