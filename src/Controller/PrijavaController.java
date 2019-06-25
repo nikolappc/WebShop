@@ -150,6 +150,7 @@ public class PrijavaController implements Initializable {
             ok = false;
         }
 
+        // ako je sve proslo ok, dodaj kupca i prikazi poruku
         if(ok){
             Main.webshop.addKupac(new Kupac(korisnickoReg.getText(),
                                             lozinkaReg.getText(),
@@ -158,14 +159,27 @@ public class PrijavaController implements Initializable {
                                             adresaReg.getText(),
                                             emailReg.getText()));
 
+            resetujSvaPoljaRegistracije();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Nalog uspesno kreiran.");
-            alert.setContentText("Sada probajte da se prijavite.");
             alert.setHeaderText("Uspesno ste se registrovali.");
+            alert.setContentText("Sada probajte da se prijavite.");
             alert.showAndWait();
         }
     }
 
+    /**
+     * Resetuje polja registracije
+     */
+    private void resetujSvaPoljaRegistracije(){
+        ArrayList<TextField> polja = new ArrayList(
+                Arrays.asList(imeReg, prezimeReg, emailReg, korisnickoReg,
+                              pLoznikaReg, lozinkaReg, adresaReg, brTelefonaReg));
+        for(TextField polje : polja){
+            polje.setText("");
+        }
+
+    }
     /**
      * Proverava validnost i jednistvenost maila
      * i prikazuje odgovarajuce poruke u slucaju da

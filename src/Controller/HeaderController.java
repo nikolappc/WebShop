@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Kategorija;
 import Model.Proizvod;
+import Model.Webshop;
 import View.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -120,24 +121,6 @@ public class HeaderController implements Initializable {
     }
 
 
-    public void izmenaNaloga() {
-        // SAMO DA PROBAM
-
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\izmenaNaloga.fxml"));
-            Parent root = (Parent) loader.load();
-
-            IzmenaNalogaController pc = loader.getController();
-
-            Main.scene.setRoot(root);
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-
     /** Korisnik pritisnuo dugme za pregled svoje korpe*/
     public void korpaPritisnuta() {
 
@@ -180,23 +163,15 @@ public class HeaderController implements Initializable {
     }
 
 
-    /** Menja scenu na katalog za prikazivanje vise proizvoda */
+    /**
+     * Prikazuje proizvode za izabranu kategoriju iz dropdown
+     * menija
+     * @param naziv naziv kategorije
+     */
     private void prikazi(String naziv) {
-
-        List<Proizvod> proizvodi = new ArrayList<Proizvod>();
-
-        for (Kategorija k1 : Main.webshop.getKategorije()) {
-
-            for (Kategorija k2 : k1.getPodKategorija()) {
-                if (k2.getNaziv().equals(naziv)) {
-                    proizvodi = k2.getProizvodi();
-                }
-            }
-
-        }
-
-        try {
-
+        List<Proizvod> proizvodi =
+                Webshop.pretraga.pretragaProzvodaKategorija(Main.webshop.kategorije, naziv);
+        try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
             Parent root = (Parent) loader.load();
 
@@ -204,10 +179,7 @@ public class HeaderController implements Initializable {
             pc.prikazi(proizvodi);
 
             Main.scene.setRoot(root);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
+        }catch (Exception ex){ ex.printStackTrace();}
     }
 
     @Override

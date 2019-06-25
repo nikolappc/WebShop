@@ -210,18 +210,6 @@ public class ProizvodController implements Initializable {
 
 
     }
-
-
-
-    private ArrayList<Proizvod> nadjiProizvodeKategorija(Kategorija k){
-    	ArrayList<Proizvod> lista = new ArrayList<Proizvod>();
-    	
-    	for(Proizvod p: k.getProizvodi()) {
-    		lista.add(p);
-    	}
-    	
-    	return lista;
-    }
     
     
 
