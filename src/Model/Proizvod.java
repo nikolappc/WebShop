@@ -4,6 +4,7 @@
  * Purpose: Defines the Class Proizvod
  ***********************************************************************/
 package Model;
+import View.Main;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import javafx.scene.image.ImageView;
 
@@ -166,5 +167,14 @@ public class Proizvod {
 
    public void dodajAtribut(Atribut atribut) {
       atributi.put(atribut.getNaziv(),atribut);
+   }
+
+   public String dajCenu(){
+      for(StavkaCenovnika sc: Main.webshop.getStavkeCenovnika()){
+         if (sc.getProizvod().getSifra().equals(sifra)){
+            return (int)sc.getCena()+" USD";
+         }
+      }
+      return "0 USD";
    }
 }

@@ -29,9 +29,8 @@ public class HeaderController implements Initializable {
     @FXML
     private TextField searchBar;
 
-    /**
-     * Korisnik pritisnuo LOGO
-     */
+
+    /** Korisnik pritisnuo LOGO */
     public void pritisnutLogo() {
 
         try {
@@ -78,8 +77,9 @@ public class HeaderController implements Initializable {
         }
     }
 
+
+    /** Korisnik pritisnuo dugme za pregled svog naloga */
     public void nalogPritisnut() {
-        /** Korisnik pritisnuo dugme za pregled svog naloga */
 
         try {
             // proveri da li je ulogovan
@@ -100,8 +100,10 @@ public class HeaderController implements Initializable {
         }
     }
 
+
+    /** Korisnik pritisnuo dugme za pregled svoje liste zelja */
     public void listaZeljaPritisnuta() {
-        /** Korisnik pritisnuo dugme za pregled svoje liste zelja */
+
 
     }
 
@@ -123,8 +125,10 @@ public class HeaderController implements Initializable {
         }
     }
 
+
+    /** Korisnik pritisnuo dugme za pregled svoje korpe*/
     public void korpaPritisnuta() {
-        /** Korisnik pritisnuo dugme za pregled svoje korpe*/
+
 
         try {
 
@@ -141,10 +145,7 @@ public class HeaderController implements Initializable {
     }
 
     @FXML
-    void muskeJaknePritisnut(ActionEvent event) {
-
-        prikazi("jakne");
-    }
+    void muskeJaknePritisnut(ActionEvent event) {prikazi("jakne");}
 
     @FXML
     void muskeDuksericePritisnut(ActionEvent event) {
@@ -166,6 +167,8 @@ public class HeaderController implements Initializable {
         prikazi("patike");
     }
 
+
+    /** Menja scenu na katalog za prikazivanje vise proizvoda */
     private void prikazi(String naziv) {
 
         List<Proizvod> proizvodi = new ArrayList<Proizvod>();

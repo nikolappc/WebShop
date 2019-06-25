@@ -28,9 +28,6 @@ import java.util.ResourceBundle;
 public class MainController implements  Initializable{
 
     @FXML
-    private Button logo;
-
-    @FXML
     private SplitPane splitPane1, splitPane2;
 
     @FXML
@@ -41,7 +38,6 @@ public class MainController implements  Initializable{
 
     @FXML
     private HeaderController someIdController;
-
 
 
 
@@ -92,6 +88,7 @@ public class MainController implements  Initializable{
         prikaziProizvodeZaBrend("stone island");
     }
 
+
     /**
      * Pomocna metoda koja prikazuje proizvode za dati brend
      * @param brend
@@ -120,31 +117,6 @@ public class MainController implements  Initializable{
         }
     }
 
-    @FXML
-    void muskeJaknePritisnut(ActionEvent event) {
-
-        prikazi("jakne");
-    }
-
-    @FXML
-    void muskeDuksericePritisnut(ActionEvent event) {
-        prikazi("duksevi");
-    }
-
-    @FXML
-    void muskeMajicePritisnut(ActionEvent event){
-        prikazi("majice");
-    }
-
-    @FXML
-    void muskePantalonePritisnut(ActionEvent event) {
-        prikazi("pantalone");
-    }
-
-    @FXML
-    void muskePatikePritisnut(ActionEvent event) {
-        prikazi("patike");
-    }
 
     /**
      * Prikazuje proizvode za izabranu kategoriju iz dropdown

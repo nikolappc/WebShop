@@ -51,9 +51,9 @@ public class KatalogController implements Initializable {
 
 
 
-
+    /** Vrsi se pretraga po svim kriterijumima koje je korisnik izabrao i na kraju se rezultati pretraga spajaju i prikazuju*/
     public void izvrsiPretragu(){
-        /** Vrsi se pretraga po svim kriterijumima koje je korisnik izabrao i na kraju se rezultati pretraga spajaju i prikazuju*/
+
 
 
     }
@@ -107,7 +107,7 @@ public class KatalogController implements Initializable {
     }
 
 
-    //ovde bi trebao da prima listu Proizvoda
+    /** Prikazuje datu listu proizvoda kao Katalog */
     public void prikazi(List<Proizvod> lista){
 
         proizvodi = lista;
@@ -149,7 +149,7 @@ public class KatalogController implements Initializable {
                         Main.scene.setRoot(root);
                         Main.window.show();
                     }
-                    catch(Exception ex) {}
+                    catch(Exception ex) {ex.printStackTrace();}
 
                 });
                 slika.setFitHeight(276);
@@ -167,7 +167,7 @@ public class KatalogController implements Initializable {
 
                 HBox hb2 = new HBox();
                 hb2.setAlignment(Pos.CENTER);
-                Label labela2 = new Label("13 990 RSD");
+                Label labela2 = new Label(proizvodi.get(index).dajCenu());
                 //font size
                 hb2.getChildren().add(labela2);
                 layout.getChildren().add(hb2);
@@ -187,7 +187,6 @@ public class KatalogController implements Initializable {
 
             for(Kategorija k2 : k1.getPodKategorija()){
                 if(k2.getNaziv().equals(naziv)){
-                    System.out.println("YYYEESS");
                     proizvodi = k2.getProizvodi();
                 }
             }
