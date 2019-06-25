@@ -149,5 +149,22 @@ public class Pretraga {
 
         return null;
     }
+
+    /**
+     * Pretrazuje listu proizvoda po polu
+     * @param proizvodi
+     * @param pol
+     * @return
+     */
+    public static List<Proizvod> pretragaProzvodaPol(List<Proizvod> proizvodi, Pol pol){
+        ArrayList<Proizvod> rezultat = new ArrayList();
+
+        for(Proizvod proizvod: proizvodi){
+            if(proizvod.getPol().equals(pol)){
+                rezultat.add(proizvod);
+            }
+        }
+        return rezultat;
+    }
 }
 

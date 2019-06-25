@@ -52,14 +52,6 @@ public class KatalogController implements Initializable {
 
 
 
-    /** Vrsi se pretraga po svim kriterijumima koje je korisnik izabrao i na kraju se rezultati pretraga spajaju i prikazuju*/
-    public void izvrsiPretragu(){
-
-
-
-    }
-
-
     /** Dodaje broj pronadjenih proizvoda, sve boje, brendove i velicine*/
     public void sideBarOpcije(){
 
@@ -71,13 +63,13 @@ public class KatalogController implements Initializable {
 
 
         for(Proizvod p : proizvodi){
-            setBoja.add((String)p.getAtributi().get("Boja").getVrednost());
+            setBoja.add(p.getAtribut("Boja"));
 
-            String[] vel = ((String) p.getAtributi().get("Velicine").getVrednost()).trim().split(" ");
-            for(String poj : vel)
-                setVelicina.add(poj);
+            String[] velicine = p.getVelicine();
+            for(String velicina : velicine)
+                setVelicina.add(velicina);
 
-            setBrendova.add((String)p.getAtributi().get("Brend").getVrednost());
+            setBrendova.add(p.getAtribut("Brend"));
         }
 
 
@@ -179,35 +171,6 @@ public class KatalogController implements Initializable {
         }
         vbox.getChildren().add(gp);
     }
-
-
-    private void prikazi(String naziv){
-
-        List<Proizvod> proizvodi = new ArrayList<Proizvod>();
-
-        for(Kategorija k1: Main.webshop.getKategorije()){
-
-            for(Kategorija k2 : k1.getPodKategorija()){
-                if(k2.getNaziv().equals(naziv)){
-                    proizvodi = k2.getProizvodi();
-                }
-            }
-
-        }
-
-        try{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
-            Parent root = (Parent) loader.load();
-
-            KatalogController pc = loader.getController();
-            pc.prikazi(proizvodi);
-
-            Main.scene.setRoot(root);
-        }catch (Exception ex){ ex.printStackTrace();}
-
-    }
-
 
 
     @Override

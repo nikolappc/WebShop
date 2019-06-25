@@ -69,6 +69,14 @@ public class Proizvod {
 
    }
 
+   /**
+    * Vraca niz velicina
+    * @return
+    */
+   public String[] getVelicine(){
+      return atributi.get("Velicine").getVrednost().trim().split(" ");
+   }
+
    @Override
    public boolean equals(Object o) {
       if (this == o) return true;

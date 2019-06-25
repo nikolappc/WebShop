@@ -23,7 +23,7 @@ public class Main extends Application {
     public static Stage window;
     public static Scene scene;
 
-    public static String mojaPutanja = "file:/C:/Users/Stefan/Desktop/WebShop/";
+    public static String mojaPutanja = "file:/C:/Users/Mijat/Desktop/currently working on/fax/WebShop/";
 
     // Glavna instanca WebSHop-a
     public static Webshop webshop;
@@ -36,13 +36,6 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
         Parent root = (Parent) loader.load();
 
-
-        for(Kategorija kat: webshop.getKategorije()){
-            System.out.println(kat.getNaziv());
-            for(Kategorija kat2 : kat.getPodKategorija()){
-                System.out.println(kat2.getNaziv());
-            }
-        }
 
         /** BACICE GRESKU AKO SE NE LOADUJE GLAVNI*/
         MainController mc = loader.getController();
@@ -61,14 +54,11 @@ public class Main extends Application {
 
         // izlogovan
         Main.webshop.ulogovaniKorisnik = null;
-        // Upisuje WebShop u JSon
         writeWebShop();
     }
 
     public static void main(String[] args) {
-//        webshop = new Webshop();
-//        parseData(webshop);
-//        parseUsers();
+
         //Ucitava WebShop
         loadWebShop();
         launch(args);

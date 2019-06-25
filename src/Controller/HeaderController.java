@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Kategorija;
+import Model.Pol;
 import Model.Proizvod;
 import Model.Webshop;
 import View.Main;
@@ -140,26 +141,26 @@ public class HeaderController implements Initializable {
     }
 
     @FXML
-    void muskeJaknePritisnut(ActionEvent event) {prikazi("jakne");}
+    void muskeJaknePritisnut(ActionEvent event) {prikazi("jakne", Pol.M);}
 
     @FXML
     void muskeDuksericePritisnut(ActionEvent event) {
-        prikazi("duksevi");
+        prikazi("duksevi", Pol.M);
     }
 
     @FXML
     void muskeMajicePritisnut(ActionEvent event) {
-        prikazi("majice");
+        prikazi("majice", Pol.M);
     }
 
     @FXML
     void muskePantalonePritisnut(ActionEvent event) {
-        prikazi("pantalone");
+        prikazi("pantalone", Pol.M);
     }
 
     @FXML
     void muskePatikePritisnut(ActionEvent event) {
-        prikazi("patike");
+        prikazi("patike", Pol.M);
     }
 
 
@@ -167,10 +168,15 @@ public class HeaderController implements Initializable {
      * Prikazuje proizvode za izabranu kategoriju iz dropdown
      * menija
      * @param naziv naziv kategorije
+     * @param pol
      */
-    private void prikazi(String naziv) {
+    private void prikazi(String naziv, Pol pol) {
         List<Proizvod> proizvodi =
                 Webshop.pretraga.pretragaProzvodaKategorija(Main.webshop.kategorije, naziv);
+
+        // pretrazi po trazenom polu
+        proizvodi = Webshop.pretraga.pretragaProzvodaPol(proizvodi, pol);
+
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
             Parent root = (Parent) loader.load();
