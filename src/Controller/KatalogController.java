@@ -353,7 +353,7 @@ public class KatalogController implements Initializable {
             return;
         }
         prikazi(proizvodi);
-
+        sideBarOpcije(proizvodi);
     }
 
     /**
@@ -363,16 +363,11 @@ public class KatalogController implements Initializable {
      */
     public void prikazi(List<Proizvod> proizvodi) {
         brojRezultata.setText(String.valueOf(proizvodi.size()));
-
-        sideBarOpcije(proizvodi);
-
         if (proizvodi.isEmpty()) {
             Label label = new Label("Nijedan proizvod nije pronađen.");
             vbox.getChildren().set(1, label);
             return;
         }
-
-
 
         int end;
         Stranica prev = null;

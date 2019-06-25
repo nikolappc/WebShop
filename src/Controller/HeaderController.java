@@ -147,7 +147,7 @@ public class HeaderController implements Initializable {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Korpa.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML\\Korpa.fxml"));
             Parent root = (Parent) loader.load();
 
             KorpaController pc = loader.getController();
@@ -162,58 +162,56 @@ public class HeaderController implements Initializable {
     @FXML
     void muskeJaknePritisnut(ActionEvent event) {
         prikazi("muskarci|jakne");
-    }
-    void muskeJaknePritisnut(ActionEvent event) {
-        List<Proizvod> proizvodi = Pretraga.
-                pretragaProzvodaKategorija(Main.webshop.kategorije, "jakne");
-
-        // pretrazi po trazenom polu
-        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
-        prikazi(proizvodi);
+//        List<Proizvod> proizvodi = Pretraga.
+//                pretragaProzvodaKategorija(Main.webshop.kategorije, "jakne");
+//
+//        // pretrazi po trazenom polu
+//        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+//        prikazi(proizvodi);
     }
 
     @FXML
     void muskeDuksericePritisnut(ActionEvent event) {
-        List<Proizvod> proizvodi = Pretraga.
-                pretragaProzvodaKategorija(Main.webshop.kategorije, "duskevi");
-
-        // pretrazi po trazenom polu
-        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
-        prikazi(proizvodi);
+//        List<Proizvod> proizvodi = Pretraga.
+//                pretragaProzvodaKategorija(Main.webshop.kategorije, "duskevi");
+//
+//        // pretrazi po trazenom polu
+//        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+//        prikazi(proizvodi);
         prikazi("muskarci|duksevi");
     }
 
     @FXML
     void muskeMajicePritisnut(ActionEvent event) {
         prikazi("muskarci|majice");
-        List<Proizvod> proizvodi = Pretraga.
-                pretragaProzvodaKategorija(Main.webshop.kategorije, "majce");
-
-        // pretrazi po trazenom polu
-        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
-        prikazi(proizvodi);
+//        List<Proizvod> proizvodi = Pretraga.
+//                pretragaProzvodaKategorija(Main.webshop.kategorije, "majce");
+//
+//        // pretrazi po trazenom polu
+//        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+//        prikazi(proizvodi);
     }
 
     @FXML
     void muskePantalonePritisnut(ActionEvent event) {
         prikazi("muskarci|pantalone");
-        List<Proizvod> proizvodi = Pretraga.
-                pretragaProzvodaKategorija(Main.webshop.kategorije, "pantalone");
-
-        // pretrazi po trazenom polu
-        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
-        prikazi(proizvodi);
+//        List<Proizvod> proizvodi = Pretraga.
+//                pretragaProzvodaKategorija(Main.webshop.kategorije, "pantalone");
+//
+//        // pretrazi po trazenom polu
+//        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+//        prikazi(proizvodi);
     }
 
     @FXML
     void muskePatikePritisnut(ActionEvent event) {
         prikazi("muskarci|patike");
-        List<Proizvod> proizvodi = Pretraga.
-                pretragaProzvodaKategorija(Main.webshop.kategorije, "pantalone");
-
-        // pretrazi po trazenom polu
-        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
-        prikazi(proizvodi);
+//        List<Proizvod> proizvodi = Pretraga.
+//                pretragaProzvodaKategorija(Main.webshop.kategorije, "pantalone");
+//
+//        // pretrazi po trazenom polu
+//        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
+//        prikazi(proizvodi);
     }
 
     @FXML
@@ -291,6 +289,21 @@ public class HeaderController implements Initializable {
             ex.printStackTrace();
         }
 
+    }
+
+    public void prikazi(List<Proizvod> proizvodi){
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
+            Parent root = (Parent) loader.load();
+
+            KatalogController pc = loader.getController();
+            pc.prikazi(proizvodi);
+
+            Main.scene.setRoot(root);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
