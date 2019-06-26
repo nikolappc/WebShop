@@ -50,7 +50,7 @@ public class IzmenaNalogaController implements Initializable{
 
 
     @FXML
-    private HeaderController someIdController;
+    private HeaderController someId;
 
     @FXML
     void potvrdaIzmena(ActionEvent event) {
