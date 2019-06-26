@@ -37,7 +37,7 @@
                 <Pane prefHeight="346.0" prefWidth="467.0" />
               </bottom>
               <center>
-                <GridPane fx:id="gridPrijava" prefHeight="213.0" prefWidth="355.0" style="border: 1px solid black;&#10;" visible="true">
+                <GridPane fx:id="gridPrijava" prefHeight="213.0" prefWidth="355.0"  visible="true">
                   <children>
                     <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                       <children>

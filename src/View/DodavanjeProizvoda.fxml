@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0000999999975" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controller.DodajProizvodController">
+  <center>
+    <VBox prefHeight="200.0" prefWidth="100.0">
+      <children>
+        <Label alignment="CENTER" minWidth="-1.0" prefHeight="85.0" prefWidth="600.0" style="-fx-font-weight: bold; -fx-font-size: 32;" text="Dodavanje proizvoda">
+          <font>
+            <Font name="Arial Bold" size="24.0" />
+          </font>
+        </Label>
+        <GridPane prefHeight="218.00006103515625" prefWidth="600.0">
+          <children>
+            <Label text="Naziv proizvoda" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label text="Opis proizvoda" GridPane.columnIndex="0" GridPane.rowIndex="1">
+              <GridPane.margin>
+                <Insets />
+              </GridPane.margin>
+            </Label>
+            <TextArea prefHeight="122.0" prefWidth="383.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField prefHeight="37.0" prefWidth="383.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label text="Slike" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label text="Kategorija" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <ComboBox prefWidth="383.0" promptText="Papicu evo to jebi se sa ovim" GridPane.columnIndex="1" GridPane.rowIndex="3">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Button mnemonicParsing="false" onAction="#dodavanjeSlikePritisnuo" prefWidth="383.0" text="Izaberi slike" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="217.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="383.0" minWidth="10.0" prefWidth="383.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="153.0" minHeight="7.0" prefHeight="42.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </children>
+    </VBox>
+  </center>
+  <left>
+    <Pane prefHeight="200.0" prefWidth="200.0" />
+  </left>
+  <right>
+    <Pane prefHeight="200.0" prefWidth="200.0" />
+  </right>
+  <top>
+    <fx:include id="someId" source="/View/Header.fxml" />
+  </top>
+</BorderPane>

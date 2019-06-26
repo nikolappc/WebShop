@@ -75,8 +75,8 @@ public class KorpaController implements Initializable {
 		total.setSpacing(20);
 		total.setAlignment(Pos.BOTTOM_RIGHT);
 		Label l = new Label(" Ukupna cena:     "+ukupnaCena + " €");
-		
-		Button b = new Button("NARUCI NARUDZBINU");
+
+		Button b = new Button("NARUCI");
 		b.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		    	infoKorisnika();
@@ -157,7 +157,7 @@ public class KorpaController implements Initializable {
 			prikazi();
 		else{
 			vBox.getChildren().remove(1);
-			korpaLabela.setText("NEMA NISTA JEBO TE DAN");
+			korpaLabela.setText("Korpa je trenutno prazna :'-( ");
 
 
 		}
