@@ -138,11 +138,10 @@ public class PrijavaController implements Initializable {
         }
 
         // validacija polja
-        boolean ok = true;
-        ok = proveraEmail();
-        ok = proveraKorisnickog();
-        ok = proveraLoznike();
-        ok = proveraBrTelefona();
+        boolean ok = proveraEmail();
+        ok = (proveraKorisnickog() && ok);
+        ok = (proveraLoznike() && ok);
+        ok = (proveraBrTelefona() && ok);
 
         // proveri da li je izabro pol
         if(polComboBox.getValue()==null){
