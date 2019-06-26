@@ -5,10 +5,18 @@
  ***********************************************************************/
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 
 public class Isporucena extends StanjeNarudzbine {
 
 	
+
+	public Isporucena() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Isporucena(Narudzbina narudzbina) {
 		super(narudzbina);

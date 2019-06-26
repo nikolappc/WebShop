@@ -5,11 +5,32 @@
  ***********************************************************************/
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@JsonTypeInfo(
+		  use = JsonTypeInfo.Id.NAME, 
+		  include = JsonTypeInfo.As.PROPERTY, 
+		  property = "type")
+@JsonSubTypes({ 
+  @Type(value = Obrada.class, name = "obrada"), 
+  @Type(value = Poslata.class, name = "poslata"),
+  @Type(value = Vracena.class, name = "vracena"),
+  @Type(value = Isporucena.class, name = "isporucena") 
+})
 public abstract class StanjeNarudzbine {
 	
+	@JsonBackReference
 	protected Narudzbina narudzbina;
 	
-	
+	public StanjeNarudzbine() {
+		super();
+		this.narudzbina = null;
+	}
 
 	public StanjeNarudzbine(Narudzbina narudzbina) {
 		super();
@@ -28,4 +49,14 @@ public abstract class StanjeNarudzbine {
 	abstract public void porudzbinaStigla(boolean primljena);
     
 	abstract public void vracanjeNarudzbine();
+
+	public Narudzbina getNarudzbina() {
+		return narudzbina;
+	}
+
+	public void setNarudzbina(Narudzbina narudzbina) {
+		this.narudzbina = narudzbina;
+	}
+	
+	
 }

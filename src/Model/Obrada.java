@@ -5,9 +5,16 @@
  ***********************************************************************/
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Obrada extends StanjeNarudzbine {
 
 	
+
+	public Obrada() {
+		super();
+	}
 
 	public Obrada(Narudzbina narudzbina) {
 		super(narudzbina);
@@ -45,6 +52,7 @@ public class Obrada extends StanjeNarudzbine {
 	public void vracanjeNarudzbine() {
 		
 	}
+	
 	
 	
 	

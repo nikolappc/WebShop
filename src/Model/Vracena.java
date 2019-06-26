@@ -5,10 +5,17 @@
  ***********************************************************************/
 package Model;
 
-/** @pdOid 51d8e964-9974-433c-8ff7-94cc00c19d19 */
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Vracena extends StanjeNarudzbine {
 
 	
+	public Vracena() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Vracena(Narudzbina narudzbina) {
 		super(narudzbina);
 	}
