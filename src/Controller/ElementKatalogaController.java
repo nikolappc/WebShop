@@ -30,8 +30,8 @@ public class ElementKatalogaController implements Initializable {
     public void ucitaj(Proizvod p){
 
         proizvod = p;
-
-        slikaProizvoda.setImage(new Image(Main.mojaPutanja+proizvod.getSlike().get(1)));
+        System.out.println(proizvod.getSlike().get(0));
+        slikaProizvoda.setImage(new Image(proizvod.getSlike().get(1)));
         naziv.setText(proizvod.getNaziv());
         cena.setText(proizvod.dajCenu()+" €");
     }
@@ -41,7 +41,7 @@ public class ElementKatalogaController implements Initializable {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Proizvod.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Proizvod.fxml"));
             Parent root = (Parent) loader.load();
 
             ProizvodController pc = loader.getController();
@@ -57,12 +57,12 @@ public class ElementKatalogaController implements Initializable {
 
     @FXML
     void slikaHover() {
-        slikaProizvoda.setImage(new Image(Main.mojaPutanja + proizvod.getSlike().get(0)));
+        slikaProizvoda.setImage(new Image(proizvod.getSlike().get(0)));
     }
 
     @FXML
     void slikaUnHover() {
-        slikaProizvoda.setImage(new Image(Main.mojaPutanja + proizvod.getSlike().get(1)));
+        slikaProizvoda.setImage(new Image(proizvod.getSlike().get(1)));
     }
 
     @Override

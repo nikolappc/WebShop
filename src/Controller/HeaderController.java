@@ -36,7 +36,7 @@ public class HeaderController implements Initializable {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\glavni.fxml"));
             Parent root = (Parent) loader.load();
 
             MainController pc = loader.getController();
@@ -84,11 +84,11 @@ public class HeaderController implements Initializable {
             // proveri da li je ulogovan
             Parent root;
             if (Main.webshop.ulogovaniKorisnik.getKorIme() == null) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Prijava.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Prijava.fxml"));
                 root = (Parent) loader.load();
                 PrijavaController pc = loader.getController();
             } else {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\IzmenaNaloga.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\IzmenaNaloga.fxml"));
                 root = (Parent) loader.load();
                 IzmenaNalogaController inc = loader.getController();
             }
@@ -107,7 +107,7 @@ public class HeaderController implements Initializable {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\ListaZelja.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\ListaZelja.fxml"));
             Parent root = (Parent) loader.load();
 
             ListaZeljaController pc = loader.getController();
@@ -126,7 +126,7 @@ public class HeaderController implements Initializable {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\izmenaNaloga.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\izmenaNaloga.fxml"));
             Parent root = (Parent) loader.load();
 
             IzmenaNalogaController pc = loader.getController();
@@ -147,7 +147,7 @@ public class HeaderController implements Initializable {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Korpa.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Korpa.fxml"));
             Parent root = (Parent) loader.load();
 
             KorpaController pc = loader.getController();
@@ -278,7 +278,7 @@ public class HeaderController implements Initializable {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Katalog.fxml"));
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();
@@ -294,7 +294,7 @@ public class HeaderController implements Initializable {
     public void prikazi(List<Proizvod> proizvodi){
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Katalog.fxml"));
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();

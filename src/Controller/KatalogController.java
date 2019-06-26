@@ -53,7 +53,10 @@ class Stranica {
     }
 
 
-
+    /**
+     * Učitava 9 proizvoda iz liste proizvoda
+     * @return
+     */
     public GridPane ucitaj(){
         GridPane gp = new GridPane();
         gp.setVgap(30);
@@ -68,7 +71,7 @@ class Stranica {
                 }
 
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\ElementKataloga.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\ElementKataloga.fxml"));
                     VBox hb = (VBox) loader.load();
                     ElementKatalogaController ekc= loader.getController();
                     ekc.ucitaj(proizvodi.get(index));
@@ -283,6 +286,10 @@ public class KatalogController implements Initializable {
 
     }
 
+    /**
+     * Pretrazuje proizvode unapred pretrazene preko kategorija koristeci filter atributa
+     * i prikazuje samo one ciji se atributi slazu sa svim filterima
+     */
     public void pretraziPoAtributima(){
         List<Proizvod> proizvodiSaAtributima = new LinkedList<>();
         for (Proizvod p:proizvodi){
@@ -303,7 +310,10 @@ public class KatalogController implements Initializable {
         prikazi(proizvodiSaAtributima);
     }
 
-
+    /**
+     * Dodaje u listu proizvoda one proizvode koji se nalaze u
+     * kategorijama koje su dodate u polje putanje
+     */
     public void pretraziPoKategoriji() {
         proizvodi = new LinkedList<>();
         atributFilter.clear();
@@ -352,6 +362,10 @@ public class KatalogController implements Initializable {
         }
     }
 
+    /**
+     * Namesta novu stranicu za prikaz
+     * @param s
+     */
     private void namestiNovuStranicu(Stranica s) {
         if (s == null) {
             return;
@@ -361,18 +375,29 @@ public class KatalogController implements Initializable {
         vbox.getChildren().set(1, gp);
     }
 
-
+    /**
+     * Dodaje putanju do kategorije u skup putanja
+     * @param putanja
+     */
     public void dodajUPrikazKategorije(String putanja) {
         putanje.add(putanja);
         pretraziPoKategoriji();
     }
 
-
+    /**
+     * Izbacuje putanju do kategorije iz skupa putanja
+     * @param putanja
+     */
     private void izbaciIzPrikazaKategorije(String putanja) {
         putanje.remove(putanja);
         pretraziPoKategoriji();
     }
 
+    /**
+     * Dodaje filter vrednosti za zadati atribut u mapu filtera atributa
+     * @param naziv
+     * @param vrednost
+     */
     private void dodajFilterAtributa(String naziv, String vrednost){
         if (!atributFilter.containsKey(naziv)){
             atributFilter.put(naziv,new HashSet<>());
@@ -380,6 +405,11 @@ public class KatalogController implements Initializable {
         atributFilter.get(naziv).add(vrednost);
         pretraziPoAtributima();
     }
+    /**
+     * Izbacuje filter vrednosti za zadati atribut u mapu filtera atributa
+     * @param naziv
+     * @param vrednost
+     */
     private void izbaciFilterAtributa(String naziv, String vrednost){
         if (atributFilter.containsKey(naziv)){
             atributFilter.get(naziv).remove(vrednost);
@@ -406,9 +436,8 @@ public class KatalogController implements Initializable {
         vbox.getChildren().add(2, dugmad);
         CheckBoxTreeItem<CvorDrveta> treeRoot = napraviCvor("Kategorije", "");
         stabloKategorija.setRoot(treeRoot);
-        stabloKategorija.setStyle("-fx-background-color:lightsteelblue");
         stabloKategorija.setCellFactory(CheckBoxTreeCell.forTreeView());
-
+        stabloKategorija.setStyle("-fx-background-color:lightsteelblue");
         Collection<Kategorija> kategorije = Main.webshop.getKategorije();
         for (Kategorija k : kategorije) {
             rekurzivnoDodajKategorije(k, treeRoot, k.getNaziv());

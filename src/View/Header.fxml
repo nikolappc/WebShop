@@ -95,7 +95,7 @@
           <children>
             <ImageView id="slika1" fitHeight="35.0" fitWidth="40.0" onMouseClicked="#nalogPritisnut" pickOnBounds="true" preserveRatio="true">
               <image>
-                <Image url="@/Slike/nalog.png" />
+                <Image url="@../slike/nalog.png" />
               </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -103,7 +103,7 @@
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#listaZeljaPritisnuta" pickOnBounds="true" preserveRatio="true">
               <image>
-                <Image url="@/Slike/srce.png" />
+                <Image url="@../slike/srce.png" />
               </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -111,7 +111,7 @@
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#korpaPritisnuta" pickOnBounds="true" preserveRatio="true">
               <image>
-                <Image url="@/Slike/korpa.png" />
+                <Image url="@../slike/korpa.png" />
               </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />

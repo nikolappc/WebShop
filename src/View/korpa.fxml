@@ -28,7 +28,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.KorpaController">
     <top>
-        <fx:include fx:id="someId" source="/FXML/Header.fxml" BorderPane.alignment="CENTER" />
+        <fx:include fx:id="someId" source="/View/Header.fxml" BorderPane.alignment="CENTER" />
     </top>
     <center>
         <ScrollPane hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pannable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">

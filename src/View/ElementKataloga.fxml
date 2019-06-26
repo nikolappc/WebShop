@@ -30,7 +30,7 @@
    <children>
       <ImageView fx:id="slikaProizvoda" fitHeight="280.0" fitWidth="229.0" onMouseClicked="#slikaPritisnuta" onMouseEntered="#slikaHover" onMouseExited="#slikaUnHover" pickOnBounds="true">
          <image>
-            <Image url="@../../Proizvodi/Slike/001-2.jpg" />
+            <Image url="@/slike/slikeproizvoda/001-2.jpg" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

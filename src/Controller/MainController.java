@@ -95,7 +95,7 @@ public class MainController implements  Initializable{
      */
     private void prikaziProizvodeZaBrend(String brend){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Katalog.fxml"));
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();
@@ -104,12 +104,8 @@ public class MainController implements  Initializable{
             List<Proizvod> rezultat =
                     Main.webshop.pretraga.pretragaProizvodBrend(Main.webshop.proizvodi, brend);
 
-            if (rezultat.size() == 0) {
-                pc.brojRezultata.setText("0");
-                pc.kategorijaLabela.setText("Nema rezultata za unesenu vredonst");
-            }else {
-                pc.prikazi(rezultat);
-            }
+
+            pc.prikazi(rezultat);
 
             Main.scene.setRoot(root);
         } catch (Exception ex) {

@@ -19,7 +19,6 @@ public class Main extends Application {
     public static Stage window;
     public static Scene scene;
 
-    public static String mojaPutanja = "file:\\" + System.getProperty("user.dir") + "\\";
 
     // Glavna instanca WebSHop-a
     public static Webshop webshop;
@@ -29,7 +28,7 @@ public class Main extends Application {
         window = primaryStage;
         window.setTitle("PRODAVNICA ");
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\glavni.fxml"));
         Parent root = (Parent) loader.load();
 
 
@@ -55,10 +54,10 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         webshop = new Webshop();
-        //parseData(webshop);
+        parseData(webshop);
         parseUsers();
 //        Ucitava WebShop
-        loadWebShop();
+//        loadWebShop();
 
         /** Po defaultu je kupac */
         webshop.ulogovaniKorisnik = new Kupac();
@@ -112,7 +111,7 @@ public class Main extends Application {
 
     static void parseData(Webshop webshop) {
         Kategorija nadKategorija = null, podKategorija = null;
-        String imageDir = "Proizvodi\\Slike\\";
+        String imageDir = "./slike/slikeproizvoda/";
         try (BufferedReader br = new BufferedReader(new FileReader("Proizvodi\\muski.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {

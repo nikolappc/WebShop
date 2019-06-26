@@ -48,7 +48,7 @@ public class ElementKorpeController implements Initializable {
     public void postavi(StavkaNarudzbine s){
         stavka = s;
 
-        slika.setImage(new Image(Main.mojaPutanja +stavka.getProizvod().getSlike().get(1)));
+        slika.setImage(new Image(stavka.getProizvod().getSlike().get(1)));
         jedinicna.setText(stavka.getProizvod().dajCenu()+" €");
         ukupnaCena.setText((stavka.getKolicina()*stavka.getCena())+" €");
         kolicina.setText(stavka.getKolicina()+"");
@@ -68,7 +68,7 @@ public class ElementKorpeController implements Initializable {
 
         try{
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Korpa.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Korpa.fxml"));
             Parent root = (Parent) loader.load();
 
             KorpaController mc = loader.getController();
@@ -103,7 +103,7 @@ public class ElementKorpeController implements Initializable {
 
         try{
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Proizvod.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Proizvod.fxml"));
             Parent root = (Parent) loader.load();
 
             ProizvodController mc = loader.getController();

@@ -19,7 +19,7 @@ public class NarudzbineController implements Initializable {
 	
     
     public Parent test() throws Exception {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\N.fxml"));
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\N.fxml"));
         Parent root = (Parent) loader.load();
         NarudzbineController pc = loader.getController();
         return root;
@@ -28,7 +28,7 @@ public class NarudzbineController implements Initializable {
 	private void proba() {
 		for (int i = 0; i < 3; i++) {			
 			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\ElemNarudzbine.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\ElemNarudzbine.fxml"));
 	            HBox hb = (HBox) loader.load();
 	            vBox.getChildren().add(hb);
 	            

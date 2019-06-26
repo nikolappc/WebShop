@@ -99,7 +99,7 @@ public class PrijavaController implements Initializable {
 
         if(Main.webshop.prijava(korisnickoPrijava.getText(), lozinkaPrijava.getText())){
             try{
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\glavni.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\glavni.fxml"));
                 Parent root = (Parent) loader.load();
                 MainController pc = loader.getController();
                 Main.scene.setRoot(root);

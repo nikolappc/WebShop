@@ -46,7 +46,7 @@ public class KorpaController implements Initializable {
 		Kupac kupac = (Kupac) Main.webshop.ulogovaniKorisnik;
 		for(StavkaNarudzbine stavka : kupac.getKorpa().getStavkaNarudzbine()){
 			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\ElementKorpe.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\ElementKorpe.fxml"));
 				HBox hb = (HBox) loader.load();
 				ElementKorpeController ekc= loader.getController();
 				ekc.postavi(stavka);

@@ -195,6 +195,6 @@
     </SplitPane>
   </center>
   <top>
-    <fx:include fx:id="someId" source="/FXML/Header.fxml" BorderPane.alignment="CENTER"/>
+    <fx:include fx:id="someId" source="/View/Header.fxml" BorderPane.alignment="CENTER"/>
   </top>
 </BorderPane>

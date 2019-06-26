@@ -34,7 +34,7 @@ public class ElementListeZeljaController {
     public void postavi(Proizvod s){
         proizvod = s;
 
-        slika.setImage(new Image(Main.mojaPutanja +proizvod.getSlike().get(1)));
+        slika.setImage(new Image(proizvod.getSlike().get(1)));
         cena.setText(proizvod.dajCenu() + " €");
         sifra.setText("Sifra: "+proizvod.getSifra());
         boja.setText("Boja: "+proizvod.getAtributVrednost("Boja"));
@@ -46,7 +46,7 @@ public class ElementListeZeljaController {
 
         try{
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Proizvod.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Proizvod.fxml"));
             Parent root = (Parent) loader.load();
 
             ProizvodController mc = loader.getController();
@@ -66,7 +66,7 @@ public class ElementListeZeljaController {
 
         try{
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\ListaZelja.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\ListaZelja.fxml"));
             Parent root = (Parent) loader.load();
 
             ListaZeljaController mc = loader.getController();

@@ -39,7 +39,7 @@
                            <children>
                               <ImageView fitHeight="57.0" fitWidth="89.0" layoutX="52.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Slike/truck.png" />
+                                    <Image url="@../slike/truck.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -48,7 +48,7 @@
                            <children>
                               <ImageView fitHeight="62.0" fitWidth="77.0" layoutX="52.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Slike/faktura.png" />
+                                    <Image url="@../slike/faktura.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -57,7 +57,7 @@
                            <children>
                               <ImageView fitHeight="62.0" fitWidth="108.0" layoutX="68.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Slike/pin.png" />
+                                    <Image url="@../slike/pin.png" />
                                  </image>
                               </ImageView>
                            </children>

@@ -34,7 +34,7 @@
                <children>
                   <ImageView fx:id="slika" fitHeight="140.0" fitWidth="120.0" onMouseClicked="#proizvodKliknut" pickOnBounds="true">
                      <image>
-                        <Image url="@/Slike/item.jpg" />
+                        <Image url="@/slike/item.jpg" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -79,7 +79,7 @@
          <children>
             <ImageView fitHeight="36.0" fitWidth="36.0" onMouseClicked="#ukloniPritisnut" pickOnBounds="true">
                <image>
-                  <Image url="@/Slike/X.png" />
+                  <Image url="@/slike/X.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -91,7 +91,7 @@
          <children>
             <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#minusPritisnut" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@/Slike/minus.png" />
+                  <Image url="@/slike/minus.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -104,7 +104,7 @@
             </Label>
             <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#plusPritisnut" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@/Slike/plus.png" />
+                  <Image url="@/slike/plus.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />

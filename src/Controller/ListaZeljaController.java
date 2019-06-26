@@ -40,7 +40,7 @@ public class ListaZeljaController implements Initializable {
         for(Proizvod proizvod :  kupac.getListaZelja().getProizvod()){
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\ElementListeZelja.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\ElementListeZelja.fxml"));
                 HBox hb = (HBox) loader.load();
                 ElementListeZeljaController ekc= loader.getController();
                 ekc.postavi(proizvod);

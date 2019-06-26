@@ -47,16 +47,18 @@ public class ProizvodController implements Initializable {
 
     /** Postavlja proizvod na scenu za prikaz izabranog*/
     public void postaviProizvod(Proizvod p){
-
+        for (String putanja:p.getSlike()){
+            System.out.println(putanja);
+        }
         trenutniProizvod = p;
-        Image image = new Image(Main.mojaPutanja+p.getSlike().get(1));
+        Image image = new Image(p.getSlike().get(1));
         trenutnaSlika.setImage(image);
         slikaProizvoda1.setImage(image);
 
-        Image image2 = new Image(Main.mojaPutanja+p.getSlike().get(0));
+        Image image2 = new Image(p.getSlike().get(0));
         slikaProizvoda2.setImage(image2);
 
-        Image image3 = new Image(Main.mojaPutanja+p.getSlike().get(2));
+        Image image3 = new Image(p.getSlike().get(2));
         slikaProizvoda3.setImage(image3);
 
         cenaProizvoda.setText(p.dajCenu()+" €");
@@ -88,19 +90,19 @@ public class ProizvodController implements Initializable {
         preporuceniProizvodi = nadjiPreporucene(p);
 
         if(preporuceniProizvodi.size() >0 ){
-            preporucenSlika1.setImage(new Image(Main.mojaPutanja + preporuceniProizvodi.get(0).getSlike().get(1)));
+            preporucenSlika1.setImage(new Image(preporuceniProizvodi.get(0).getSlike().get(1)));
             preporucenSlika1.setOnMouseClicked(e-> prikaziPreporuceni(preporuceniProizvodi.get(0)));
         }
 
         if(preporuceniProizvodi.size() > 1){
 
-            preporucenSlika2.setImage(new Image(Main.mojaPutanja +preporuceniProizvodi.get(1).getSlike().get(1)));
+            preporucenSlika2.setImage(new Image(preporuceniProizvodi.get(1).getSlike().get(1)));
             preporucenSlika2.setOnMouseClicked(e-> prikaziPreporuceni(preporuceniProizvodi.get(1)));
         }
 
         if(preporuceniProizvodi.size() > 2){
 
-            preporucenSlika3.setImage(new Image(Main.mojaPutanja +preporuceniProizvodi.get(2).getSlike().get(1)));
+            preporucenSlika3.setImage(new Image(preporuceniProizvodi.get(2).getSlike().get(1)));
             preporucenSlika3.setOnMouseClicked(e-> prikaziPreporuceni(preporuceniProizvodi.get(2)));
         }
 
@@ -112,7 +114,7 @@ public class ProizvodController implements Initializable {
 
         try{
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Proizvod.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Proizvod.fxml"));
             Parent root = (Parent) loader.load();
 
             ProizvodController pc = loader.getController();
