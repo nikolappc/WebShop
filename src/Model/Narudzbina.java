@@ -5,9 +5,20 @@
  ***********************************************************************/
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Narudzbina {
+	
+	private int ID;
     private Korpa korpa;
-     
+    
+    private String ime;
+    private String prezime;
+    private String adresa;
+    
+    @JsonManagedReference
     private StanjeNarudzbine trenutnoStanje;
      
     public Narudzbina() {
@@ -17,9 +28,13 @@ public class Narudzbina {
      
     
 
-	public Narudzbina(Korpa korpa) {
+	public Narudzbina(Korpa korpa,String ime, String prezime, String adresa) {
 		super();
 		this.korpa = korpa;
+		this.ime = ime;
+		this.prezime = prezime;
+		this.adresa = adresa;
+		trenutnoStanje = new Obrada(this);
 	}
 
 	
@@ -101,6 +116,32 @@ public class Narudzbina {
 		this.korpa = korpa;
 	}
 
+
+
+	public int getID() {
+		return ID;
+	}
+
+
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
+
+
+	public StanjeNarudzbine getTrenutnoStanje() {
+		return trenutnoStanje;
+	}
+
+
+
+	public void setTrenutnoStanje(StanjeNarudzbine trenutnoStanje) {
+		this.trenutnoStanje = trenutnoStanje;
+	}
+
+	
+	
      
      
 }

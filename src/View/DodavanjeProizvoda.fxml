@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.collections.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+        <?import javafx.scene.layout.VBox?>
+        <?import javafx.scene.text.Font?>
 
-<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0000999999975" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controller.DodajProizvodController">
+<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0000999999975" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DodajProizvodController">
+  <top>
+  <fx:include id="someId" source="Header.fxml" />
+  </top>
   <center>
     <VBox prefHeight="200.0" prefWidth="100.0">
       <children>
-        <Label alignment="CENTER" minWidth="-1.0" prefHeight="85.0" prefWidth="600.0" style="-fx-font-weight: bold; -fx-font-size: 32;" text="Dodavanje proizvoda">
+        <Label alignment="CENTER" minWidth="-1.0" prefHeight="90.0" prefWidth="600.0" style="-fx-font-weight: bold; -fx-font-size: 32;" text="Dodavanje proizvoda">
           <font>
             <Font name="Arial Bold" size="24.0" />
           </font>
@@ -89,7 +99,4 @@
   <right>
     <Pane prefHeight="200.0" prefWidth="200.0" />
   </right>
-  <top>
-    <fx:include id="someId" source="/View/Header.fxml" />
-  </top>
 </BorderPane>

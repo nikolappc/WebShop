@@ -35,7 +35,6 @@ public class Kategorija {
         this.naziv = naziv;
     }
 
-
     public Kategorija(String naziv, List<Kategorija> podKategorija, Kategorija nadKategorija, List<Proizvod> proizvodi) {
         this.naziv = naziv;
         this.podKategorija = podKategorija;

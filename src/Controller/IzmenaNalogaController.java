@@ -1,5 +1,6 @@
 package Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -8,7 +9,9 @@ import Model.Kupac;
 import View.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
@@ -54,7 +57,18 @@ public class IzmenaNalogaController implements Initializable{
 
     @FXML
     void nazadAkcija(ActionEvent event) {
-
+    	
+    	try {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\KorisnickiNalog.fxml"));
+    		Parent root;
+			root = (Parent) loader.load();
+			KorisnickiNalogController inc = loader.getController();
+			Main.scene.setRoot(root);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	
+    	
     }
 
 
