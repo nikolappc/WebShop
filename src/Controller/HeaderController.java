@@ -126,7 +126,7 @@ public class HeaderController implements Initializable {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\izmenaNaloga.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\IzmenaNaloga.fxml"));
             Parent root = (Parent) loader.load();
 
             IzmenaNalogaController pc = loader.getController();

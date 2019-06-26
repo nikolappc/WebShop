@@ -271,7 +271,8 @@ public class KatalogController implements Initializable {
             return;
         }
         int end;
-        Stranica prev = null;
+        Stranica prev = null, prva = null;
+
         for (int i = 0; i < proizvodi.size(); i += Stranica.proizvodPoStrani) {
             end = i + Stranica.proizvodPoStrani;
             if (end >= proizvodi.size()) {
@@ -280,13 +281,17 @@ public class KatalogController implements Initializable {
             Stranica s = new Stranica(proizvodi, i, end);
             if (i == 0) {
 
-                namestiNovuStranicu(s);
+                prva = s;
             }
             s.setPrev(prev);
             if (prev != null) {
                 prev.setNext(s);
             }
             prev = s;
+        }
+        if (prva!=null)
+        {
+            namestiNovuStranicu(prva);
         }
     }
     /**
