@@ -61,7 +61,7 @@ public class ListaZeljaController implements Initializable {
             prikazi();
         else{
             vBox.getChildren().remove(1);
-            listaZeljaLabela.setText("NEMA NISTA JEBO TE DAN");
+            listaZeljaLabela.setText("Lista zelja je trenutno prazna :'-( ");
         }
     }
 }

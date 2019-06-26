@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Kupac;
+import Model.ListaZelja;
 import Model.UlogovaniKorisnik;
 import View.Main;
 import javafx.fxml.FXML;
@@ -17,6 +19,7 @@ public class KorisnickiNalogController implements Initializable {
     private Label imePrezime;
 
 
+    @FXML
     public void izmenaPodatakaPritisnuta(){
     	try {
 	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\izmenaNaloga.fxml"));
@@ -24,24 +27,53 @@ public class KorisnickiNalogController implements Initializable {
 	        IzmenaNalogaController inc = loader.getController();
 	        Main.scene.setRoot(root);
     	}
-        catch (Exception e) {
-        }
+        catch (Exception e) { e.printStackTrace(); }
     }
 
+    @FXML
     public void pregledNarudzbinaPritisnut(){
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Narudzbine.fxml"));
+            Parent root = (Parent) loader.load();
+            NarudzbineController nc = loader.getController();
+            Main.scene.setRoot(root);
+        }
+        catch (Exception e) { e.printStackTrace(); }
     }
 
+    @FXML
     public void listaZeljaPritisnuta(){
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\ListaZelja.fxml"));
+            Parent root = (Parent) loader.load();
+            ListaZeljaController inc = loader.getController();
+            Main.scene.setRoot(root);
+        }
+        catch (Exception e) { e.printStackTrace(); }
     }
 
+
+    @FXML
     public void korpaPritisnuta(){
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\korpa.fxml"));
+            Parent root = (Parent) loader.load();
+            IzmenaNalogaController inc = loader.getController();
+            Main.scene.setRoot(root);
+        }
+        catch (Exception e) { e.printStackTrace(); }
     }
 
+    @FXML
     public void logOutPritisnut(){
-
+        try {
+            Main.webshop.ulogovaniKorisnik = new Kupac();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\glavni.fxml"));
+            Parent root = (Parent) loader.load();
+            MainController inc = loader.getController();
+            Main.scene.setRoot(root);
+        }
+        catch (Exception e) { e.printStackTrace(); }
     }
 
     @Override
