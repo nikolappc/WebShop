@@ -1,7 +1,9 @@
 package Controller;
 
 import Model.Kategorija;
+import Model.Kupac;
 import Model.Proizvod;
+import Model.StavkaNarudzbine;
 import View.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,6 +29,8 @@ public class ProizvodController implements Initializable {
     @FXML
     public ImageView preporucenSlika1,preporucenSlika2,preporucenSlika3;
 
+    public Proizvod trenutniProizvod;
+
     public List<Proizvod> preporuceniProizvodi;
     @FXML
     public Label opisProizvoda, cenaProizvoda, bojaProizvoda, nazivProizvoda;
@@ -43,7 +47,7 @@ public class ProizvodController implements Initializable {
     /** Postavlja proizvod na scenu za prikaz izabranog*/
     public void postaviProizvod(Proizvod p){
 
-
+        trenutniProizvod = p;
         Image image = new Image(Main.mojaPutanja+p.getSlike().get(1));
         trenutnaSlika.setImage(image);
         slikaProizvoda1.setImage(image);
@@ -54,7 +58,7 @@ public class ProizvodController implements Initializable {
         Image image3 = new Image(Main.mojaPutanja+p.getSlike().get(2));
         slikaProizvoda3.setImage(image3);
 
-        cenaProizvoda.setText(p.dajCenu());
+        cenaProizvoda.setText(p.dajCenu()+" €");
 
         opisProizvoda.setText(p.getOpis());
 
@@ -196,18 +200,30 @@ public class ProizvodController implements Initializable {
 
     }
 
+    public void izabranaVelicina(){
+        moguceVelicine.setStyle("");
+    }
 
     /** Korisnik dodao proizvod u korpu*/
     public void dodatoUKorpu(){
 
+        if(moguceVelicine.getSelectionModel().isEmpty()){
+            moguceVelicine.setStyle("-fx-border-color: red;");
+            moguceVelicine.setPromptText("Morate izabrati velicinu");
+            return;
+        }
 
+        //Provera da li vec ima taj artikal u korpi pa da samo povecamo velicinu
+        System.out.println(moguceVelicine.getValue());
+        StavkaNarudzbine stavka = new StavkaNarudzbine(1,trenutniProizvod.dajCenu(),trenutniProizvod, moguceVelicine.getValue());
+        ((Kupac) Main.webshop.ulogovaniKorisnik).getKorpa().dodajProizvod(stavka);
     }
 
 
     /** Korisnik dodao proizvod u list uzelja */
     public void dodatoUListuZelja(){
-
-
+        StavkaNarudzbine stavka = new StavkaNarudzbine(1,trenutniProizvod.dajCenu(),trenutniProizvod, moguceVelicine.getValue());
+        ((Kupac) Main.webshop.ulogovaniKorisnik).getKorpa().dodajProizvod(stavka);
     }
     
     

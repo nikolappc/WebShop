@@ -7,7 +7,7 @@ package Model;
 import java.util.*;
 
 public class ListaZelja {
-	private Collection<Proizvod> proizvod = new ArrayList<Proizvod>();
+	private List<Proizvod> proizvod = new ArrayList<Proizvod>();
     
 	
 	
@@ -18,7 +18,7 @@ public class ListaZelja {
     
     
 
-	public ListaZelja(Collection<Proizvod> proizvod) {
+	public ListaZelja(List<Proizvod> proizvod) {
 		super();
 		for (Proizvod proizvod2 : proizvod) {
 			this.proizvod.add(proizvod2);
@@ -32,12 +32,12 @@ public class ListaZelja {
     }
 
 
-    public Collection<Proizvod> getProizvod() {
+    public List<Proizvod> getProizvod() {
         return proizvod;
     }
 
 
-    public void setProizvod(Collection<Proizvod> newProizvod) {
+    public void setProizvod(List<Proizvod> newProizvod) {
         this.proizvod.clear();
         for (Proizvod proizvod : newProizvod) {
 			this.proizvod.add(proizvod);

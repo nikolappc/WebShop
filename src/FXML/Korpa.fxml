@@ -38,7 +38,7 @@
                       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="995.0">
                           <children>
                               <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="816.0" prefWidth="119.0" style="-fx-background-color: C2C2C2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-                              <VBox fx:id="vBox" layoutX="119.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="787.0" prefWidth="764.0">
+                              <VBox fx:id="vBox" layoutX="119.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="787.0" prefWidth="764.0" style="-fx-background-color: #FFFFFF;">
                                   <children>
                                       <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="702.0" spacing="20.0">
                                           <children>
@@ -53,17 +53,17 @@
                                           <children>
                                               <GridPane prefHeight="35.0" prefWidth="726.0">
                                                   <columnConstraints>
-                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="228.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="119.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="140.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="129.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="108.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="286.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="97.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="141.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="124.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="76.0" />
                                                   </columnConstraints>
                                                   <rowConstraints>
                                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                   </rowConstraints>
                                                   <children>
-                                                      <VBox prefHeight="35.0" prefWidth="263.0" style="-fx-background-color: #000000;">
+                                                      <VBox prefHeight="35.0" prefWidth="242.0" style="-fx-background-color: #000000;">
                                                           <children>
                                                               <Label prefHeight="35.0" prefWidth="67.0" text="Proizvod" textFill="WHITE">
                                                                   <font>
@@ -75,7 +75,7 @@
                                                               <Insets left="25.0" />
                                                           </padding>
                                                       </VBox>
-                                                      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                      <VBox prefHeight="35.0" prefWidth="84.0" GridPane.columnIndex="1">
                                                           <children>
                                                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #000000;">
                                                                   <children>
@@ -103,7 +103,7 @@
                                                       </VBox>
                                                       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4">
                                                           <children>
-                                                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #000000;">
+                                                              <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #000000;">
                                                                   <children>
                                                                       <Label prefHeight="35.0" prefWidth="49.0" text="Cena" textFill="WHITE">
                                                                           <font>
@@ -114,7 +114,7 @@
                                                               </VBox>
                                                           </children>
                                                       </VBox>
-                                                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #000000;" GridPane.columnIndex="2">
+                                                      <VBox alignment="BOTTOM_LEFT" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #000000;" GridPane.columnIndex="2">
                                                           <children>
                                                               <Label prefHeight="35.0" prefWidth="59.0" text="Kolicina" textFill="WHITE">
                                                                   <font>
@@ -122,6 +122,9 @@
                                                                   </font>
                                                               </Label>
                                                           </children>
+                                             <padding>
+                                                <Insets left="30.0" />
+                                             </padding>
                                                       </VBox>
                                                   </children>
                                               </GridPane>

@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.Atribut;
-import Model.Kategorija;
-import Model.Pretraga;
-import Model.Proizvod;
+import Model.*;
 import View.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,7 +53,8 @@ class Stranica {
     }
 
 
-    public GridPane ucitaj() {
+
+    public GridPane ucitaj(){
         GridPane gp = new GridPane();
         gp.setVgap(30);
         gp.setHgap(20);
@@ -69,62 +67,21 @@ class Stranica {
                     break;
                 }
 
-                VBox layout = new VBox();
-                layout.setSpacing(5);
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\ElementKataloga.fxml"));
+                    VBox hb = (VBox) loader.load();
+                    ElementKatalogaController ekc= loader.getController();
+                    ekc.ucitaj(proizvodi.get(index));
 
-                layout.prefWidth(266);
-                layout.prefHeight(323);
+                    gp.add(hb, j, i);
+                    index++;
 
-
-                ImageView slika = new ImageView(Main.mojaPutanja + proizvodi.get(index).getSlike().get(1));
-
-                ProizvodSlika ps = new ProizvodSlika(proizvodi.get(index), slika);
-
-                ps.slika.setOnMouseClicked(e ->
-                {
-                    try {
-
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Proizvod.fxml"));
-                        Parent root = (Parent) loader.load();
-
-                        ProizvodController pc = loader.getController();
-                        pc.postaviProizvod(ps.proizvod);
-
-                        Main.scene.setRoot(root);
-                        Main.window.show();
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                });
-
-                ps.slika.setOnMouseEntered(e -> ps.slika.setImage(new Image(Main.mojaPutanja + ps.proizvod.getSlike().get(0))));
-                ps.slika.setOnMouseExited(e -> ps.slika.setImage(new Image(Main.mojaPutanja + ps.proizvod.getSlike().get(1))));
-
-                slika.setFitHeight(276);
-                slika.setFitWidth(240);
-                slika.setCursor(Cursor.HAND);
-                layout.getChildren().add(slika);
-
-
-                HBox hb1 = new HBox();
-                hb1.setAlignment(Pos.CENTER);
-                Label labela = new Label(proizvodi.get(index).getNaziv());
-                //font size
-                hb1.getChildren().add(labela);
-                layout.getChildren().add(hb1);
-
-                HBox hb2 = new HBox();
-                hb2.setAlignment(Pos.CENTER);
-                Label labela2 = new Label(proizvodi.get(index).dajCenu());
-                //font size
-                hb2.getChildren().add(labela2);
-                layout.getChildren().add(hb2);
-
-                //cena.setPrefSize(100,100);
-                gp.add(layout, j, i);
-                index++;
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
+
         return gp;
     }
 }
@@ -163,9 +120,15 @@ class CvorDrveta {
 class ProizvodSlika {
     Proizvod proizvod;
     ImageView slika;
+    StavkaNarudzbine stavka;
 
     public ProizvodSlika(Proizvod prz, ImageView sl) {
         proizvod = prz;
+        slika = sl;
+    }
+
+    public ProizvodSlika(StavkaNarudzbine stv, ImageView sl) {
+        stavka = stv;
         slika = sl;
     }
 
@@ -443,6 +406,7 @@ public class KatalogController implements Initializable {
         vbox.getChildren().add(2, dugmad);
         CheckBoxTreeItem<CvorDrveta> treeRoot = napraviCvor("Kategorije", "");
         stabloKategorija.setRoot(treeRoot);
+        stabloKategorija.setStyle("-fx-background-color:lightsteelblue");
         stabloKategorija.setCellFactory(CheckBoxTreeCell.forTreeView());
 
         Collection<Kategorija> kategorije = Main.webshop.getKategorije();

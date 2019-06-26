@@ -8,16 +8,19 @@ import java.util.*;
 
 public class StavkaNarudzbine {
    private int kolicina;
-   private double cena;
+   private int cena;
    private Proizvod proizvod;
+   private String velicina;
 
    public StavkaNarudzbine() {}
 
-   public StavkaNarudzbine(int kolicina, double cena, Proizvod proizvod) {
+   public StavkaNarudzbine(int kolicina, int cena, Proizvod proizvod, String velicina) {
       this.kolicina = kolicina;
       this.cena = cena;
       this.proizvod = proizvod;
+      this.velicina = velicina;
    }
+
 
    public int getKolicina() {
       return kolicina;
@@ -25,13 +28,14 @@ public class StavkaNarudzbine {
 
    public void setKolicina(int kolicina) {
       this.kolicina = kolicina;
+
    }
 
-   public double getCena() {
+   public int getCena() {
       return cena;
    }
 
-   public void setCena(double cena) {
+   public void setCena(int cena) {
       this.cena = cena;
    }
 
@@ -41,5 +45,18 @@ public class StavkaNarudzbine {
 
    public void setProizvod(Proizvod proizvod) {
       this.proizvod = proizvod;
+   }
+
+   public String getVelicina() {return velicina;}
+
+   public void setVelicina(String nova) { velicina = nova;}
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      StavkaNarudzbine stavka = (StavkaNarudzbine) o;
+
+      return stavka.proizvod == proizvod;
    }
 }

@@ -19,7 +19,7 @@ public class Main extends Application {
     public static Stage window;
     public static Scene scene;
 
-    public static String mojaPutanja = "file:/D:/NIKOLA/WebShop/";
+    public static String mojaPutanja = "file:\\" + System.getProperty("user.dir") + "\\";
 
     // Glavna instanca WebSHop-a
     public static Webshop webshop;
@@ -38,7 +38,7 @@ public class Main extends Application {
 
         scene = new Scene(root, 1000, 800);
         //window.setResizable(false);
-
+        System.out.println(System.getProperty("user.dir"));
         window.setScene(scene);
 
         window.show();
@@ -55,10 +55,13 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         webshop = new Webshop();
-        parseData(webshop);
+        //parseData(webshop);
         parseUsers();
 //        Ucitava WebShop
-//        loadWebShop();
+        loadWebShop();
+
+        /** Po defaultu je kupac */
+        webshop.ulogovaniKorisnik = new Kupac();
         launch(args);
     }
 
@@ -159,7 +162,7 @@ public class Main extends Application {
 
 
                         line = br.readLine();
-                        List<String> velicine = Arrays.asList(line.split(":")[1].split(" "));
+                        List<String> velicine = Arrays.asList(line.split(":")[1].trim().split(" "));
 
 
                         line = br.readLine();

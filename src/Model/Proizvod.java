@@ -54,7 +54,6 @@ public class Proizvod {
 
    }
 
-
    /**
     * Geter za vrednosti atributa
     * @param nazivAtributa naziv atributa
@@ -186,12 +185,12 @@ public class Proizvod {
       atributi.put(atribut.getNaziv(),atribut);
    }
 
-   public String dajCenu(){
+   public int dajCenu(){
       for(StavkaCenovnika sc: Main.webshop.getStavkeCenovnika()){
          if (sc.getProizvod().getSifra().equals(sifra)){
-            return (int)sc.getCena()+" USD";
+            return (int)sc.getCena();
          }
       }
-      return "0 USD";
+      return 0;
    }
 }

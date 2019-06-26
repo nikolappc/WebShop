@@ -8,21 +8,20 @@ import java.util.*;
 
 public class Korpa {
     private Narudzbina narudzbina;
-    private Collection<StavkaNarudzbine> stavkaNarudzbine = new ArrayList<StavkaNarudzbine>();
+    private List<StavkaNarudzbine> stavkeNarudzbine = new ArrayList<StavkaNarudzbine>();
     private Kupac kupac;
     
-    
-   
-    
+
     public Korpa() {
 		super();
+		stavkeNarudzbine = new ArrayList<StavkaNarudzbine>();
 	}
 
-	public Korpa(Narudzbina narudzbina, Collection<StavkaNarudzbine> stavkaNarudzbine, Kupac kupac) {
+	public Korpa(Narudzbina narudzbina, List<StavkaNarudzbine> stavkaNarudzbine, Kupac kupac) {
 		super();
 		this.narudzbina = narudzbina;
 		for (StavkaNarudzbine stavkaNarudzbine2 : stavkaNarudzbine) {
-			this.stavkaNarudzbine.add(stavkaNarudzbine2);
+			this.stavkeNarudzbine.add(stavkaNarudzbine2);
 		}
 		this.kupac = kupac;
 	}
@@ -43,45 +42,65 @@ public class Korpa {
 		this.kupac = kupac;
 	}
 
-	public boolean dodajProizvod() {
-        // TODO: implement
+	public void dodajProizvod(StavkaNarudzbine sn) {
+
+    	for( StavkaNarudzbine stavka : stavkeNarudzbine){
+    		if(stavka.getProizvod() == sn.getProizvod() && stavka.getVelicina() == sn.getVelicina()){
+    			stavka.setKolicina(stavka.getKolicina()+1);
+    			return;
+			}
+		}
+    	stavkeNarudzbine.add(sn);
+    }
+    
+    public boolean ukloniProizvod(StavkaNarudzbine sn) {
+
+    	for(StavkaNarudzbine stavka : stavkeNarudzbine){
+    		if(stavka == sn){
+    			stavkeNarudzbine.remove(stavka);
+    			return true;
+			}
+		}
         return false;
     }
     
-    public boolean ukloniProizvod() {
-        // TODO: implement
-        return false;
+    public void izmeniKolicinuZaProizvod(StavkaNarudzbine sn, int zaKoliko) {
+
+		for(StavkaNarudzbine stavka : stavkeNarudzbine){
+			if(stavka == sn){
+				if(stavka.getKolicina() == 1 && zaKoliko < 0)
+					stavkeNarudzbine.remove(stavka);
+				else{
+					stavka.setKolicina(stavka.getKolicina() + zaKoliko);
+				}
+			}
+		}
     }
     
-    public boolean izmeniKolicinuZaProizvod() {
-        // TODO: implement
-        return false;
+    public List<StavkaNarudzbine> getStavkaNarudzbine() {
+         return stavkeNarudzbine;
     }
     
-    public Collection<StavkaNarudzbine> getStavkaNarudzbine() {
-         return stavkaNarudzbine;
-    }
-    
-    public void setStavkaNarudzbine(Collection<StavkaNarudzbine> newStavkaNarudzbine) {
-        this.stavkaNarudzbine.clear();;
+    public void setStavkaNarudzbine(List<StavkaNarudzbine> newStavkaNarudzbine) {
+        this.stavkeNarudzbine.clear();;
         for (StavkaNarudzbine stavkaNarudzbine : newStavkaNarudzbine) {
-			this.stavkaNarudzbine.add(stavkaNarudzbine);
+			this.stavkeNarudzbine.add(stavkaNarudzbine);
 		}
     }
     
     public void dodajStavkaNarudzbine(StavkaNarudzbine newStavkaNarudzbine) {
         if (newStavkaNarudzbine == null)
             return;
-        if (!this.stavkaNarudzbine.contains(newStavkaNarudzbine))
-            this.stavkaNarudzbine.add(newStavkaNarudzbine);
+        if (!this.stavkeNarudzbine.contains(newStavkaNarudzbine))
+            this.stavkeNarudzbine.add(newStavkaNarudzbine);
     }
     
     public void izbaciStavkaNarudzbine(StavkaNarudzbine oldStavkaNarudzbine) {
         if (oldStavkaNarudzbine == null)
             return;
-        if (this.stavkaNarudzbine != null)
-            if (this.stavkaNarudzbine.contains(oldStavkaNarudzbine))
-                this.stavkaNarudzbine.remove(oldStavkaNarudzbine);
+        if (this.stavkeNarudzbine != null)
+            if (this.stavkeNarudzbine.contains(oldStavkaNarudzbine))
+                this.stavkeNarudzbine.remove(oldStavkaNarudzbine);
     }
 
 
@@ -104,10 +123,10 @@ public class Korpa {
 				return false;
 		} else if (!narudzbina.equals(other.narudzbina))
 			return false;
-		if (stavkaNarudzbine == null) {
-			if (other.stavkaNarudzbine != null)
+		if (stavkeNarudzbine == null) {
+			if (other.stavkeNarudzbine != null)
 				return false;
-		} else if (!stavkaNarudzbine.equals(other.stavkaNarudzbine))
+		} else if (!stavkeNarudzbine.equals(other.stavkeNarudzbine))
 			return false;
 		return true;
 	}

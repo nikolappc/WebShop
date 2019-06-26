@@ -3,7 +3,7 @@
 
     1.1 JAKNE --------------------------------------------------------------------------
 
-            1.1.1 Naziv: Stone Island David TC Parka
+            1.1.1 Naziv: Stone Island David Parka
                   ID: 001
                   Brend: Stone Island
                   Boja : crna
@@ -12,7 +12,7 @@
                   Opis: This classic black parka from Italian brand Stone Island pays heed to the label’s ethos of technologically advanced design and simple cuts with a militaristic twist.
 
 
-            1.1.2 Naziv: Stone Island Membrana Shell Jacket
+            1.1.2 Naziv: Stone Island Shell Jacket
                   ID : 002
                   Brend: Stone Island
                   Boja : crna
@@ -20,7 +20,7 @@
                   Velicine: S M X XL
                   Opis: Made from layered fabric that consists of an opaque nylon outer face, a water resistant membrane and an imperceptible polyester base, Stone Island’s ‘Membrana 3L TC’ jacket is an all-black style that exemplifies the Italian brand’s constant innovation and fabric research.
 
-            1.1.3 Naziv: Stone Island Membrana Pocket Shell Jacket
+            1.1.3 Naziv: Stone Island Pocket Shell Jacket
                   ID : 003
                   Brend: Stone Island
                   Boja : zelena
@@ -28,7 +28,7 @@
                   Velicine: M L XL
                   Opis: Made from layered fabric that consists of an opaque nylon outer face, a water resistant membrane and an imperceptible polyester base, Stone Island’s ‘Membrana 3L TC’ jacket is an all-black style that exemplifies the Italian brand’s constant innovation and fabric research.
 
-            1.1.4 Naziv: Stone Island Membrana Pocket Shell Jacket
+            1.1.4 Naziv: Stone Island Pocket Shell Jacket
                   ID : 004
                   Brend: Stone Island
                   Boja : plava
@@ -37,7 +37,7 @@
                   Opis: Made from layered fabric that consists of an opaque nylon outer face, a water resistant membrane and an imperceptible polyester base, Stone Island’s ‘Membrana 3L TC’ jacket is an all-black style that exemplifies the Italian brand’s constant innovation and fabric research.
 
 
-            1.1.5 Naziv: Stone Island Garment Dyed Zip
+            1.1.5 Naziv: Stone Island Dyed Zip
                   ID : 005
                   Brend: Stone Island
                   Boja : zelena
@@ -45,7 +45,7 @@
                   Velicine: XL
                   Opis: Perfect for zipping to the top or wearing unfastened, Stone Island's versatile overshirt is presented in olive green.
 
-            1.1.6 Naziv: Stone Island Garment Dyed Zip
+            1.1.6 Naziv: Stone Island Dyed Zip
                   ID : 006
                   Brend: Stone Island
                   Boja : roza
@@ -53,7 +53,7 @@
                   Velicine: M XL
                   Opis: Garment dyed using Stone Island Shadow Project’s esteemed colour technology, the ‘Naslan Light’ double layer jacket boasts a lightweight, durable and abrasion resistant nylon construction.
 
-            1.1.7 Naziv: Stone Island Garment Dyed Zip
+            1.1.7 Naziv: Stone Island Dyed Zip
                   ID : 007
                   Brend: Stone Island
                   Boja : plava
@@ -77,7 +77,7 @@
                   Velicine: S M XL
                   Opis: The Canada Goose Wyndham parka is cut to fall at the thigh, providing exemplary cover from the winter's elements due to its adjustable hood.
 
-            1.1.10 Naziv: Canada Goose PBI Expedition Parka
+            1.1.10 Naziv: Canada Goose Expedition Parka
                   ID : 010
                   Brend: Canada Goose
                   Boja : plava
@@ -90,10 +90,10 @@
                   Brend: Canada Goose
                   Boja : zelena
                   Cena: 925
-                  Velicine: nema
+                  Velicine:S M L
                   Opis: A fresh silhouette from the cold weather specialists Canada Goose, the Emory parka offers a slim hip length fit, constructed with Arctic Tech fabric for a water and wind resistant finish.
 
-            1.1.12 Naziv: Saint Laurent Classic Teddy Jacket
+            1.1.12 Naziv: Saint Laurent Teddy Jacket
                   ID : 012
                   Brend: Saint Laurent
                   Boja : crna
@@ -101,7 +101,7 @@
                   Velicine: 46 48 50 52
                   Opis: A classic Saint Laurent piece that is reworked each season, this black bouclé jacket is trimmed with contrasting white leather details and tipped with a striped collar and cuffs to compound its varsity vibe.
 
-            1.1.13 Naziv: Saint Laurent Wool Teddy Jacket
+            1.1.13 Naziv: Saint Laurent Teddy Jacket
                   ID : 013
                   Brend: Saint Laurent
                   Boja : crvena
@@ -109,7 +109,7 @@
                   Velicine: 48 52
                   Opis: This berry red teddy jacket from arbiter of Parisian style Saint Laurent cuts an American varsity-inspired shape, with a press-stud closure at the front, a striped collar, hem and cuffs and white leather accents at the shoulders and pockets.
 
-            1.1.7 Naziv: Saint Laurent Wool Teddy Jacket
+            1.1.7 Naziv: Saint Laurent Teddy Jacket
                   ID : 014
                   Brend: Saint Laurent
                   Boja : crna
@@ -117,7 +117,7 @@
                   Velicine: 48 50 52
                   Opis: The master of Parisian cool, the house of Saint Laurent continue to produce menswear with a distinctive, luxe edge. This Italian made light wool teddy jacket is constructed from a virgin wool blend and is lined with silk.
 
-            1.1.7 Naziv: John Elliott Type II Thumper Jacket
+            1.1.7 Naziv: John Elliott Thumper Jacket
                   ID : 015
                   Brend: John Elliott
                   Boja : plava
@@ -125,7 +125,7 @@
                   Velicine: S M L
                   Opis: The perfect finishing touch to any outfit, John Elliott's 'Thumper' jacket revels in the nonchalant style of LA. Boasting a distressed appearance for a worn-in aesthetic, this wardrobe staple is constructed from a heavyweight Japanese denim, featuring two flap pockets to the chest and detailed with metal hardware for a luxe finish.
 
-            1.1.7 Naziv: John Elliott Type III Shearling Thumper Jacket
+            1.1.7 Naziv: John Elliott Thumper Jacket
                   ID : 016
                   Brend: John Elliott
                   Boja : plava
@@ -136,15 +136,15 @@
 
     1.2 DUKSEVI --------------------------------------------------------------------------
 
-            1.2.1 Naziv: Patagonia Woolyester Pullover Fleece
+            1.2.1 Naziv: Patagonia Pullover Fleece
                   ID : 017
                   Brend: Patagonia
                   Boja : plava
                   Cena: 139
-                  Velicine: nema
+                  Velicine:S M L
                   Opis: As the name suggests, Patagonia’s ‘Woolyester’ pullover fleece is made from a mix of premium fabrics including recycled wool and polyester.
 
-            1.2.1 Naziv: Patagonia Woolyester Pullover Fleece
+            1.2.1 Naziv: Patagonia Pullover Fleece
                   ID : 018
                   Brend: Patagonia
                   Boja : siva
@@ -153,7 +153,7 @@
                   Opis: Fitted with a protective funnel neckline, this popover ‘Woolyester’ fleece from Californian label Patagonia is – as the name suggests – made from a mix of premium fabrics including recycled wool and polyester.
 
 
-            1.2.1 Naziv: Patagonia Woolyester Pullover Fleece
+            1.2.1 Naziv: Patagonia Pullover Fleece
                   ID : 019
                   Brend: Patagonia
                   Boja : zuta
@@ -162,7 +162,7 @@
                   Opis: Trimmed with contrasting navy blue detailing, Californian label Patagonia present their winter-ready ‘Woolyester’ pullover this season.
 
 
-            1.2.1 Naziv: Stone Island Garment Dyed Hoody
+            1.2.1 Naziv: Stone Island Dyed Hoody
                   ID : 020
                   Brend: Stone Island
                   Boja : crna
@@ -171,7 +171,7 @@
                   Opis: This cosy, fleece-lined hoody by revered Italian casuals brand Stone Island is garment dyed to create its rich, pitch black colour. It is crafted from pure soft cotton and is finished with chunky drawstrings at the hood and a snug kangaroo-style pocket at the front.
 
 
-            1.2.1 Naziv: Stone Island Garment Dyed Hoody
+            1.2.1 Naziv: Stone Island Dyed Hoody
                   ID : 021
                   Brend: Stone Island
                   Boja : zelena
@@ -180,7 +180,7 @@
                   Opis: This military green hoody by Stone Island, the favoured football terrace brand, is a sleekly cut athleisure piece, made to exacting standards to ensure longevity. It is crafted from pure cotton, fleece-brushed on the inside, and finished with a snug hood and roomy pouch pocket.
 
 
-            1.2.1 Naziv: Stone Island Garment Dyed Sweat
+            1.2.1 Naziv: Stone Island Dyed Sweat
                   ID : 022
                   Brend: Stone Island
                   Boja : plava
@@ -189,7 +189,7 @@
                   Opis: In deep, night-sky blue, this Stone Island sweater is an everyday athleisure piece that packs a high fashion punch. Crafted from pure soft cotton and finished with the brand’s iconic compass patch at the sleeve, it has been designed with cutting edge tailoring expertise for ultimate longevity.
 
 
-            1.2.1 Naziv: Stone Island Garment Dyed Sweat
+            1.2.1 Naziv: Stone Island Dyed Sweat
                   ID : 023
                   Brend: Stone Island
                   Boja : roza
@@ -197,7 +197,7 @@
                   Velicine: S M L
                   Opis: This pure cotton crewneck sweater by Stone Island is garment dyed to a perfect shade of dusky terracotta. Channelling the brand’s commitment to pared-back utilitarian design, it is simply cut and marked with Stone Island’s iconic compass patch at the sleeve.
 
-            1.2.1 Naziv: Stone Island Garment Dyed Sweat
+            1.2.1 Naziv: Stone Island Dyed Sweat
                   ID : 024
                   Brend: Stone Island
                   Boja : crvena
@@ -206,7 +206,7 @@
                   Opis: The rich red wine tone of this pure cotton pullover by Stone Island makes it a great everyday go-to, whatever you’re wearing. Channelling the brand’s commitment to finely crafted athleisurewear, it is cut from pure, soft cotton and garment dyed for a worn-in aesthetic.
 
 
-            1.2.1 Naziv: Stone Island Garment Dyed Sweat
+            1.2.1 Naziv: Stone Island Dyed Sweat
                   ID : 025
                   Brend: Stone Island
                   Boja : siva
@@ -215,7 +215,7 @@
                   Opis: Garment-dyed for rich colour and a vintage feel, this soft cotton sweatshirt by Stone Island neatly embodies the expert tailoring and utilitarian styling the brand has always championed. Presented in a deep grey tone, it’s finished with a classic, comfortable crewneck and finished with the label’s iconic compass motif at the sleeve.
 
 
-            1.2.1 Naziv: Stone Island Garment Dyed Sweat
+            1.2.1 Naziv: Stone Island Dyed Sweat
                   ID : 026
                   Brend: Stone Island
                   Boja : zelena
@@ -224,7 +224,7 @@
                   Opis: This carefully cut cotton sweater by Stone Island is presented in 2019’s favourite colour: classic army green. Channelling the Italian brand’s eternal commitment to manufacturing excellence and sleek, utilitarian design, it’s a simple, enduring item of athleisure, with a high fashion hit of branding at the sleeve.
 
 
-            1.2.1 Naziv: Stussy Basic Applique Hoody
+            1.2.1 Naziv: Stussy Basic Hoody
                   ID : 027
                   Brend: Stussy
                   Boja : crna
@@ -232,7 +232,7 @@
                   Velicine: S M L XL
                   Opis: A classic piece of Californian skate wear that’s sure to transition from season to season with ease, this Stüssy hoody is crafted in a comfortable cotton blend construction. Branded proudly at its chest, the pullover boasts a practical pouch pocket and it cuffs and hem are completed with cosy ribbed knits.
 
-            1.2.1 Naziv: Stussy Script Applique Hoody
+            1.2.1 Naziv: Stussy Script Hoody
                   ID : 028
                   Brend: Stussy
                   Boja : plava
@@ -240,7 +240,7 @@
                   Velicine: S M L XL
                   Opis: Promising to brighten up your off-duty rotation, Stüssy present a vibrant take on their signature hoody. Capturing attention with its electric blue outer, this head-turning sweat is lined with an ultra-soft fleece, providing cosy comfort with every wear.
 
-            1.2.1 Naziv: Stussy Oval Applique Hoody
+            1.2.1 Naziv: Stussy Oval Hoody
                   ID : 029
                   Brend: Stussy
                   Boja : crna
@@ -249,7 +249,7 @@
                   Opis: Stepping back in time to achieve a retro aesthetic, Stüssy deliver this black hoody as part of their latest skate-inspired collection. Made from the finest fleeceback jersey, its popover build is branded with a hot pink logo appliqué; while a handy kangaroo pocket leaves a functional finishing touch at the front.
 
 
-            1.2.1 Naziv: Stussy Oval Applique Hoody
+            1.2.1 Naziv: Stussy Oval Hoody
                   ID : 030
                   Brend: Stussy
                   Boja : siva
@@ -323,7 +323,7 @@
      1.3 Majice ---------------------------------------------------------------------
 
 
-            1.3.1 Naziv: Stone Island 7019 Print Tee
+            1.3.1 Naziv: Stone Island 7019 Tee
                   ID : 038
                   Brend: Stone Island
                   Boja : crna
@@ -333,7 +333,7 @@
 
 
 
-            1.3.1 Naziv: Stone Island 7019 Print Tee
+            1.3.1 Naziv: Stone Island 7019 Tee
                   ID : 039
                   Brend: Stone Island
                   Boja : roza
@@ -341,7 +341,7 @@
                   Velicine: M L XL
                   Opis: Putting an industrialised spin on Stone Island’s signature aesthetic, the brand’s Shadow Project line is crafted in association with techwear aficionado Errolson Hugh. Made from Mako jersey, this short-sleeved tee shows off a cool lavender colourway and its chest is stamped proudly with a seasonal ‘7019’ graphic.
 
-            1.3.1 Naziv: Stone Island 7019 Print Tee
+            1.3.1 Naziv: Stone Island 7019 Tee
                   ID : 040
                   Brend: Stone Island
                   Boja : bela
@@ -349,7 +349,7 @@
                   Velicine: M L XL
                   Opis: A staple white tee that’s imbued with Stone Island Shadow Project’s signature graphic aesthetic, this Mako cotton tee is a short sleeved style from the esteemed Italian label. Trimmed with a ribbed collar, the t-shirt comes complete with a rib knit trim at its rounded crew neckline.
 
-            1.3.1 Naziv: Stone Island 7019 Print Tee
+            1.3.1 Naziv: Stone Island 7019 Tee
                   ID : 041
                   Brend: Stone Island
                   Boja : plava
@@ -357,7 +357,7 @@
                   Velicine: M L XL
                   Opis: A relaxed blue tee from Stone Island Shadow Project, this ‘7019’ t-shirt is a Mako cotton style that’s built with both comfort and cool in mind. Stamped with printed branding at the front, the short sleeved style has been garment dyed and comes rounded out with a neat rib knit trim at its collar.
 
-            1.3.1 Naziv: Stone Island Back Print Tee
+            1.3.1 Naziv: Stone Island Back Tee
                   ID : 042
                   Brend: Stone Island
                   Boja : plava
@@ -365,14 +365,14 @@
                   Velicine: M L
                   Opis: Existing under the casual-luxury umbrella of Stone Island, diffusion-line Stone Island Shadow Project return with the back print pocket tee. Visualised in a muted blue hue, this pure cotton deisgn honours the chest with a ‘7019’ print – a reference to its parent label and the new season ahead; featuring an asymmetric patch pocket, the nonchalant style is completed with a series of tiered graphics to its reverse, joined alongside the iconic compass logo.
 
-            1.3.1 Naziv: Stone Island Back Print Tee
+            1.3.1 Naziv: Stone Island Back Tee
                   ID : 043
                   Brend: Stone Island
                   Boja : roza
                   Cena: 175
                   Velicine: S M L
                   Opis: Conceptualised to push the boundaries of menswear, Stone Island Shadow Project deliver the back print pocket tee, dressed here in lavender. Formulated with a '7019' print - a reference to Stone Island's core collection and the Shadow Project's season run, the pure cotton t-shirt is enhanced with an asymmetric pocket to its chest, joined dually to the front and reverse with dark printed branding.
-            1.3.1 Naziv: Stone Island Back Print Tee
+            1.3.1 Naziv: Stone Island Back Tee
                   ID : 044
                   Brend: Stone Island
                   Boja : crna
@@ -381,7 +381,7 @@
                   Opis: Technical diffusion line Stone Island Shadow Project present this blacked-out t-shirt for your core rotation. Cut from the softest swatch of cotton, the premium tee arrives with reference to the sub-label’s parent brand and season run – depicted by the ‘7019’ graphic at the chest; complete with an asymmetric patch pocket, this casual style signs out with a graphic showcase to its reverse.
 
 
-            1.3.1 Naziv: Saint Laurent Signature Logo Tee
+            1.3.1 Naziv: Saint Laurent Logo Tee
                   ID : 045
                   Brend: Saint Laurent
                   Boja : crna
