@@ -53,11 +53,11 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        webshop = new Webshop();
-        parseData(webshop);
-        parseUsers();
+//        webshop = new Webshop();
+//        parseData(webshop);
+//        parseUsers();
 //        Ucitava WebShop
-//        loadWebShop();
+        loadWebShop();
 
         /** Po defaultu je kupac */
         webshop.ulogovaniKorisnik = new Kupac();
@@ -67,7 +67,7 @@ public class Main extends Application {
     static void loadWebShop() {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            webshop = mapper.readValue(new File("Proizvodi\\webshop.json"), Webshop.class);
+            webshop = mapper.readValue(new File("podaci\\webshop.json"), Webshop.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -76,14 +76,14 @@ public class Main extends Application {
     static void writeWebShop() {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            mapper.writeValue(new File("Proizvodi\\webshop.json"), webshop);
+            mapper.writeValue(new File("podaci\\webshop.json"), webshop);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     static void parseUsers() {
-        try (BufferedReader br = new BufferedReader(new FileReader("Proizvodi\\kupci.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("podaci\\kupci.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] params = line.split(",");
@@ -95,7 +95,7 @@ public class Main extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try (BufferedReader br = new BufferedReader(new FileReader("Proizvodi\\managers.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("podaci\\managers.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] params = line.split(",");
@@ -112,7 +112,7 @@ public class Main extends Application {
     static void parseData(Webshop webshop) {
         Kategorija nadKategorija = null, podKategorija = null;
         String imageDir = "./slike/slikeproizvoda/";
-        try (BufferedReader br = new BufferedReader(new FileReader("Proizvodi\\muski.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("podaci\\muski.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 if (line.length() <= 1) {
@@ -168,6 +168,7 @@ public class Main extends Application {
                         String opis = line.split(":")[1].trim();
 
                         Proizvod p = new Proizvod(name, opis, new Date(), id, Pol.M);
+                        p.setKategorija(podKategorija);
                         List<String> slike = new ArrayList<String>();
                         slike.add(imageDir+id+"-1.jpg");
                         slike.add(imageDir+id+"-2.jpg");

@@ -17,7 +17,7 @@ public class Kategorija {
     private List<Kategorija> podKategorija = new ArrayList<>();
     @JsonBackReference
     private Kategorija nadKategorija;
-
+    @JsonManagedReference
     private List<Proizvod> proizvodi = new ArrayList<>();
 
     private Map<String,Atribut> atributi = new HashMap<>();

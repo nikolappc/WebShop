@@ -6,6 +6,7 @@
 package Model;
 import View.Main;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javafx.scene.image.ImageView;
 
@@ -22,7 +23,7 @@ public class Proizvod {
    private Pol pol;
    private List<String> slike;
 
-
+   @JsonBackReference
    private Kategorija kategorija;
    private Map<String,Atribut> atributi = new HashMap<>();
 
