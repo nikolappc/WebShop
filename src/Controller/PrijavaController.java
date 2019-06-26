@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.ContentMenadzer;
 import Model.Kupac;
 import Model.UlogovaniKorisnik;
 import View.Main;
@@ -85,7 +86,7 @@ public class PrijavaController implements Initializable {
 
     @FXML
     void stistuoPrijava(ActionEvent event) {
-        ArrayList<TextField> polja = new ArrayList(
+        ArrayList<TextField> polja = new ArrayList<TextField>(
                 Arrays.asList(korisnickoPrijava, lozinkaPrijava));
         porukaPrijava.setText("");
 
@@ -99,10 +100,17 @@ public class PrijavaController implements Initializable {
 
         if(Main.webshop.prijava(korisnickoPrijava.getText(), lozinkaPrijava.getText())){
             try{
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\glavni.fxml"));
-                Parent root = (Parent) loader.load();
-                MainController pc = loader.getController();
-                Main.scene.setRoot(root);
+                if(Main.webshop.ulogovaniKorisnik instanceof Kupac){
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\glavni.fxml"));
+                    Parent root = (Parent) loader.load();
+                    MainController pc = loader.getController();
+                    Main.scene.setRoot(root);
+                }else if(webshop.ulogovaniKorisnik instanceof ContentMenadzer){
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\MenadzerMain.fxml"));
+                    Parent root = (Parent) loader.load();
+                    MenadzerKontroler pc = loader.getController();
+                    Main.scene.setRoot(root);
+                }
             }catch (Exception e){
                 e.printStackTrace();
             }

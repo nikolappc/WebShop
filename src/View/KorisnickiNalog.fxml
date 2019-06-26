@@ -102,6 +102,6 @@
     </VBox>
   </center>
   <top>
-    <fx:include fx:id="someId" source="/View/Header.fxml" BorderPane.alignment="CENTER" />
+    <fx:include fx:id="someId" source="Header.fxml" BorderPane.alignment="CENTER" />
   </top>
 </BorderPane>

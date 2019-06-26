@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0000999999975" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <center>
+    <VBox prefHeight="200.0" prefWidth="100.0">
+      <children>
+        <Label prefHeight="90.0" prefWidth="513.0" style="-fx-font-weight: bold; -fx-font-size: 32;" text="Dodacanje proizvoda" textAlignment="CENTER" />
+        <GridPane>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </children>
+    </VBox>
+  </center>
+  <top>
+    <fx:include id="someId" source="Header.fxml" />
+  </top>
+</BorderPane>
