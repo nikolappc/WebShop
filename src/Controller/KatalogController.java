@@ -182,7 +182,7 @@ public class KatalogController implements Initializable {
             for (Atribut a:p.getAtributi().values()) {
                 String naziv = a.getNaziv();
                 if (!atributiVrednosti.containsKey(naziv)) {
-                    atributiVrednosti.put(naziv, new HashSet<>());
+                    atributiVrednosti.put(naziv, new TreeSet<>());
                 }
 
                 Set<String> vrednosti = atributiVrednosti.get(naziv);
@@ -226,7 +226,7 @@ public class KatalogController implements Initializable {
             for (String naziv:atributFilter.keySet()){
                 Atribut atribut;
                 if ((atribut = p.getAtribut(naziv))!=null){
-                    if (!atribut.sadrziVrednosti(atributFilter.get(naziv))){
+                    if (!atribut.sadrziVrednost(atributFilter.get(naziv))){
                         flag = false;
                         break;
                     }

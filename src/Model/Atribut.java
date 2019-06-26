@@ -74,17 +74,20 @@ public class Atribut {
     }
 
     /**
-     * Proverava da li atribut sadrzi SVE vrednosti u listi
+     * Proverava da li atribut sadrzi bar jednu od vrednosti u listi
      * @param strings
      * @return
      */
-    public boolean sadrziVrednosti(Collection<String> strings) {
+    public boolean sadrziVrednost(Collection<String> strings) {
+        if (strings.isEmpty()){
+            return true;
+        }
         for (String vrednost : strings) {
-            if (!vrednosti.contains(vrednost)) {
-                return false;
+            if (vrednosti.contains(vrednost)) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     @Override
