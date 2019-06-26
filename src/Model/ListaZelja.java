@@ -7,61 +7,50 @@ package Model;
 import java.util.*;
 
 public class ListaZelja {
-	private List<Proizvod> proizvod = new ArrayList<Proizvod>();
-    
-	
-	
+	private List<StavkaNarudzbine> proizvod = new ArrayList<StavkaNarudzbine>();
+
 	
     public ListaZelja() {
 		super();
 	}
     
-    
 
-	public ListaZelja(List<Proizvod> proizvod) {
+	public ListaZelja(List<StavkaNarudzbine> proizvod) {
 		super();
-		for (Proizvod proizvod2 : proizvod) {
+		for (StavkaNarudzbine proizvod2 : proizvod) {
 			this.proizvod.add(proizvod2);
 		}
 	}
-
-
 
     public void obavestiOPopustu() {
         // TODO: implement
     }
 
-
-    public List<Proizvod> getProizvod() {
+    public List<StavkaNarudzbine> getProizvod() {
         return proizvod;
     }
 
-
-    public void setProizvod(List<Proizvod> newProizvod) {
+    public void setProizvod(List<StavkaNarudzbine> newProizvod) {
         this.proizvod.clear();
-        for (Proizvod proizvod : newProizvod) {
+        for (StavkaNarudzbine proizvod : newProizvod) {
 			this.proizvod.add(proizvod);
 		}
     }
-    
 
-    public void dodajProizvod(Proizvod newProizvod) {
+    public void dodajProizvod(StavkaNarudzbine newProizvod) {
         if (newProizvod == null)
             return;
         if (!this.proizvod.contains(newProizvod))
             this.proizvod.add(newProizvod);
     }
 
-    public void izbaciProizvod(Proizvod oldProizvod) {
+    public void izbaciProizvod(StavkaNarudzbine oldProizvod) {
         if (oldProizvod == null)
             return;
         if (this.proizvod != null)
             if (this.proizvod.contains(oldProizvod))
                 this.proizvod.remove(oldProizvod);
     }
-
-
-
 
 
 

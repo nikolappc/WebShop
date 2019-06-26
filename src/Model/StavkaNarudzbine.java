@@ -57,6 +57,6 @@ public class StavkaNarudzbine {
       if (o == null || getClass() != o.getClass()) return false;
       StavkaNarudzbine stavka = (StavkaNarudzbine) o;
 
-      return stavka.proizvod == proizvod;
+      return stavka.proizvod == proizvod && stavka.getVelicina() == velicina;
    }
 }
