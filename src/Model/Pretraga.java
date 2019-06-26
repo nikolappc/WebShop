@@ -1,6 +1,8 @@
 package Model;
 
 
+import View.Main;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -169,12 +171,11 @@ public class Pretraga {
 
     /**
      * Vraca listu proizvoda koji pripadaju kategoriji na datoj putanji koja je predstavljena listom stringova
-     * @param kategorije
      * @param putanja
      * @return
      */
-    public static List<Proizvod> pretraziKategorije(Collection<Kategorija> kategorije, List<String> putanja) {
-        return pretraziKategorijeRekurzivno(kategorije,putanja,0);
+    public static List<Proizvod> pretraziKategorije(List<String> putanja) {
+        return pretraziKategorijeRekurzivno(Main.webshop.getKategorije() ,putanja,0);
     }
 
     private static List<Proizvod> pretraziKategorijeRekurzivno(Collection<Kategorija> kategorije, List<String> putanja, int i) {

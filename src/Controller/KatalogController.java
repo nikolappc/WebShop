@@ -152,9 +152,6 @@ public class KatalogController implements Initializable {
     public Label brojRezultata;
 
     @FXML
-    public Label kategorijaLabela;
-
-    @FXML
     private HeaderController someIdController;
 
     private List<MenuButton> atributMeniji = new LinkedList<>() ;
@@ -163,10 +160,11 @@ public class KatalogController implements Initializable {
 
     private Set<String> putanje = new TreeSet<>();
 
+    private Map<String,CheckBoxTreeItem<CvorDrveta>> cvorovi = new HashMap<>();
 
     private Stranica trenutnaStranica;
 
-    Map<String, Set<String>> atributFilter = new HashMap<>();
+    private Map<String, Set<String>> atributFilter = new HashMap<>();
 
     public void izvrsiPretragu() {
         /** Vrsi se pretraga po svim kriterijumima koje je korisnik izabrao i na kraju se rezultati pretraga spajaju i prikazuju*/
@@ -179,56 +177,17 @@ public class KatalogController implements Initializable {
      * Dodaje broj pronadjenih proizvoda, sve boje, brendove i velicine
      */
     public void sideBarOpcije(List<Proizvod> proizvodi) {
-
-//        brojRezultata.setText(proizvodi.size() + "");
-//        Map<String, Set<Atribut>> atributi = new HashMap<>();
-//        for (Proizvod p : proizvodi) {
-//            for (Map.Entry<String, Atribut> a : p.getAtributi().entrySet()) {
-//                if (!atributi.containsKey(a.getKey())) {
-//                    atributi.put(a.getKey(), new HashSet<>());
-//                }
-//                atributi.get(a.getKey()).add(a.getValue());
-//            }
-//        }
-//        int index = 2;
-//        for (Map.Entry<String, Set<Atribut>> entry : atributi.entrySet()) {
-//            MenuButton atributMenu = new MenuButton(entry.getKey());
-//            for (Atribut a : entry.getValue()) {
-//                CustomMenuItem mitem = new CustomMenuItem();
-//                CheckBox cb = new CheckBox(a.getVrednost());
-//                mitem.setContent(cb);
-//                atributMenu.getItems().add(mitem);
-//            }
-//            HBox hBox = new HBox();
-//            hBox.getChildren().add(atributMenu);
-//            atributiLayout.getChildren().add(index,hBox);
-//            index++;
-//        }
-
-//        Set<String> setBoja = new TreeSet<String>();
-//        Set<String> setBrendova = new TreeSet<String>();
-//        Set<String> setVelicina = new TreeSet<String>();
-
-
         Map<String, Set<String>> atributiVrednosti = new HashMap<>();
         for (Proizvod p : proizvodi) {
             for (Atribut a:p.getAtributi().values()) {
                 String naziv = a.getNaziv();
                 if (!atributiVrednosti.containsKey(naziv)) {
-                    atributiVrednosti.put(naziv, new HashSet<>());
+                    atributiVrednosti.put(naziv, new TreeSet<>());
                 }
 
                 Set<String> vrednosti = atributiVrednosti.get(naziv);
                 vrednosti.addAll(a.getVrednosti());
             }
-
-//            setBoja.add((String) p.getAtributi().get("Boja").getVrednost());
-//
-//            List<String> vel = (List<String>) p.getAtributi().get("Velicine").getVrednost();
-//            for (String poj : vel)
-//                setVelicina.add(poj);
-//
-//            setBrendova.add((String) p.getAtributi().get("Brend").getVrednost());
         }
         atributiLayout.getChildren().removeAll(atributMeniji);
         for (Map.Entry<String, Set<String>> e:atributiVrednosti.entrySet()){
@@ -254,36 +213,6 @@ public class KatalogController implements Initializable {
             atributMeniji.add(atributMeni);
         }
 
-
-//        for(String s: setBoja){
-//            CustomMenuItem mitem = new CustomMenuItem();
-//            CheckBox cb = new CheckBox(s);
-//            cb.selectedProperty().addListener((observable, oldValue, newValue) -> {
-//                if (newValue){
-//
-//                }else{
-//
-//                }
-//            });
-//            mitem.setContent(cb);
-//            boje.getItems().add(mitem);
-//        }
-//
-//        for(String s: setBrendova){
-//            CustomMenuItem mitem = new CustomMenuItem();
-//            CheckBox cb = new CheckBox(s);
-//            mitem.setContent(cb);
-//            brendovi.getItems().add(mitem);
-//        }
-//
-//        for(String s: setVelicina){
-//            CustomMenuItem mitem = new CustomMenuItem();
-//            CheckBox cb = new CheckBox(s);
-//            mitem.setContent(cb);
-//            velicine.getItems().add(mitem);
-//        }
-
-
     }
 
     /**
@@ -297,7 +226,7 @@ public class KatalogController implements Initializable {
             for (String naziv:atributFilter.keySet()){
                 Atribut atribut;
                 if ((atribut = p.getAtribut(naziv))!=null){
-                    if (!atribut.sadrziVrednosti(atributFilter.get(naziv))){
+                    if (!atribut.sadrziVrednost(atributFilter.get(naziv))){
                         flag = false;
                         break;
                     }
@@ -315,11 +244,12 @@ public class KatalogController implements Initializable {
      * kategorijama koje su dodate u polje putanje
      */
     public void pretraziPoKategoriji() {
+        stvoriStablo();
         proizvodi = new LinkedList<>();
         atributFilter.clear();
         for (String putanja : putanje) {
             List<String> var = Arrays.asList(putanja.split("\\|"));
-            proizvodi.addAll(Pretraga.pretraziKategorije(Main.webshop.getKategorije(), var));
+            proizvodi.addAll(Pretraga.pretraziKategorije(var));
         }
 
         if (proizvodi == null) {
@@ -327,6 +257,20 @@ public class KatalogController implements Initializable {
         }
         prikazi(proizvodi);
         sideBarOpcije(proizvodi);
+    }
+
+    /**
+     * Puni stablo pretrage sa kategorijama
+     */
+    private void stvoriStablo() {
+        CheckBoxTreeItem<CvorDrveta> treeRoot = napraviCvor("Kategorije", "");
+        stabloKategorija.setRoot(treeRoot);
+        stabloKategorija.setCellFactory(CheckBoxTreeCell.forTreeView());
+        stabloKategorija.setStyle("-fx-background-color:lightsteelblue");
+        Collection<Kategorija> kategorije = Main.webshop.getKategorije();
+        for (Kategorija k : kategorije) {
+            rekurzivnoDodajKategorije(k, treeRoot, k.getNaziv());
+        }
     }
 
     /**
@@ -434,23 +378,21 @@ public class KatalogController implements Initializable {
         });
         dugmad.getChildren().addAll(prev, next);
         vbox.getChildren().add(2, dugmad);
-        CheckBoxTreeItem<CvorDrveta> treeRoot = napraviCvor("Kategorije", "");
-        stabloKategorija.setRoot(treeRoot);
-        stabloKategorija.setCellFactory(CheckBoxTreeCell.forTreeView());
-        stabloKategorija.setStyle("-fx-background-color:lightsteelblue");
-        Collection<Kategorija> kategorije = Main.webshop.getKategorije();
-        for (Kategorija k : kategorije) {
-            rekurzivnoDodajKategorije(k, treeRoot, k.getNaziv());
-        }
 
     }
 
     private void sledecaStranica() {
+        if (trenutnaStranica==null){
+            return;
+        }
         namestiNovuStranicu(trenutnaStranica.getNext());
     }
 
 
     private void proslaStranica() {
+        if (trenutnaStranica==null){
+            return;
+        }
         namestiNovuStranicu(trenutnaStranica.getPrev());
     }
 
@@ -465,6 +407,9 @@ public class KatalogController implements Initializable {
     private CheckBoxTreeItem<CvorDrveta> napraviCvor(String naziv, String putanja) {
         CheckBoxTreeItem<CvorDrveta> node = new CheckBoxTreeItem<>(new CvorDrveta(naziv, putanja));
         node.setExpanded(true);
+        if (putanje.contains(putanja)){
+            node.setSelected(true);
+        }
         node.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 dodajUPrikazKategorije(node.getValue().getPutanja());
@@ -472,6 +417,7 @@ public class KatalogController implements Initializable {
                 izbaciIzPrikazaKategorije(node.getValue().getPutanja());
             }
         });
+        cvorovi.put(putanja,node);
         return node;
     }
 

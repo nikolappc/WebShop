@@ -53,11 +53,11 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-//        webshop = new Webshop();
-//        parseData(webshop);
-//        parseUsers();
+        webshop = new Webshop();
+        parseData(webshop);
+        parseUsers();
 //        Ucitava WebShop
-        loadWebShop();
+//        loadWebShop();
 
         /** Po defaultu je kupac */
         webshop.ulogovaniKorisnik = new Kupac();
@@ -187,7 +187,7 @@ public class Main extends Application {
                         if (podKategorija != null) {
                             atri = podKategorija.napraviAtribut("Velicine",velicine,TipAtributa.LIST);
                             p.dodajAtribut(atri);
-                            atri = podKategorija.napraviAtribut("Brend", Arrays.asList(brendName.split(" ")),TipAtributa.STRING);
+                            atri = podKategorija.napraviAtribut("Brend", Collections.singletonList(brendName),TipAtributa.STRING);
                             p.dodajAtribut(atri);
                             atri = podKategorija.napraviAtribut("Boja",boje,TipAtributa.LIST);
                             p.dodajAtribut(atri);
