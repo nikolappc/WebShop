@@ -146,6 +146,8 @@ public class KatalogController implements Initializable {
     private Stranica trenutnaStranica;
 
     private Map<String, Set<String>> atributFilter = new HashMap<>();
+    private Button prev;
+    private Button next;
 
     public void izvrsiPretragu() {
         /** Vrsi se pretraga po svim kriterijumima koje je korisnik izabrao i na kraju se rezultati pretraga spajaju i prikazuju*/
@@ -263,9 +265,11 @@ public class KatalogController implements Initializable {
         if (proizvodi.isEmpty()) {
             Label label = new Label("Nijedan proizvod nije pronađen.");
             vbox.getChildren().set(1, label);
+            trenutnaStranica = null;
+            next.setDisable(true);
+            prev.setDisable(true);
             return;
         }
-
         int end;
         Stranica prev = null;
         for (int i = 0; i < proizvodi.size(); i += Stranica.proizvodPoStrani) {
@@ -307,6 +311,16 @@ public class KatalogController implements Initializable {
         trenutnaStranica = s;
         GridPane gp = trenutnaStranica.ucitaj();
         vbox.getChildren().set(1, gp);
+        if (trenutnaStranica.getNext()!=null){
+            next.setDisable(false);
+        }else{
+            next.setDisable(true);
+        }
+        if (trenutnaStranica.getPrev()!=null){
+            prev.setDisable(false);
+        }else{
+            prev.setDisable(true);
+        }
     }
 
     /**
@@ -358,8 +372,8 @@ public class KatalogController implements Initializable {
 
         //gp.getChildren().clear();
         HBox dugmad = new HBox();
-        Button prev = new Button("Prethodna");
-        Button next = new Button("Sledeca");
+        prev = new Button("Prethodna");
+        next = new Button("Sledeca");
         prev.setOnAction(e -> {
             proslaStranica();
         });

@@ -30,7 +30,6 @@ public class ElementKatalogaController implements Initializable {
     public void ucitaj(Proizvod p){
 
         proizvod = p;
-        System.out.println(proizvod.getSlike().get(0));
         slikaProizvoda.setImage(new Image(proizvod.getSlike().get(1)));
         naziv.setText(proizvod.getNaziv());
         cena.setText(proizvod.dajCenu()+" €");
