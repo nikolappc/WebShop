@@ -177,37 +177,6 @@ public class KatalogController implements Initializable {
      * Dodaje broj pronadjenih proizvoda, sve boje, brendove i velicine
      */
     public void sideBarOpcije(List<Proizvod> proizvodi) {
-
-//        brojRezultata.setText(proizvodi.size() + "");
-//        Map<String, Set<Atribut>> atributi = new HashMap<>();
-//        for (Proizvod p : proizvodi) {
-//            for (Map.Entry<String, Atribut> a : p.getAtributi().entrySet()) {
-//                if (!atributi.containsKey(a.getKey())) {
-//                    atributi.put(a.getKey(), new HashSet<>());
-//                }
-//                atributi.get(a.getKey()).add(a.getValue());
-//            }
-//        }
-//        int index = 2;
-//        for (Map.Entry<String, Set<Atribut>> entry : atributi.entrySet()) {
-//            MenuButton atributMenu = new MenuButton(entry.getKey());
-//            for (Atribut a : entry.getValue()) {
-//                CustomMenuItem mitem = new CustomMenuItem();
-//                CheckBox cb = new CheckBox(a.getVrednost());
-//                mitem.setContent(cb);
-//                atributMenu.getItems().add(mitem);
-//            }
-//            HBox hBox = new HBox();
-//            hBox.getChildren().add(atributMenu);
-//            atributiLayout.getChildren().add(index,hBox);
-//            index++;
-//        }
-
-//        Set<String> setBoja = new TreeSet<String>();
-//        Set<String> setBrendova = new TreeSet<String>();
-//        Set<String> setVelicina = new TreeSet<String>();
-
-
         Map<String, Set<String>> atributiVrednosti = new HashMap<>();
         for (Proizvod p : proizvodi) {
             for (Atribut a:p.getAtributi().values()) {
@@ -219,14 +188,6 @@ public class KatalogController implements Initializable {
                 Set<String> vrednosti = atributiVrednosti.get(naziv);
                 vrednosti.addAll(a.getVrednosti());
             }
-
-//            setBoja.add((String) p.getAtributi().get("Boja").getVrednost());
-//
-//            List<String> vel = (List<String>) p.getAtributi().get("Velicine").getVrednost();
-//            for (String poj : vel)
-//                setVelicina.add(poj);
-//
-//            setBrendova.add((String) p.getAtributi().get("Brend").getVrednost());
         }
         atributiLayout.getChildren().removeAll(atributMeniji);
         for (Map.Entry<String, Set<String>> e:atributiVrednosti.entrySet()){
@@ -251,36 +212,6 @@ public class KatalogController implements Initializable {
             atributiLayout.getChildren().add(atributMeni);
             atributMeniji.add(atributMeni);
         }
-
-
-//        for(String s: setBoja){
-//            CustomMenuItem mitem = new CustomMenuItem();
-//            CheckBox cb = new CheckBox(s);
-//            cb.selectedProperty().addListener((observable, oldValue, newValue) -> {
-//                if (newValue){
-//
-//                }else{
-//
-//                }
-//            });
-//            mitem.setContent(cb);
-//            boje.getItems().add(mitem);
-//        }
-//
-//        for(String s: setBrendova){
-//            CustomMenuItem mitem = new CustomMenuItem();
-//            CheckBox cb = new CheckBox(s);
-//            mitem.setContent(cb);
-//            brendovi.getItems().add(mitem);
-//        }
-//
-//        for(String s: setVelicina){
-//            CustomMenuItem mitem = new CustomMenuItem();
-//            CheckBox cb = new CheckBox(s);
-//            mitem.setContent(cb);
-//            velicine.getItems().add(mitem);
-//        }
-
 
     }
 
