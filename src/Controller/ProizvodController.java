@@ -247,7 +247,8 @@ public class ProizvodController implements Initializable {
             return;
         }
 
-        ((Kupac) Main.webshop.ulogovaniKorisnik).getListaZelja().dodajProizvod(trenutniProizvod);
+        StavkaNarudzbine stavka = new StavkaNarudzbine(1,trenutniProizvod.dajCenu(),trenutniProizvod, moguceVelicine.getValue());
+        ((Kupac) Main.webshop.ulogovaniKorisnik).getListaZelja().dodajProizvod(stavka);
     }
     
     

@@ -37,13 +37,13 @@ public class ListaZeljaController implements Initializable {
 
         vBox.setSpacing(20);
         Kupac kupac = (Kupac) Main.webshop.ulogovaniKorisnik;
-        for(Proizvod proizvod :  kupac.getListaZelja().getProizvod()){
+        for(StavkaNarudzbine stavka :  kupac.getListaZelja().getProizvod()){
 
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\ElementListeZelja.fxml"));
                 HBox hb = (HBox) loader.load();
                 ElementListeZeljaController ekc= loader.getController();
-                ekc.postavi(proizvod);
+                ekc.postavi(stavka);
 
                 vBox.getChildren().add(hb);
 
@@ -51,7 +51,6 @@ public class ListaZeljaController implements Initializable {
                 e.printStackTrace();
             }
         }
-
     }
 
 

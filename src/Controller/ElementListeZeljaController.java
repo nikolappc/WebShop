@@ -23,22 +23,23 @@ public class ElementListeZeljaController {
     private Label sifra;
 
     @FXML
-    private Label cena;
+    private Label cena,velicina;
 
     @FXML
     private Label imeProizvoda;
 
-    private Proizvod proizvod;
+    private StavkaNarudzbine stavka;
 
 
-    public void postavi(Proizvod s){
-        proizvod = s;
+    public void postavi(StavkaNarudzbine s){
+        stavka = s;
 
-        slika.setImage(new Image(proizvod.getSlike().get(1)));
-        cena.setText(proizvod.dajCenu() + " €");
-        sifra.setText("Sifra: "+proizvod.getSifra());
-        boja.setText("Boja: "+proizvod.getAtributVrednost("Boja"));
-        imeProizvoda.setText(proizvod.getNaziv());
+        slika.setImage(new Image(stavka.getProizvod().getSlike().get(1)));
+        cena.setText(stavka.getProizvod().dajCenu() + " €");
+        sifra.setText("Sifra: "+stavka.getProizvod().getSifra());
+        boja.setText("Boja: "+stavka.getProizvod().getAtributVrednost("Boja"));
+        velicina.setText("Velicina: "+stavka.getVelicina());
+        imeProizvoda.setText(stavka.getProizvod().getNaziv());
     }
 
     @FXML
@@ -50,7 +51,7 @@ public class ElementListeZeljaController {
             Parent root = (Parent) loader.load();
 
             ProizvodController mc = loader.getController();
-            mc.postaviProizvod(proizvod);
+            mc.postaviProizvod(stavka.getProizvod());
 
             Main.scene.setRoot(root);
 
@@ -62,7 +63,7 @@ public class ElementListeZeljaController {
 
         Kupac kupac = (Kupac) Main.webshop.ulogovaniKorisnik;
 
-        kupac.getListaZelja().izbaciProizvod(proizvod);
+        kupac.getListaZelja().izbaciProizvod(stavka);
 
         try{
 
@@ -80,7 +81,6 @@ public class ElementListeZeljaController {
     @FXML
     void dodaoUKorpu() {
         //TODO VELICINU DODATI
-        StavkaNarudzbine stavka = new StavkaNarudzbine(1,proizvod.dajCenu(),proizvod, "M");
         ((Kupac) Main.webshop.ulogovaniKorisnik).getKorpa().dodajProizvod(stavka);
 
         ukloniPritisnut();
