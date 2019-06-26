@@ -193,5 +193,23 @@ public class Pretraga {
         }
         return new LinkedList<>();
     }
+    
+    
+    
+    /**
+     * Prvo moram da pisem dokumentaciju da bih mogao da iskucam metodu
+     * Pomocna metoda za pretragu narudzbine
+     * @param NarudzbinaID
+     * @param Narudzbine
+     * @return narudzbina
+     */
+    public static Narudzbina pretragaNarudzbine(int NarudzbinaID, List<Narudzbina> narudzbine) {
+    	for (Narudzbina narudzbina : narudzbine) {
+			if(narudzbina.getID() == NarudzbinaID)
+				return narudzbina;
+		}
+    	
+    	return null;
+    }
 }
 

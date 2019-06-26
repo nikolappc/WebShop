@@ -6,7 +6,12 @@
 package Model;
 
 public class Narudzbina {
+	private int ID;
     private Korpa korpa;
+    
+    private String ime;
+    private String prezime;
+    private String adresa;
      
     private StanjeNarudzbine trenutnoStanje;
      
@@ -17,9 +22,10 @@ public class Narudzbina {
      
     
 
-	public Narudzbina(Korpa korpa) {
+	public Narudzbina(Korpa korpa,String ime, String prezime, String adresa) {
 		super();
 		this.korpa = korpa;
+		trenutnoStanje = new Obrada(this);
 	}
 
 	
@@ -101,6 +107,32 @@ public class Narudzbina {
 		this.korpa = korpa;
 	}
 
+
+
+	public int getID() {
+		return ID;
+	}
+
+
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
+
+
+	public StanjeNarudzbine getTrenutnoStanje() {
+		return trenutnoStanje;
+	}
+
+
+
+	public void setTrenutnoStanje(StanjeNarudzbine trenutnoStanje) {
+		this.trenutnoStanje = trenutnoStanje;
+	}
+
+	
+	
      
      
 }
