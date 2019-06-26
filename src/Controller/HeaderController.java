@@ -88,9 +88,9 @@ public class HeaderController implements Initializable {
                 root = (Parent) loader.load();
                 PrijavaController pc = loader.getController();
             } else {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\IzmenaNaloga.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\KorisnickiNalog.fxml"));
                 root = (Parent) loader.load();
-                IzmenaNalogaController inc = loader.getController();
+                KorisnickiNalogController inc = loader.getController();
             }
             Main.scene.setRoot(root);
 
