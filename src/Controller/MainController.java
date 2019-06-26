@@ -105,7 +105,7 @@ public class MainController implements  Initializable{
                     Main.webshop.pretraga.pretragaProizvodBrend(Main.webshop.proizvodi, brend);
 
 
-            pc.prikazi(rezultat);
+            pc.prikaziIOsveziSidebar(rezultat);
 
             Main.scene.setRoot(root);
         } catch (Exception ex) {

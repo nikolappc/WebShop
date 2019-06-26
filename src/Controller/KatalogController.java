@@ -177,6 +177,8 @@ public class KatalogController implements Initializable {
      * Dodaje broj pronadjenih proizvoda, sve boje, brendove i velicine
      */
     public void sideBarOpcije(List<Proizvod> proizvodi) {
+        stvoriStablo();
+
         Map<String, Set<String>> atributiVrednosti = new HashMap<>();
         for (Proizvod p : proizvodi) {
             for (Atribut a:p.getAtributi().values()) {
@@ -236,7 +238,7 @@ public class KatalogController implements Initializable {
                 proizvodiSaAtributima.add(p);
             }
         }
-        prikazi(proizvodiSaAtributima);
+        prikaziProizvode(proizvodiSaAtributima);
     }
 
     /**
@@ -244,7 +246,6 @@ public class KatalogController implements Initializable {
      * kategorijama koje su dodate u polje putanje
      */
     public void pretraziPoKategoriji() {
-        stvoriStablo();
         proizvodi = new LinkedList<>();
         atributFilter.clear();
         for (String putanja : putanje) {
@@ -255,8 +256,7 @@ public class KatalogController implements Initializable {
         if (proizvodi == null) {
             return;
         }
-        prikazi(proizvodi);
-        sideBarOpcije(proizvodi);
+        prikaziIOsveziSidebar(proizvodi);
     }
 
     /**
@@ -272,13 +272,12 @@ public class KatalogController implements Initializable {
             rekurzivnoDodajKategorije(k, treeRoot, k.getNaziv());
         }
     }
-
     /**
      * Prikazuje date proizvode iz liste u katalogu
      *
      * @param proizvodi
      */
-    public void prikazi(List<Proizvod> proizvodi) {
+    private void prikaziProizvode(List<Proizvod> proizvodi) {
         brojRezultata.setText(String.valueOf(proizvodi.size()));
         if (proizvodi.isEmpty()) {
             Label label = new Label("Nijedan proizvod nije pronađen.");
@@ -304,6 +303,16 @@ public class KatalogController implements Initializable {
             }
             prev = s;
         }
+    }
+    /**
+     * Prikazuje date proizvode iz liste u katalogu i osvezava sidebar
+     *
+     * @param proizvodi
+     */
+    public void prikaziIOsveziSidebar(List<Proizvod> proizvodi) {
+        this.proizvodi = proizvodi;
+        prikaziProizvode(proizvodi);
+        sideBarOpcije(proizvodi);
     }
 
     /**

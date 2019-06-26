@@ -55,7 +55,7 @@ public class HeaderController implements Initializable {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\FXML\\Katalog.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Katalog.fxml"));
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();
@@ -66,7 +66,7 @@ public class HeaderController implements Initializable {
                     Main.webshop.pretraga.pretragaProizvoda(Main.webshop.proizvodi, parametar);
 
 
-            pc.prikazi(rezultat);
+            pc.prikaziIOsveziSidebar(rezultat);
 
             Main.scene.setRoot(root);
         } catch (Exception ex) {
@@ -298,7 +298,7 @@ public class HeaderController implements Initializable {
             Parent root = (Parent) loader.load();
 
             KatalogController pc = loader.getController();
-            pc.prikazi(proizvodi);
+            pc.prikaziIOsveziSidebar(proizvodi);
 
             Main.scene.setRoot(root);
         } catch (Exception ex) {
