@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import Model.Kupac;
 import Model.StavkaNarudzbine;
 import View.Main;
-import com.sun.deploy.Environment;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
