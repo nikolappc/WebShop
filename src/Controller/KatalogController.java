@@ -152,9 +152,6 @@ public class KatalogController implements Initializable {
     public Label brojRezultata;
 
     @FXML
-    public Label kategorijaLabela;
-
-    @FXML
     private HeaderController someIdController;
 
     private List<MenuButton> atributMeniji = new LinkedList<>() ;
@@ -163,10 +160,11 @@ public class KatalogController implements Initializable {
 
     private Set<String> putanje = new TreeSet<>();
 
+    private Map<String,CheckBoxTreeItem<CvorDrveta>> cvorovi = new HashMap<>();
 
     private Stranica trenutnaStranica;
 
-    Map<String, Set<String>> atributFilter = new HashMap<>();
+    private Map<String, Set<String>> atributFilter = new HashMap<>();
 
     public void izvrsiPretragu() {
         /** Vrsi se pretraga po svim kriterijumima koje je korisnik izabrao i na kraju se rezultati pretraga spajaju i prikazuju*/
@@ -315,11 +313,12 @@ public class KatalogController implements Initializable {
      * kategorijama koje su dodate u polje putanje
      */
     public void pretraziPoKategoriji() {
+        stvoriStablo();
         proizvodi = new LinkedList<>();
         atributFilter.clear();
         for (String putanja : putanje) {
             List<String> var = Arrays.asList(putanja.split("\\|"));
-            proizvodi.addAll(Pretraga.pretraziKategorije(Main.webshop.getKategorije(), var));
+            proizvodi.addAll(Pretraga.pretraziKategorije(var));
         }
 
         if (proizvodi == null) {
@@ -327,6 +326,20 @@ public class KatalogController implements Initializable {
         }
         prikazi(proizvodi);
         sideBarOpcije(proizvodi);
+    }
+
+    /**
+     * Puni stablo pretrage sa kategorijama
+     */
+    private void stvoriStablo() {
+        CheckBoxTreeItem<CvorDrveta> treeRoot = napraviCvor("Kategorije", "");
+        stabloKategorija.setRoot(treeRoot);
+        stabloKategorija.setCellFactory(CheckBoxTreeCell.forTreeView());
+        stabloKategorija.setStyle("-fx-background-color:lightsteelblue");
+        Collection<Kategorija> kategorije = Main.webshop.getKategorije();
+        for (Kategorija k : kategorije) {
+            rekurzivnoDodajKategorije(k, treeRoot, k.getNaziv());
+        }
     }
 
     /**
@@ -434,23 +447,21 @@ public class KatalogController implements Initializable {
         });
         dugmad.getChildren().addAll(prev, next);
         vbox.getChildren().add(2, dugmad);
-        CheckBoxTreeItem<CvorDrveta> treeRoot = napraviCvor("Kategorije", "");
-        stabloKategorija.setRoot(treeRoot);
-        stabloKategorija.setCellFactory(CheckBoxTreeCell.forTreeView());
-        stabloKategorija.setStyle("-fx-background-color:lightsteelblue");
-        Collection<Kategorija> kategorije = Main.webshop.getKategorije();
-        for (Kategorija k : kategorije) {
-            rekurzivnoDodajKategorije(k, treeRoot, k.getNaziv());
-        }
 
     }
 
     private void sledecaStranica() {
+        if (trenutnaStranica==null){
+            return;
+        }
         namestiNovuStranicu(trenutnaStranica.getNext());
     }
 
 
     private void proslaStranica() {
+        if (trenutnaStranica==null){
+            return;
+        }
         namestiNovuStranicu(trenutnaStranica.getPrev());
     }
 
@@ -465,6 +476,9 @@ public class KatalogController implements Initializable {
     private CheckBoxTreeItem<CvorDrveta> napraviCvor(String naziv, String putanja) {
         CheckBoxTreeItem<CvorDrveta> node = new CheckBoxTreeItem<>(new CvorDrveta(naziv, putanja));
         node.setExpanded(true);
+        if (putanje.contains(putanja)){
+            node.setSelected(true);
+        }
         node.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 dodajUPrikazKategorije(node.getValue().getPutanja());
@@ -472,6 +486,7 @@ public class KatalogController implements Initializable {
                 izbaciIzPrikazaKategorije(node.getValue().getPutanja());
             }
         });
+        cvorovi.put(putanja,node);
         return node;
     }
 
