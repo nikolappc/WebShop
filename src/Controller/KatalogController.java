@@ -117,25 +117,6 @@ class CvorDrveta {
     }
 }
 
-/**
- * Ovo koristim da znam na koju smo sliku kliknuli
- */
-class ProizvodSlika {
-    Proizvod proizvod;
-    ImageView slika;
-    StavkaNarudzbine stavka;
-
-    public ProizvodSlika(Proizvod prz, ImageView sl) {
-        proizvod = prz;
-        slika = sl;
-    }
-
-    public ProizvodSlika(StavkaNarudzbine stv, ImageView sl) {
-        stavka = stv;
-        slika = sl;
-    }
-
-}
 
 public class KatalogController implements Initializable {
 

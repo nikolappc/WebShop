@@ -54,10 +54,10 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         webshop = new Webshop();
-        parseData(webshop);
+        //parseData(webshop);
         parseUsers();
 //        Ucitava WebShop
-//        loadWebShop();
+        loadWebShop();
 
         /** Po defaultu je kupac */
         webshop.ulogovaniKorisnik = new Kupac();
