@@ -2,6 +2,7 @@ package Controller;
 
 import Model.ContentMenadzer;
 import Model.Kupac;
+import Model.Pretraga;
 import Model.UlogovaniKorisnik;
 import View.Main;
 import javafx.beans.value.ChangeListener;
@@ -206,7 +207,7 @@ public class PrijavaController implements Initializable {
         }
 
         // proveri jednistvenost maila.
-        Kupac kupac = Main.webshop.pretraga.pretragaKupacaEmail(Main.webshop.kupci, emailReg.getText());
+        Kupac kupac = Pretraga.pretragaKupacaEmail(Main.webshop.kupci, emailReg.getText());
         if(kupac != null){
             porukaReg.setText("Email je zauzet.");
             emailReg.setStyle("-fx-text-box-border: red;");
@@ -221,7 +222,7 @@ public class PrijavaController implements Initializable {
      * @return true ako je ne postoji vec, false  u suprotnom
      */
     private boolean proveraKorisnickog(){
-        UlogovaniKorisnik korisnik = Main.webshop.pretraga.pretragaKupacaKorisnicko(
+        UlogovaniKorisnik korisnik = Pretraga.pretragaKupacaKorisnicko(
                 Main.webshop.kupci, webshop.contentMenadzeri, korisnickoReg.getText());
 
         if(korisnik != null){

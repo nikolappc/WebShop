@@ -18,7 +18,7 @@
             <Font name="Arial Bold" size="24.0" />
           </font>
         </Label>
-        <GridPane prefHeight="218.00006103515625" prefWidth="600.0">
+        <GridPane prefHeight="349.0" prefWidth="600.0">
           <children>
             <Label text="Naziv proizvoda" GridPane.columnIndex="0" GridPane.rowIndex="0" />
             <Label text="Opis proizvoda" GridPane.columnIndex="0" GridPane.rowIndex="1">
@@ -26,11 +26,13 @@
                 <Insets />
               </GridPane.margin>
             </Label>
-            <TextArea prefHeight="122.0" prefWidth="383.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField prefHeight="37.0" prefWidth="383.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Label text="Slike" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <Label text="Kategorija" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-            <ComboBox prefWidth="383.0" promptText="Papicu evo to jebi se sa ovim" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextArea fx:id="opis" prefHeight="52.0" prefWidth="383.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="naziv" prefHeight="27.0" prefWidth="383.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label text="Slike" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <Label text="Kategorija" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#dodavanjeSlikePritisnuo" prefWidth="383.0" text="Izaberi 3 slike" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Pol" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <ComboBox fx:id="pol" prefWidth="383.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
               <items>
                 <FXCollections fx:factory="observableArrayList">
                   <String fx:value="Item 1" />
@@ -39,19 +41,45 @@
                 </FXCollections>
               </items>
             </ComboBox>
-            <Button mnemonicParsing="false" onAction="#dodavanjeSlikePritisnuo" prefWidth="383.0" text="Izaberi slike" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Cena" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="cena" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Boja" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+            <TextField fx:id="boja" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ComboBox fx:id="kategorija" prefWidth="383.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="217.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="383.0" minWidth="10.0" prefWidth="383.0" />
           </columnConstraints>
           <rowConstraints>
-            <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="153.0" minHeight="7.0" prefHeight="42.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="153.0" minHeight="4.0" prefHeight="39.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="153.0" minHeight="7.0" prefHeight="26.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
           </rowConstraints>
         </GridPane>
+        <HBox prefHeight="100.0" prefWidth="200.0">
+          <children>
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <VBox id="sdfsd" prefHeight="200.0" prefWidth="100.0">
+              <children>
+                <Label fx:id="poruka" text="" textFill="#cc0000" />
+                <Button mnemonicParsing="false" onAction="#dodajPritisnut" text="Dodaj" />
+              </children>
+            </VBox>
+          </children>
+        </HBox>
       </children>
     </VBox>
   </center>

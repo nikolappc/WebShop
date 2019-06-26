@@ -63,7 +63,7 @@ public class HeaderController implements Initializable {
             // uradi pretragu
             String parametar = searchBar.getText();
             List<Proizvod> rezultat =
-                    Main.webshop.pretraga.pretragaProizvoda(Main.webshop.proizvodi, parametar);
+                    Pretraga.pretragaProizvoda(Main.webshop.proizvodi, parametar);
 
 
             pc.prikaziIOsveziSidebar(rezultat);
