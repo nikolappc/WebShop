@@ -46,7 +46,7 @@ public class Korpa {
 
     	for( StavkaNarudzbine stavka : stavkeNarudzbine){
     		if(stavka.getProizvod() == sn.getProizvod() && stavka.getVelicina().equals(sn.getVelicina())){
-    			stavka.setKolicina(stavka.getKolicina()+1);
+    			stavka.setKolicina(stavka.getKolicina()+1) ;
     			return;
 			}
 		}
