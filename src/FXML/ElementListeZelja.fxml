@@ -26,7 +26,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ElementKorpeController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ElementListeZeljaController">
    <children>
       <HBox prefHeight="150.0" prefWidth="309.0">
          <children>
@@ -75,7 +75,7 @@
             </VBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="66.0">
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="121.0">
          <children>
             <ImageView fitHeight="36.0" fitWidth="36.0" onMouseClicked="#ukloniPritisnut" pickOnBounds="true">
                <image>
@@ -87,48 +87,28 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="149.0" spacing="5.0">
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="129.0" spacing="5.0">
          <children>
-            <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#minusPritisnut" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/Slike/minus.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <Label fx:id="kolicina" text="20">
+            <Label fx:id="cena" text="cena">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#plusPritisnut" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/Slike/plus.png" />
-               </image>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="150.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#dodaoUKorpu" style="-fx-background-color: ffa500; -fx-padding: 3;" text="DODAJ U KORPU" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="131.0">
-         <children>
-            <Label fx:id="jedinicna" text="Label">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font></Label>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="73.0">
-         <children>
-            <Label fx:id="ukupnaCena" text="Label">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font></Label>
+            </Button>
          </children>
          <padding>
-            <Insets right="10.0" />
+            <Insets right="20.0" />
          </padding>
       </HBox>
    </children>

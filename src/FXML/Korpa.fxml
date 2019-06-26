@@ -42,7 +42,7 @@
                                   <children>
                                       <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="702.0" spacing="20.0">
                                           <children>
-                                              <Label prefHeight="45.0" prefWidth="88.0" text="Korpa">
+                                              <Label fx:id="korpaLabela" prefHeight="45.0" prefWidth="496.0" text="Korpa">
                                                   <font>
                                                       <Font name="System Bold" size="30.0" />
                                                   </font>
@@ -51,7 +51,7 @@
                                       </HBox>
                                       <HBox prefHeight="35.0" prefWidth="697.0">
                                           <children>
-                                              <GridPane prefHeight="35.0" prefWidth="726.0">
+                                              <GridPane fx:id="gridPane" prefHeight="35.0" prefWidth="726.0">
                                                   <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="286.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="97.0" />

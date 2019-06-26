@@ -107,7 +107,7 @@ public class ElementKorpeController implements Initializable {
             Parent root = (Parent) loader.load();
 
             ProizvodController mc = loader.getController();
-            mc.prikaziPreporuceni(stavka.getProizvod());
+            mc.postaviProizvod(stavka.getProizvod());
 
             Main.scene.setRoot(root);
 

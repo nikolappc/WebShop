@@ -37,7 +37,8 @@ public class ProizvodController implements Initializable {
     @FXML
     public ComboBox<String> moguceVelicine;
 
-    public Button logo;
+    @FXML
+    public Button prethodna,sledeca;
 
     @FXML
     private HeaderController someIdController;
@@ -200,6 +201,22 @@ public class ProizvodController implements Initializable {
 
     }
 
+    public void sledecaHover(){
+        sledeca.setStyle("-fx-border-color: #ffa500; -fx-background-color: #ffa500; -fx-padding: 0 ");
+    }
+
+    public void sledecaUnhover(){
+        sledeca.setStyle("-fx-border-color: transparent; -fx-background-color: transparent; -fx-padding: 0 ");
+    }
+
+    public void prethodnaHover(){
+        prethodna.setStyle("-fx-border-color: #ffa500; -fx-background-color: #ffa500; -fx-padding: 0");
+    }
+
+    public void prethodnaUnhover(){
+        prethodna.setStyle("-fx-border-color: transparent; -fx-background-color: transparent; -fx-padding: 0");
+    }
+
     public void izabranaVelicina(){
         moguceVelicine.setStyle("");
     }
@@ -214,7 +231,6 @@ public class ProizvodController implements Initializable {
         }
 
         //Provera da li vec ima taj artikal u korpi pa da samo povecamo velicinu
-        System.out.println(moguceVelicine.getValue());
         StavkaNarudzbine stavka = new StavkaNarudzbine(1,trenutniProizvod.dajCenu(),trenutniProizvod, moguceVelicine.getValue());
         ((Kupac) Main.webshop.ulogovaniKorisnik).getKorpa().dodajProizvod(stavka);
     }
@@ -222,8 +238,14 @@ public class ProizvodController implements Initializable {
 
     /** Korisnik dodao proizvod u list uzelja */
     public void dodatoUListuZelja(){
-        StavkaNarudzbine stavka = new StavkaNarudzbine(1,trenutniProizvod.dajCenu(),trenutniProizvod, moguceVelicine.getValue());
-        ((Kupac) Main.webshop.ulogovaniKorisnik).getKorpa().dodajProizvod(stavka);
+
+        if(moguceVelicine.getSelectionModel().isEmpty()){
+            moguceVelicine.setStyle("-fx-border-color: red;");
+            moguceVelicine.setPromptText("Morate izabrati velicinu");
+            return;
+        }
+
+        ((Kupac) Main.webshop.ulogovaniKorisnik).getListaZelja().dodajProizvod(trenutniProizvod);
     }
     
     
@@ -235,7 +257,7 @@ public class ProizvodController implements Initializable {
         ArrayList<Proizvod> retVal = new ArrayList<Proizvod>();
 
         for(Proizvod proizvod : Main.webshop.getProizvodi()){
-            if(proizvod.getAtribut("Brend").equals(p.getAtribut("Brend")) && !p.getSifra().equals(proizvod.getSifra())){
+            if(proizvod.getAtributVrednost("Brend").equals(p.getAtributVrednost("Brend")) && !p.getSifra().equals(proizvod.getSifra())){
                 listaP.add(proizvod);
             }
         }

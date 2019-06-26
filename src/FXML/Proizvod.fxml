@@ -75,8 +75,20 @@
                         <Pane fx:id="pejn" prefHeight="572.0" prefWidth="431.0" style="-fx-background-color: grey;">
                             <children>
                                 <ImageView id="izabranaSlika" fx:id="trenutnaSlika" fitHeight="537.0" fitWidth="431.0" pickOnBounds="true" />
-                                <Button id="sledecaSlika" fx:id="sledeca" layoutX="358.0" layoutY="252.0" mnemonicParsing="false" onMouseClicked="#sledecaSlika" text="Button" />
-                                <Button id="prethodnaSlika" fx:id="prethodna" layoutX="14.0" layoutY="252.0" mnemonicParsing="false" onMouseClicked="#prethodnaSlika" text="Button" />
+                                <Button id="sledecaSlika" fx:id="sledeca" layoutX="388.0" layoutY="240.0" mnemonicParsing="false" onMouseClicked="#sledecaSlika" onMouseEntered="#sledecaHover" onMouseExited="#sledecaUnhover" prefHeight="46.0" prefWidth="35.0" style="-fx-background-color: trasnparent; -fx-background-color: transparent; -fx-padding: 0;" text="&gt;" textFill="#c2c2c2">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                                <Button id="prethodnaSlika" fx:id="prethodna" layoutX="14.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#prethodnaSlika" onMouseEntered="#prethodnaHover" onMouseExited="#prethodnaUnhover" prefHeight="46.0" prefWidth="35.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0;" text="&lt;" textFill="#c2c2c2">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                             </children>
                         </Pane>
                         <VBox prefHeight="528.0" prefWidth="378.0">
