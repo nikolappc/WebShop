@@ -23,7 +23,10 @@ public class IzmenaNalogaController implements Initializable{
 
     @FXML
     private TextField lozinka;
-
+    
+    @FXML
+    private TextField lozinka1;
+    
     @FXML
     private TextField mail;
 
@@ -31,16 +34,7 @@ public class IzmenaNalogaController implements Initializable{
     private TextField adresa;
 
     @FXML
-    private TextField lozinka1;
-
-    @FXML
     private TextField brojTelefona;
-
-    @FXML
-    private Button lupa;
-
-    @FXML
-    private Button logo;
 
     @FXML
     private TextField korisnickoIme;
@@ -48,13 +42,14 @@ public class IzmenaNalogaController implements Initializable{
     @FXML
     private Font x3;
 
-
+    /*
+     * 
     @FXML
     private HeaderController someId;
+     */
 
     @FXML
     void potvrdaIzmena(ActionEvent event) {
-        // TODO : odradi sve odgovarajuce provere
     }
 
     @FXML
@@ -92,7 +87,6 @@ public class IzmenaNalogaController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
 		ucitaj();
 		
 	}

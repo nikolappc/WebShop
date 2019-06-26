@@ -15,12 +15,24 @@ public class ElemController implements Initializable {
     private ProgressBar bar;
 
     @FXML
-    private Button dugme;
+    private Button poslata;
 
     @FXML
-    void promeniStanje(ActionEvent event) {
-    	bar.setProgress(bar.getProgress() + (double)1/3);
-    	dugme.setDisable(true);
+    private Button isporucena;
+
+    @FXML
+    void poslataNarudzbina(ActionEvent event) {
+    	promeniStanje((double) 1.0/3.0);
+    }
+
+    @FXML
+    void isporucenaNarudzbina(ActionEvent event) {
+    	promeniStanje((double) 2.0/3.0);
+    }
+    
+    
+    void promeniStanje(double d) {
+    	bar.setProgress(d);
     }
 
 	@Override

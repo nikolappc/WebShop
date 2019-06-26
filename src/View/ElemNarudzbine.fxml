@@ -26,7 +26,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="243.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ElemController">
    <children>
       <VBox maxHeight="1.7976931348623157E308">
@@ -78,9 +77,10 @@
                </children>
             </HBox>
             <ProgressBar fx:id="bar" prefHeight="23.0" prefWidth="1106.0" progress="0.0" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
                <children>
-                  <Button fx:id="dugme" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#promeniStanje" prefHeight="29.0" prefWidth="157.0" text="Sledece stanje" />
+                  <Button fx:id="poslata" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#poslataNarudzbina" prefHeight="29.0" prefWidth="157.0" text="Narudzbina poslata" />
+                  <Button fx:id="isporucena" mnemonicParsing="false" onAction="#isporucenaNarudzbina" text="Narudzbina isporucena" />
                </children>
             </HBox>
          </children>

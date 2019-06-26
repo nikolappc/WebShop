@@ -3,7 +3,9 @@ package Controller;
 import Model.UlogovaniKorisnik;
 import View.Main;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 
 import java.net.URL;
@@ -16,7 +18,14 @@ public class KorisnickiNalogController implements Initializable {
 
 
     public void izmenaPodatakaPritisnuta(){
-
+    	try {
+	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\izmenaNaloga.fxml"));
+	        Parent root = (Parent) loader.load();
+	        IzmenaNalogaController inc = loader.getController();
+	        Main.scene.setRoot(root);
+    	}
+        catch (Exception e) {
+        }
     }
 
     public void pregledNarudzbinaPritisnut(){
