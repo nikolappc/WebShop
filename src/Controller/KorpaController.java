@@ -47,7 +47,7 @@ public class KorpaController implements Initializable {
 	/** Prikazi sve artikle iz kupceve korpe */
 	public void prikazi(){
 
-		vBox.setSpacing(10);
+		vBox.setSpacing(20);
 		int ukupnaCena = 0;
 		Kupac kupac = (Kupac) Main.webshop.ulogovaniKorisnik;
 		for(StavkaNarudzbine stavka : kupac.getKorpa().getStavkaNarudzbine()){

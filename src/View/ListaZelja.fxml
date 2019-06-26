@@ -37,8 +37,8 @@
                <children>
                       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="995.0">
                           <children>
-                              <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="816.0" prefWidth="119.0" style="-fx-background-color: C2C2C2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-                              <VBox fx:id="vBox" layoutX="119.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="787.0" prefWidth="764.0" style="-fx-background-color: #FFFFFF;">
+                              <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="816.0" prefWidth="119.0" style="-fx-background-color: C2C2C2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <VBox fx:id="vBox" layoutX="119.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="787.0" prefWidth="764.0" spacing="3.0" style="-fx-background-color: #FFFFFF;">
                                   <children>
                                       <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="702.0" spacing="20.0">
                                           <children>
@@ -105,7 +105,7 @@
                                                       </VBox>
                                                       <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #000000;" GridPane.columnIndex="3">
                                                           <children>
-                                                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
+                                                              <VBox alignment="CENTER" minHeight="25.0" prefHeight="200.0" prefWidth="100.0" />
                                                           </children>
                                                       </VBox>
                                                   </children>
@@ -117,7 +117,7 @@
                                       <Insets left="20.0" right="20.0" />
                                   </padding>
                               </VBox>
-                              <HBox layoutX="882.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="818.0" prefWidth="119.0" style="-fx-background-color: C2C2C2;" AnchorPane.bottomAnchor="0.0" />
+                              <HBox layoutX="882.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="787.0" prefWidth="110.0" style="-fx-background-color: C2C2C2;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                           </children>
                   </AnchorPane>
                </children>

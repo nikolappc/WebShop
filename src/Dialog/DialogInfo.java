@@ -3,6 +3,8 @@ package Dialog;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import Model.Kupac;
+import View.Main;
 import javafx.geometry.Insets;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
@@ -39,13 +41,14 @@ public class DialogInfo {
 				grid.setHgap(10);
 				grid.setVgap(10);
 				grid.setPadding(new Insets(20, 150, 10, 10));
-		
+
+				Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
 				TextField ime = new TextField();
-				ime.setPromptText("Ime");
+				ime.setText(k.getIme());
 				TextField prezime =  new TextField();
-				prezime.setPromptText("Prezime");
+				prezime.setText(k.getPrezime());
 				TextField adresa =  new TextField();
-				adresa.setPromptText("Adresa");
+				adresa.setText(k.getAdresa());
 		
 				grid.add(new Label("Ime:"), 0, 0);
 				grid.add(ime, 1, 0);

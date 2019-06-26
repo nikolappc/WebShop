@@ -44,7 +44,9 @@ public class ElementKorpeController implements Initializable {
 
     private StavkaNarudzbine stavka;
 
-
+    /**
+     * Ucitava proizvod koji se nalazi u korpi
+     */
     public void postavi(StavkaNarudzbine s){
         stavka = s;
 
@@ -60,6 +62,9 @@ public class ElementKorpeController implements Initializable {
 
     }
 
+    /**
+     * pritisnuto digme za uklanjane proizvoda iz korpe
+     */
     @FXML
     void ukloniPritisnut() {
         Kupac kupac = (Kupac) Main.webshop.ulogovaniKorisnik;
@@ -78,6 +83,11 @@ public class ElementKorpeController implements Initializable {
         } catch (Exception ex) {ex.printStackTrace();}
     }
 
+
+    /**
+     * korisnik zeli da smanji kolicinu za dati proizvod u korpi
+     * ako je kolicina 1 proizvod se brise
+     */
     @FXML
     void minusPritisnut() {
 
@@ -91,6 +101,9 @@ public class ElementKorpeController implements Initializable {
 
     }
 
+    /**
+     *  korisnik zeli da poveca kolicinu proizvoda u korpi
+     */
     @FXML
     void plusPritisnut() {
         stavka.setKolicina(stavka.getKolicina()+1);
@@ -98,6 +111,11 @@ public class ElementKorpeController implements Initializable {
         ukupnaCena.setText((stavka.getKolicina()*stavka.getCena())+" €");
     }
 
+
+    /**
+     * klikom na sliku proizvoda u korpi,
+     * dolazi do detaljnog prikaza proizvoda
+     */
     @FXML
     void proizvodKliknut() {
 
