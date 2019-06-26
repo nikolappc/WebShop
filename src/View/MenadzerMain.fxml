@@ -29,7 +29,7 @@
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="1000.0">
               <children>
-                <Label id="imePrezime" prefHeight="20.0" prefWidth="728.0" text="Ime Prezime">
+                <Label fx:id="imePrezime" prefHeight="20.0" prefWidth="728.0" text="Ime Prezime">
                   <font>
                     <Font size="14.0" />
                   </font>
@@ -78,6 +78,6 @@
     </VBox>
   </center>
   <top>
-    <fx:include  source="/View/Header.fxml" />
+    <fx:include source="/View/Header.fxml" />
   </top>
 </BorderPane>
