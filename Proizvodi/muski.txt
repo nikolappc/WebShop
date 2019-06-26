@@ -8,7 +8,7 @@
                   Brend: Stone Island
                   Boja : crna
                   Cena: 999
-                  Velicine: M X XL
+                  Velicine: M L XL
                   Opis: This classic black parka from Italian brand Stone Island pays heed to the label’s ethos of technologically advanced design and simple cuts with a militaristic twist.
 
 
@@ -17,7 +17,7 @@
                   Brend: Stone Island
                   Boja : crna
                   Cena: 695
-                  Velicine: S M X XL
+                  Velicine: S M L XL
                   Opis: Made from layered fabric that consists of an opaque nylon outer face, a water resistant membrane and an imperceptible polyester base, Stone Island’s ‘Membrana 3L TC’ jacket is an all-black style that exemplifies the Italian brand’s constant innovation and fabric research.
 
             1.1.3 Naziv: Stone Island Pocket Shell Jacket
