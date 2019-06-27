@@ -82,6 +82,7 @@ public class DodajProizvodController implements Initializable {
             return;
         }
 
+        // proveri da li je izabrao pol
         Pol p = null;
         if (pol.getValue() == null) {
             pol.setPromptText("Morate izabrati pol");
@@ -93,12 +94,14 @@ public class DodajProizvodController implements Initializable {
             p = Pol.Z;
         }
 
+        // proveri da li izabrao kategoriju
         if (kategorija.getValue() == null) {
             kategorija.setPromptText("Morate izabrati pol");
             kategorija.setStyle("-fx-border-color: red;");
             return;
         }
 
+        // proveri unos velicina
         ArrayList<String> velicine = new ArrayList<String>();
         if (!proveriVelicine(velicine)) {
             poruka.setText("Niste dobro uneli velicine");
@@ -106,6 +109,8 @@ public class DodajProizvodController implements Initializable {
         }
 
         Proizvod proizvod = new Proizvod(naziv.getText(), opis.getText(), new Date(), generisiSifru(), p, putanjeDoSlika);
+
+        // TODO: PAPICU OVU PRETRAGU PROMENI
         Kategorija kat = Pretraga.traziKategoriju(Main.webshop.kategorije, kategorija.getValue());
         kat.dodajProizvod(proizvod);
         StavkaCenovnika sc = new StavkaCenovnika(new Date(), null, Integer.valueOf(cena.getText()), 0, proizvod);
@@ -180,6 +185,7 @@ public class DodajProizvodController implements Initializable {
         pol.getItems().clear();
         pol.getItems().addAll("M", "Z");
         kategorija.getItems().clear();
+
 
         for (Kategorija k1 : Main.webshop.kategorije) {
             for (Kategorija k2 : k1.getPodKategorija()) {
