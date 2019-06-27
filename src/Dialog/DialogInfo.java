@@ -26,7 +26,8 @@ public class DialogInfo {
 	public boolean start() {
 		while(true) {
 			try {
-				
+
+
 				Dialog<ArrayList<String>> dialog = new Dialog<>();
 				dialog.setTitle("Informacije primaoca");
 				dialog.setHeaderText("Informacije primaoca");
