@@ -26,6 +26,7 @@ public class NarudzbineControllerStefan implements Initializable {
 
     private List<Narudzbina> narudzbine;
 
+    /** poslednji primenjen kriterijum sortiranja */
     private Kriterijum currentSort;
 
     /** Ucitava sve narudzbine za korisnika/menadzera u tabelarnom obliku */
@@ -75,6 +76,8 @@ public class NarudzbineControllerStefan implements Initializable {
             Collections.reverse(narudzbine);
             return;
         }
+
+        currentSort = krit;
         for (int i = 0; i < narudzbine.size() - 1; i++)
         {
             int index = i;
@@ -85,7 +88,6 @@ public class NarudzbineControllerStefan implements Initializable {
             }
             Collections.swap(narudzbine, index, i);
         }
-        currentSort = krit;
     }
 
 
@@ -108,11 +110,12 @@ public class NarudzbineControllerStefan implements Initializable {
             case iznosNarudzbine:
                 return n1.getKorpa().ukupnaCena() < n2.getKorpa().ukupnaCena();
             case imePrimaoca:
+                System.out.println("ime");
                 String primalac1 = n1.getIme() + n1.getPrezime();
                 String primalac2 = n2.getIme() + n2.getPrezime();
-                return primalac1.compareTo(primalac2) == -1;
+                return primalac1.trim().compareTo(primalac2.trim()) < 0;
             case statusNarudzbine:
-                return n1.getTrenutnoStanje().nazivStanja().compareTo(n2.getTrenutnoStanje().nazivStanja()) == 1;
+                return n1.getTrenutnoStanje().nazivStanja().compareTo(n2.getTrenutnoStanje().nazivStanja()) < 0;
             default:
                 return false;
         }
@@ -124,7 +127,6 @@ public class NarudzbineControllerStefan implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\NarudzbineStefan.fxml"));
             Parent root = (Parent) loader.load();
             NarudzbineControllerStefan nc = loader.getController();
-
             nc.ucitaj();
             nc.currentSort = currentSort;
 

@@ -86,7 +86,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5">
          <children>
-            <Label onMouseClicked="#pregledajPorudzbinu" text="Pregled porudzbine" textFill="#791414">
+            <Label onMouseClicked="#pregledajPorudzbinu" text="Pregled narudzbine" textFill="#791414">
                <font>
                   <Font size="14.0" />
                </font>
