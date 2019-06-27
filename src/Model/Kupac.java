@@ -13,7 +13,7 @@ public class Kupac extends UlogovaniKorisnik {
     private String email;
     private Korpa korpa;
     private ListaZelja listaZelja;
-
+    private List<Narudzbina> narudzbine = new ArrayList<Narudzbina>();
     public Kupac() {
 
     	super();
@@ -60,6 +60,19 @@ public class Kupac extends UlogovaniKorisnik {
 
 	public void setListaZelja(ListaZelja listaZelja) {
 		this.listaZelja = listaZelja;
+	}
+
+	
+	public void dodajNarudzbine(Narudzbina n) {
+		this.narudzbine.add(n);
+	}
+	
+	public List<Narudzbina> getNarudzbine() {
+		return narudzbine;
+	}
+
+	public void setNarudzbine(List<Narudzbina> narudzbine) {
+		this.narudzbine = narudzbine;
 	}
 
 }
