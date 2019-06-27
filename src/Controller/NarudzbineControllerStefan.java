@@ -3,6 +3,7 @@ package Controller;
 import Model.ContentMenadzer;
 import Model.Kupac;
 import Model.Narudzbina;
+import Model.StavkaNarudzbine;
 import View.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +13,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 enum Kriterijum {brojNarudzbine, datum, iznosNarudzbine, imePrimaoca, statusNarudzbine }
@@ -26,6 +25,8 @@ public class NarudzbineControllerStefan implements Initializable {
     private VBox vBox;
 
     private List<Narudzbina> narudzbine;
+
+    private Kriterijum currentSort;
 
     /** Ucitava sve narudzbine za korisnika/menadzera u tabelarnom obliku */
     public void ucitaj(){
@@ -66,10 +67,55 @@ public class NarudzbineControllerStefan implements Initializable {
 
     public void sortirajStatus(){ sortiraj(Kriterijum.statusNarudzbine); osvezi();}
 
+
     /** sortira listu narudzbina po zadatom kriterijumu */
     private void sortiraj(Kriterijum krit){
-        //TODO IMPLEMENTIRAJ
 
+        if(currentSort == krit){
+            Collections.reverse(narudzbine);
+            return;
+        }
+        for (int i = 0; i < narudzbine.size() - 1; i++)
+        {
+            int index = i;
+            for (int j = i + 1; j < narudzbine.size(); j++){
+                if( compare(narudzbine.get(j), narudzbine.get(index), krit)){
+                    index = j;//searching for lowest index
+                }
+            }
+            Collections.swap(narudzbine, index, i);
+        }
+        currentSort = krit;
+    }
+
+
+    /**
+     * poredi narudzbine po zadatom kriterijumu
+     * @param n1 - prva narudzbina
+     * @param n2 - druga narudzbina
+     * @param kriterijum - kriterijum poredjenja
+     * @return 1. true  ako n1 < n2
+     *         2. false ako n1 >= n2
+     */
+    public boolean compare(Narudzbina n1, Narudzbina n2, Kriterijum kriterijum){
+
+        switch (kriterijum){
+
+            case brojNarudzbine:
+                return n1.getID() < n2.getID();
+            case datum:
+                return n1.getDatum().before(n2.getDatum());
+            case iznosNarudzbine:
+                return n1.getKorpa().ukupnaCena() < n2.getKorpa().ukupnaCena();
+            case imePrimaoca:
+                String primalac1 = n1.getIme() + n1.getPrezime();
+                String primalac2 = n2.getIme() + n2.getPrezime();
+                return primalac1.compareTo(primalac2) == -1;
+            case statusNarudzbine:
+                return n1.getTrenutnoStanje().nazivStanja().compareTo(n2.getTrenutnoStanje().nazivStanja()) == 1;
+            default:
+                return false;
+        }
     }
 
     /** osvezava stranicu zbog moguce promene redosleda narudzbina */
@@ -78,7 +124,9 @@ public class NarudzbineControllerStefan implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\NarudzbineStefan.fxml"));
             Parent root = (Parent) loader.load();
             NarudzbineControllerStefan nc = loader.getController();
+
             nc.ucitaj();
+            nc.currentSort = currentSort;
 
             Main.scene.setRoot(root);
         }
