@@ -26,7 +26,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controller.KorisnickiNalogController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.KorisnickiNalogController">
   <center>
     <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
       <children>
@@ -41,7 +41,7 @@
               <children>
                 <Label prefHeight="20.0" prefWidth="728.0" text="Ulogovan kao:">
                   <font>
-                    <Font name="System Bold" size="14.0" fx:id="x1" />
+                    <Font name="System Bold" size="16.0" fx:id="x1" />
                   </font>
                 </Label>
               </children>
@@ -50,18 +50,18 @@
               <children>
                 <Label fx:id="imePrezime" prefHeight="20.0" prefWidth="728.0" text="Ime Prezime">
                   <font>
-                    <Font size="14.0" />
+                    <Font size="17.0" />
                   </font>
                 </Label>
               </children>
             </HBox>
           </children>
         </VBox>
-        <GridPane alignment="CENTER_RIGHT" vgap="10.0">
+        <GridPane alignment="CENTER_RIGHT" vgap="15.0">
           <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
               <children>
-                <Button font="$x1" mnemonicParsing="false" onAction="#izmenaPodatakaPritisnuta" prefHeight="25.0" prefWidth="271.0" style="-fx-background-color: #000000;" text="IZMENA PODATAKA O NALOGU" textFill="WHITE" />
+                <Button font="$x1" mnemonicParsing="false" onAction="#izmenaPodatakaPritisnuta" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #000000;" text="IZMENA PODATAKA O NALOGU" textFill="WHITE" />
               </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">

@@ -109,7 +109,7 @@ public class KorpaController implements Initializable {
 		Narudzbina n = new Narudzbina(k.getKorpa(), ime,prezime,adresa);
 		Random r = new Random();
 		while(true) {			
-			int ID = r.nextInt();
+			int ID = 1000 + r.nextInt()%98999;
 			Narudzbina n1 = Pretraga.pretragaNarudzbine(ID,
 					(List<Narudzbina>) Main.webshop.getNarudzbine());
 			if(n1 == null) {
