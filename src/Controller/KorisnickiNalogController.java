@@ -3,6 +3,7 @@ package Controller;
 import Model.Kupac;
 import Model.ListaZelja;
 import Model.UlogovaniKorisnik;
+import Model.Webshop;
 import View.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,9 +39,12 @@ public class KorisnickiNalogController implements Initializable {
     @FXML
     public void pregledNarudzbinaPritisnut(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Narudzbine.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\NarudzbineStefan.fxml"));
             Parent root = (Parent) loader.load();
-            NarudzbineController nc = loader.getController();
+            NarudzbineControllerStefan nc = loader.getController();
+            Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
+            nc.ucitaj(k.getNarudzbine());
+
             Main.scene.setRoot(root);
         }
         catch (Exception e) { e.printStackTrace(); }
@@ -69,7 +73,7 @@ public class KorisnickiNalogController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\korpa.fxml"));
             Parent root = (Parent) loader.load();
-            IzmenaNalogaController inc = loader.getController();
+            KorpaController inc = loader.getController();
             Main.scene.setRoot(root);
         }
         catch (Exception e) { e.printStackTrace(); }

@@ -6,6 +6,7 @@
 package Model;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 
@@ -53,6 +54,11 @@ public class Isporucena extends StanjeNarudzbine {
 		StanjeNarudzbine p = new Vracena(narudzbina);
 		narudzbina.promeniStanje(p);
 	}
-	
-	
+
+	@JsonIgnore
+	public String nazivStanja() {
+		return "Isporucena";
+	}
+
+
 }

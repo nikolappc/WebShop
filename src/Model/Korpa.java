@@ -131,7 +131,15 @@ public class Korpa {
 		return true;
 	}
     
-    
+    public int ukupnaCena(){
+		int cena = 0;
+
+		for(StavkaNarudzbine stavka: stavkeNarudzbine){
+			cena += (stavka.getCena()*stavka.getKolicina());
+		}
+
+    	return cena;
+	}
     
     
 }

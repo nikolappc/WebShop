@@ -57,6 +57,9 @@ public abstract class StanjeNarudzbine {
 	public void setNarudzbina(Narudzbina narudzbina) {
 		this.narudzbina = narudzbina;
 	}
-	
+
+	@JsonIgnore
+	public String nazivStanja() { return "";}
+
 	
 }

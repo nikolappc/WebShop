@@ -1,6 +1,7 @@
 package View;
 
 import Controller.MainController;
+import Controller.NarudzbineControllerStefan;
 import Model.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.application.Application;
@@ -38,7 +39,6 @@ public class Main extends Application {
 
         scene = new Scene(root, 1000, 800);
         //window.setResizable(false);
-        System.out.println(System.getProperty("user.dir"));
         window.setScene(scene);
 
 
@@ -56,8 +56,8 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         webshop = new Webshop();
-        //parseData(webshop);
-        parseUsers();
+        parseData(webshop);
+        //parseUsers();
 //        Ucitava WebShop
         loadWebShop();
 

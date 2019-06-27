@@ -8,6 +8,8 @@ package Model;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import java.util.Date;
+
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Narudzbina {
 	
@@ -17,6 +19,9 @@ public class Narudzbina {
     private String ime;
     private String prezime;
     private String adresa;
+
+    private Date datum;
+
     
     @JsonManagedReference
     private StanjeNarudzbine trenutnoStanje;
@@ -24,6 +29,7 @@ public class Narudzbina {
     public Narudzbina() {
 		super();
 		trenutnoStanje = new Obrada(this);
+		datum = new Date();
 	}
      
     
@@ -34,6 +40,7 @@ public class Narudzbina {
 		this.ime = ime;
 		this.prezime = prezime;
 		this.adresa = adresa;
+		datum = new Date();
 		trenutnoStanje = new Obrada(this);
 	}
 
@@ -141,7 +148,20 @@ public class Narudzbina {
 	}
 
 	
-	
-     
+	public String getIme() {return ime;}
+
+	public void setIme(String novo) {ime = novo;}
+
+	public String getPrezime() {return prezime;}
+
+	public void setPrezime(String novo) {prezime = novo;}
+
+	public String getAdresa() {return adresa;}
+
+	public void setAdresa(String novo) {adresa = novo;}
+
+	public Date getDatum() {return datum;}
+
+	public void setDatum(Date novo) {datum = novo;}
      
 }
