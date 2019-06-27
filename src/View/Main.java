@@ -55,7 +55,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        webshop = new Webshop();
 //      parseData(webshop);
 //      parseUsers();
 //        Ucitava WebShop
@@ -70,6 +69,9 @@ public class Main extends Application {
         ObjectMapper mapper = new ObjectMapper();
         try {
             webshop = mapper.readValue(new File("podaci\\webshop.json"), Webshop.class);
+            if (webshop==null){
+                webshop = new Webshop();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -169,7 +171,7 @@ public class Main extends Application {
                         line = br.readLine();
                         String opis = line.split(":")[1].trim();
 
-                        Proizvod p = new Proizvod(name, opis, new Date(), id, Pol.M);
+                        Proizvod p = new Proizvod(name, opis, new Date(), id);
                         p.setKategorija(podKategorija);
                         List<String> slike = new ArrayList<String>();
                         slike.add(imageDir+id+"-1.jpg");

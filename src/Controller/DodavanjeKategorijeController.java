@@ -33,35 +33,6 @@ public class DodavanjeKategorijeController implements Initializable {
 
     Kategorija nadKategorija = null;
 
-    void dodajKategorije(){
-        TreeItem<CvorKategorija> koren = napraviCvor(null);
-        stabloKategorija.setRoot(koren);
-        stabloKategorija.setShowRoot(false);
-        stabloKategorija.setStyle("-fx-background-color:lightsteelblue");
-        stabloKategorija.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> nadKategorija = newValue.getValue().getKategorija());
-        Collection<Kategorija> kategorije = Main.webshop.getKategorije();
-        for (Kategorija k : kategorije) {
-            rekurzivnoDodajKategorije(k, koren);
-        }
-    }
-
-    private void rekurzivnoDodajKategorije(Kategorija kategorija, TreeItem<CvorKategorija> parent) {
-        TreeItem<CvorKategorija> node = napraviCvor(kategorija);
-        parent.getChildren().add(node);
-        List<Kategorija> kategorije = kategorija.getPodKategorija();
-        if (kategorije.isEmpty()) {
-            return;
-        }
-        for (Kategorija k : kategorije) {
-            rekurzivnoDodajKategorije(k, node);
-        }
-    }
-
-    private TreeItem<CvorKategorija> napraviCvor(Kategorija kategorija) {
-        TreeItem<CvorKategorija> cvor=new TreeItem<>(new CvorKategorija(kategorija));
-        cvor.setExpanded(true);
-        return cvor;
-    }
 
     private void dodajProizvode() {
         for(Proizvod p:Main.webshop.getProizvodi()){
@@ -106,8 +77,9 @@ public class DodavanjeKategorijeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        dodajKategorije();
+        CvorKategorija.dodajKategorije(stabloKategorija);
         dodajProizvode();
+        stabloKategorija.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> nadKategorija = newValue.getValue().getKategorija());
         dodavanjeDugme.setOnAction(e->dodaj());
         ponistavanjeDugme.setOnAction(e->ponisti());
     }

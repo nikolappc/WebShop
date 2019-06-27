@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
+import sun.reflect.generics.tree.Tree;
 
 import javax.xml.soap.Text;
 import java.io.File;
@@ -18,9 +19,6 @@ import java.util.*;
 public class DodajProizvodController implements Initializable {
 
     private List<String> putanjeDoSlika;
-
-    @FXML
-    private ComboBox<String> pol;
     @FXML
     private TextField naziv;
     @FXML
@@ -36,7 +34,8 @@ public class DodajProizvodController implements Initializable {
     @FXML
     private TextField velicinePolje;
     @FXML
-    private ComboBox<String> kategorija;
+    private TreeView<CvorKategorija> stabloKategorija;
+    private Kategorija nadKategorija = null;
 
     @FXML
     private void dodavanjeSlikePritisnuo(ActionEvent event) {
@@ -82,43 +81,27 @@ public class DodajProizvodController implements Initializable {
             return;
         }
 
-        // proveri da li je izabrao pol
-        Pol p = null;
-        if (pol.getValue() == null) {
-            pol.setPromptText("Morate izabrati pol");
-            pol.setStyle("-fx-border-color: red;");
-            return;
-        } else if (pol.getValue().equals("M")) {
-            p = Pol.M;
-        } else if (pol.getValue().equals("Z")) {
-            p = Pol.Z;
-        }
-
-        // proveri da li izabrao kategoriju
-        if (kategorija.getValue() == null) {
-            kategorija.setPromptText("Morate izabrati pol");
-            kategorija.setStyle("-fx-border-color: red;");
+        if (nadKategorija == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING,"Morate izabrati kategoriju");
+            alert.showAndWait();
+            stabloKategorija.setStyle("-fx-border-color: red;");
             return;
         }
 
-        // proveri unos velicina
         ArrayList<String> velicine = new ArrayList<String>();
         if (!proveriVelicine(velicine)) {
             poruka.setText("Niste dobro uneli velicine");
             return;
         }
 
-        Proizvod proizvod = new Proizvod(naziv.getText(), opis.getText(), new Date(), generisiSifru(), p, putanjeDoSlika);
-
-        // TODO: PAPICU OVU PRETRAGU PROMENI
-        Kategorija kat = Pretraga.traziKategoriju(Main.webshop.kategorije, kategorija.getValue());
-        kat.dodajProizvod(proizvod);
+        Proizvod proizvod = new Proizvod(naziv.getText(), opis.getText(), new Date(), generisiSifru(),  putanjeDoSlika);
+        nadKategorija.dodajProizvod(proizvod);
         StavkaCenovnika sc = new StavkaCenovnika(new Date(), null, Integer.valueOf(cena.getText()), 0, proizvod);
 
         // dodaje atribute proizvodu
-        proizvod.dodajAtribut(kat.napraviAtribut("Boja", Arrays.asList(boja.getText()), TipAtributa.STRING));
-        proizvod.dodajAtribut(kat.napraviAtribut("Velicine", velicine, TipAtributa.LIST));
-        proizvod.dodajAtribut(kat.napraviAtribut("Brend", Arrays.asList(brend.getText()), TipAtributa.STRING));
+        proizvod.dodajAtribut(nadKategorija.napraviAtribut("Boja", Arrays.asList(boja.getText()), TipAtributa.STRING));
+        proizvod.dodajAtribut(nadKategorija.napraviAtribut("Velicine", velicine, TipAtributa.LIST));
+        proizvod.dodajAtribut(nadKategorija.napraviAtribut("Brend", Arrays.asList(brend.getText()), TipAtributa.STRING));
 
         Main.webshop.addStavkaCenovnika(sc);
         Main.webshop.addProizvod(proizvod);
@@ -181,17 +164,9 @@ public class DodajProizvodController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        CvorKategorija.dodajKategorije(stabloKategorija);
+        stabloKategorija.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> nadKategorija = newValue.getValue().getKategorija());
         putanjeDoSlika = new LinkedList<>();
-        pol.getItems().clear();
-        pol.getItems().addAll("M", "Z");
-        kategorija.getItems().clear();
-
-
-        for (Kategorija k1 : Main.webshop.kategorije) {
-            for (Kategorija k2 : k1.getPodKategorija()) {
-                kategorija.getItems().add(k2.getNaziv());
-            }
-        }
 
     }
 
