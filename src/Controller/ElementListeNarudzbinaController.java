@@ -1,14 +1,18 @@
 package Controller;
 
+import Model.ContentMenadzer;
+import Model.Kupac;
 import Model.Narudzbina;
 import View.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -31,6 +35,9 @@ public class ElementListeNarudzbinaController implements Initializable {
     @FXML
     private Label status;
 
+    @FXML
+    private HBox hbox;
+
     public Narudzbina narudzbina;
 
     public void ucitaj(Narudzbina nar){
@@ -38,9 +45,20 @@ public class ElementListeNarudzbinaController implements Initializable {
         narudzbina = nar;
         broj.setText("ORD " +nar.getID());
         primalac.setText(narudzbina.getIme()+" "+narudzbina.getPrezime());
-        status.setText(narudzbina.getTrenutnoStanje().nazivStanja());
         iznos.setText(narudzbina.getKorpa().ukupnaCena()+" €");
         datum.setText(new SimpleDateFormat("dd.MM.yyyy").format(narudzbina.getDatum()));
+
+        if(Main.webshop.ulogovaniKorisnik instanceof Kupac)
+            status.setText(narudzbina.getTrenutnoStanje().nazivStanja());
+        else{
+            hbox.getChildren().remove(0);
+
+            ComboBox<String> stanja = new ComboBox<>();
+            stanja.getItems().addAll("Obradjuje se", "Poslata", "Isporucena", "Vracena");
+            stanja.getSelectionModel().select(1);
+            hbox.getChildren().add(stanja);
+
+        }
 
     }
 

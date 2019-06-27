@@ -19,7 +19,7 @@ public class Webshop  {
    public Collection<Kategorija> kategorije;
    public Collection<Proizvod> proizvodi;
    public Collection<Kupac> kupci;
-   public Collection<Narudzbina> narudzbine;
+   public List<Narudzbina> narudzbine;
 
    public Webshop() {
       // TODO: ovde pozovi ucitavanje svega
@@ -217,13 +217,13 @@ public class Webshop  {
 
    // NARUDZBINA
 
-   public Collection<Narudzbina> getNarudzbine() {
+   public List<Narudzbina> getNarudzbine() {
       if (narudzbine == null)
          narudzbine = new LinkedList<Narudzbina>();
       return narudzbine;
    }
 
-   public void setNarudzbine(Collection<Narudzbina> newNarudzbine) {
+   public void setNarudzbine(List<Narudzbina> newNarudzbine) {
       removeAllNarudzbine();
       for (java.util.Iterator iter = newNarudzbine.iterator(); iter.hasNext();)
          addNarudzbina((Narudzbina)iter.next());

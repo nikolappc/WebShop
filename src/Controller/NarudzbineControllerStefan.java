@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.ContentMenadzer;
 import Model.Kupac;
 import Model.Narudzbina;
 import View.Main;
@@ -17,6 +18,7 @@ import javafx.scene.layout.VBox;
 
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -30,12 +32,25 @@ public class NarudzbineControllerStefan implements Initializable {
 
     private List<Narudzbina> narudzbine;
 
+    public void ucitaj(){
+        List<Narudzbina> lista = new ArrayList<>();
+        ucitaj(lista);
+    }
+
     public void ucitaj(List<Narudzbina> n){
 
         narudzbine = n;
         vBox.setSpacing(10);
-        Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
-        narudzbine = k.getNarudzbine();
+        if(Main.webshop.ulogovaniKorisnik instanceof Kupac){
+
+            Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
+            narudzbine = k.getNarudzbine();
+        }
+        else{
+            ContentMenadzer m  = (ContentMenadzer) Main.webshop.ulogovaniKorisnik;
+            narudzbine = Main.webshop.getNarudzbine();
+        }
+
         for(Narudzbina nar : narudzbine){
 
             try {

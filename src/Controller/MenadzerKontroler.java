@@ -40,6 +40,17 @@ public class MenadzerKontroler implements Initializable {
     @FXML
     private void pregledNarudzinePritisnut(ActionEvent event){
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\NarudzbineStefan.fxml"));
+            Parent root = (Parent) loader.load();
+            NarudzbineControllerStefan nc = loader.getController();
+
+            nc.ucitaj();
+
+            Main.scene.setRoot(root);
+        }
+        catch (Exception e) { e.printStackTrace(); }
+
     }
 
     @FXML

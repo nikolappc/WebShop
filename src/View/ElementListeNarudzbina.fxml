@@ -75,7 +75,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4">
+      <HBox fx:id="hbox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4">
          <children>
             <Label fx:id="status" text="Poslato">
                <font>

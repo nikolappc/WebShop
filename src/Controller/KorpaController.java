@@ -33,6 +33,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import static java.lang.Math.abs;
+
 public class KorpaController implements Initializable {
 
 	@FXML
@@ -88,9 +90,7 @@ public class KorpaController implements Initializable {
 		vBox.getChildren().add(total);
 	}
 
-	
-	
-	
+
 	private void infoKorisnika(){
 		// Create the custom dialog.
 		DialogInfo d = new DialogInfo();
@@ -100,7 +100,6 @@ public class KorpaController implements Initializable {
 	}
 	
 
-	
 	/**
 	 * Funkcija koja pravi narudzbinu
 	 */
@@ -109,7 +108,7 @@ public class KorpaController implements Initializable {
 		Narudzbina n = new Narudzbina(k.getKorpa(), ime,prezime,adresa);
 		Random r = new Random();
 		while(true) {			
-			int ID = 1000 + r.nextInt()%98999;
+			int ID = abs(1000 + r.nextInt()%98999);
 			Narudzbina n1 = Pretraga.pretragaNarudzbine(ID,
 					(List<Narudzbina>) Main.webshop.getNarudzbine());
 			if(n1 == null) {

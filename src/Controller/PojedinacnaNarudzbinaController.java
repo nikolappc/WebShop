@@ -16,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class PojedinacnaNarudzbinaController implements Initializable {
@@ -28,13 +29,13 @@ public class PojedinacnaNarudzbinaController implements Initializable {
 
     private Narudzbina narudzbina;
 
+
     public void ucitaj(Narudzbina n){
 
         narudzbina = n;
         brojNarudzbine.setText(narudzbina.getID()+"");
 
         vBox.setSpacing(10);
-        Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
         for(StavkaNarudzbine stavka : narudzbina.getKorpa().getStavkaNarudzbine()){
 
             try {
@@ -63,8 +64,14 @@ public class PojedinacnaNarudzbinaController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\NarudzbineStefan.fxml"));
             Parent root = (Parent) loader.load();
             NarudzbineControllerStefan nc = loader.getController();
-            Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
-            nc.ucitaj(k.getNarudzbine());
+
+            List<Narudzbina> narudzbine;
+            if(Main.webshop.ulogovaniKorisnik instanceof Kupac)
+                narudzbine = ((Kupac) Main.webshop.ulogovaniKorisnik).getNarudzbine();
+            else
+                narudzbine  = Main.webshop.getNarudzbine();
+
+            nc.ucitaj(narudzbine);
 
             Main.scene.setRoot(root);
         }
