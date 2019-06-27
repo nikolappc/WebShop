@@ -29,9 +29,7 @@ public class HeaderController implements Initializable {
     private TextField searchBar;
 
 
-    /**
-     * Korisnik pritisnuo LOGO
-     */
+    /** Korisnik pritisnuo LOGO*/
     public void pritisnutLogo() {
 
         try {
@@ -48,9 +46,8 @@ public class HeaderController implements Initializable {
         }
     }
 
-    /**
-     * Korisnik pritisnuo pretragu za proizvode
-     */
+
+    /** Korisnik pritisnuo pretragu za proizvode */
     public void traziPritisnut() {
 
         try {
@@ -75,9 +72,7 @@ public class HeaderController implements Initializable {
     }
 
 
-    /**
-     * Korisnik pritisnuo dugme za pregled svog naloga
-     */
+    /** Korisnik pritisnuo dugme za pregled svog naloga*/
     public void nalogPritisnut() {
 
         try {
@@ -104,9 +99,7 @@ public class HeaderController implements Initializable {
     }
 
 
-    /**
-     * Korisnik pritisnuo dugme za pregled svoje liste zelja
-     */
+    /** Korisnik pritisnuo dugme za pregled svoje liste zelja */
     public void listaZeljaPritisnuta() {
 
         try {
@@ -150,24 +143,18 @@ public class HeaderController implements Initializable {
      * Korisnik pritisnuo dugme za pregled svoje korpe
      */
     public void korpaPritisnuta() {
-
-
         try {
-
             // menadzer nema korpu
             if(Main.webshop.ulogovaniKorisnik instanceof ContentMenadzer){
                 return;
             }
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Korpa.fxml"));
             Parent root = (Parent) loader.load();
-
             KorpaController pc = loader.getController();
 
             Main.scene.setRoot(root);
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        } catch (Exception ex) { ex.printStackTrace(); }
     }
 
     @FXML

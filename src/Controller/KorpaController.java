@@ -45,7 +45,8 @@ public class KorpaController implements Initializable {
 
 	@FXML
 	private GridPane gridPane;
-	
+
+
 	/** Prikazi sve artikle iz kupceve korpe */
 	public void prikazi(){
 
@@ -84,13 +85,12 @@ public class KorpaController implements Initializable {
 		    	infoKorisnika();
 		    }
 		});
-		
-		
+
 		total.getChildren().addAll(space,l,b);
 		vBox.getChildren().add(total);
 	}
 
-
+	/** kreiranje dijaloga za unos primaoca narudzbine */
 	private void infoKorisnika(){
 		// Create the custom dialog.
 		DialogInfo d = new DialogInfo();
@@ -100,9 +100,7 @@ public class KorpaController implements Initializable {
 	}
 	
 
-	/**
-	 * Funkcija koja pravi narudzbinu
-	 */
+	/** funkcija koja pravi narudzbinu */
 	private void napraviNarudzbinu(String ime,String prezime,String adresa) {
 		Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
 		Narudzbina n = new Narudzbina(k.getKorpa(), ime,prezime,adresa);
@@ -124,10 +122,8 @@ public class KorpaController implements Initializable {
 		
 	}
 
-	/**
-	 * Funkcija za promenu trenutnog izgleda korpe
-	 * 
-	 */
+
+	/**funkcija za promenu trenutnog izgleda korpe*/
 	private void promeniIzgled(){
 		vBox.getChildren().clear();
 		korpaLabela.setText("Uspesno ste porucili proizvod");
@@ -135,21 +131,17 @@ public class KorpaController implements Initializable {
 		dugme.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		    	try {
-
 		            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\glavni.fxml"));
 		            Parent root = (Parent) loader.load();
 
 		            MainController pc = loader.getController();
-
 		            Main.scene.setRoot(root);
-
-		        } catch (Exception ex) {
-		            ex.printStackTrace();
-		        };
+		        } catch (Exception ex) { ex.printStackTrace(); }
 		    }
 		});
 		vBox.getChildren().addAll(korpaLabela,dugme);
 	}
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -158,9 +150,7 @@ public class KorpaController implements Initializable {
 			prikazi();
 		else{
 			vBox.getChildren().remove(1);
-			korpaLabela.setText("Korpa je trenutno prazna :'-( ");
-
-
+			korpaLabela.setText("Korpa je trenutno prazna");
 		}
 	}
 }

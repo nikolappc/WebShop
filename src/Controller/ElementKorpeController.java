@@ -44,9 +44,7 @@ public class ElementKorpeController implements Initializable {
 
     private StavkaNarudzbine stavka;
 
-    /**
-     * Ucitava proizvod koji se nalazi u korpi
-     */
+    /** Ucitava proizvod koji se nalazi u korpi */
     public void postavi(StavkaNarudzbine s){
         stavka = s;
 
@@ -62,9 +60,7 @@ public class ElementKorpeController implements Initializable {
 
     }
 
-    /**
-     * pritisnuto digme za uklanjane proizvoda iz korpe
-     */
+    /** pritisnuto digme za uklanjane proizvoda iz korpe*/
     @FXML
     void ukloniPritisnut() {
         Kupac kupac = (Kupac) Main.webshop.ulogovaniKorisnik;
@@ -101,9 +97,8 @@ public class ElementKorpeController implements Initializable {
 
     }
 
-    /**
-     *  korisnik zeli da poveca kolicinu proizvoda u korpi
-     */
+
+    /** korisnik zeli da poveca kolicinu proizvoda u korpi*/
     @FXML
     void plusPritisnut() {
         stavka.setKolicina(stavka.getKolicina()+1);

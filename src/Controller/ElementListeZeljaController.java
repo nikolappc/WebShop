@@ -66,9 +66,7 @@ public class ElementListeZeljaController {
     }
 
 
-    /**
-     * brisanje stavke iz liste zelja korisnika
-     */
+    /** brisanje stavke iz liste zelja korisnika*/
     @FXML
     void ukloniPritisnut( ) {
 

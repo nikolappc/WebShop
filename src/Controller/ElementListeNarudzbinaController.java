@@ -51,11 +51,12 @@ public class ElementListeNarudzbinaController implements Initializable {
         if(Main.webshop.ulogovaniKorisnik instanceof Kupac)
             status.setText(narudzbina.getTrenutnoStanje().nazivStanja());
         else{
+            //TODO DODATI PROMENU STANJA NARUDZBINE
             hbox.getChildren().remove(0);
 
             ComboBox<String> stanja = new ComboBox<>();
             stanja.getItems().addAll("Obradjuje se", "Poslata", "Isporucena", "Vracena");
-            stanja.getSelectionModel().select(1);
+            stanja.getSelectionModel().select(1); //TREBA STAVITI AKTUELNO STANJE
             hbox.getChildren().add(stanja);
 
         }

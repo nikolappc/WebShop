@@ -19,9 +19,8 @@ public class KorisnickiNalogController implements Initializable {
     @FXML
     private Label imePrezime;
 
-    /**
-     * promena osnoivnih podataka o korisniku
-     */
+
+    /** promena osnoivnih podataka o korisniku*/
     @FXML
     public void izmenaPodatakaPritisnuta(){
     	try {
@@ -33,26 +32,23 @@ public class KorisnickiNalogController implements Initializable {
         catch (Exception e) { e.printStackTrace(); }
     }
 
-    /**
-     * pregled svih narudzbina trenutnog korisnika
-     */
+
+    /** pregled svih narudzbina trenutnog korisnika */
     @FXML
     public void pregledNarudzbinaPritisnut(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\NarudzbineStefan.fxml"));
             Parent root = (Parent) loader.load();
             NarudzbineControllerStefan nc = loader.getController();
-            Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
-            nc.ucitaj(k.getNarudzbine());
+            nc.ucitaj();
 
             Main.scene.setRoot(root);
         }
         catch (Exception e) { e.printStackTrace(); }
     }
 
-    /**
-     * pregled liste zelja trenutnog korisnika
-     */
+
+    /** pregled liste zelja trenutnog korisnika*/
     @FXML
     public void listaZeljaPritisnuta(){
         try {
@@ -65,9 +61,7 @@ public class KorisnickiNalogController implements Initializable {
     }
 
 
-    /**
-     * pregled korpe trenutnog korisnika
-     */
+    /** pregled korpe trenutnog korisnika */
     @FXML
     public void korpaPritisnuta(){
         try {
@@ -79,9 +73,8 @@ public class KorisnickiNalogController implements Initializable {
         catch (Exception e) { e.printStackTrace(); }
     }
 
-    /**
-     * odjava iz aplikacije
-     */
+
+    /** odjava iz aplikacije */
     @FXML
     public void logOutPritisnut(){
         try {

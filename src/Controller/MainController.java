@@ -1,28 +1,21 @@
 package Controller;
 
-import Model.Kategorija;
 import Model.Pretraga;
 import Model.Proizvod;
-import Model.Webshop;
 import View.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -74,8 +67,8 @@ public class MainController implements  Initializable{
 
         doleDesnoSlika.fitWidthProperty().bind(desniPane.widthProperty());
         doleDesnoSlika.fitHeightProperty().bind(desniPane.heightProperty());
-
     }
+
 
     public void glavnaSlikaPritisnuta() {
         prikaziProizvodeZaBrend("palm angels");

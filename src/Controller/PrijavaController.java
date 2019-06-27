@@ -48,8 +48,6 @@ public class PrijavaController implements Initializable {
     @FXML
     private Label porukaReg;
 
-
-    // za prijavu
     @FXML
     private TextField korisnickoPrijava;
     @FXML
@@ -62,9 +60,6 @@ public class PrijavaController implements Initializable {
 
     @FXML
     private SplitPane splitPane;
-
-
-
 
 
     @Override
@@ -134,8 +129,7 @@ public class PrijavaController implements Initializable {
     @FXML
     void stisnuoRegistracija(ActionEvent event) {
         ArrayList<TextField> polja = new ArrayList(
-                Arrays.asList(imeReg, prezimeReg, emailReg, korisnickoReg,
-                              pLoznikaReg, lozinkaReg));
+                Arrays.asList(imeReg, prezimeReg, emailReg, korisnickoReg, pLoznikaReg, lozinkaReg));
         porukaReg.setText("");
         resetujBojePolja(polja);
         proveraPraznine(polja);
@@ -160,12 +154,7 @@ public class PrijavaController implements Initializable {
 
         if(ok){
             // dodaj kupca
-            Main.webshop.addKupac(new Kupac(korisnickoReg.getText(),
-                                            lozinkaReg.getText(),
-                                            imeReg.getText(),
-                                            prezimeReg.getText(),
-                                            adresaReg.getText(),
-                                            emailReg.getText()));
+            Main.webshop.addKupac(new Kupac(korisnickoReg.getText(), lozinkaReg.getText(), imeReg.getText(), prezimeReg.getText(), adresaReg.getText(), emailReg.getText()));
 
             // ociti polja
             resetujSvaPoljaRegistracije();

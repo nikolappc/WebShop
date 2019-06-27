@@ -46,13 +46,8 @@ public class PojedinacnaNarudzbinaController implements Initializable {
 
                 Separator separator = new Separator();
                 vBox.getChildren().addAll(hb,separator);
-
-            }catch (Exception e) {
-                e.printStackTrace();
-            }
-
+            }catch (Exception e) { e.printStackTrace(); }
         }
-
     }
 
     /** Povratak iz pregleda pojedinacne
@@ -64,14 +59,7 @@ public class PojedinacnaNarudzbinaController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\NarudzbineStefan.fxml"));
             Parent root = (Parent) loader.load();
             NarudzbineControllerStefan nc = loader.getController();
-
-            List<Narudzbina> narudzbine;
-            if(Main.webshop.ulogovaniKorisnik instanceof Kupac)
-                narudzbine = ((Kupac) Main.webshop.ulogovaniKorisnik).getNarudzbine();
-            else
-                narudzbine  = Main.webshop.getNarudzbine();
-
-            nc.ucitaj(narudzbine);
+            nc.ucitaj();
 
             Main.scene.setRoot(root);
         }

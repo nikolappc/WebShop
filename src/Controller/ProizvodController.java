@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.Kategorija;
-import Model.Kupac;
-import Model.Proizvod;
-import Model.StavkaNarudzbine;
+import Model.*;
 import View.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,9 +44,11 @@ public class ProizvodController implements Initializable {
 
     /** Postavlja proizvod na scenu za prikaz izabranog*/
     public void postaviProizvod(Proizvod p){
+
         for (String putanja:p.getSlike()){
             System.out.println(putanja);
         }
+
         trenutniProizvod = p;
         Image image = new Image(p.getSlike().get(1));
         trenutnaSlika.setImage(image);
@@ -60,12 +59,8 @@ public class ProizvodController implements Initializable {
 
         Image image3 = new Image(p.getSlike().get(2));
         slikaProizvoda3.setImage(image3);
-
         cenaProizvoda.setText(p.dajCenu()+" €");
-
         opisProizvoda.setText(p.getOpis());
-
-
         bojaProizvoda.setText((String)p.getAtributi().get("Boja").getVrednost());
 
         List<String> velicine = p.getAtributi().get("Velicine").getVrednosti();
@@ -87,14 +82,13 @@ public class ProizvodController implements Initializable {
             nazivProizvoda.setText(p.getNaziv());
         }
 
-
+        //postavi preporucene proizvode
         preporuceniProizvodi = nadjiPreporucene(p);
 
         if(preporuceniProizvodi.size() >0 ){
             preporucenSlika1.setImage(new Image(preporuceniProizvodi.get(0).getSlike().get(1)));
             preporucenSlika1.setOnMouseClicked(e-> prikaziPreporuceni(preporuceniProizvodi.get(0)));
         }
-
 
         if(preporuceniProizvodi.size() > 1){
 
@@ -107,7 +101,6 @@ public class ProizvodController implements Initializable {
             preporucenSlika3.setImage(new Image(preporuceniProizvodi.get(2).getSlike().get(1)));
             preporucenSlika3.setOnMouseClicked(e-> prikaziPreporuceni(preporuceniProizvodi.get(2)));
         }
-
     }
 
 
@@ -126,7 +119,6 @@ public class ProizvodController implements Initializable {
             Main.window.show();
         }
         catch(Exception ex) {ex.printStackTrace();}
-
     }
 
 
@@ -202,8 +194,8 @@ public class ProizvodController implements Initializable {
             Image img2 = new Image(path.substring(0,path.length()-5) + "2.jpg");
             trenutnaSlika.setImage(img2);
         }
-
     }
+
 
     public void sledecaHover(){
         sledeca.setStyle("-fx-border-color: #ffa500; -fx-background-color: #ffa500; -fx-padding: 0 ");
@@ -221,12 +213,17 @@ public class ProizvodController implements Initializable {
         prethodna.setStyle("-fx-border-color: transparent; -fx-background-color: transparent; -fx-padding: 0");
     }
 
+
     public void izabranaVelicina(){
         moguceVelicine.setStyle("");
     }
 
+
     /** Korisnik dodao proizvod u korpu*/
     public void dodatoUKorpu(){
+
+        if(Main.webshop.ulogovaniKorisnik instanceof ContentMenadzer)
+            return;
 
         if(moguceVelicine.getSelectionModel().isEmpty()){
             moguceVelicine.setStyle("-fx-border-color: red;");
@@ -234,7 +231,6 @@ public class ProizvodController implements Initializable {
             return;
         }
 
-        //Provera da li vec ima taj artikal u korpi pa da samo povecamo velicinu
         StavkaNarudzbine stavka = new StavkaNarudzbine(1,trenutniProizvod.dajCenu(),trenutniProizvod, moguceVelicine.getValue());
         ((Kupac) Main.webshop.ulogovaniKorisnik).getKorpa().dodajProizvod(stavka);
     }
@@ -242,6 +238,9 @@ public class ProizvodController implements Initializable {
 
     /** Korisnik dodao proizvod u list uzelja */
     public void dodatoUListuZelja(){
+
+        if(Main.webshop.ulogovaniKorisnik instanceof ContentMenadzer)
+            return;
 
         if(moguceVelicine.getSelectionModel().isEmpty()){
             moguceVelicine.setStyle("-fx-border-color: red;");
@@ -252,7 +251,6 @@ public class ProizvodController implements Initializable {
         StavkaNarudzbine stavka = new StavkaNarudzbine(1,trenutniProizvod.dajCenu(),trenutniProizvod, moguceVelicine.getValue());
         ((Kupac) Main.webshop.ulogovaniKorisnik).getListaZelja().dodajProizvod(stavka);
     }
-    
     
 
     /** vraca tri slicna proizvoda za dati proizvod*/
@@ -274,7 +272,6 @@ public class ProizvodController implements Initializable {
             retVal.add(listaP.get(randomIndex));
             listaP.remove(randomIndex);
         }
-
         return retVal;
     }
     

@@ -40,9 +40,7 @@ public class NarudzbineController implements Initializable {
 				elem.setNarudzbina(n);
 				elem.postaviStanje(n.getTrenutnoStanje());
 	            vBox.getChildren().add(hb);
-			}catch (Exception e) {
-				System.out.println("Neradi");
-			}
+			}catch (Exception e) {e.printStackTrace(); }
 		}
 	}
 	

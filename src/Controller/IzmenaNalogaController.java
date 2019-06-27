@@ -45,15 +45,10 @@ public class IzmenaNalogaController implements Initializable{
     @FXML
     private Font x3;
 
-    /*
-     * 
-    @FXML
-    private HeaderController someId;
-     */
-
     @FXML
     void potvrdaIzmena(ActionEvent event) {
     }
+
 
     @FXML
     void nazadAkcija(ActionEvent event) {
@@ -64,11 +59,7 @@ public class IzmenaNalogaController implements Initializable{
 			root = (Parent) loader.load();
 			KorisnickiNalogController inc = loader.getController();
 			Main.scene.setRoot(root);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    	
-    	
+		} catch (Exception e) { e.printStackTrace(); }
     }
 
 
@@ -96,7 +87,6 @@ public class IzmenaNalogaController implements Initializable{
     		//brojTelefona.setText(k.getBrojTelefona());
     		mail.setText(k.getEmail());
     	}
-    	
     }
 
 	@Override

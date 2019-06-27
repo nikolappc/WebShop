@@ -7,20 +7,15 @@ import View.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
 
 enum Kriterijum {brojNarudzbine, datum, iznosNarudzbine, imePrimaoca, statusNarudzbine }
 
@@ -32,14 +27,9 @@ public class NarudzbineControllerStefan implements Initializable {
 
     private List<Narudzbina> narudzbine;
 
+    /** Ucitava sve narudzbine za korisnika/menadzera u tabelarnom obliku */
     public void ucitaj(){
-        List<Narudzbina> lista = new ArrayList<>();
-        ucitaj(lista);
-    }
 
-    public void ucitaj(List<Narudzbina> n){
-
-        narudzbine = n;
         vBox.setSpacing(10);
         if(Main.webshop.ulogovaniKorisnik instanceof Kupac){
 
@@ -52,7 +42,6 @@ public class NarudzbineControllerStefan implements Initializable {
         }
 
         for(Narudzbina nar : narudzbine){
-
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\ElementListeNarudzbina.fxml"));
                 GridPane hb = (GridPane) loader.load();
@@ -62,12 +51,8 @@ public class NarudzbineControllerStefan implements Initializable {
                 Separator separator = new Separator();
                 vBox.getChildren().addAll(hb,separator);
 
-            }catch (Exception e) {
-                e.printStackTrace();
-            }
-
+            }catch (Exception e) { e.printStackTrace(); }
         }
-
     }
 
     /** metode za sortiranje narudzbina */
@@ -81,6 +66,7 @@ public class NarudzbineControllerStefan implements Initializable {
 
     public void sortirajStatus(){ sortiraj(Kriterijum.statusNarudzbine); osvezi();}
 
+    /** sortira listu narudzbina po zadatom kriterijumu */
     private void sortiraj(Kriterijum krit){
         //TODO IMPLEMENTIRAJ
 
@@ -92,8 +78,7 @@ public class NarudzbineControllerStefan implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\NarudzbineStefan.fxml"));
             Parent root = (Parent) loader.load();
             NarudzbineControllerStefan nc = loader.getController();
-            Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
-            nc.ucitaj(k.getNarudzbine());
+            nc.ucitaj();
 
             Main.scene.setRoot(root);
         }
