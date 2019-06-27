@@ -94,6 +94,7 @@ public class ProizvodController implements Initializable {
             preporucenSlika1.setOnMouseClicked(e-> prikaziPreporuceni(preporuceniProizvodi.get(0)));
         }
 
+
         if(preporuceniProizvodi.size() > 1){
 
             preporucenSlika2.setImage(new Image(preporuceniProizvodi.get(1).getSlike().get(1)));

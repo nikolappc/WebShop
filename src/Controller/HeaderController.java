@@ -63,7 +63,7 @@ public class HeaderController implements Initializable {
             // uradi pretragu
             String parametar = searchBar.getText();
             List<Proizvod> rezultat =
-                    Main.webshop.pretraga.pretragaProizvoda(Main.webshop.proizvodi, parametar);
+                    Pretraga.pretragaProizvoda(Main.webshop.proizvodi, parametar);
 
 
             pc.prikaziIOsveziSidebar(rezultat);
@@ -162,56 +162,26 @@ public class HeaderController implements Initializable {
     @FXML
     void muskeJaknePritisnut(ActionEvent event) {
         prikazi("muskarci|jakne");
-//        List<Proizvod> proizvodi = Pretraga.
-//                pretragaProzvodaKategorija(Main.webshop.kategorije, "jakne");
-//
-//        // pretrazi po trazenom polu
-//        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
-//        prikazi(proizvodi);
     }
 
     @FXML
     void muskeDuksericePritisnut(ActionEvent event) {
-//        List<Proizvod> proizvodi = Pretraga.
-//                pretragaProzvodaKategorija(Main.webshop.kategorije, "duskevi");
-//
-//        // pretrazi po trazenom polu
-//        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
-//        prikazi(proizvodi);
         prikazi("muskarci|duksevi");
     }
 
     @FXML
     void muskeMajicePritisnut(ActionEvent event) {
         prikazi("muskarci|majice");
-//        List<Proizvod> proizvodi = Pretraga.
-//                pretragaProzvodaKategorija(Main.webshop.kategorije, "majce");
-//
-//        // pretrazi po trazenom polu
-//        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
-//        prikazi(proizvodi);
     }
 
     @FXML
     void muskePantalonePritisnut(ActionEvent event) {
         prikazi("muskarci|pantalone");
-//        List<Proizvod> proizvodi = Pretraga.
-//                pretragaProzvodaKategorija(Main.webshop.kategorije, "pantalone");
-//
-//        // pretrazi po trazenom polu
-//        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
-//        prikazi(proizvodi);
     }
 
     @FXML
     void muskePatikePritisnut(ActionEvent event) {
         prikazi("muskarci|patike");
-//        List<Proizvod> proizvodi = Pretraga.
-//                pretragaProzvodaKategorija(Main.webshop.kategorije, "pantalone");
-//
-//        // pretrazi po trazenom polu
-//        proizvodi = Pretraga.pretragaProzvodaPol(proizvodi, Pol.M);
-//        prikazi(proizvodi);
     }
 
     @FXML
@@ -263,19 +233,6 @@ public class HeaderController implements Initializable {
      * @param naziv naziv kategorije
      */
     private void prikazi(String naziv) {
-//
-//        List<Proizvod> proizvodi = new ArrayList<Proizvod>();
-//
-//        for (Kategorija k1 : Main.webshop.getKategorije()) {
-//
-//            for (Kategorija k2 : k1.getPodKategorija()) {
-//                if (k2.getNaziv().equals(naziv)) {
-//                    proizvodi = k2.getProizvodi();
-//                }
-//            }
-//
-//        }
-
         try {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Katalog.fxml"));

@@ -193,23 +193,42 @@ public class Pretraga {
         }
         return new LinkedList<>();
     }
-    
-    
-    
+
+    /**
+     * Trazi kategoriju sa datim nazivo
+     * @param kategorije
+     * @param naziv
+     * @return vraca kategoriju ako postoji, null u suprotnom
+     */
+    public static Kategorija traziKategoriju(Collection<Kategorija> kategorije, String naziv){
+        for(Kategorija k1: kategorije){
+            if(k1.getNaziv().equals(naziv)){
+                return k1;
+            }
+
+            for(Kategorija k2 : k1.getPodKategorija()){
+                if(k2.getNaziv().equals(naziv)){
+                    return k2;
+                }
+            }
+        }
+
+        return null;
+    }
+
     /**
      * Prvo moram da pisem dokumentaciju da bih mogao da iskucam metodu
      * Pomocna metoda za pretragu narudzbine
      * @param NarudzbinaID
-     * @param Narudzbine
      * @return narudzbina
      */
     public static Narudzbina pretragaNarudzbine(int NarudzbinaID, List<Narudzbina> narudzbine) {
-    	for (Narudzbina narudzbina : narudzbine) {
-			if(narudzbina.getID() == NarudzbinaID)
-				return narudzbina;
-		}
-    	
-    	return null;
+        for (Narudzbina narudzbina : narudzbine) {
+            if(narudzbina.getID() == NarudzbinaID)
+                return narudzbina;
+        }
+
+        return null;
     }
 }
 

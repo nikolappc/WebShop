@@ -33,6 +33,9 @@ public class ListaZeljaController implements Initializable {
     @FXML
     private Label listaZeljaLabela;
 
+    /**
+     * prikaz svih stavki u listi zelja
+     */
     public void prikazi(){
 
         vBox.setSpacing(20);

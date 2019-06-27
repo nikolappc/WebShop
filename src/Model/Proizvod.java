@@ -27,7 +27,9 @@ public class Proizvod {
    private Kategorija kategorija;
    private Map<String,Atribut> atributi = new HashMap<>();
 
-   public Proizvod(){}
+   public Proizvod(){
+      slike = new LinkedList<>();
+   }
 
    public Proizvod(String naziv, String opis, Date datumDodavanja, String sifra, Pol pol) {
       this.naziv = naziv;
@@ -37,12 +39,9 @@ public class Proizvod {
       this.pol = pol;
    }
 
-   public Proizvod(String naziv, String opis, int naStanju, int kupljen, int uListiZelja, Date datumDodavanja, String sifra, Pol pol, List<String> slike) {
+   public Proizvod(String naziv, String opis, Date datumDodavanja, String sifra, Pol pol, List<String> slike) {
       this.naziv = naziv;
       this.opis = opis;
-      this.naStanju = naStanju;
-      this.kupljen = kupljen;
-      this.uListiZelja = uListiZelja;
       this.datumDodavanja = datumDodavanja;
       this.sifra = sifra;
       this.pol = pol;
@@ -193,5 +192,9 @@ public class Proizvod {
          }
       }
       return 0;
+   }
+
+   public void dodajSliku(String putanja){
+      slike.add(putanja);
    }
 }

@@ -26,7 +26,7 @@ public class ElementKatalogaController implements Initializable {
 
     public Proizvod proizvod;
 
-
+    /** Ucitava jedan proizvod u matricu kataloga*/
     public void ucitaj(Proizvod p){
 
         proizvod = p;
@@ -35,9 +35,9 @@ public class ElementKatalogaController implements Initializable {
         cena.setText(proizvod.dajCenu()+" €");
     }
 
+    /** pritisnuta slika za detaljan pregled proizvoda*/
     @FXML
     void slikaPritisnuta() {
-
         try {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Proizvod.fxml"));
@@ -54,11 +54,14 @@ public class ElementKatalogaController implements Initializable {
         }
     }
 
+
+    /** Korisnik postavio mis na sliku proizvoda u matrici kataloga*/
     @FXML
     void slikaHover() {
         slikaProizvoda.setImage(new Image(proizvod.getSlike().get(0)));
     }
 
+    /** Pomerio mis sa slike */
     @FXML
     void slikaUnHover() {
         slikaProizvoda.setImage(new Image(proizvod.getSlike().get(1)));

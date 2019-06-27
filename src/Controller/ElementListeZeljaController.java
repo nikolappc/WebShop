@@ -30,7 +30,10 @@ public class ElementListeZeljaController {
 
     private StavkaNarudzbine stavka;
 
-
+    /**
+     *  postavlja stavku iz liste zelja
+     *  na ekran sa odgovarajucim vrednostima
+     */
     public void postavi(StavkaNarudzbine s){
         stavka = s;
 
@@ -42,6 +45,10 @@ public class ElementListeZeljaController {
         imeProizvoda.setText(stavka.getProizvod().getNaziv());
     }
 
+    /**
+     * klikom na sliku proizvoda
+     * dolazi do detaljnog prikaza za dati proizvod
+     */
     @FXML
     void proizvodKliknut() {
 
@@ -58,6 +65,10 @@ public class ElementListeZeljaController {
         } catch (Exception ex) {ex.printStackTrace();}
     }
 
+
+    /**
+     * brisanje stavke iz liste zelja korisnika
+     */
     @FXML
     void ukloniPritisnut( ) {
 
@@ -78,9 +89,12 @@ public class ElementListeZeljaController {
 
     }
 
+    /**
+     * korisnik prebacio stavku u korpu
+     * stavka se sada brise iz liste zelja
+     */
     @FXML
     void dodaoUKorpu() {
-        //TODO VELICINU DODATI
         ((Kupac) Main.webshop.ulogovaniKorisnik).getKorpa().dodajProizvod(stavka);
 
         ukloniPritisnut();

@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Kategorija;
+import Model.Pretraga;
 import Model.Proizvod;
 import Model.Webshop;
 import View.Main;
@@ -102,7 +103,7 @@ public class MainController implements  Initializable{
 
             // uradi pretragu
             List<Proizvod> rezultat =
-                    Main.webshop.pretraga.pretragaProizvodBrend(Main.webshop.proizvodi, brend);
+                    Pretraga.pretragaProizvodBrend(Main.webshop.proizvodi, brend);
 
 
             pc.prikaziIOsveziSidebar(rezultat);
