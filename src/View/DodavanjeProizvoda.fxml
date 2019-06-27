@@ -18,7 +18,7 @@
             <Font name="Arial Bold" size="24.0" />
           </font>
         </Label>
-        <GridPane prefHeight="349.0" prefWidth="600.0">
+        <GridPane prefHeight="389.0" prefWidth="600.0">
           <children>
             <Label text="Naziv proizvoda" GridPane.columnIndex="0" GridPane.rowIndex="0" />
             <Label text="Opis proizvoda" GridPane.columnIndex="0" GridPane.rowIndex="1">
@@ -54,6 +54,10 @@
                 </FXCollections>
               </items>
             </ComboBox>
+            <Label text="Brend" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+            <TextField fx:id="brend" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="Velicine (odvojene prazninom)" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+            <TextField fx:id="velicinePolje" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="217.0" />
@@ -67,15 +71,21 @@
             <RowConstraints maxHeight="153.0" minHeight="7.0" prefHeight="26.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
           </rowConstraints>
         </GridPane>
         <HBox prefHeight="100.0" prefWidth="200.0">
           <children>
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <VBox id="sdfsd" prefHeight="200.0" prefWidth="100.0">
+            <VBox id="sdfsd" prefHeight="100.0" prefWidth="236.0">
               <children>
                 <Label fx:id="poruka" text="" textFill="#cc0000" />
-                <Button mnemonicParsing="false" onAction="#dodajPritisnut" text="Dodaj" />
+                <Button mnemonicParsing="false" onAction="#dodajPritisnut" prefWidth="236.0" style="-fx-background-color: #000000; " text="DODAJ PROIZVOD" textFill="WHITE">
+                  <font>
+                    <Font name="System Bold" size="15.0" />
+                  </font>
+                </Button>
               </children>
             </VBox>
           </children>

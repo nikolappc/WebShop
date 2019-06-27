@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Kupac;
 import View.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,7 +40,14 @@ public class MenadzerKontroler implements Initializable {
 
     @FXML
     private void logoutPritisnut(ActionEvent event){
-
+        try {
+            Main.webshop.ulogovaniKorisnik = new Kupac();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\glavni.fxml"));
+            Parent root = (Parent) loader.load();
+            MainController inc = loader.getController();
+            Main.scene.setRoot(root);
+        }
+        catch (Exception e) { e.printStackTrace(); }
     }
 
     @Override

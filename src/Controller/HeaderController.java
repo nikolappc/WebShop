@@ -87,10 +87,14 @@ public class HeaderController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Prijava.fxml"));
                 root = (Parent) loader.load();
                 PrijavaController pc = loader.getController();
-            } else {
+            } else if(Main.webshop.ulogovaniKorisnik instanceof Kupac){
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\KorisnickiNalog.fxml"));
                 root = (Parent) loader.load();
                 KorisnickiNalogController inc = loader.getController();
+            } else{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\MenadzerMain.fxml"));
+                root = (Parent) loader.load();
+                MenadzerKontroler inc = loader.getController();
             }
             Main.scene.setRoot(root);
 
@@ -106,6 +110,10 @@ public class HeaderController implements Initializable {
     public void listaZeljaPritisnuta() {
 
         try {
+            // menadzer nema listu zelja
+            if(Main.webshop.ulogovaniKorisnik instanceof ContentMenadzer){
+                return;
+            }
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\ListaZelja.fxml"));
             Parent root = (Parent) loader.load();
@@ -147,6 +155,10 @@ public class HeaderController implements Initializable {
 
         try {
 
+            // menadzer nema korpu
+            if(Main.webshop.ulogovaniKorisnik instanceof ContentMenadzer){
+                return;
+            }
             FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Korpa.fxml"));
             Parent root = (Parent) loader.load();
 

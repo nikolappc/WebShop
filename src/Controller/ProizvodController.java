@@ -65,6 +65,7 @@ public class ProizvodController implements Initializable {
 
         opisProizvoda.setText(p.getOpis());
 
+
         bojaProizvoda.setText((String)p.getAtributi().get("Boja").getVrednost());
 
         List<String> velicine = p.getAtributi().get("Velicine").getVrednosti();
