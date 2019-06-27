@@ -20,7 +20,6 @@ public class Proizvod {
    private int uListiZelja;
    private Date datumDodavanja;
    private String sifra;
-   private Pol pol;
    private List<String> slike;
 
    @JsonBackReference
@@ -31,24 +30,22 @@ public class Proizvod {
       slike = new LinkedList<>();
    }
 
-   public Proizvod(String naziv, String opis, Date datumDodavanja, String sifra, Pol pol) {
+   public Proizvod(String naziv, String opis, Date datumDodavanja, String sifra) {
       this.naziv = naziv;
       this.opis = opis;
       this.datumDodavanja = datumDodavanja;
       this.sifra = sifra;
-      this.pol = pol;
    }
 
-   public Proizvod(String naziv, String opis, Date datumDodavanja, String sifra, Pol pol, List<String> slike) {
+   public Proizvod(String naziv, String opis, Date datumDodavanja, String sifra, List<String> slike) {
       this.naziv = naziv;
       this.opis = opis;
       this.datumDodavanja = datumDodavanja;
       this.sifra = sifra;
-      this.pol = pol;
       this.slike = slike;
    }
 
-   public String toString(){
+    public String toString(){
 
       return naziv;
 
@@ -148,13 +145,6 @@ public class Proizvod {
       this.sifra = sifra;
    }
 
-   public Pol getPol() {
-      return pol;
-   }
-
-   public void setPol(Pol pol) {
-      this.pol = pol;
-   }
 
    public List<String> getSlike() {
       return slike;
