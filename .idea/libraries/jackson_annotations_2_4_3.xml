@@ -4,6 +4,7 @@
       <root url="jar://$PROJECT_DIR$/lib/jackson-annotations-2.4.3.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jackson-core-2.4.3.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jackson-databind-2.4.3.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/javax.mail.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

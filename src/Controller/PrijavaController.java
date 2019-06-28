@@ -5,6 +5,7 @@ import Model.Kupac;
 import Model.Pretraga;
 import Model.UlogovaniKorisnik;
 import View.Main;
+import com.sun.mail.smtp.SMTPTransport;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -17,9 +18,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Properties;
 import java.util.ResourceBundle;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+
+
 
 import static View.Main.webshop;
 
@@ -81,7 +89,7 @@ public class PrijavaController implements Initializable {
     }
 
     @FXML
-    void stistuoPrijava(ActionEvent event) {
+    void stistuoPrijava() {
         ArrayList<TextField> polja = new ArrayList<TextField>(
                 Arrays.asList(korisnickoPrijava, lozinkaPrijava));
         porukaPrijava.setText("");
@@ -113,11 +121,6 @@ public class PrijavaController implements Initializable {
         } else {
             porukaPrijava.setText("Pogresno korisnicko ili lozinka");
         }
-    }
-
-    @FXML
-    void stisnuoZabroavljenaSifra(ActionEvent event) {
-
     }
 
     /**
@@ -286,6 +289,109 @@ public class PrijavaController implements Initializable {
         for(TextField polje: polja){
             polje.setStyle("");
         }
+    }
+
+
+
+    @FXML
+    void stisnuoZabroavljenaSifra(ActionEvent event) {
+
+        UlogovaniKorisnik u_korisnik = new UlogovaniKorisnik();
+        String to = "";
+        boolean found = false;
+        for(ContentMenadzer c : webshop.getContentMenadzeri()){
+            if(c.getKorIme().equals(korisnickoPrijava.getText())){
+                to = c.getEmail();
+                u_korisnik = c;
+                found = true;
+                break;
+            }
+        }
+
+        for(Kupac k : webshop.getKupci()){
+            if(k.getKorIme().equals(korisnickoPrijava.getText())){
+                to = k.getEmail();
+                found = true;
+                u_korisnik = k;
+                break;
+            }
+        }
+
+        if(!found){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Zaboravljena sifra");
+            alert.setHeaderText(null);
+            alert.setContentText("Ne postoji korisnik sa tim korisnickim imenom!");
+
+            alert.showAndWait();
+            return;
+        }
+
+        String from = "logollc@yahoo.com";
+        String pass ="simsprojekat";
+        String host = "smtp.mail.yahoo.com";
+
+        Properties properties = System.getProperties();
+        // postavka za mail server
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.user", from);
+        properties.put("mail.smtp.password", pass);
+        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.auth", "true");
+
+
+        Session session = Session.getDefaultInstance(properties);
+
+        try{
+
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+
+            message.addRecipient(Message.RecipientType.TO,
+                    new InternetAddress(to));
+
+            // Naslov poruke
+            message.setSubject("Zaboravljena sifra na logoLLC");
+
+            // Sadrzaj poruke
+            Random r = new Random();
+            int sifra = Math.abs(r.nextInt() % 98999 + 10000);
+            message.setText("Vas kod za log in je: " +sifra);
+
+            // Posalji poruku
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host, from, pass);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+            System.out.println("Mail poslat");
+            proveraDijalog(sifra+"", u_korisnik,to);
+
+        }catch (MessagingException mex) {
+            mex.printStackTrace();
+        }
+
+    }
+
+    private void proveraDijalog(String kod, UlogovaniKorisnik u, String mail){
+
+        for(int i = 0; i < 3; i++) {
+
+            TextInputDialog dialog = new TextInputDialog();
+            dialog.setTitle("Pokusaj "+(i+1)+"/3");
+            dialog.setHeaderText("Autentifikacioni kod je poslat na: " + mail);
+            dialog.setContentText("Molimo Vas unesite poslati kod:");
+
+            // Traditional way to get the response value.
+            Optional<String> result = dialog.showAndWait();
+            if (result.isPresent() && result.get().trim().equals(kod)) {
+                korisnickoPrijava.setText(u.getKorIme());
+                lozinkaPrijava.setText(u.getLozinka());
+                stistuoPrijava();
+
+            }
+        }
+
     }
 
 

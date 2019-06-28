@@ -110,7 +110,6 @@ public class NarudzbineControllerStefan implements Initializable {
             case iznosNarudzbine:
                 return n1.getKorpa().ukupnaCena() < n2.getKorpa().ukupnaCena();
             case imePrimaoca:
-                System.out.println("ime");
                 String primalac1 = n1.getIme() + n1.getPrezime();
                 String primalac2 = n2.getIme() + n2.getPrezime();
                 return primalac1.trim().compareTo(primalac2.trim()) < 0;
