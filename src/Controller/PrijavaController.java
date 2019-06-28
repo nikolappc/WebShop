@@ -365,7 +365,7 @@ public class PrijavaController implements Initializable {
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
             System.out.println("Mail poslat");
-            proveraDijalog(sifra+"", u_korisnik,to);
+            provera(sifra+"", u_korisnik,to);
 
         }catch (MessagingException mex) {
             mex.printStackTrace();
@@ -373,8 +373,9 @@ public class PrijavaController implements Initializable {
 
     }
 
-    private void proveraDijalog(String kod, UlogovaniKorisnik u, String mail){
+    private void provera(String kod, UlogovaniKorisnik u, String mail){
 
+        boolean tacno = false;
         for(int i = 0; i < 3; i++) {
 
             TextInputDialog dialog = new TextInputDialog();
@@ -387,10 +388,14 @@ public class PrijavaController implements Initializable {
             if (result.isPresent() && result.get().trim().equals(kod)) {
                 korisnickoPrijava.setText(u.getKorIme());
                 lozinkaPrijava.setText(u.getLozinka());
-                stistuoPrijava();
+                tacno = true;
+                break;
 
             }
         }
+
+        if (tacno)
+            stistuoPrijava();
 
     }
 
