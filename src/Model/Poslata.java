@@ -65,5 +65,7 @@ public class Poslata extends StanjeNarudzbine {
 		return "Poslata";
 	}
 
+	@JsonIgnore
+	public int redniBroj(){return 1;}
 
 }

@@ -50,6 +50,7 @@ public class Main extends Application {
     public void stop() throws Exception {
         super.stop();
 
+
         // izlogovan
         Main.webshop.ulogovaniKorisnik = null;
         writeWebShop();

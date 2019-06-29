@@ -51,7 +51,7 @@
    <center>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="vbox" prefHeight="701.0" prefWidth="816.0" spacing="15.0">
+            <VBox fx:id="vbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="701.0" prefWidth="816.0" spacing="15.0">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="796.0" spacing="7.0">
                      <children>

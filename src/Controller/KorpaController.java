@@ -1,11 +1,7 @@
 package Controller;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import Dialog.DialogInfo;
 import Model.Korpa;
@@ -46,6 +42,8 @@ public class KorpaController implements Initializable {
 	@FXML
 	private GridPane gridPane;
 
+	private Label cenaKorpe;
+
 
 	/** Prikazi sve artikle iz kupceve korpe */
 	public void prikazi(){
@@ -62,7 +60,6 @@ public class KorpaController implements Initializable {
 				ukupnaCena+= stavka.getKolicina()*stavka.getCena();
 
 				//TODO DODATI NEKAKO LISTENER NA UKUPNU CENU
-
 				vBox.getChildren().add(hb);
 
 			}catch (Exception e) {
@@ -77,7 +74,7 @@ public class KorpaController implements Initializable {
 		total.setPadding(new Insets(0, 20, 0, 0));
 		total.setSpacing(20);
 		total.setAlignment(Pos.BOTTOM_RIGHT);
-		Label l = new Label(" Ukupna cena:     "+ukupnaCena + " €");
+		cenaKorpe = new Label(" Ukupna cena:     "+ukupnaCena + " €");
 
 		Button b = new Button("NARUCI");
 		b.setOnAction(new EventHandler<ActionEvent>() {
@@ -86,7 +83,7 @@ public class KorpaController implements Initializable {
 		    }
 		});
 
-		total.getChildren().addAll(space,l,b);
+		total.getChildren().addAll(space,cenaKorpe,b);
 		vBox.getChildren().add(total);
 	}
 
@@ -153,4 +150,5 @@ public class KorpaController implements Initializable {
 			korpaLabela.setText("Korpa je trenutno prazna");
 		}
 	}
+
 }

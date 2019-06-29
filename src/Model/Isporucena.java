@@ -60,5 +60,8 @@ public class Isporucena extends StanjeNarudzbine {
 		return "Isporucena";
 	}
 
+	@JsonIgnore
+	public int redniBroj(){return 2;}
+
 
 }

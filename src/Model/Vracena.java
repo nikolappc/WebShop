@@ -51,4 +51,6 @@ public class Vracena extends StanjeNarudzbine {
 		return "Vracena";
 	}
 
+	@JsonIgnore
+	public int redniBroj(){return 3;}
 }

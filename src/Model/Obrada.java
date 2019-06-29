@@ -59,5 +59,8 @@ public class Obrada extends StanjeNarudzbine {
 		return "Obradjuje se";
 	}
 
+	@JsonIgnore
+	public int redniBroj(){return 0;}
+
 
 }

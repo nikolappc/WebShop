@@ -24,7 +24,7 @@ import java.util.*;
  */
 class Stranica {
 
-    public static final int proizvodPoStrani = 9;
+    public static final int proizvodPoStrani = 18;
     List<Proizvod> proizvodi;
     int start, end;
 
@@ -148,6 +148,8 @@ public class KatalogController implements Initializable {
     private Map<String, Set<String>> atributFilter = new HashMap<>();
     private Button prev;
     private Button next;
+
+    private Label brStrane;
 
     public void izvrsiPretragu() {
         /** Vrsi se pretraga po svim kriterijumima koje je korisnik izabrao i na kraju se rezultati pretraga spajaju i prikazuju*/
@@ -377,32 +379,39 @@ public class KatalogController implements Initializable {
 
         //gp.getChildren().clear();
         HBox dugmad = new HBox();
-        prev = new Button("Prethodna");
-        next = new Button("Sledeca");
+        dugmad.setSpacing(10);
+        dugmad.setAlignment(Pos.CENTER);
+        prev = new Button("\uD83E\uDC44");
+        brStrane = new Label("1");
+        next = new Button("\uD83E\uDC46");
         prev.setOnAction(e -> {
             proslaStranica();
         });
         next.setOnAction(e -> {
             sledecaStranica();
         });
-        dugmad.getChildren().addAll(prev, next);
+        dugmad.getChildren().addAll(prev,brStrane,next);
         vbox.getChildren().add(2, dugmad);
-
     }
 
+
+    /** Prelazak na sledecu stranicu kataloga*/
     private void sledecaStranica() {
         if (trenutnaStranica==null){
             return;
         }
         namestiNovuStranicu(trenutnaStranica.getNext());
+        brStrane.setText((Integer.valueOf(brStrane.getText()) + 1) + "");
     }
 
 
+    /** Povratak na prethodnu stranicu kataloga*/
     private void proslaStranica() {
         if (trenutnaStranica==null){
             return;
         }
         namestiNovuStranicu(trenutnaStranica.getPrev());
+        brStrane.setText((Integer.valueOf(brStrane.getText()) -1) + "");
     }
 
     /**

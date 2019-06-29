@@ -1,9 +1,9 @@
 package Controller;
 
-import Model.ContentMenadzer;
-import Model.Kupac;
-import Model.Narudzbina;
+import Model.*;
 import View.Main;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -51,16 +51,33 @@ public class ElementListeNarudzbinaController implements Initializable {
         if(Main.webshop.ulogovaniKorisnik instanceof Kupac)
             status.setText(narudzbina.getTrenutnoStanje().nazivStanja());
         else{
-            //TODO DODATI PROMENU STANJA NARUDZBINE
             hbox.getChildren().remove(0);
 
             ComboBox<String> stanja = new ComboBox<>();
-            stanja.getItems().addAll("Obradjuje se", "Poslata", "Isporucena", "Vracena");
-            stanja.getSelectionModel().select(1); //TREBA STAVITI AKTUELNO STANJE
+            String obrada = "Obradjuje se";
+            String poslata = "Poslata";
+            String isporucena = "Isporucena";
+            String vracena = "Vracena";
+            stanja.getItems().addAll(obrada,poslata,isporucena,vracena);
+            stanja.getSelectionModel().select(narudzbina.getTrenutnoStanje().redniBroj());
+
+            stanja.valueProperty().addListener(new ChangeListener<String>() {
+                @Override public void changed(ObservableValue ov, String t, String t1) {
+                    if(t1.equals(obrada))
+                        narudzbina.setTrenutnoStanje(new Obrada());
+                    else if(t1.equals(poslata))
+                        narudzbina.setTrenutnoStanje(new Poslata());
+                    else if(t1.equals(isporucena))
+                        narudzbina.setTrenutnoStanje(new Isporucena());
+                    else if(t1.equals(vracena))
+                        narudzbina.setTrenutnoStanje(new Vracena());
+                    else
+                        System.out.println("Greska kod promene stanja");
+                }
+            });
+
             hbox.getChildren().add(stanja);
-
         }
-
     }
 
     /** Pregled posebne narudzbine */

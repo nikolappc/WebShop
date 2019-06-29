@@ -61,5 +61,8 @@ public abstract class StanjeNarudzbine {
 	@JsonIgnore
 	public String nazivStanja() { return "";}
 
+	@JsonIgnore
+	public int redniBroj() {return -1;}
+
 	
 }

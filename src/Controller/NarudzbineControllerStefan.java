@@ -34,7 +34,6 @@ public class NarudzbineControllerStefan implements Initializable {
 
         vBox.setSpacing(10);
         if(Main.webshop.ulogovaniKorisnik instanceof Kupac){
-
             Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
             narudzbine = k.getNarudzbine();
         }
