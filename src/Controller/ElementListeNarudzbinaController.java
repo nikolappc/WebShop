@@ -73,10 +73,32 @@ public class ElementListeNarudzbinaController implements Initializable {
                         narudzbina.setTrenutnoStanje(new Vracena());
                     else
                         System.out.println("Greska kod promene stanja");
+
+                    promeniStanje(narudzbina.getTrenutnoStanje().redniBroj());
                 }
             });
 
             hbox.getChildren().add(stanja);
+        }
+    }
+
+
+    /** Menja stanje narudzbine za kupca */
+    void promeniStanje(int redniBroj){
+
+        for(Kupac k : Main.webshop.getKupci()){
+            for(Narudzbina n : k.getNarudzbine())
+                if(n.getID() == narudzbina.getID()){
+                    if(redniBroj == 0)
+                        n.setTrenutnoStanje(new Obrada());
+                    else if(redniBroj == 1)
+                        n.setTrenutnoStanje(new Poslata());
+                    else if(redniBroj == 2)
+                        n.setTrenutnoStanje(new Isporucena());
+                    else
+                        n.setTrenutnoStanje(new Vracena());
+                    return;
+                }
         }
     }
 

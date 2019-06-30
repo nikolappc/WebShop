@@ -124,7 +124,7 @@ public class KorpaController implements Initializable {
 	private void promeniIzgled(){
 		vBox.getChildren().clear();
 		korpaLabela.setText("Uspesno ste porucili proizvod");
-		Button dugme = new Button("Nazad Bog te");
+		Button dugme = new Button("Nazad");
 		dugme.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		    	try {

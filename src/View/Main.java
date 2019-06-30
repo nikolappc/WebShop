@@ -39,7 +39,7 @@ public class Main extends Application {
         MainController mc = loader.getController();
 
         scene = new Scene(root, 1000, 800);
-        //window.setResizable(false);
+        window.setResizable(false);
         window.setScene(scene);
 
 

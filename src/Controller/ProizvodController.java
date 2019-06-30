@@ -2,6 +2,7 @@ package Controller;
 
 import Model.*;
 import View.Main;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,7 +12,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -35,7 +38,10 @@ public class ProizvodController implements Initializable {
     public ComboBox<String> moguceVelicine;
 
     @FXML
-    public Button prethodna,sledeca;
+    public Button prethodna,sledeca, korpaDugme, listaDugme;
+
+    @FXML
+    private VBox vBox;
 
     @FXML
     private HeaderController someIdController;
@@ -48,6 +54,7 @@ public class ProizvodController implements Initializable {
         for (String putanja:p.getSlike()){
             System.out.println(putanja);
         }
+
 
         trenutniProizvod = p;
         Image image = new Image(p.getSlike().get(1));
@@ -85,6 +92,10 @@ public class ProizvodController implements Initializable {
         //postavi preporucene proizvode
         preporuceniProizvodi = nadjiPreporucene(p);
 
+        if(preporuceniProizvodi.isEmpty()){
+            vBox.getChildren().remove(7,9);
+        }
+
         if(preporuceniProizvodi.size() >0 ){
             preporucenSlika1.setImage(new Image(preporuceniProizvodi.get(0).getSlike().get(1)));
             preporucenSlika1.setOnMouseClicked(e-> prikaziPreporuceni(preporuceniProizvodi.get(0)));
@@ -101,10 +112,15 @@ public class ProizvodController implements Initializable {
             preporucenSlika3.setImage(new Image(preporuceniProizvodi.get(2).getSlike().get(1)));
             preporucenSlika3.setOnMouseClicked(e-> prikaziPreporuceni(preporuceniProizvodi.get(2)));
         }
+
+        if(!(Main.webshop.ulogovaniKorisnik instanceof Kupac)){
+            listaDugme.setDisable(true);
+            korpaDugme.setDisable(true);
+        }
     }
 
 
-    /** Kada se klikne na preporuceni otvara se novi prozor*/
+    /** Prikazivanje preporucenog proizvoda*/
     public void prikaziPreporuceni(Proizvod proizvod){
 
         try{
@@ -129,7 +145,7 @@ public class ProizvodController implements Initializable {
     }
 
 
-    /** Korisnik izabrao prvu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+    /** Prva slika zauzima centralni deo*/
     public void izabranaSlika1(){
 
         String path = trenutnaSlika.getImage().impl_getUrl();
@@ -139,7 +155,7 @@ public class ProizvodController implements Initializable {
     }
 
 
-    /** Korisnik izabrao drugu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+    /** Druga slika zauzima centralni deo*/
     public void izabranaSlika2(){
 
         String path = trenutnaSlika.getImage().impl_getUrl();
@@ -148,7 +164,7 @@ public class ProizvodController implements Initializable {
     }
 
 
-    /** Korisnik izabrao trecu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+    /** Treca slika zauzima centralni deo*/
     public void izabranaSlika3(){
 
 
@@ -158,7 +174,7 @@ public class ProizvodController implements Initializable {
     }
 
 
-    /** Korisnik izabrao prethodnu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+    /** Centralna slika se menja na prethodnu sliku proizvoda*/
     public void prethodnaSlika(){
 
         String path = trenutnaSlika.getImage().impl_getUrl();
@@ -177,7 +193,7 @@ public class ProizvodController implements Initializable {
     }
 
 
-    /** Korisnik izabrao sledecu sliku proizvoda koja sad treba da zauzme centralni deo prozora*/
+    /** Centralna slika se menja na sledecu sliku proizvoda*/
     public void sledecaSlika(){
 
 
@@ -219,11 +235,8 @@ public class ProizvodController implements Initializable {
     }
 
 
-    /** Korisnik dodao proizvod u korpu*/
+    /** Dodavanje proizvoda u korpu*/
     public void dodatoUKorpu(){
-
-        if(Main.webshop.ulogovaniKorisnik instanceof ContentMenadzer)
-            return;
 
         if(moguceVelicine.getSelectionModel().isEmpty()){
             moguceVelicine.setStyle("-fx-border-color: red;");
@@ -236,11 +249,8 @@ public class ProizvodController implements Initializable {
     }
 
 
-    /** Korisnik dodao proizvod u list uzelja */
+    /** Dodavanje proizvoda u listu zelja */
     public void dodatoUListuZelja(){
-
-        if(Main.webshop.ulogovaniKorisnik instanceof ContentMenadzer)
-            return;
 
         if(moguceVelicine.getSelectionModel().isEmpty()){
             moguceVelicine.setStyle("-fx-border-color: red;");

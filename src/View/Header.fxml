@@ -35,11 +35,11 @@
     </HBox>
     <GridPane prefHeight="101.0" prefWidth="842.0" style="-fx-background-color: #000000;">
       <children>
-        <HBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="380.0" spacing="15.0" GridPane.hgrow="SOMETIMES">
+        <HBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="380.0" spacing="10.0" GridPane.hgrow="SOMETIMES">
           <children>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: #000000;" text="Muskarci" textFill="WHITE">
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: #000000;" text="MUSKARCI" textFill="WHITE">
               <font>
-                <Font size="14.0" fx:id="x1" />
+                <Font name="System Bold" size="14.0" fx:id="x1" />
               </font>
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#muskeJaknePritisnut" text="Jakne" />
@@ -52,7 +52,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
             </MenuButton>
-            <MenuButton font="$x1" mnemonicParsing="false" style="-fx-background-color: #000000;" text="Zene" textFill="WHITE">
+            <MenuButton font="$x1" mnemonicParsing="false" style="-fx-background-color: #000000;" text="ZENE" textFill="WHITE">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
                 <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -61,7 +61,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
             </MenuButton>
-            <MenuButton font="$x1" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #000000;" text="Brendovi" textFill="WHITE">
+            <MenuButton font="$x1" mnemonicParsing="false" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #000000;" text="BRENDOVI" textFill="WHITE">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#stisnuoStone" text="Stone Island" />
                 <MenuItem mnemonicParsing="false" onAction="#stisnuoStussy" text="Stussy" />
@@ -122,7 +122,7 @@
             <Insets left="5.0" />
           </GridPane.margin>
         </HBox>
-        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+        <HBox prefHeight="79.0" prefWidth="254.0" GridPane.columnIndex="1">
           <children>
             <Button fx:id="logo" alignment="CENTER" contentDisplay="CENTER" depthTest="DISABLE" graphicTextGap="0.0" mnemonicParsing="false" onAction="#pritisnutLogo" prefHeight="74.0" prefWidth="281.0" style="-fx-background-color: #000000; -fx-padding: 0; -fx-label-padding: 0;" text="LOGO" textFill="ORANGE">
               <font>
@@ -136,8 +136,8 @@
         </HBox>
       </children>
       <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="359.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="443.0" minWidth="10.0" prefWidth="263.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="383.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="443.0" minWidth="10.0" prefWidth="239.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="240.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="0.0" prefWidth="138.0" />
       </columnConstraints>
