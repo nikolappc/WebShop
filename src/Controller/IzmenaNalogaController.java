@@ -6,12 +6,16 @@ import java.util.ResourceBundle;
 
 import Model.ContentMenadzer;
 import Model.Kupac;
+import Model.Pretraga;
+import Model.UlogovaniKorisnik;
 import View.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
@@ -44,12 +48,107 @@ public class IzmenaNalogaController implements Initializable{
 
     @FXML
     private Font x3;
-
+    
+    private UlogovaniKorisnik korisnik;
+    
     @FXML
     void potvrdaIzmena(ActionEvent event) {
+    	
+    	boolean korBool = proveriUserName();
+    	
+    	boolean lozBool = proveriPassword();
+    	
+    	if(!(korBool || lozBool)) {
+    		promeniInformacije();
+    		obavestenjeIzmena();
+    		ucitaj();
+    	}
+    	
     }
 
+    
+    
+    /**
+     * Funkcija koja izmenjuje nalog
+     * 
+     */
+    private void promeniInformacije() {
 
+		korisnickoIme.setStyle("-fx-text-box-border: grey;");
+		lozinka1.setStyle("-fx-text-box-border: grey;");
+    	korisnik.setKorIme(korisnickoIme.getText());
+    	korisnik.setIme(ime.getText());
+    	korisnik.setPrezime(prezime.getText());
+    	if(!lozinka.getText().equals("")) {
+    		korisnik.setLozinka(lozinka.getText());
+    	}
+    	if (Main.webshop.ulogovaniKorisnik instanceof Kupac) {
+    		Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
+    		k.setAdresa(adresa.getText());
+    		k.setEmail(mail.getText());
+    	}
+    	else if (Main.webshop.ulogovaniKorisnik instanceof ContentMenadzer) {
+    		ContentMenadzer k = (ContentMenadzer) Main.webshop.ulogovaniKorisnik;
+    		k.setAdresa(adresa.getText());
+    		k.setEmail(mail.getText());
+    	}
+    	
+    }
+    
+    /**
+     * Funkcija koja kreira dialog i obavestava korisnika da je izmenio nalog.
+     */
+    private void obavestenjeIzmena() {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+    	alert.setTitle("Izmena izvrsena");
+    	alert.setHeaderText(null);
+    	alert.setContentText("Uspesno ste izmenili podatke");
+
+    	alert.showAndWait();
+    }
+    
+    
+    /**
+     * Funkcija za proveru username. Vraca true ukoliko ima gresku
+     * @return
+     */
+    private boolean proveriUserName() {
+    	
+    	if(korisnik.getKorIme().equals(korisnickoIme.getText())) {
+    		return false;
+    	}
+    	else if(korisnickoIme.getText().equals("")) {
+    		korisnickoIme.setPromptText("Polje je obavezno");
+    		korisnickoIme.setStyle("-fx-text-box-border: red;");
+    		return true;
+    	}
+    	UlogovaniKorisnik u = Pretraga.pretragaKupacaKorisnicko(Main.webshop.getKupci(), 
+    			Main.webshop.getContentMenadzeri(), korisnickoIme.getText());
+    	
+    	if(u == null || u.getKorIme().equals(korisnik.getKorIme())) {
+    		return false;
+    	}
+    	
+    	korisnickoIme.setPromptText("Korisnicko ime vec postoji");
+		korisnickoIme.setStyle("-fx-text-box-border: red;");
+    	return true;
+    }
+    
+    /**
+     * Funkcija za proveru password-a. Vraca true ukoliko ima gresku
+     * @return
+     */
+    private boolean proveriPassword() {
+    	
+    	if(lozinka.getText().equals(lozinka1.getText())) {
+    		return false;
+    	}
+    	lozinka1.setPromptText("Sifra se ne poklapaju");
+    	lozinka1.setStyle("-fx-text-box-border: red;");
+    	return true;
+    }
+    
+    
     @FXML
     void nazadAkcija(ActionEvent event) {
     	
@@ -67,24 +166,20 @@ public class IzmenaNalogaController implements Initializable{
      * Ucitava vrednosti atributa korisnika u odgovarajuca polja
      */
     void ucitaj() {
+    	korisnik = Main.webshop.ulogovaniKorisnik;
     	if (Main.webshop.ulogovaniKorisnik == null)
     		return;
+    	korisnickoIme.setText(korisnik.getKorIme());
+		ime.setText(korisnik.getIme());
+		prezime.setText(korisnik.getPrezime());
     	if (Main.webshop.ulogovaniKorisnik instanceof Kupac) {
     		Kupac k = (Kupac) Main.webshop.ulogovaniKorisnik;
-    		korisnickoIme.setText(k.getKorIme());
-    		ime.setText(k.getIme());
-    		prezime.setText(k.getPrezime());
     		adresa.setText(k.getAdresa());
-    		//brojTelefona.setText(k.getBrojTelefona());
     		mail.setText(k.getEmail());
     	}
     	else if (Main.webshop.ulogovaniKorisnik instanceof ContentMenadzer) {
     		ContentMenadzer k = (ContentMenadzer) Main.webshop.ulogovaniKorisnik;
-    		korisnickoIme.setText(k.getKorIme());
-    		ime.setText(k.getIme());
-    		prezime.setText(k.getPrezime());
     		adresa.setText(k.getAdresa());
-    		//brojTelefona.setText(k.getBrojTelefona());
     		mail.setText(k.getEmail());
     	}
     }
