@@ -239,7 +239,7 @@ public class ProizvodController implements Initializable {
     public void dodatoUKorpu(){
 
         if(moguceVelicine.getSelectionModel().isEmpty()){
-            moguceVelicine.setStyle("-fx-border-color: red;");
+            moguceVelicine.setStyle("-fx-border-color: red;-fx-border-width: 2;");
             moguceVelicine.setPromptText("Morate izabrati velicinu");
             return;
         }
@@ -253,7 +253,7 @@ public class ProizvodController implements Initializable {
     public void dodatoUListuZelja(){
 
         if(moguceVelicine.getSelectionModel().isEmpty()){
-            moguceVelicine.setStyle("-fx-border-color: red;");
+            moguceVelicine.setStyle("-fx-border-color: red;-fx-border-width: 2;");
             moguceVelicine.setPromptText("Morate izabrati velicinu");
             return;
         }

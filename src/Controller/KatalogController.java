@@ -154,7 +154,6 @@ public class KatalogController implements Initializable {
     public void izvrsiPretragu() {
         /** Vrsi se pretraga po svim kriterijumima koje je korisnik izabrao i na kraju se rezultati pretraga spajaju i prikazuju*/
 
-
     }
 
 
@@ -226,6 +225,7 @@ public class KatalogController implements Initializable {
         prikaziProizvode(proizvodiSaAtributima);
     }
 
+
     /**
      * Dodaje u listu proizvoda one proizvode koji se nalaze u
      * kategorijama koje su dodate u polje putanje
@@ -244,6 +244,7 @@ public class KatalogController implements Initializable {
         prikaziIOsveziSidebar(proizvodi);
     }
 
+
     /**
      * Puni stablo pretrage sa kategorijama
      */
@@ -257,6 +258,8 @@ public class KatalogController implements Initializable {
             rekurzivnoDodajKategorije(k, treeRoot, k.getNaziv());
         }
     }
+
+
     /**
      * Prikazuje date proizvode iz liste u katalogu
      *
@@ -296,6 +299,8 @@ public class KatalogController implements Initializable {
             namestiNovuStranicu(prva);
         }
     }
+
+
     /**
      * Prikazuje date proizvode iz liste u katalogu i osvezava sidebar
      *
@@ -306,6 +311,7 @@ public class KatalogController implements Initializable {
         prikaziProizvode(proizvodi);
         sideBarOpcije(proizvodi);
     }
+
 
     /**
      * Namesta novu stranicu za prikaz
@@ -330,6 +336,7 @@ public class KatalogController implements Initializable {
         }
     }
 
+
     /**
      * Dodaje putanju do kategorije u skup putanja
      * @param putanja
@@ -339,6 +346,7 @@ public class KatalogController implements Initializable {
         pretraziPoKategoriji();
     }
 
+
     /**
      * Izbacuje putanju do kategorije iz skupa putanja
      * @param putanja
@@ -347,6 +355,7 @@ public class KatalogController implements Initializable {
         putanje.remove(putanja);
         pretraziPoKategoriji();
     }
+
 
     /**
      * Dodaje filter vrednosti za zadati atribut u mapu filtera atributa
@@ -360,6 +369,8 @@ public class KatalogController implements Initializable {
         atributFilter.get(naziv).add(vrednost);
         pretraziPoAtributima();
     }
+
+
     /**
      * Izbacuje filter vrednosti za zadati atribut u mapu filtera atributa
      * @param naziv
@@ -371,7 +382,6 @@ public class KatalogController implements Initializable {
         }
         pretraziPoAtributima();
     }
-
 
 
     @Override
@@ -414,6 +424,7 @@ public class KatalogController implements Initializable {
         brStrane.setText((Integer.valueOf(brStrane.getText()) -1) + "");
     }
 
+
     /**
      * Kreira cvor drveta i namesta Listener koji na osnovu stanja cvora dodaje ili izbacuje putanju do proizvoda
      * iz seta putranja preko kojih se dobavljaju proizvodi
@@ -438,6 +449,7 @@ public class KatalogController implements Initializable {
         cvorovi.put(putanja,node);
         return node;
     }
+
 
     /**
      * Dodaje rekurzivno kategorije u stablo
