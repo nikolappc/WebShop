@@ -321,11 +321,39 @@ public class PrijavaController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Zaboravljena sifra");
             alert.setHeaderText(null);
-            alert.setContentText("Ne postoji korisnik sa tim korisnickim imenom!");
+            if(korisnickoPrijava.getText().trim().equals(""))
+                alert.setContentText("Unesite korisnicko ime prvo");
+            else
+                alert.setContentText("Ne postoji korisnik sa tim korisnickim imenom!");
 
             alert.showAndWait();
             return;
         }
+
+        String subject = "Zaboravljena sifra na LOGO LLC";
+
+        // Sadrzaj poruke
+        Random r = new Random();
+        int sifra = Math.abs(r.nextInt() % 98999 + 10000);
+        String content = "Vas kod za log in je: " +sifra;
+
+        posaljiMail(to, subject, content);
+
+        //ako prodje proveru uloguj korisnika
+        if(provera(sifra+"", u_korisnik,to))
+            stistuoPrijava();
+
+
+    }
+
+
+    /**
+     * Salje email
+     * @param to - adresa na koju salje
+     * @param subject - naslov emaila
+     * @param content - sadrzaj poruke
+     */
+    private void posaljiMail( String to, String subject, String content){
 
         String from = "logollc@yahoo.com";
         String pass ="simsprojekat";
@@ -352,12 +380,10 @@ public class PrijavaController implements Initializable {
                     new InternetAddress(to));
 
             // Naslov poruke
-            message.setSubject("Zaboravljena sifra na logoLLC");
+            message.setSubject(subject);
 
             // Sadrzaj poruke
-            Random r = new Random();
-            int sifra = Math.abs(r.nextInt() % 98999 + 10000);
-            message.setText("Vas kod za log in je: " +sifra);
+            message.setText(content);
 
             // Posalji poruku
             Transport transport = session.getTransport("smtp");
@@ -365,17 +391,22 @@ public class PrijavaController implements Initializable {
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
             System.out.println("Mail poslat");
-            provera(sifra+"", u_korisnik,to);
 
         }catch (MessagingException mex) {
             mex.printStackTrace();
         }
-
     }
 
-    private void provera(String kod, UlogovaniKorisnik u, String mail){
 
-        boolean tacno = false;
+    /**
+     * Proverava da li je korisnik uneo dobar kod
+     * @param kod - tacan kod
+     * @param u - korisnik
+     * @param mail - korisnikov mail
+     * @return true ako jeste, false ako nije
+     */
+    private boolean provera(String kod, UlogovaniKorisnik u, String mail){
+
         for(int i = 0; i < 3; i++) {
 
             TextInputDialog dialog = new TextInputDialog();
@@ -388,14 +419,12 @@ public class PrijavaController implements Initializable {
             if (result.isPresent() && result.get().trim().equals(kod)) {
                 korisnickoPrijava.setText(u.getKorIme());
                 lozinkaPrijava.setText(u.getLozinka());
-                tacno = true;
-                break;
+                return true;
 
             }
         }
 
-        if (tacno)
-            stistuoPrijava();
+        return false;
 
     }
 

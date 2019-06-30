@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WebShop:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/WebShop_jar</output-path>
+    <root id="archive" name="WebShop.jar">
+      <element id="module-output" name="WebShop" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jackson-annotations-2.4.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jackson-core-2.4.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jackson-databind-2.4.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/javax.mail.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
