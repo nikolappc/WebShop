@@ -90,7 +90,7 @@ public class ElementKorpeController implements Initializable {
         if(stavka.getKolicina() == 1)
             ukloniPritisnut();
         else{
-            stavka.setKolicina(stavka.getKolicina()-1);
+            ((Kupac) Main.webshop.ulogovaniKorisnik).getKorpa().izmeniKolicinuZaProizvod(stavka,-1);
             kolicina.setText(stavka.getKolicina()+"");
             ukupnaCena.setText((stavka.getKolicina()*stavka.getCena())+" €");
         }
@@ -101,7 +101,7 @@ public class ElementKorpeController implements Initializable {
     /** korisnik zeli da poveca kolicinu proizvoda u korpi*/
     @FXML
     void plusPritisnut() {
-        stavka.setKolicina(stavka.getKolicina()+1);
+        ((Kupac) Main.webshop.ulogovaniKorisnik).getKorpa().izmeniKolicinuZaProizvod(stavka,1);
         kolicina.setText(stavka.getKolicina()+"");
         ukupnaCena.setText((stavka.getKolicina()*stavka.getCena())+" €");
     }

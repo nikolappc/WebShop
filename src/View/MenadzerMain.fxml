@@ -11,7 +11,7 @@
   <center>
     <VBox prefHeight="533.4998779296875" prefWidth="999.999977929685">
       <children>
-        <Label alignment="CENTER" prefHeight="85.0" prefWidth="514.0" style="-fx-font-weight: bold; -fx-font-size: 32;" text="Desi bre menager">
+        <Label alignment="CENTER" prefHeight="85.0" prefWidth="514.0" style="-fx-font-weight: bold; -fx-font-size: 32;" text="Menadzerski nalog">
           <font>
             <Font name="Arial Bold" size="24.0" />
           </font>
@@ -22,7 +22,7 @@
               <children>
                 <Label prefHeight="20.0" prefWidth="728.0" text="Ulogovan kao:">
                   <font>
-                    <Font name="System Bold" size="14.0" fx:id="x1" />
+                    <Font name="System Bold" size="16.0" fx:id="x1" />
                   </font>
                 </Label>
               </children>
@@ -31,7 +31,7 @@
               <children>
                 <Label fx:id="imePrezime" prefHeight="20.0" prefWidth="728.0" text="Ime Prezime">
                   <font>
-                    <Font size="14.0" />
+                    <Font size="17.0" />
                   </font>
                 </Label>
               </children>

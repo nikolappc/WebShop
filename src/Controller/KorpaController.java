@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
@@ -28,10 +29,12 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 
 import static java.lang.Math.abs;
 
-public class KorpaController implements Initializable {
+public class KorpaController implements Initializable, Observer {
 
 	@FXML
 	private VBox vBox;
@@ -58,8 +61,6 @@ public class KorpaController implements Initializable {
 				ElementKorpeController ekc= loader.getController();
 				ekc.postavi(stavka);
 				ukupnaCena+= stavka.getKolicina()*stavka.getCena();
-
-				//TODO DODATI NEKAKO LISTENER NA UKUPNU CENU
 				vBox.getChildren().add(hb);
 
 			}catch (Exception e) {
@@ -71,12 +72,17 @@ public class KorpaController implements Initializable {
 		space.setPrefHeight(15);
 
 		VBox total = new VBox();
-		total.setPadding(new Insets(0, 20, 0, 0));
+		total.setPadding(new Insets(0, 12, 0, 0));
 		total.setSpacing(20);
 		total.setAlignment(Pos.BOTTOM_RIGHT);
-		cenaKorpe = new Label(" Ukupna cena:     "+ukupnaCena + " €");
+		cenaKorpe = new Label(" Ukupna cena:      "+ukupnaCena + " €");
+		cenaKorpe.setFont(new Font("System Bold", 18));
 
 		Button b = new Button("NARUCI");
+		b.setStyle("-fx-background-color: ffa500; -fx-padding: 3;-fx-text-fill: white");
+		b.setCursor(Cursor.HAND);
+		b.setFont(new Font("System Bold",18));
+
 		b.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		    	infoKorisnika();
@@ -143,12 +149,21 @@ public class KorpaController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		if(((Kupac) Main.webshop.ulogovaniKorisnik).getKorpa().getStavkaNarudzbine().size() > 0)
+		Kupac k = (Kupac)Main.webshop.ulogovaniKorisnik;
+		if(k.getKorpa().getStavkaNarudzbine().size() > 0){
+			//dodajemo observer na korpu
+			k.getKorpa().addObserver(this);
 			prikazi();
+		}
 		else{
 			vBox.getChildren().remove(1);
 			korpaLabela.setText("Korpa je trenutno prazna");
 		}
 	}
 
+	@Override
+	public void update(Observable o, Object arg) {
+		int newVal = (int) arg;
+		cenaKorpe.setText(" Ukupna cena:       " + newVal+"  €");
+	}
 }

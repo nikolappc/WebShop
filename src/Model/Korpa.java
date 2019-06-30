@@ -4,9 +4,11 @@
  * Purpose: Defines the Class Korpa
  ***********************************************************************/
 package Model;
+import javafx.beans.InvalidationListener;
+
 import java.util.*;
 
-public class Korpa {
+public class Korpa extends Observable {
     private Narudzbina narudzbina;
     private List<StavkaNarudzbine> stavkeNarudzbine = new ArrayList<StavkaNarudzbine>();
     private Kupac kupac;
@@ -47,6 +49,8 @@ public class Korpa {
     	for( StavkaNarudzbine stavka : stavkeNarudzbine){
     		if(stavka.getProizvod() == sn.getProizvod() && stavka.getVelicina().equals(sn.getVelicina())){
     			stavka.setKolicina(stavka.getKolicina()+1) ;
+				setChanged();
+				notifyObservers(ukupnaCena());
     			return;
 			}
 		}
@@ -58,6 +62,8 @@ public class Korpa {
     	for(StavkaNarudzbine stavka : stavkeNarudzbine){
     		if(stavka == sn){
     			stavkeNarudzbine.remove(stavka);
+				setChanged();
+				notifyObservers(ukupnaCena());
     			return true;
 			}
 		}
@@ -73,6 +79,9 @@ public class Korpa {
 				else{
 					stavka.setKolicina(stavka.getKolicina() + zaKoliko);
 				}
+				setChanged();
+				notifyObservers(ukupnaCena());
+				return;
 			}
 		}
     }
@@ -140,6 +149,5 @@ public class Korpa {
 
     	return cena;
 	}
-    
-    
+
 }

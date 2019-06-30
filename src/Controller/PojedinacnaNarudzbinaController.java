@@ -8,12 +8,15 @@ import View.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 import java.net.URL;
 import java.util.List;
@@ -33,7 +36,7 @@ public class PojedinacnaNarudzbinaController implements Initializable {
     public void ucitaj(Narudzbina n){
 
         narudzbina = n;
-        brojNarudzbine.setText(narudzbina.getID()+"");
+        brojNarudzbine.setText(narudzbina.getID()+" - "+n.getTrenutnoStanje().nazivStanja());
 
         vBox.setSpacing(10);
         for(StavkaNarudzbine stavka : narudzbina.getKorpa().getStavkaNarudzbine()){
@@ -48,6 +51,20 @@ public class PojedinacnaNarudzbinaController implements Initializable {
                 vBox.getChildren().addAll(hb,separator);
             }catch (Exception e) { e.printStackTrace(); }
         }
+
+
+        HBox space = new HBox();
+        space.setPrefHeight(15);
+
+        VBox total = new VBox();
+        total.setPadding(new Insets(0, 35, 0, 0));
+        total.setSpacing(20);
+        total.setAlignment(Pos.BOTTOM_RIGHT);
+        Label cenaKorpe = new Label(" Ukupna cena:      "+narudzbina.getKorpa().ukupnaCena() + " €");
+        cenaKorpe.setFont(new Font("System Bold", 18));
+
+        total.getChildren().addAll(space,cenaKorpe);
+        vBox.getChildren().add(total);
     }
 
     /** Povratak iz pregleda pojedinacne
