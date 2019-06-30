@@ -78,7 +78,13 @@ public class HeaderController implements Initializable {
         try {
             // proveri da li je ulogovan
             Parent root;
-            if (Main.webshop.ulogovaniKorisnik.getKorIme() == null) {
+            if("admin".equals(Main.webshop.ulogovaniKorisnik.getKorIme())) {
+        		FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\AdminMain.fxml"));
+            	root = (Parent) loader.load();
+                AdminKontroler pc = loader.getController();
+                Main.scene.setRoot(root);
+            }
+            else if (Main.webshop.ulogovaniKorisnik.getKorIme() == null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Prijava.fxml"));
                 root = (Parent) loader.load();
                 PrijavaController pc = loader.getController();

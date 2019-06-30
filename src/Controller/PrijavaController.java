@@ -101,6 +101,19 @@ public class PrijavaController implements Initializable {
         if(polja.size() > 0){
             return;
         }
+        
+        if(korisnickoPrijava.getText().equals("admin") && lozinkaPrijava.getText().equals("admin")){
+        	try {
+        		FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\AdminMain.fxml"));
+                Parent root = (Parent) loader.load();
+                AdminKontroler pc = loader.getController();
+                Main.scene.setRoot(root);
+                Main.webshop.ulogovaniKorisnik.setKorIme("admin");
+                return;
+        	}catch (Exception e) {
+                e.printStackTrace();
+			}
+        }
 
         if(Main.webshop.prijava(korisnickoPrijava.getText(), lozinkaPrijava.getText())){
             try{
