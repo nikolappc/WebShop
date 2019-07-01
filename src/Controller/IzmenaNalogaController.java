@@ -51,6 +51,10 @@ public class IzmenaNalogaController implements Initializable{
     
     private UlogovaniKorisnik korisnik;
     
+    
+    /**
+     * Funkcija koja se aktivira kada se potvrde izmene
+     */
     @FXML
     void potvrdaIzmena(ActionEvent event) {
     	
@@ -148,7 +152,9 @@ public class IzmenaNalogaController implements Initializable{
     	return true;
     }
     
-    
+    /**
+     * Funkcija koja menja trenutni prozor na meni korisnika
+     */
     @FXML
     void nazadAkcija(ActionEvent event) {
     	

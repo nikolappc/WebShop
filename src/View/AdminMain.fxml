@@ -30,7 +30,7 @@
             <HBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="1000.0" />
           </children>
         </VBox>
-        <GridPane alignment="CENTER_RIGHT" vgap="10.0">
+        <GridPane alignment="CENTER_RIGHT" vgap="15.0">
           <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
               <children>
@@ -42,17 +42,12 @@
                 <Button font="$x1" mnemonicParsing="false" onAction="#izmeniProdavnicu" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #000000;" text="Pregled prodavnica" textFill="WHITE" />
               </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
               <children>
                 <Button id="korpaPritisnuta" font="$x1" mnemonicParsing="false" onAction="#logoutPritisnut" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #000000;" text="LOGOUT" textFill="WHITE" />
               </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-              <children>
-                <Button id="logOutPritisnut" font="$x1" mnemonicParsing="false" onAction="#izbrisiProdavnicu" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #000000;" text="Izbrisi prodavnicu" textFill="WHITE" />
-              </children>
-            </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
                         <Button id="logOutPritisnut" font="$x1" mnemonicParsing="false" onAction="#dodajMenadzera" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #000000;" text="Dodaj menadzera" textFill="WHITE" />
                      </children>
@@ -66,7 +61,6 @@
           <rowConstraints>
             <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           </rowConstraints>

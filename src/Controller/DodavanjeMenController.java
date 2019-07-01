@@ -39,6 +39,9 @@ public class DodavanjeMenController implements Initializable {
 	private TextField adresa;
 	
 	
+	/**
+	 * Funkcija koja kreira menadzera uz proveru korisnickog imena
+	 */
 	@FXML
     void napraviNalog(ActionEvent event) {
 

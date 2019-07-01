@@ -13,6 +13,11 @@ public class AdminKontroler {
     @FXML
     private Font x1;
 
+    
+    
+    /**
+     * Funkcija za dodavanje prodavnica
+     */
     @FXML
     void dodajProdavnicu(ActionEvent event) {
     	try {
@@ -24,6 +29,9 @@ public class AdminKontroler {
         catch (Exception e) { e.printStackTrace(); }
     }
 
+    /**
+     * Funkcija za pregled prodavnica
+     */
     @FXML
     void izmeniProdavnicu(ActionEvent event) {
     	try {
@@ -34,6 +42,10 @@ public class AdminKontroler {
         catch (Exception e) { e.printStackTrace(); }
     }
 
+    
+    /**
+     * funkcija za odjavu
+     */
     @FXML
     void logoutPritisnut(ActionEvent event) {
     	try {
@@ -45,12 +57,11 @@ public class AdminKontroler {
         }
         catch (Exception e) { e.printStackTrace(); }
     }
-
-    @FXML
-    void izbrisiProdavnicu(ActionEvent event) {
-
-    }
     
+    
+    /**
+     * Funkcija za dodavanje menadzera
+     */
     @FXML
     void dodajMenadzera(ActionEvent event) {
     	try {

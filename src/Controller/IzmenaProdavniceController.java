@@ -23,7 +23,9 @@ public class IzmenaProdavniceController implements Initializable{
 	@FXML
 	private GridPane grid;
 
-	
+	/**
+	 * Kreiranje pogleda na prodavnice
+	 */
 	private void ucitaj() {
 		int brojac = 1;
 		for (Prodavnica prod : Main.webshop.getProdavnice()) {
@@ -40,7 +42,9 @@ public class IzmenaProdavniceController implements Initializable{
 		grid.setGridLinesVisible(true);
 	}
 	
-	
+	/**
+	 * Pomocna funkcija koja kreira labelu za prodavnicu
+	 */
 	private void postaviNaziv(int row, String nazivProd) {
 		Label naziv = new Label(nazivProd);
 		naziv.setMinHeight(50);
@@ -50,6 +54,9 @@ public class IzmenaProdavniceController implements Initializable{
 		grid.add(naziv, 0, row);
 	}
 	
+	/**
+	 * Pomocna funkcija za kreiranje labele za adresu
+	 */
 	private void postaviAdresu(int row, String adresaProd) {
 		Label adresa = new Label(adresaProd);
 		adresa.setMaxWidth(Double.MAX_VALUE);
@@ -58,7 +65,13 @@ public class IzmenaProdavniceController implements Initializable{
 		grid.add(adresa, 1, row);
 	}
 
+	/**
+	 * Pomocna funkcija za postavljanje slike
+	 */
 	private void postaviSliku(int row, String path) {
+		if(path == null) {
+			return;
+		}
 		Image im = new Image("file:" + path);
 		ImageView iv = new ImageView(im);
 		iv.setPreserveRatio(false);

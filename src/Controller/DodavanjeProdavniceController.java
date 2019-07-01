@@ -36,8 +36,16 @@ public class DodavanjeProdavniceController implements Initializable{
 	@FXML
 	private ImageView slika;
 	
+	
+	/**
+	 * Putanja do slike prodavnice
+	 */
 	private String path;
 	
+	
+	/**
+	 *	funkcija koja odabira sliku za prodavnicu 
+	 */
     @FXML
     void odaberiSliku(ActionEvent event) {
     	
@@ -65,7 +73,9 @@ public class DodavanjeProdavniceController implements Initializable{
     	}
     }
 	
-    
+    /**
+     * Funkcija za pravljenje kopije slike
+     */
     void napraviKopiju(String inP, String outP) throws IOException {
     	File in = new File(inP);
 		File out = new File(outP);
@@ -73,6 +83,10 @@ public class DodavanjeProdavniceController implements Initializable{
 		Files.copy(in.toPath(),out.toPath(),StandardCopyOption.REPLACE_EXISTING);
     }
     
+    
+    /**
+     * Funkcija koja pravi prodavnicu 
+     */
     @FXML
     void potvrdi(ActionEvent event) {
     	naziv.setPromptText("");
@@ -95,6 +109,9 @@ public class DodavanjeProdavniceController implements Initializable{
     	promeniScenu();
     }
     
+    /**
+     * Funkcija koja menja scenu na adminski meni
+     */
     private void promeniScenu() {
     	obavestenjeUspesno();
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\AdminMain.fxml"));
@@ -110,6 +127,9 @@ public class DodavanjeProdavniceController implements Initializable{
         
     }
     
+    /**
+     * Funkcija koja pravi dialog za obavestavanje korisnika
+     */
     private void obavestenjeUspesno() {
     	Alert alert = new Alert(AlertType.INFORMATION);
     	alert.setTitle("Uspesno ste kreirali prodavnicu");
@@ -119,7 +139,9 @@ public class DodavanjeProdavniceController implements Initializable{
     	alert.showAndWait();
     }
     
-    
+    /**
+     * Funkcija koja kreira prodavnicu
+     */
     private void napraviProdavnicu() {
     	Prodavnica p = new Prodavnica(naziv.getText(), adresa.getText(), path);
     	Main.webshop.addProdavnica(p);

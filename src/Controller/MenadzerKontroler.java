@@ -67,6 +67,9 @@ public class MenadzerKontroler implements Initializable {
         catch (Exception e) { e.printStackTrace(); }
     }
     
+    /**
+     * Izmena menadzerskog naloga
+     */
     @FXML
     private void izmeniNalog(ActionEvent event) {
     	try {
