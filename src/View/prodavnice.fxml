@@ -78,7 +78,7 @@
                               </GridPane>
                                   </children>
                                   <padding>
-                                      <Insets left="20.0" right="20.0" />
+                                      <Insets left="20.0" right="25.0" />
                                   </padding>
                               </VBox>
                               <HBox layoutX="882.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="787.0" prefWidth="101.0" style="-fx-background-color: C2C2C2;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

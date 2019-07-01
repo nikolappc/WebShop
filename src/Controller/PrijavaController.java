@@ -88,6 +88,8 @@ public class PrijavaController implements Initializable {
 
     }
 
+
+
     @FXML
     void stistuoPrijava() {
         ArrayList<TextField> polja = new ArrayList<TextField>(
@@ -135,6 +137,7 @@ public class PrijavaController implements Initializable {
             porukaPrijava.setText("Pogresno korisnicko ili lozinka");
         }
     }
+
 
     /**
      * Poziva se kada korisnik klikne na dugme Registracija
@@ -184,6 +187,7 @@ public class PrijavaController implements Initializable {
         }
     }
 
+
     /**
      * Resetuje polja registracije
      */
@@ -196,6 +200,8 @@ public class PrijavaController implements Initializable {
         }
 
     }
+
+
     /**
      * Proverava validnost i jednistvenost maila
      * i prikazuje odgovarajuce poruke u slucaju da
@@ -222,6 +228,7 @@ public class PrijavaController implements Initializable {
         return ok;
     }
 
+
     /**
      * Proverava jedinstvenost korisnickog
      * @return true ako je ne postoji vec, false  u suprotnom
@@ -239,6 +246,7 @@ public class PrijavaController implements Initializable {
         return true;
     }
 
+
     /**
      * Uporedjuje loznike
      * @return true ako se poklapaju, false u suprotnom
@@ -252,6 +260,7 @@ public class PrijavaController implements Initializable {
         }
         return true;
     }
+
 
     /**
      * Proverava validnost broja telefona
@@ -283,6 +292,7 @@ public class PrijavaController implements Initializable {
         }
     }
 
+
     /**
      * Oznacava zadata polja da su obavezna
      * @param polja lista polja
@@ -293,6 +303,7 @@ public class PrijavaController implements Initializable {
             polje.setPromptText("Polje je obavezno.");
         }
     }
+
 
     /**
      * Resetuje boje zadatim poljima
@@ -305,7 +316,7 @@ public class PrijavaController implements Initializable {
     }
 
 
-
+    /** Zaboravljena sifra */
     @FXML
     void stisnuoZabroavljenaSifra(ActionEvent event) {
 
@@ -355,8 +366,6 @@ public class PrijavaController implements Initializable {
         //ako prodje proveru uloguj korisnika
         if(provera(sifra+"", u_korisnik,to))
             stistuoPrijava();
-
-
     }
 
 
@@ -440,6 +449,4 @@ public class PrijavaController implements Initializable {
         return false;
 
     }
-
-
 }

@@ -79,7 +79,7 @@
             <Insets left="10.0" />
           </GridPane.margin>
         </HBox>
-        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" GridPane.columnIndex="2">
           <children>
             <TextField fx:id="searchBar" />
             <Button fx:id="lupa" mnemonicParsing="false" onAction="#traziPritisnut" prefHeight="25.0" prefWidth="33.0" style="-fx-background-color: #ffa500; -fx-padding: 0;" textFill="WHITE">

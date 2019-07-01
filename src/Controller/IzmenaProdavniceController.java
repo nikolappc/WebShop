@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -32,13 +33,11 @@ public class IzmenaProdavniceController implements Initializable{
 			postaviNaziv(brojac,prod.getNaziv());
 			postaviAdresu(brojac, prod.getAdresa());
 			postaviSliku(brojac, prod.getSlika());
-			
 			brojac++;
 		}
 		VBox v = (VBox)grid.getParent();
 		Insets inset = new Insets(0,0,0,0);
 		v.setPadding(inset);
-		//v.setPadding(new I);
 		grid.setGridLinesVisible(true);
 	}
 	
