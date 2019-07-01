@@ -15,7 +15,14 @@ public class AdminKontroler {
 
     @FXML
     void dodajProdavnicu(ActionEvent event) {
-
+    	try {
+            Main.webshop.ulogovaniKorisnik = new Kupac();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\DodavanjeProdavnice.fxml"));
+            Parent root = (Parent) loader.load();
+            DodavanjeProdavniceController inc = loader.getController();
+            Main.scene.setRoot(root);
+        }
+        catch (Exception e) { e.printStackTrace(); }
     }
 
     @FXML

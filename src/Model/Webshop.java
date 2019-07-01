@@ -20,6 +20,7 @@ public class Webshop  {
    public Collection<Proizvod> proizvodi;
    public Collection<Kupac> kupci;
    public List<Narudzbina> narudzbine;
+   public Collection<Prodavnica> prodavnice;
 
    public Webshop() {
       // TODO: ovde pozovi ucitavanje svega
@@ -270,4 +271,44 @@ public class Webshop  {
       }
       return new LinkedList<>();
    }
+   
+   
+   public Collection<Prodavnica> getprodavnice() {
+      if (prodavnice == null)
+         prodavnice = new java.util.HashSet<Prodavnica>();
+      return prodavnice;
+   }
+   
+
+   public void setprodavnice(Collection<Prodavnica> newprodavnice) {
+      removeAllprodavnice();
+      for (java.util.Iterator iter = newprodavnice.iterator(); iter.hasNext();)
+         addProdavnica((Prodavnica)iter.next());
+   }
+   
+
+   public void addProdavnica(Prodavnica newprodavnice) {
+      if (newprodavnice == null)
+         return;
+      if (this.prodavnice == null)
+         this.prodavnice = new java.util.HashSet<Prodavnica>();
+      if (!this.prodavnice.contains(newprodavnice))
+         this.prodavnice.add(newprodavnice);
+   }
+   
+   
+   public void removeprodavnice(Prodavnica oldprodavnice) {
+      if (oldprodavnice == null)
+         return;
+      if (this.prodavnice != null)
+         if (this.prodavnice.contains(oldprodavnice))
+            this.prodavnice.remove(oldprodavnice);
+   }
+   
+   public void removeAllprodavnice() {
+      if (prodavnice != null)
+         prodavnice.clear();
+   }
+   
+   
 }
