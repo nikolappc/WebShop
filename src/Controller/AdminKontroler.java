@@ -48,7 +48,12 @@ public class AdminKontroler {
     
     @FXML
     void dodajMenadzera(ActionEvent event) {
-
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\Reg.fxml"));
+            Parent root = (Parent) loader.load();
+            Main.scene.setRoot(root);
+        }
+        catch (Exception e) { e.printStackTrace(); }
     }
 
 }
