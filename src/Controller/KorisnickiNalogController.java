@@ -73,7 +73,19 @@ public class KorisnickiNalogController implements Initializable {
         catch (Exception e) { e.printStackTrace(); }
     }
 
-
+    /**
+     * Pregled prodavnica
+     */
+    @FXML
+    public void pregledProdavnica() {
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\prodavnice.fxml"));
+            Parent root = (Parent) loader.load();
+            Main.scene.setRoot(root);
+        }
+        catch (Exception e) { e.printStackTrace(); }
+    }
+    
     /** odjava iz aplikacije */
     @FXML
     public void logOutPritisnut(){
