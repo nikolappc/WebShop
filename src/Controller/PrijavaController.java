@@ -64,9 +64,6 @@ public class PrijavaController implements Initializable {
     private Label porukaPrijava;
 
     @FXML
-    private HeaderController someIdController;
-
-    @FXML
     private SplitPane splitPane;
 
 

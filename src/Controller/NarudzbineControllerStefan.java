@@ -18,8 +18,8 @@ import java.util.*;
 
 enum Kriterijum {brojNarudzbine, datum, iznosNarudzbine, imePrimaoca, statusNarudzbine }
 
-public class NarudzbineControllerStefan implements Initializable {
 
+public class NarudzbineControllerStefan implements Initializable {
 
     @FXML
     private VBox vBox;
@@ -28,6 +28,7 @@ public class NarudzbineControllerStefan implements Initializable {
 
     /** poslednji primenjen kriterijum sortiranja */
     private Kriterijum currentSort;
+
 
     /** Ucitava sve narudzbine za korisnika/menadzera u tabelarnom obliku */
     public void ucitaj(){

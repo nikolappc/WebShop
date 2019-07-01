@@ -14,7 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -42,10 +41,6 @@ public class ProizvodController implements Initializable {
 
     @FXML
     private VBox vBox;
-
-    @FXML
-    private HeaderController someIdController;
-
 
 
     /** Postavlja proizvod na scenu za prikaz izabranog*/

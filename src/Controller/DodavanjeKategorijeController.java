@@ -8,12 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.CheckBoxTreeCell;
-
 import java.net.URL;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class DodavanjeKategorijeController implements Initializable {

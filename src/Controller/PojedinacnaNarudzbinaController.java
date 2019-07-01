@@ -1,7 +1,5 @@
 package Controller;
 
-import Model.Korpa;
-import Model.Kupac;
 import Model.Narudzbina;
 import Model.StavkaNarudzbine;
 import View.Main;
@@ -13,7 +11,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;

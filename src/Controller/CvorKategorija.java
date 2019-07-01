@@ -8,6 +8,7 @@ import javafx.scene.control.TreeView;
 import java.util.Collection;
 import java.util.List;
 
+
 /**
  * Ova klasa sluzi kao omotac za kategoriju pri odabiru kategorija iz stabla klase TreeView
  */
@@ -31,6 +32,7 @@ public class CvorKategorija {
         return kategorija.getNaziv();
     }
 
+
     /**
      * Dodaje sve kategorije u prosledjeno stablo
      * @param stabloKategorija
@@ -46,6 +48,7 @@ public class CvorKategorija {
         }
     }
 
+
     /**
      * Prvo dodaje prosledjenu kategoriju na prosledjenog roditelja zatim sve to isto radi za podkategorije prosledjene kategorije
      */
@@ -60,6 +63,7 @@ public class CvorKategorija {
             rekurzivnoDodajKategorije(k, node);
         }
     }
+
 
     /**
      * Kreira cvor u stablu i namesta ga da izgleda otvoreno

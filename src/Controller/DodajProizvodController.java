@@ -9,9 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
-import sun.reflect.generics.tree.Tree;
-
-import javax.xml.soap.Text;
 import java.io.File;
 import java.net.URL;
 import java.util.*;

@@ -10,9 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
-import javax.swing.*;
-import javax.xml.soap.Text;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -20,14 +17,7 @@ import java.util.ResourceBundle;
 public class HeaderController implements Initializable {
 
     @FXML
-    private Button lupa;
-
-    @FXML
-    private Button logo;
-
-    @FXML
     private TextField searchBar;
-
 
     /** Korisnik pritisnuo LOGO*/
     public void pritisnutLogo() {

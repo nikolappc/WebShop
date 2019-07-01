@@ -9,11 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.text.Font;
 
 public class AdminKontroler {
-
-    @FXML
-    private Font x1;
-
-    
     
     /**
      * Funkcija za dodavanje prodavnica

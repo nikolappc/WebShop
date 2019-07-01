@@ -45,9 +45,6 @@ public class IzmenaNalogaController implements Initializable{
 
     @FXML
     private TextField korisnickoIme;
-
-    @FXML
-    private Font x3;
     
     private UlogovaniKorisnik korisnik;
     

@@ -24,6 +24,7 @@ public class IzmenaProdavniceController implements Initializable{
 	@FXML
 	private GridPane grid;
 
+
 	/**
 	 * Kreiranje pogleda na prodavnice
 	 */
