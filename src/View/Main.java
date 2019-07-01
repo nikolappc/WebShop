@@ -57,8 +57,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-//      parseData(webshop);
-//      parseUsers();
+//        parseData(webshop);
+//        parseUsers();
 //        Ucitava WebShop
         loadWebShop();
 

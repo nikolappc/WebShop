@@ -252,27 +252,6 @@ public class Webshop  {
          narudzbine.clear();
    }
 
-    public List<Proizvod> pretraziKategorije(List<String> putanja) {
-      return pretraziKategorijeRekurzivno(kategorije,putanja,0);
-    }
-
-   private List<Proizvod> pretraziKategorijeRekurzivno(Collection<Kategorija> kategorije, List<String> putanja, int i) {
-      if (i>=putanja.size()){
-         return new LinkedList<>();
-      }
-      for (Kategorija k:kategorije){
-         if (k.getNaziv().equals(putanja.get(i))){
-            i++;
-            if (i==putanja.size()){
-               return k.getProizvodi();
-            }
-            return pretraziKategorijeRekurzivno(k.getPodKategorija(),putanja,i);
-         }
-      }
-      return new LinkedList<>();
-   }
-   
-   
    public Collection<Prodavnica> getprodavnice() {
       if (prodavnice == null)
          prodavnice = new java.util.HashSet<Prodavnica>();
