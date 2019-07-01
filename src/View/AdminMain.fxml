@@ -39,7 +39,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <children>
-                <Button font="$x1" mnemonicParsing="false" onAction="#izmeniProdavnicu" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #000000;" text="Izmeni prodavnicu" textFill="WHITE" />
+                <Button font="$x1" mnemonicParsing="false" onAction="#izmeniProdavnicu" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #000000;" text="Pregled prodavnica" textFill="WHITE" />
               </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">

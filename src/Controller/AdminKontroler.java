@@ -26,7 +26,12 @@ public class AdminKontroler {
 
     @FXML
     void izmeniProdavnicu(ActionEvent event) {
-
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\prodavnice.fxml"));
+            Parent root = (Parent) loader.load();
+            Main.scene.setRoot(root);
+        }
+        catch (Exception e) { e.printStackTrace(); }
     }
 
     @FXML

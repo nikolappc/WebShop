@@ -251,16 +251,19 @@ public class Webshop  {
       if (narudzbine != null)
          narudzbine.clear();
    }
+   
+   
+   //Prodavnice
 
-   public Collection<Prodavnica> getprodavnice() {
+   public Collection<Prodavnica> getProdavnice() {
       if (prodavnice == null)
          prodavnice = new java.util.HashSet<Prodavnica>();
       return prodavnice;
    }
    
 
-   public void setprodavnice(Collection<Prodavnica> newprodavnice) {
-      removeAllprodavnice();
+   public void setProdavnice(Collection<Prodavnica> newprodavnice) {
+      removeAllProdavnice();
       for (java.util.Iterator iter = newprodavnice.iterator(); iter.hasNext();)
          addProdavnica((Prodavnica)iter.next());
    }
@@ -276,7 +279,7 @@ public class Webshop  {
    }
    
    
-   public void removeprodavnice(Prodavnica oldprodavnice) {
+   public void removeProdavnice(Prodavnica oldprodavnice) {
       if (oldprodavnice == null)
          return;
       if (this.prodavnice != null)
@@ -284,7 +287,7 @@ public class Webshop  {
             this.prodavnice.remove(oldprodavnice);
    }
    
-   public void removeAllprodavnice() {
+   public void removeAllProdavnice() {
       if (prodavnice != null)
          prodavnice.clear();
    }
