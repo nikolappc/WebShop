@@ -66,7 +66,18 @@ public class MenadzerKontroler implements Initializable {
         }
         catch (Exception e) { e.printStackTrace(); }
     }
-
+    
+    @FXML
+    private void izmeniNalog(ActionEvent event) {
+    	try {
+	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\View\\izmenaNaloga.fxml"));
+	        Parent root = (Parent) loader.load();
+	        IzmenaNalogaController inc = loader.getController();
+	        Main.scene.setRoot(root);
+    	}
+        catch (Exception e) { e.printStackTrace(); }
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         imePrezime.setText(Main.webshop.ulogovaniKorisnik.getKorIme());
