@@ -446,4 +446,12 @@ public class PrijavaController implements Initializable {
         return false;
 
     }
+
+    public TextField getEmailReg() {
+        return emailReg;
+    }
+
+    public void setEmailReg(TextField emailReg) {
+        this.emailReg = emailReg;
+    }
 }

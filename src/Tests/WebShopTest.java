@@ -4,6 +4,7 @@ import Controller.PrijavaController;
 import Model.Kupac;
 import Model.UlogovaniKorisnik;
 import Model.Webshop;
+import javafx.scene.control.TextField;
 import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
