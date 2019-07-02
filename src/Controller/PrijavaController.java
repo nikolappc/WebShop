@@ -205,7 +205,7 @@ public class PrijavaController implements Initializable {
      * nesto nije u redu.
      * @return true ako je sve ok, false u suprotnom
      */
-    private boolean proveraEmail(){
+    public boolean proveraEmail(){
         boolean ok = true;
         // provera validnosti maila
         if(!emailReg.getText().matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")){

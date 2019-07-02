@@ -1,18 +1,38 @@
 package Tests;
 
+import Controller.PrijavaController;
+import Model.Kupac;
+import Model.UlogovaniKorisnik;
+import Model.Webshop;
+import junit.framework.TestCase;
+import org.junit.Before;
 import org.junit.Test;
 
-public class WebShopTest {
-    @Test
-    public void testPrijava(){}
+public class WebShopTest extends TestCase {
+    private Webshop webshop;
+    private String korIme = "korIme";
+    private String loznika = "loznika";
+    private Kupac kupac;
+
+
+    @Before
+    public void setUp() throws Exception {
+        webshop = new Webshop();
+        kupac = new Kupac(korIme, loznika, "ime", "prezime", "adresa", "email");
+        webshop.addKupac(kupac);
+    }
 
     @Test
-    public void testRegistracija(){}
+    public void testPrijava(){
+        webshop.prijava(korIme, loznika);
+        assertEquals(webshop.getUlogovaniKorisnik(), kupac);
+
+    }
 
     @Test
-    public void testNarucivanje(){}
-
-    @Test
-    public void testPretragaNecega(){}
+    public void testRegistracija(){
+        Kupac noviKupac = new Kupac(korIme, "sifra", "ie", "prez", "adresa", "mail");
+        assertFalse(webshop.addKupac(kupac));
+    }
 
 }
